@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
           SearchCriterion.withService(serviceUuid),
         ])
       ],
-      searchDuration: const Duration(seconds: 10),
+      searchDuration: const Duration(seconds: 30),
     );
   }
 
