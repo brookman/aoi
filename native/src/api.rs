@@ -93,10 +93,9 @@ pub struct BleAddress {
     pub address: [u8; 6],
 }
 
-// const AURA_PROVISION_SERVICE: Uuid = Uuid::from_u128(0x0000fff0_0000_0000_0000_aaaabbbbcccc);
-const AURA_PROVISION_SERVICE: Uuid = Uuid::from_u128(0x0000181c_0000_1000_8000_00805f9b34fb);
-const AURA_CHAR_SSID: Uuid = Uuid::from_u128(0x00002001_0000_0000_0000_aaaabbbbcccc);
-
+const AURA_PROVISION_SERVICE: Uuid = Uuid::from_u128(0x0000fff0_0000_1000_8000_aaaabbbbcccc);
+//const AURA_PROVISION_SERVICE: Uuid = Uuid::from_u128(0x0000fff0_0000_1000_8000_00805f9b34fb);
+const AURA_CHAR_SSID: Uuid = Uuid::from_u128(0x00002001_0000_1000_8000_aaaabbbbcccc);
 
 // pub fn find_ble_devices(
 //     search_criteria: Vec<SearchCriteria>,
