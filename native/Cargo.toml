@@ -9,12 +9,12 @@ edition = "2021"
 crate-type = ["cdylib", "staticlib"]
 
 [build-dependencies]
-flutter_rust_bridge_codegen = { version = "1.62.0", features = [ "chrono", "uuid"] }
+flutter_rust_bridge_codegen = { version = "1.62.0", features = ["chrono", "uuid"] }
 
 [dependencies]
 anyhow = "1"
-flutter_rust_bridge = { version = "1.62.0", features = [ "chrono", "uuid"] }
+flutter_rust_bridge = { version = "1.62.0", features = ["chrono", "uuid"] }
 uuid = "1.2.2"
 chrono = "0.4.23"
-futures = "0.3.25"
+tokio = { version = "1.25.0", features = ["full"] }
 btleplug = { git = "https://github.com/deviceplug/btleplug.git", branch = "dev", features = ["serde"] }

@@ -5,7 +5,8 @@
 use btleplug::api::{Central, Characteristic, Manager as _, Peripheral as _, ScanFilter};
 use btleplug::platform::{Adapter, Manager, Peripheral};
 use btleplug::{Error, Result};
-use futures::executor::block_on;
+
+use tokio::runtime::Runtime;
 
 use chrono::Duration;
 use uuid::Uuid;
@@ -113,8 +114,10 @@ pub fn find_ble_devices(
     search_criteria: Vec<SearchCriteria>,
     search_duration: Duration,
 ) -> Vec<BleDevice> {
-    let devices = block_on(find_devices(AURA_PROVISION_SERVICE, search_duration)).unwrap_or(vec![]);
-    devices
+    let rt = Runtime::new().unwrap();
+    rt.block_on(async {
+        find_devices(AURA_PROVISION_SERVICE, search_duration).await.unwrap_or(vec![])
+    })
 }
 
 async fn find_devices(service: Uuid, search_duration: Duration) -> Result<Vec<BleDevice>> {
