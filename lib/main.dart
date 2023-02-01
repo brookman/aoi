@@ -156,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Unknown OS';
                 List<BleDevice> devices = data[2];
 
-                final devicesToString = devices.map((d) => '${d.name} ${d.address.address}').toString();
+                final devicesToString = devices.map((d) => 'name: ${d.name}, address: ${d.address.address}').toList();
 
                 return Text('$text ($release)\n$devicesToString', style: style);
               },

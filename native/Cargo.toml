@@ -16,5 +16,5 @@ anyhow = "1"
 flutter_rust_bridge = { version = "1.62.0", features = [ "chrono", "uuid"] }
 uuid = "1.2.2"
 chrono = "0.4.23"
-futures = "0.3.25"
-btleplug = { git = "https://github.com/deviceplug/btleplug.git", branch = "dev", features = ["serde"] }
+#futures = "0.3.25"
+#btleplug = { git = "https://github.com/deviceplug/btleplug.git", branch = "dev", features = ["serde"] }

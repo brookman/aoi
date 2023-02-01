@@ -2,11 +2,12 @@
 // When adding new code to your project, note that only items used
 // here will be transformed to their Dart equivalents.
 
-use btleplug::api::{BDAddr, Central, Characteristic, Manager as _, Peripheral as _, ScanFilter};
-use btleplug::platform::{Adapter, Manager, Peripheral, PeripheralId};
-use btleplug::{Error, Result};
+// use btleplug::api::{BDAddr, Central, Characteristic, Manager as _, Peripheral as _, ScanFilter};
+// use btleplug::platform::{Adapter, Manager, Peripheral, PeripheralId};
+// use btleplug::{Error, Result};
+// use futures::executor::block_on;
+
 use chrono::Duration;
-use futures::executor::block_on;
 use uuid::Uuid;
 
 // A plain enum without any fields. This is similar to Dart- or C-style enums.
@@ -99,96 +100,108 @@ pub fn find_ble_devices(
     search_criteria: Vec<SearchCriteria>,
     search_duration: Duration,
 ) -> Vec<BleDevice> {
-    let devices = block_on(find_devices(AURA_PROVISION_SERVICE, search_duration)).unwrap_or(vec![]);
-    devices
+    vec![BleDevice {
+        name: Some("My Aura device".to_string()),
+        address: BleAddress {
+            address: [0, 1, 2, 3, 4, 5],
+        },
+    }]
 }
 
-async fn find_devices(service: Uuid, search_duration: Duration) -> Result<Vec<BleDevice>> {
-    let manager = Manager::new().await?;
+// pub fn find_ble_devices(
+//     search_criteria: Vec<SearchCriteria>,
+//     search_duration: Duration,
+// ) -> Vec<BleDevice> {
+//     let devices = block_on(find_devices(AURA_PROVISION_SERVICE, search_duration)).unwrap_or(vec![]);
+//     devices
+// }
 
-    // get the first bluetooth adapter
-    let adapters = manager.adapters().await?;
-    let adapter = adapters.into_iter().nth(0).unwrap();
+// async fn find_devices(service: Uuid, search_duration: Duration) -> Result<Vec<BleDevice>> {
+//     let manager = Manager::new().await?;
 
-    // start scanning for devices
-    adapter.start_scan(ScanFilter::default()).await?;
+//     // get the first bluetooth adapter
+//     let adapters = manager.adapters().await?;
+//     let adapter = adapters.into_iter().nth(0).unwrap();
 
-    std::thread::sleep(search_duration.to_std().unwrap());
+//     // start scanning for devices
+//     adapter.start_scan(ScanFilter::default()).await?;
 
-    let devices = find_devices_having_service(&adapter, service).await;
+//     std::thread::sleep(search_duration.to_std().unwrap());
 
-    let mut results: Vec<BleDevice> = vec![];
+//     let devices = find_devices_having_service(&adapter, service).await;
 
-    for device in devices {
-        let name = get_local_name(&device).await;
-        results.push(BleDevice {
-            name,
-            address: BleAddress {
-                address: device.address().into_inner(),
-            },
-        });
-        write_characteristic(&device, AURA_CHAR_SSID, "Hello from Rust".as_bytes()).await?;
-    }
+//     let mut results: Vec<BleDevice> = vec![];
 
-    adapter.stop_scan().await?;
+//     for device in devices {
+//         let name = get_local_name(&device).await;
+//         results.push(BleDevice {
+//             name,
+//             address: BleAddress {
+//                 address: device.address().into_inner(),
+//             },
+//         });
+//         write_characteristic(&device, AURA_CHAR_SSID, "Hello from Rust".as_bytes()).await?;
+//     }
 
-    return Ok(results);
-}
+//     adapter.stop_scan().await?;
 
-async fn find_devices_having_service(adapter: &Adapter, uuid: Uuid) -> Vec<Peripheral> {
-    let mut result: Vec<Peripheral> = vec![];
-    let devices = adapter.peripherals().await.unwrap_or(vec![]);
+//     return Ok(results);
+// }
 
-    println!("devices: {:?}", &devices);
+// async fn find_devices_having_service(adapter: &Adapter, uuid: Uuid) -> Vec<Peripheral> {
+//     let mut result: Vec<Peripheral> = vec![];
+//     let devices = adapter.peripherals().await.unwrap_or(vec![]);
 
-    for device in devices.into_iter() {
-        if has_serivce(&device, uuid).await {
-            result.push(device);
-        }
-    }
-    result
-}
+//     println!("devices: {:?}", &devices);
 
-async fn has_serivce(peripheral: &Peripheral, uuid: Uuid) -> bool {
-    match peripheral.properties().await {
-        Ok(Some(properties)) => properties.services.contains(&uuid),
-        _ => false,
-    }
-}
+//     for device in devices.into_iter() {
+//         if has_serivce(&device, uuid).await {
+//             result.push(device);
+//         }
+//     }
+//     result
+// }
 
-async fn get_local_name(peripheral: &Peripheral) -> Option<String> {
-    peripheral.properties().await.ok()??.local_name
-}
+// async fn has_serivce(peripheral: &Peripheral, uuid: Uuid) -> bool {
+//     match peripheral.properties().await {
+//         Ok(Some(properties)) => properties.services.contains(&uuid),
+//         _ => false,
+//     }
+// }
 
-async fn write_characteristic(
-    device: &Peripheral,
-    characteristic: Uuid,
-    value: &[u8],
-) -> Result<()> {
-    device.connect().await?;
-    let characteristic = find_characteristic(&device, characteristic).await?;
-    device
-        .write(
-            &characteristic,
-            value,
-            btleplug::api::WriteType::WithResponse,
-        )
-        .await?;
-    device.disconnect().await?;
+// async fn get_local_name(peripheral: &Peripheral) -> Option<String> {
+//     peripheral.properties().await.ok()??.local_name
+// }
 
-    Ok(())
-}
+// async fn write_characteristic(
+//     device: &Peripheral,
+//     characteristic: Uuid,
+//     value: &[u8],
+// ) -> Result<()> {
+//     device.connect().await?;
+//     let characteristic = find_characteristic(&device, characteristic).await?;
+//     device
+//         .write(
+//             &characteristic,
+//             value,
+//             btleplug::api::WriteType::WithResponse,
+//         )
+//         .await?;
+//     device.disconnect().await?;
 
-async fn find_characteristic(device: &Peripheral, characteristic: Uuid) -> Result<Characteristic> {
-    device.discover_services().await?;
+//     Ok(())
+// }
 
-    let characteristic = device
-        .characteristics()
-        .iter()
-        .find(|c| c.uuid == characteristic)
-        .ok_or(Error::Other(
-            format!("Characteristic {:?} not found", characteristic).into(),
-        ))?
-        .to_owned();
-    return Ok(characteristic);
-}
+// async fn find_characteristic(device: &Peripheral, characteristic: Uuid) -> Result<Characteristic> {
+//     device.discover_services().await?;
+
+//     let characteristic = device
+//         .characteristics()
+//         .iter()
+//         .find(|c| c.uuid == characteristic)
+//         .ok_or(Error::Other(
+//             format!("Characteristic {:?} not found", characteristic).into(),
+//         ))?
+//         .to_owned();
+//     return Ok(characteristic);
+// }
