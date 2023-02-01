@@ -8,6 +8,13 @@ edition = "2021"
 [lib]
 crate-type = ["cdylib", "staticlib"]
 
+[build-dependencies]
+flutter_rust_bridge_codegen = { version = "1.62.0", features = [ "chrono", "uuid"] }
+
 [dependencies]
 anyhow = "1"
-flutter_rust_bridge = "1"
+flutter_rust_bridge = { version = "1.62.0", features = [ "chrono", "uuid"] }
+uuid = "1.2.2"
+chrono = "0.4.23"
+futures = "0.3.25"
+btleplug = { git = "https://github.com/deviceplug/btleplug.git", branch = "dev", features = ["serde"] }

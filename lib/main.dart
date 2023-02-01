@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
+
 import 'ffi.dart' if (dart.library.html) 'ffi_web.dart';
 
 void main() {
@@ -53,12 +55,27 @@ class _MyHomePageState extends State<MyHomePage> {
   // in the initState method.
   late Future<Platform> platform;
   late Future<bool> isRelease;
+  late Future<List<BleDevice>> devices;
 
   @override
   void initState() {
     super.initState();
+
     platform = api.platform();
     isRelease = api.rustReleaseMode();
+
+    // final serviceUuid = UuidValue('0000fff0-0000-0000-0000-aaaabbbbcccc', true, ValidationMode.nonStrict);
+
+    final serviceUuid = const Uuid().v4obj();
+
+    devices = api.findBleDevices(
+      searchCriteria: [
+        SearchCriteria.any([
+          SearchCriterion.withService(serviceUuid),
+        ])
+      ],
+      searchDuration: const Duration(seconds: 10),
+    );
   }
 
   @override
@@ -106,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
             FutureBuilder<List<dynamic>>(
               // We await two unrelated futures here, so the type has to be
               // List<dynamic>.
-              future: Future.wait([platform, isRelease]),
+              future: Future.wait([platform, isRelease, devices]),
               builder: (context, snap) {
                 final style = Theme.of(context).textTheme.headline4;
                 if (snap.error != null) {
@@ -137,7 +154,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       Platform.Wasm: 'the Web',
                     }[platform] ??
                     'Unknown OS';
-                return Text('$text ($release)', style: style);
+                List<BleDevice> devices = data[2];
+
+                final devicesToString = devices.map((d) => '${d.name} ${d.address.address}').toString();
+
+                return Text('$text ($release)\n$devicesToString', style: style);
               },
             )
           ],
