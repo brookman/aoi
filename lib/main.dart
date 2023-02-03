@@ -30,9 +30,12 @@ Future<void> init() async {
       .startScan(
         filter: FilterCriteria.any([
           const FilterCriterion.nameContains('aura'),
-          FilterCriterion.manufacturerDataMatches(Uint8List.fromList([1, 2, 3])),
-          const FilterCriterion.hasServiceUuid('0000181c-0000-1000-8000-00805f9b34fb'),
-          const FilterCriterion.hasServiceUuid('0000fff0-0000-0000-0000-aaaabbbbcccc'),
+          FilterCriterion.manufacturerDataMatches(
+              Uint8List.fromList([1, 2, 3])),
+          const FilterCriterion.hasServiceUuid(
+              '0000181c-0000-1000-8000-00805f9b34fb'),
+          const FilterCriterion.hasServiceUuid(
+              '0000fff0-0000-0000-0000-aaaabbbbcccc'),
         ]),
       )
       .first
@@ -44,13 +47,24 @@ Future<void> init() async {
   AoiConnectedPeripheral connected = await aura.connect();
 
   for (final c in connected.characteristics) {
-    print('characteristic: ${c.uuid}, service: ${c.serviceUuid}, props: ${c.properties}');
-    final props = (await c.getProperties()).map((i) => AoiCharacteristicProperty.values[i]).toSet();
+    print(
+        'characteristic: ${c.uuid}, service: ${c.serviceUuid}, props: ${c.properties}');
+    final props = (await c.getProperties())
+        .map((i) => AoiCharacteristicProperty.values[i])
+        .toSet();
     print('props: $props');
 
     if (props.contains(AoiCharacteristicProperty.read)) {
-      Uint8List data = await connected.read(characteristic: c);
-      print('data: $data = ${const Utf8Decoder().convert(data)}');
+      print('trying to read: $c');
+      Uint8List data = await connected
+          .read(characteristic: c)
+          .timeout(const Duration(seconds: 5));
+      print('data: $data');
+      try {
+        print('data as string: ${const Utf8Decoder().convert(data)}');
+      } catch (e) {
+        print('Not a valid string');
+      }
     }
   }
 
