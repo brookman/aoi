@@ -168,7 +168,6 @@ class NativePlatform extends FlutterRustBridgeBase<NativeWire> with FlutterRustB
   }
 
 // Section: finalizer
-
 }
 
 // Section: WASM wire module

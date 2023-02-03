@@ -6,7 +6,8 @@ use flutter_rust_bridge::StreamSink;
 use once_cell::sync::OnceCell;
 
 use btleplug::{
-    api::{ Central, CentralEvent, CharPropFlags, Characteristic, Manager as _, Peripheral,
+    api::{
+        BDAddr, Central, CentralEvent, CharPropFlags, Characteristic, Manager as _, Peripheral,
         ScanFilter, WriteType,
     },
     platform::{Adapter, Manager, PeripheralId},
@@ -250,7 +251,7 @@ impl AoiPeripheral {
                 return Some(AoiPeripheral {
                     adapter: Box::new(adapter.into()),
                     name,
-                    address: Box::new(peripheral.id().into()),
+                    address: Box::new(Self::into_address(&peripheral)),
                     services,
                     manufacturer_data: vec![], // TODO
                 });
@@ -258,13 +259,23 @@ impl AoiPeripheral {
                 return Some(AoiPeripheral {
                     adapter: Box::new(adapter.into()),
                     name: None,
-                    address: Box::new(peripheral.id().into()),
+                    address: Box::new(Self::into_address(&peripheral)),
                     services: vec![],
                     manufacturer_data: vec![], // TODO
                 });
             }
         }
         None
+    }
+
+    #[cfg(target_os = "windows")]
+    fn into_address(peripheral: &impl Peripheral) -> AoiPeripheralAddress {
+        AoiPeripheralAddress::MacAddress(peripheral.address().into_inner())
+    }
+
+    #[cfg(any(target_os = "macos", target_os = "ios"))]
+    fn into_address(peripheral: &impl Peripheral) -> AoiPeripheralAddress {
+        AoiPeripheralAddress::Uuid(peripheral.id().into())
     }
 }
 
@@ -279,15 +290,31 @@ impl AoiPeripheral {
     }
 }
 
-impl From<PeripheralId> for AoiPeripheralAddress {
-    fn from(_: PeripheralId) -> Self {
-        todo!()
+#[cfg(target_os = "windows")]
+impl From<&AoiPeripheralAddress> for PeripheralId {
+    fn from(address: &AoiPeripheralAddress) -> Self {
+        match address {
+            AoiPeripheralAddress::MacAddress(mac) => {
+                let addr: BDAddr = (*mac).into();
+                addr.into()
+            }
+            AoiPeripheralAddress::Uuid(_) => panic!("Expected mac address on windows but got UUID"),
+        }
     }
 }
 
+#[cfg(any(target_os = "macos", target_os = "ios"))]
 impl From<&AoiPeripheralAddress> for PeripheralId {
-    fn from(_: &AoiPeripheralAddress) -> Self {
-        todo!()
+    fn from(address: &AoiPeripheralAddress) -> Self {
+        match address {
+            AoiPeripheralAddress::MacAddress(mac) => {
+                panic!("Expect UUID on mac/ios and but got mac address")
+            }
+            AoiPeripheralAddress::Uuid(uuid_string) => {
+                let uuid = Uuid::from_str(uuid_string.as_str());
+                uuid.into()
+            }
+        }
     }
 }
 
