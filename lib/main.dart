@@ -1,10 +1,62 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
-import 'package:uuid/uuid.dart';
 
 import 'ffi.dart' if (dart.library.html) 'ffi_web.dart';
 
+enum AoiCharacteristicProperty {
+  broadcast,
+  read,
+  writeWithoutResponse,
+  write,
+  notify,
+  indicate,
+  authenticatedSignedWrites,
+  extendedProperties,
+}
+
 void main() {
-  runApp(const MyApp());
+  init();
+  // runApp(const MyApp());
+}
+
+Future<void> init() async {
+  List<AoiAdapter> adapters = await AoiAdapter.getAdapters(bridge: api);
+
+  AoiAdapter adapter = adapters.first;
+
+  final aura = await adapter
+      .startScan(
+        filter: FilterCriteria.any([
+          const FilterCriterion.nameContains('aura'),
+          FilterCriterion.manufacturerDataMatches(Uint8List.fromList([1, 2, 3])),
+          const FilterCriterion.hasServiceUuid('0000181c-0000-1000-8000-00805f9b34fb'),
+          const FilterCriterion.hasServiceUuid('0000fff0-0000-0000-0000-aaaabbbbcccc'),
+        ]),
+      )
+      .first
+      .timeout(const Duration(seconds: 10));
+
+  print('peripheral: ${aura.name}, ${aura.address},'
+      '${aura.services}, ${aura.manufacturerData}');
+
+  AoiConnectedPeripheral connected = await aura.connect();
+
+  for (final c in connected.characteristics) {
+    print('characteristic: ${c.uuid}, service: ${c.serviceUuid}, props: ${c.properties}');
+    final props = (await c.getProperties()).map((i) => AoiCharacteristicProperty.values[i]).toSet();
+    print('props: $props');
+
+    if (props.contains(AoiCharacteristicProperty.read)) {
+      Uint8List data = await connected.read(characteristic: c);
+      print('data: $data = ${const Utf8Decoder().convert(data)}');
+    }
+  }
+
+  await connected.disconnect();
+
+  await adapter.stopScan();
 }
 
 class MyApp extends StatelessWidget {
@@ -51,31 +103,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // These futures belong to the state and are only initialized once,
-  // in the initState method.
-  late Future<Platform> platform;
-  late Future<bool> isRelease;
-  late Future<List<BleDevice>> devices;
+  late Future<List<AoiPeripheral>> peripherals = Future(() => []);
 
   @override
   void initState() {
     super.initState();
-
-    platform = api.platform();
-    isRelease = api.rustReleaseMode();
-
-    // final serviceUuid = UuidValue('0000fff0-0000-0000-0000-aaaabbbbcccc', true, ValidationMode.nonStrict);
-
-    final serviceUuid = const Uuid().v4obj();
-
-    devices = api.findBleDevices(
-      searchCriteria: [
-        SearchCriteria.any([
-          SearchCriterion.withService(serviceUuid),
-        ])
-      ],
-      searchDuration: const Duration(seconds: 30),
-    );
   }
 
   @override
@@ -123,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
             FutureBuilder<List<dynamic>>(
               // We await two unrelated futures here, so the type has to be
               // List<dynamic>.
-              future: Future.wait([platform, isRelease, devices]),
+              future: Future.wait([peripherals]),
               builder: (context, snap) {
                 final style = Theme.of(context).textTheme.headline4;
                 if (snap.error != null) {
@@ -140,25 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 final data = snap.data;
                 if (data == null) return const CircularProgressIndicator();
 
-                // Finally, retrieve the data expected in the same order provided
-                // to the FutureBuilder.future.
-                final Platform platform = data[0];
-                final release = data[1] ? 'Release' : 'Debug';
-                final text = const {
-                      Platform.Android: 'Android',
-                      Platform.Ios: 'iOS',
-                      Platform.MacApple: 'MacOS with Apple Silicon',
-                      Platform.MacIntel: 'MacOS',
-                      Platform.Windows: 'Windows',
-                      Platform.Unix: 'Unix',
-                      Platform.Wasm: 'the Web',
-                    }[platform] ??
-                    'Unknown OS';
-                List<BleDevice> devices = data[2];
-
-                final devicesToString = devices.map((d) => 'name: ${d.name}, address: ${d.address.address}').toList();
-
-                return Text('$text ($release)\n$devicesToString', style: style);
+                return Text('');
               },
             )
           ],

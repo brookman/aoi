@@ -15,62 +15,62 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$SearchCriteria {
-  List<SearchCriterion> get field0 => throw _privateConstructorUsedError;
+mixin _$FilterCriteria {
+  List<FilterCriterion> get field0 => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<SearchCriterion> field0) any,
-    required TResult Function(List<SearchCriterion> field0) all,
+    required TResult Function(List<FilterCriterion> field0) any,
+    required TResult Function(List<FilterCriterion> field0) all,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<SearchCriterion> field0)? any,
-    TResult? Function(List<SearchCriterion> field0)? all,
+    TResult? Function(List<FilterCriterion> field0)? any,
+    TResult? Function(List<FilterCriterion> field0)? all,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<SearchCriterion> field0)? any,
-    TResult Function(List<SearchCriterion> field0)? all,
+    TResult Function(List<FilterCriterion> field0)? any,
+    TResult Function(List<FilterCriterion> field0)? all,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchCriteria_Any value) any,
-    required TResult Function(SearchCriteria_All value) all,
+    required TResult Function(FilterCriteria_Any value) any,
+    required TResult Function(FilterCriteria_All value) all,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchCriteria_Any value)? any,
-    TResult? Function(SearchCriteria_All value)? all,
+    TResult? Function(FilterCriteria_Any value)? any,
+    TResult? Function(FilterCriteria_All value)? all,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchCriteria_Any value)? any,
-    TResult Function(SearchCriteria_All value)? all,
+    TResult Function(FilterCriteria_Any value)? any,
+    TResult Function(FilterCriteria_All value)? all,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SearchCriteriaCopyWith<SearchCriteria> get copyWith => throw _privateConstructorUsedError;
+  $FilterCriteriaCopyWith<FilterCriteria> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchCriteriaCopyWith<$Res> {
-  factory $SearchCriteriaCopyWith(SearchCriteria value, $Res Function(SearchCriteria) then) =
-      _$SearchCriteriaCopyWithImpl<$Res, SearchCriteria>;
+abstract class $FilterCriteriaCopyWith<$Res> {
+  factory $FilterCriteriaCopyWith(FilterCriteria value, $Res Function(FilterCriteria) then) =
+      _$FilterCriteriaCopyWithImpl<$Res, FilterCriteria>;
   @useResult
-  $Res call({List<SearchCriterion> field0});
+  $Res call({List<FilterCriterion> field0});
 }
 
 /// @nodoc
-class _$SearchCriteriaCopyWithImpl<$Res, $Val extends SearchCriteria> implements $SearchCriteriaCopyWith<$Res> {
-  _$SearchCriteriaCopyWithImpl(this._value, this._then);
+class _$FilterCriteriaCopyWithImpl<$Res, $Val extends FilterCriteria> implements $FilterCriteriaCopyWith<$Res> {
+  _$FilterCriteriaCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -86,24 +86,24 @@ class _$SearchCriteriaCopyWithImpl<$Res, $Val extends SearchCriteria> implements
       field0: null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
-              as List<SearchCriterion>,
+              as List<FilterCriterion>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$SearchCriteria_AnyCopyWith<$Res> implements $SearchCriteriaCopyWith<$Res> {
-  factory _$$SearchCriteria_AnyCopyWith(_$SearchCriteria_Any value, $Res Function(_$SearchCriteria_Any) then) =
-      __$$SearchCriteria_AnyCopyWithImpl<$Res>;
+abstract class _$$FilterCriteria_AnyCopyWith<$Res> implements $FilterCriteriaCopyWith<$Res> {
+  factory _$$FilterCriteria_AnyCopyWith(_$FilterCriteria_Any value, $Res Function(_$FilterCriteria_Any) then) =
+      __$$FilterCriteria_AnyCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<SearchCriterion> field0});
+  $Res call({List<FilterCriterion> field0});
 }
 
 /// @nodoc
-class __$$SearchCriteria_AnyCopyWithImpl<$Res> extends _$SearchCriteriaCopyWithImpl<$Res, _$SearchCriteria_Any>
-    implements _$$SearchCriteria_AnyCopyWith<$Res> {
-  __$$SearchCriteria_AnyCopyWithImpl(_$SearchCriteria_Any _value, $Res Function(_$SearchCriteria_Any) _then)
+class __$$FilterCriteria_AnyCopyWithImpl<$Res> extends _$FilterCriteriaCopyWithImpl<$Res, _$FilterCriteria_Any>
+    implements _$$FilterCriteria_AnyCopyWith<$Res> {
+  __$$FilterCriteria_AnyCopyWithImpl(_$FilterCriteria_Any _value, $Res Function(_$FilterCriteria_Any) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,23 +111,23 @@ class __$$SearchCriteria_AnyCopyWithImpl<$Res> extends _$SearchCriteriaCopyWithI
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$SearchCriteria_Any(
+    return _then(_$FilterCriteria_Any(
       null == field0
           ? _value._field0
           : field0 // ignore: cast_nullable_to_non_nullable
-              as List<SearchCriterion>,
+              as List<FilterCriterion>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SearchCriteria_Any implements SearchCriteria_Any {
-  const _$SearchCriteria_Any(final List<SearchCriterion> field0) : _field0 = field0;
+class _$FilterCriteria_Any implements FilterCriteria_Any {
+  const _$FilterCriteria_Any(final List<FilterCriterion> field0) : _field0 = field0;
 
-  final List<SearchCriterion> _field0;
+  final List<FilterCriterion> _field0;
   @override
-  List<SearchCriterion> get field0 {
+  List<FilterCriterion> get field0 {
     if (_field0 is EqualUnmodifiableListView) return _field0;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_field0);
@@ -135,14 +135,14 @@ class _$SearchCriteria_Any implements SearchCriteria_Any {
 
   @override
   String toString() {
-    return 'SearchCriteria.any(field0: $field0)';
+    return 'FilterCriteria.any(field0: $field0)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchCriteria_Any &&
+            other is _$FilterCriteria_Any &&
             const DeepCollectionEquality().equals(other._field0, _field0));
   }
 
@@ -152,14 +152,14 @@ class _$SearchCriteria_Any implements SearchCriteria_Any {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchCriteria_AnyCopyWith<_$SearchCriteria_Any> get copyWith =>
-      __$$SearchCriteria_AnyCopyWithImpl<_$SearchCriteria_Any>(this, _$identity);
+  _$$FilterCriteria_AnyCopyWith<_$FilterCriteria_Any> get copyWith =>
+      __$$FilterCriteria_AnyCopyWithImpl<_$FilterCriteria_Any>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<SearchCriterion> field0) any,
-    required TResult Function(List<SearchCriterion> field0) all,
+    required TResult Function(List<FilterCriterion> field0) any,
+    required TResult Function(List<FilterCriterion> field0) all,
   }) {
     return any(field0);
   }
@@ -167,8 +167,8 @@ class _$SearchCriteria_Any implements SearchCriteria_Any {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<SearchCriterion> field0)? any,
-    TResult? Function(List<SearchCriterion> field0)? all,
+    TResult? Function(List<FilterCriterion> field0)? any,
+    TResult? Function(List<FilterCriterion> field0)? all,
   }) {
     return any?.call(field0);
   }
@@ -176,8 +176,8 @@ class _$SearchCriteria_Any implements SearchCriteria_Any {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<SearchCriterion> field0)? any,
-    TResult Function(List<SearchCriterion> field0)? all,
+    TResult Function(List<FilterCriterion> field0)? any,
+    TResult Function(List<FilterCriterion> field0)? all,
     required TResult orElse(),
   }) {
     if (any != null) {
@@ -189,8 +189,8 @@ class _$SearchCriteria_Any implements SearchCriteria_Any {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchCriteria_Any value) any,
-    required TResult Function(SearchCriteria_All value) all,
+    required TResult Function(FilterCriteria_Any value) any,
+    required TResult Function(FilterCriteria_All value) all,
   }) {
     return any(this);
   }
@@ -198,8 +198,8 @@ class _$SearchCriteria_Any implements SearchCriteria_Any {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchCriteria_Any value)? any,
-    TResult? Function(SearchCriteria_All value)? all,
+    TResult? Function(FilterCriteria_Any value)? any,
+    TResult? Function(FilterCriteria_All value)? all,
   }) {
     return any?.call(this);
   }
@@ -207,8 +207,8 @@ class _$SearchCriteria_Any implements SearchCriteria_Any {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchCriteria_Any value)? any,
-    TResult Function(SearchCriteria_All value)? all,
+    TResult Function(FilterCriteria_Any value)? any,
+    TResult Function(FilterCriteria_All value)? all,
     required TResult orElse(),
   }) {
     if (any != null) {
@@ -218,29 +218,29 @@ class _$SearchCriteria_Any implements SearchCriteria_Any {
   }
 }
 
-abstract class SearchCriteria_Any implements SearchCriteria {
-  const factory SearchCriteria_Any(final List<SearchCriterion> field0) = _$SearchCriteria_Any;
+abstract class FilterCriteria_Any implements FilterCriteria {
+  const factory FilterCriteria_Any(final List<FilterCriterion> field0) = _$FilterCriteria_Any;
 
   @override
-  List<SearchCriterion> get field0;
+  List<FilterCriterion> get field0;
   @override
   @JsonKey(ignore: true)
-  _$$SearchCriteria_AnyCopyWith<_$SearchCriteria_Any> get copyWith => throw _privateConstructorUsedError;
+  _$$FilterCriteria_AnyCopyWith<_$FilterCriteria_Any> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SearchCriteria_AllCopyWith<$Res> implements $SearchCriteriaCopyWith<$Res> {
-  factory _$$SearchCriteria_AllCopyWith(_$SearchCriteria_All value, $Res Function(_$SearchCriteria_All) then) =
-      __$$SearchCriteria_AllCopyWithImpl<$Res>;
+abstract class _$$FilterCriteria_AllCopyWith<$Res> implements $FilterCriteriaCopyWith<$Res> {
+  factory _$$FilterCriteria_AllCopyWith(_$FilterCriteria_All value, $Res Function(_$FilterCriteria_All) then) =
+      __$$FilterCriteria_AllCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<SearchCriterion> field0});
+  $Res call({List<FilterCriterion> field0});
 }
 
 /// @nodoc
-class __$$SearchCriteria_AllCopyWithImpl<$Res> extends _$SearchCriteriaCopyWithImpl<$Res, _$SearchCriteria_All>
-    implements _$$SearchCriteria_AllCopyWith<$Res> {
-  __$$SearchCriteria_AllCopyWithImpl(_$SearchCriteria_All _value, $Res Function(_$SearchCriteria_All) _then)
+class __$$FilterCriteria_AllCopyWithImpl<$Res> extends _$FilterCriteriaCopyWithImpl<$Res, _$FilterCriteria_All>
+    implements _$$FilterCriteria_AllCopyWith<$Res> {
+  __$$FilterCriteria_AllCopyWithImpl(_$FilterCriteria_All _value, $Res Function(_$FilterCriteria_All) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -248,23 +248,23 @@ class __$$SearchCriteria_AllCopyWithImpl<$Res> extends _$SearchCriteriaCopyWithI
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$SearchCriteria_All(
+    return _then(_$FilterCriteria_All(
       null == field0
           ? _value._field0
           : field0 // ignore: cast_nullable_to_non_nullable
-              as List<SearchCriterion>,
+              as List<FilterCriterion>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SearchCriteria_All implements SearchCriteria_All {
-  const _$SearchCriteria_All(final List<SearchCriterion> field0) : _field0 = field0;
+class _$FilterCriteria_All implements FilterCriteria_All {
+  const _$FilterCriteria_All(final List<FilterCriterion> field0) : _field0 = field0;
 
-  final List<SearchCriterion> _field0;
+  final List<FilterCriterion> _field0;
   @override
-  List<SearchCriterion> get field0 {
+  List<FilterCriterion> get field0 {
     if (_field0 is EqualUnmodifiableListView) return _field0;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_field0);
@@ -272,14 +272,14 @@ class _$SearchCriteria_All implements SearchCriteria_All {
 
   @override
   String toString() {
-    return 'SearchCriteria.all(field0: $field0)';
+    return 'FilterCriteria.all(field0: $field0)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchCriteria_All &&
+            other is _$FilterCriteria_All &&
             const DeepCollectionEquality().equals(other._field0, _field0));
   }
 
@@ -289,14 +289,14 @@ class _$SearchCriteria_All implements SearchCriteria_All {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchCriteria_AllCopyWith<_$SearchCriteria_All> get copyWith =>
-      __$$SearchCriteria_AllCopyWithImpl<_$SearchCriteria_All>(this, _$identity);
+  _$$FilterCriteria_AllCopyWith<_$FilterCriteria_All> get copyWith =>
+      __$$FilterCriteria_AllCopyWithImpl<_$FilterCriteria_All>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<SearchCriterion> field0) any,
-    required TResult Function(List<SearchCriterion> field0) all,
+    required TResult Function(List<FilterCriterion> field0) any,
+    required TResult Function(List<FilterCriterion> field0) all,
   }) {
     return all(field0);
   }
@@ -304,8 +304,8 @@ class _$SearchCriteria_All implements SearchCriteria_All {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<SearchCriterion> field0)? any,
-    TResult? Function(List<SearchCriterion> field0)? all,
+    TResult? Function(List<FilterCriterion> field0)? any,
+    TResult? Function(List<FilterCriterion> field0)? all,
   }) {
     return all?.call(field0);
   }
@@ -313,8 +313,8 @@ class _$SearchCriteria_All implements SearchCriteria_All {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<SearchCriterion> field0)? any,
-    TResult Function(List<SearchCriterion> field0)? all,
+    TResult Function(List<FilterCriterion> field0)? any,
+    TResult Function(List<FilterCriterion> field0)? all,
     required TResult orElse(),
   }) {
     if (all != null) {
@@ -326,8 +326,8 @@ class _$SearchCriteria_All implements SearchCriteria_All {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchCriteria_Any value) any,
-    required TResult Function(SearchCriteria_All value) all,
+    required TResult Function(FilterCriteria_Any value) any,
+    required TResult Function(FilterCriteria_All value) all,
   }) {
     return all(this);
   }
@@ -335,8 +335,8 @@ class _$SearchCriteria_All implements SearchCriteria_All {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchCriteria_Any value)? any,
-    TResult? Function(SearchCriteria_All value)? all,
+    TResult? Function(FilterCriteria_Any value)? any,
+    TResult? Function(FilterCriteria_All value)? all,
   }) {
     return all?.call(this);
   }
@@ -344,8 +344,8 @@ class _$SearchCriteria_All implements SearchCriteria_All {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchCriteria_Any value)? any,
-    TResult Function(SearchCriteria_All value)? all,
+    TResult Function(FilterCriteria_Any value)? any,
+    TResult Function(FilterCriteria_All value)? all,
     required TResult orElse(),
   }) {
     if (all != null) {
@@ -355,74 +355,80 @@ class _$SearchCriteria_All implements SearchCriteria_All {
   }
 }
 
-abstract class SearchCriteria_All implements SearchCriteria {
-  const factory SearchCriteria_All(final List<SearchCriterion> field0) = _$SearchCriteria_All;
+abstract class FilterCriteria_All implements FilterCriteria {
+  const factory FilterCriteria_All(final List<FilterCriterion> field0) = _$FilterCriteria_All;
 
   @override
-  List<SearchCriterion> get field0;
+  List<FilterCriterion> get field0;
   @override
   @JsonKey(ignore: true)
-  _$$SearchCriteria_AllCopyWith<_$SearchCriteria_All> get copyWith => throw _privateConstructorUsedError;
+  _$$FilterCriteria_AllCopyWith<_$FilterCriteria_All> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$SearchCriterion {
+mixin _$FilterCriterion {
   Object get field0 => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UuidValue field0) withService,
+    required TResult Function(String field0) hasServiceUuid,
     required TResult Function(String field0) nameMatchesExactly,
     required TResult Function(String field0) nameContains,
+    required TResult Function(Uint8List field0) manufacturerDataMatches,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UuidValue field0)? withService,
+    TResult? Function(String field0)? hasServiceUuid,
     TResult? Function(String field0)? nameMatchesExactly,
     TResult? Function(String field0)? nameContains,
+    TResult? Function(Uint8List field0)? manufacturerDataMatches,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UuidValue field0)? withService,
+    TResult Function(String field0)? hasServiceUuid,
     TResult Function(String field0)? nameMatchesExactly,
     TResult Function(String field0)? nameContains,
+    TResult Function(Uint8List field0)? manufacturerDataMatches,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchCriterion_WithService value) withService,
-    required TResult Function(SearchCriterion_NameMatchesExactly value) nameMatchesExactly,
-    required TResult Function(SearchCriterion_NameContains value) nameContains,
+    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_NameContains value) nameContains,
+    required TResult Function(FilterCriterion_ManufacturerDataMatches value) manufacturerDataMatches,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchCriterion_WithService value)? withService,
-    TResult? Function(SearchCriterion_NameMatchesExactly value)? nameMatchesExactly,
-    TResult? Function(SearchCriterion_NameContains value)? nameContains,
+    TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameContains value)? nameContains,
+    TResult? Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchCriterion_WithService value)? withService,
-    TResult Function(SearchCriterion_NameMatchesExactly value)? nameMatchesExactly,
-    TResult Function(SearchCriterion_NameContains value)? nameContains,
+    TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameContains value)? nameContains,
+    TResult Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchCriterionCopyWith<$Res> {
-  factory $SearchCriterionCopyWith(SearchCriterion value, $Res Function(SearchCriterion) then) =
-      _$SearchCriterionCopyWithImpl<$Res, SearchCriterion>;
+abstract class $FilterCriterionCopyWith<$Res> {
+  factory $FilterCriterionCopyWith(FilterCriterion value, $Res Function(FilterCriterion) then) =
+      _$FilterCriterionCopyWithImpl<$Res, FilterCriterion>;
 }
 
 /// @nodoc
-class _$SearchCriterionCopyWithImpl<$Res, $Val extends SearchCriterion> implements $SearchCriterionCopyWith<$Res> {
-  _$SearchCriterionCopyWithImpl(this._value, this._then);
+class _$FilterCriterionCopyWithImpl<$Res, $Val extends FilterCriterion> implements $FilterCriterionCopyWith<$Res> {
+  _$FilterCriterionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -431,160 +437,20 @@ class _$SearchCriterionCopyWithImpl<$Res, $Val extends SearchCriterion> implemen
 }
 
 /// @nodoc
-abstract class _$$SearchCriterion_WithServiceCopyWith<$Res> {
-  factory _$$SearchCriterion_WithServiceCopyWith(
-          _$SearchCriterion_WithService value, $Res Function(_$SearchCriterion_WithService) then) =
-      __$$SearchCriterion_WithServiceCopyWithImpl<$Res>;
-  @useResult
-  $Res call({UuidValue field0});
-}
-
-/// @nodoc
-class __$$SearchCriterion_WithServiceCopyWithImpl<$Res>
-    extends _$SearchCriterionCopyWithImpl<$Res, _$SearchCriterion_WithService>
-    implements _$$SearchCriterion_WithServiceCopyWith<$Res> {
-  __$$SearchCriterion_WithServiceCopyWithImpl(
-      _$SearchCriterion_WithService _value, $Res Function(_$SearchCriterion_WithService) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? field0 = null,
-  }) {
-    return _then(_$SearchCriterion_WithService(
-      null == field0
-          ? _value.field0
-          : field0 // ignore: cast_nullable_to_non_nullable
-              as UuidValue,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SearchCriterion_WithService implements SearchCriterion_WithService {
-  const _$SearchCriterion_WithService(this.field0);
-
-  @override
-  final UuidValue field0;
-
-  @override
-  String toString() {
-    return 'SearchCriterion.withService(field0: $field0)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SearchCriterion_WithService &&
-            (identical(other.field0, field0) || other.field0 == field0));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, field0);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SearchCriterion_WithServiceCopyWith<_$SearchCriterion_WithService> get copyWith =>
-      __$$SearchCriterion_WithServiceCopyWithImpl<_$SearchCriterion_WithService>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(UuidValue field0) withService,
-    required TResult Function(String field0) nameMatchesExactly,
-    required TResult Function(String field0) nameContains,
-  }) {
-    return withService(field0);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UuidValue field0)? withService,
-    TResult? Function(String field0)? nameMatchesExactly,
-    TResult? Function(String field0)? nameContains,
-  }) {
-    return withService?.call(field0);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UuidValue field0)? withService,
-    TResult Function(String field0)? nameMatchesExactly,
-    TResult Function(String field0)? nameContains,
-    required TResult orElse(),
-  }) {
-    if (withService != null) {
-      return withService(field0);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchCriterion_WithService value) withService,
-    required TResult Function(SearchCriterion_NameMatchesExactly value) nameMatchesExactly,
-    required TResult Function(SearchCriterion_NameContains value) nameContains,
-  }) {
-    return withService(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchCriterion_WithService value)? withService,
-    TResult? Function(SearchCriterion_NameMatchesExactly value)? nameMatchesExactly,
-    TResult? Function(SearchCriterion_NameContains value)? nameContains,
-  }) {
-    return withService?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchCriterion_WithService value)? withService,
-    TResult Function(SearchCriterion_NameMatchesExactly value)? nameMatchesExactly,
-    TResult Function(SearchCriterion_NameContains value)? nameContains,
-    required TResult orElse(),
-  }) {
-    if (withService != null) {
-      return withService(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SearchCriterion_WithService implements SearchCriterion {
-  const factory SearchCriterion_WithService(final UuidValue field0) = _$SearchCriterion_WithService;
-
-  @override
-  UuidValue get field0;
-  @JsonKey(ignore: true)
-  _$$SearchCriterion_WithServiceCopyWith<_$SearchCriterion_WithService> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SearchCriterion_NameMatchesExactlyCopyWith<$Res> {
-  factory _$$SearchCriterion_NameMatchesExactlyCopyWith(
-          _$SearchCriterion_NameMatchesExactly value, $Res Function(_$SearchCriterion_NameMatchesExactly) then) =
-      __$$SearchCriterion_NameMatchesExactlyCopyWithImpl<$Res>;
+abstract class _$$FilterCriterion_HasServiceUuidCopyWith<$Res> {
+  factory _$$FilterCriterion_HasServiceUuidCopyWith(
+          _$FilterCriterion_HasServiceUuid value, $Res Function(_$FilterCriterion_HasServiceUuid) then) =
+      __$$FilterCriterion_HasServiceUuidCopyWithImpl<$Res>;
   @useResult
   $Res call({String field0});
 }
 
 /// @nodoc
-class __$$SearchCriterion_NameMatchesExactlyCopyWithImpl<$Res>
-    extends _$SearchCriterionCopyWithImpl<$Res, _$SearchCriterion_NameMatchesExactly>
-    implements _$$SearchCriterion_NameMatchesExactlyCopyWith<$Res> {
-  __$$SearchCriterion_NameMatchesExactlyCopyWithImpl(
-      _$SearchCriterion_NameMatchesExactly _value, $Res Function(_$SearchCriterion_NameMatchesExactly) _then)
+class __$$FilterCriterion_HasServiceUuidCopyWithImpl<$Res>
+    extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_HasServiceUuid>
+    implements _$$FilterCriterion_HasServiceUuidCopyWith<$Res> {
+  __$$FilterCriterion_HasServiceUuidCopyWithImpl(
+      _$FilterCriterion_HasServiceUuid _value, $Res Function(_$FilterCriterion_HasServiceUuid) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -592,7 +458,7 @@ class __$$SearchCriterion_NameMatchesExactlyCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$SearchCriterion_NameMatchesExactly(
+    return _then(_$FilterCriterion_HasServiceUuid(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -603,22 +469,22 @@ class __$$SearchCriterion_NameMatchesExactlyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchCriterion_NameMatchesExactly implements SearchCriterion_NameMatchesExactly {
-  const _$SearchCriterion_NameMatchesExactly(this.field0);
+class _$FilterCriterion_HasServiceUuid implements FilterCriterion_HasServiceUuid {
+  const _$FilterCriterion_HasServiceUuid(this.field0);
 
   @override
   final String field0;
 
   @override
   String toString() {
-    return 'SearchCriterion.nameMatchesExactly(field0: $field0)';
+    return 'FilterCriterion.hasServiceUuid(field0: $field0)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchCriterion_NameMatchesExactly &&
+            other is _$FilterCriterion_HasServiceUuid &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -628,15 +494,162 @@ class _$SearchCriterion_NameMatchesExactly implements SearchCriterion_NameMatche
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchCriterion_NameMatchesExactlyCopyWith<_$SearchCriterion_NameMatchesExactly> get copyWith =>
-      __$$SearchCriterion_NameMatchesExactlyCopyWithImpl<_$SearchCriterion_NameMatchesExactly>(this, _$identity);
+  _$$FilterCriterion_HasServiceUuidCopyWith<_$FilterCriterion_HasServiceUuid> get copyWith =>
+      __$$FilterCriterion_HasServiceUuidCopyWithImpl<_$FilterCriterion_HasServiceUuid>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UuidValue field0) withService,
+    required TResult Function(String field0) hasServiceUuid,
     required TResult Function(String field0) nameMatchesExactly,
     required TResult Function(String field0) nameContains,
+    required TResult Function(Uint8List field0) manufacturerDataMatches,
+  }) {
+    return hasServiceUuid(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String field0)? hasServiceUuid,
+    TResult? Function(String field0)? nameMatchesExactly,
+    TResult? Function(String field0)? nameContains,
+    TResult? Function(Uint8List field0)? manufacturerDataMatches,
+  }) {
+    return hasServiceUuid?.call(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String field0)? hasServiceUuid,
+    TResult Function(String field0)? nameMatchesExactly,
+    TResult Function(String field0)? nameContains,
+    TResult Function(Uint8List field0)? manufacturerDataMatches,
+    required TResult orElse(),
+  }) {
+    if (hasServiceUuid != null) {
+      return hasServiceUuid(field0);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_NameContains value) nameContains,
+    required TResult Function(FilterCriterion_ManufacturerDataMatches value) manufacturerDataMatches,
+  }) {
+    return hasServiceUuid(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameContains value)? nameContains,
+    TResult? Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+  }) {
+    return hasServiceUuid?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameContains value)? nameContains,
+    TResult Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    required TResult orElse(),
+  }) {
+    if (hasServiceUuid != null) {
+      return hasServiceUuid(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FilterCriterion_HasServiceUuid implements FilterCriterion {
+  const factory FilterCriterion_HasServiceUuid(final String field0) = _$FilterCriterion_HasServiceUuid;
+
+  @override
+  String get field0;
+  @JsonKey(ignore: true)
+  _$$FilterCriterion_HasServiceUuidCopyWith<_$FilterCriterion_HasServiceUuid> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FilterCriterion_NameMatchesExactlyCopyWith<$Res> {
+  factory _$$FilterCriterion_NameMatchesExactlyCopyWith(
+          _$FilterCriterion_NameMatchesExactly value, $Res Function(_$FilterCriterion_NameMatchesExactly) then) =
+      __$$FilterCriterion_NameMatchesExactlyCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String field0});
+}
+
+/// @nodoc
+class __$$FilterCriterion_NameMatchesExactlyCopyWithImpl<$Res>
+    extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_NameMatchesExactly>
+    implements _$$FilterCriterion_NameMatchesExactlyCopyWith<$Res> {
+  __$$FilterCriterion_NameMatchesExactlyCopyWithImpl(
+      _$FilterCriterion_NameMatchesExactly _value, $Res Function(_$FilterCriterion_NameMatchesExactly) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field0 = null,
+  }) {
+    return _then(_$FilterCriterion_NameMatchesExactly(
+      null == field0
+          ? _value.field0
+          : field0 // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FilterCriterion_NameMatchesExactly implements FilterCriterion_NameMatchesExactly {
+  const _$FilterCriterion_NameMatchesExactly(this.field0);
+
+  @override
+  final String field0;
+
+  @override
+  String toString() {
+    return 'FilterCriterion.nameMatchesExactly(field0: $field0)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterCriterion_NameMatchesExactly &&
+            (identical(other.field0, field0) || other.field0 == field0));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, field0);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FilterCriterion_NameMatchesExactlyCopyWith<_$FilterCriterion_NameMatchesExactly> get copyWith =>
+      __$$FilterCriterion_NameMatchesExactlyCopyWithImpl<_$FilterCriterion_NameMatchesExactly>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String field0) hasServiceUuid,
+    required TResult Function(String field0) nameMatchesExactly,
+    required TResult Function(String field0) nameContains,
+    required TResult Function(Uint8List field0) manufacturerDataMatches,
   }) {
     return nameMatchesExactly(field0);
   }
@@ -644,9 +657,10 @@ class _$SearchCriterion_NameMatchesExactly implements SearchCriterion_NameMatche
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UuidValue field0)? withService,
+    TResult? Function(String field0)? hasServiceUuid,
     TResult? Function(String field0)? nameMatchesExactly,
     TResult? Function(String field0)? nameContains,
+    TResult? Function(Uint8List field0)? manufacturerDataMatches,
   }) {
     return nameMatchesExactly?.call(field0);
   }
@@ -654,9 +668,10 @@ class _$SearchCriterion_NameMatchesExactly implements SearchCriterion_NameMatche
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UuidValue field0)? withService,
+    TResult Function(String field0)? hasServiceUuid,
     TResult Function(String field0)? nameMatchesExactly,
     TResult Function(String field0)? nameContains,
+    TResult Function(Uint8List field0)? manufacturerDataMatches,
     required TResult orElse(),
   }) {
     if (nameMatchesExactly != null) {
@@ -668,9 +683,10 @@ class _$SearchCriterion_NameMatchesExactly implements SearchCriterion_NameMatche
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchCriterion_WithService value) withService,
-    required TResult Function(SearchCriterion_NameMatchesExactly value) nameMatchesExactly,
-    required TResult Function(SearchCriterion_NameContains value) nameContains,
+    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_NameContains value) nameContains,
+    required TResult Function(FilterCriterion_ManufacturerDataMatches value) manufacturerDataMatches,
   }) {
     return nameMatchesExactly(this);
   }
@@ -678,9 +694,10 @@ class _$SearchCriterion_NameMatchesExactly implements SearchCriterion_NameMatche
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchCriterion_WithService value)? withService,
-    TResult? Function(SearchCriterion_NameMatchesExactly value)? nameMatchesExactly,
-    TResult? Function(SearchCriterion_NameContains value)? nameContains,
+    TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameContains value)? nameContains,
+    TResult? Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
   }) {
     return nameMatchesExactly?.call(this);
   }
@@ -688,9 +705,10 @@ class _$SearchCriterion_NameMatchesExactly implements SearchCriterion_NameMatche
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchCriterion_WithService value)? withService,
-    TResult Function(SearchCriterion_NameMatchesExactly value)? nameMatchesExactly,
-    TResult Function(SearchCriterion_NameContains value)? nameContains,
+    TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameContains value)? nameContains,
+    TResult Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
     required TResult orElse(),
   }) {
     if (nameMatchesExactly != null) {
@@ -700,31 +718,31 @@ class _$SearchCriterion_NameMatchesExactly implements SearchCriterion_NameMatche
   }
 }
 
-abstract class SearchCriterion_NameMatchesExactly implements SearchCriterion {
-  const factory SearchCriterion_NameMatchesExactly(final String field0) = _$SearchCriterion_NameMatchesExactly;
+abstract class FilterCriterion_NameMatchesExactly implements FilterCriterion {
+  const factory FilterCriterion_NameMatchesExactly(final String field0) = _$FilterCriterion_NameMatchesExactly;
 
   @override
   String get field0;
   @JsonKey(ignore: true)
-  _$$SearchCriterion_NameMatchesExactlyCopyWith<_$SearchCriterion_NameMatchesExactly> get copyWith =>
+  _$$FilterCriterion_NameMatchesExactlyCopyWith<_$FilterCriterion_NameMatchesExactly> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SearchCriterion_NameContainsCopyWith<$Res> {
-  factory _$$SearchCriterion_NameContainsCopyWith(
-          _$SearchCriterion_NameContains value, $Res Function(_$SearchCriterion_NameContains) then) =
-      __$$SearchCriterion_NameContainsCopyWithImpl<$Res>;
+abstract class _$$FilterCriterion_NameContainsCopyWith<$Res> {
+  factory _$$FilterCriterion_NameContainsCopyWith(
+          _$FilterCriterion_NameContains value, $Res Function(_$FilterCriterion_NameContains) then) =
+      __$$FilterCriterion_NameContainsCopyWithImpl<$Res>;
   @useResult
   $Res call({String field0});
 }
 
 /// @nodoc
-class __$$SearchCriterion_NameContainsCopyWithImpl<$Res>
-    extends _$SearchCriterionCopyWithImpl<$Res, _$SearchCriterion_NameContains>
-    implements _$$SearchCriterion_NameContainsCopyWith<$Res> {
-  __$$SearchCriterion_NameContainsCopyWithImpl(
-      _$SearchCriterion_NameContains _value, $Res Function(_$SearchCriterion_NameContains) _then)
+class __$$FilterCriterion_NameContainsCopyWithImpl<$Res>
+    extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_NameContains>
+    implements _$$FilterCriterion_NameContainsCopyWith<$Res> {
+  __$$FilterCriterion_NameContainsCopyWithImpl(
+      _$FilterCriterion_NameContains _value, $Res Function(_$FilterCriterion_NameContains) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -732,7 +750,7 @@ class __$$SearchCriterion_NameContainsCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$SearchCriterion_NameContains(
+    return _then(_$FilterCriterion_NameContains(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -743,22 +761,22 @@ class __$$SearchCriterion_NameContainsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchCriterion_NameContains implements SearchCriterion_NameContains {
-  const _$SearchCriterion_NameContains(this.field0);
+class _$FilterCriterion_NameContains implements FilterCriterion_NameContains {
+  const _$FilterCriterion_NameContains(this.field0);
 
   @override
   final String field0;
 
   @override
   String toString() {
-    return 'SearchCriterion.nameContains(field0: $field0)';
+    return 'FilterCriterion.nameContains(field0: $field0)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchCriterion_NameContains &&
+            other is _$FilterCriterion_NameContains &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -768,15 +786,16 @@ class _$SearchCriterion_NameContains implements SearchCriterion_NameContains {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchCriterion_NameContainsCopyWith<_$SearchCriterion_NameContains> get copyWith =>
-      __$$SearchCriterion_NameContainsCopyWithImpl<_$SearchCriterion_NameContains>(this, _$identity);
+  _$$FilterCriterion_NameContainsCopyWith<_$FilterCriterion_NameContains> get copyWith =>
+      __$$FilterCriterion_NameContainsCopyWithImpl<_$FilterCriterion_NameContains>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UuidValue field0) withService,
+    required TResult Function(String field0) hasServiceUuid,
     required TResult Function(String field0) nameMatchesExactly,
     required TResult Function(String field0) nameContains,
+    required TResult Function(Uint8List field0) manufacturerDataMatches,
   }) {
     return nameContains(field0);
   }
@@ -784,9 +803,10 @@ class _$SearchCriterion_NameContains implements SearchCriterion_NameContains {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UuidValue field0)? withService,
+    TResult? Function(String field0)? hasServiceUuid,
     TResult? Function(String field0)? nameMatchesExactly,
     TResult? Function(String field0)? nameContains,
+    TResult? Function(Uint8List field0)? manufacturerDataMatches,
   }) {
     return nameContains?.call(field0);
   }
@@ -794,9 +814,10 @@ class _$SearchCriterion_NameContains implements SearchCriterion_NameContains {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UuidValue field0)? withService,
+    TResult Function(String field0)? hasServiceUuid,
     TResult Function(String field0)? nameMatchesExactly,
     TResult Function(String field0)? nameContains,
+    TResult Function(Uint8List field0)? manufacturerDataMatches,
     required TResult orElse(),
   }) {
     if (nameContains != null) {
@@ -808,9 +829,10 @@ class _$SearchCriterion_NameContains implements SearchCriterion_NameContains {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchCriterion_WithService value) withService,
-    required TResult Function(SearchCriterion_NameMatchesExactly value) nameMatchesExactly,
-    required TResult Function(SearchCriterion_NameContains value) nameContains,
+    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_NameContains value) nameContains,
+    required TResult Function(FilterCriterion_ManufacturerDataMatches value) manufacturerDataMatches,
   }) {
     return nameContains(this);
   }
@@ -818,9 +840,10 @@ class _$SearchCriterion_NameContains implements SearchCriterion_NameContains {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchCriterion_WithService value)? withService,
-    TResult? Function(SearchCriterion_NameMatchesExactly value)? nameMatchesExactly,
-    TResult? Function(SearchCriterion_NameContains value)? nameContains,
+    TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameContains value)? nameContains,
+    TResult? Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
   }) {
     return nameContains?.call(this);
   }
@@ -828,9 +851,10 @@ class _$SearchCriterion_NameContains implements SearchCriterion_NameContains {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchCriterion_WithService value)? withService,
-    TResult Function(SearchCriterion_NameMatchesExactly value)? nameMatchesExactly,
-    TResult Function(SearchCriterion_NameContains value)? nameContains,
+    TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameContains value)? nameContains,
+    TResult Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
     required TResult orElse(),
   }) {
     if (nameContains != null) {
@@ -840,12 +864,160 @@ class _$SearchCriterion_NameContains implements SearchCriterion_NameContains {
   }
 }
 
-abstract class SearchCriterion_NameContains implements SearchCriterion {
-  const factory SearchCriterion_NameContains(final String field0) = _$SearchCriterion_NameContains;
+abstract class FilterCriterion_NameContains implements FilterCriterion {
+  const factory FilterCriterion_NameContains(final String field0) = _$FilterCriterion_NameContains;
 
   @override
   String get field0;
   @JsonKey(ignore: true)
-  _$$SearchCriterion_NameContainsCopyWith<_$SearchCriterion_NameContains> get copyWith =>
+  _$$FilterCriterion_NameContainsCopyWith<_$FilterCriterion_NameContains> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FilterCriterion_ManufacturerDataMatchesCopyWith<$Res> {
+  factory _$$FilterCriterion_ManufacturerDataMatchesCopyWith(_$FilterCriterion_ManufacturerDataMatches value,
+          $Res Function(_$FilterCriterion_ManufacturerDataMatches) then) =
+      __$$FilterCriterion_ManufacturerDataMatchesCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Uint8List field0});
+}
+
+/// @nodoc
+class __$$FilterCriterion_ManufacturerDataMatchesCopyWithImpl<$Res>
+    extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_ManufacturerDataMatches>
+    implements _$$FilterCriterion_ManufacturerDataMatchesCopyWith<$Res> {
+  __$$FilterCriterion_ManufacturerDataMatchesCopyWithImpl(
+      _$FilterCriterion_ManufacturerDataMatches _value, $Res Function(_$FilterCriterion_ManufacturerDataMatches) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field0 = null,
+  }) {
+    return _then(_$FilterCriterion_ManufacturerDataMatches(
+      null == field0
+          ? _value.field0
+          : field0 // ignore: cast_nullable_to_non_nullable
+              as Uint8List,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FilterCriterion_ManufacturerDataMatches implements FilterCriterion_ManufacturerDataMatches {
+  const _$FilterCriterion_ManufacturerDataMatches(this.field0);
+
+  @override
+  final Uint8List field0;
+
+  @override
+  String toString() {
+    return 'FilterCriterion.manufacturerDataMatches(field0: $field0)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterCriterion_ManufacturerDataMatches &&
+            const DeepCollectionEquality().equals(other.field0, field0));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(field0));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FilterCriterion_ManufacturerDataMatchesCopyWith<_$FilterCriterion_ManufacturerDataMatches> get copyWith =>
+      __$$FilterCriterion_ManufacturerDataMatchesCopyWithImpl<_$FilterCriterion_ManufacturerDataMatches>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String field0) hasServiceUuid,
+    required TResult Function(String field0) nameMatchesExactly,
+    required TResult Function(String field0) nameContains,
+    required TResult Function(Uint8List field0) manufacturerDataMatches,
+  }) {
+    return manufacturerDataMatches(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String field0)? hasServiceUuid,
+    TResult? Function(String field0)? nameMatchesExactly,
+    TResult? Function(String field0)? nameContains,
+    TResult? Function(Uint8List field0)? manufacturerDataMatches,
+  }) {
+    return manufacturerDataMatches?.call(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String field0)? hasServiceUuid,
+    TResult Function(String field0)? nameMatchesExactly,
+    TResult Function(String field0)? nameContains,
+    TResult Function(Uint8List field0)? manufacturerDataMatches,
+    required TResult orElse(),
+  }) {
+    if (manufacturerDataMatches != null) {
+      return manufacturerDataMatches(field0);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_NameContains value) nameContains,
+    required TResult Function(FilterCriterion_ManufacturerDataMatches value) manufacturerDataMatches,
+  }) {
+    return manufacturerDataMatches(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameContains value)? nameContains,
+    TResult? Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+  }) {
+    return manufacturerDataMatches?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameContains value)? nameContains,
+    TResult Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    required TResult orElse(),
+  }) {
+    if (manufacturerDataMatches != null) {
+      return manufacturerDataMatches(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FilterCriterion_ManufacturerDataMatches implements FilterCriterion {
+  const factory FilterCriterion_ManufacturerDataMatches(final Uint8List field0) =
+      _$FilterCriterion_ManufacturerDataMatches;
+
+  @override
+  Uint8List get field0;
+  @JsonKey(ignore: true)
+  _$$FilterCriterion_ManufacturerDataMatchesCopyWith<_$FilterCriterion_ManufacturerDataMatches> get copyWith =>
       throw _privateConstructorUsedError;
 }

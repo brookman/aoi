@@ -18,40 +18,100 @@ class NativePlatform extends FlutterRustBridgeBase<NativeWire> {
 // Section: api2wire
 
   @protected
-  int api2wire_Chrono_Duration(Duration raw) {
-    return api2wire_i64(raw.inMicroseconds);
-  }
-
-  @protected
   ffi.Pointer<wire_uint_8_list> api2wire_String(String raw) {
     return api2wire_uint_8_list(utf8.encoder.convert(raw));
   }
 
   @protected
-  ffi.Pointer<wire_uint_8_list> api2wire_Uuid(UuidValue raw) {
-    return api2wire_uint_8_list(raw.toBytes());
-  }
-
-  @protected
-  int api2wire_i64(int raw) {
-    return raw;
-  }
-
-  @protected
-  ffi.Pointer<wire_list_search_criteria> api2wire_list_search_criteria(List<SearchCriteria> raw) {
-    final ans = inner.new_list_search_criteria_0(raw.length);
-    for (var i = 0; i < raw.length; ++i) {
-      _api_fill_to_wire_search_criteria(raw[i], ans.ref.ptr[i]);
+  ffi.Pointer<wire_StringList> api2wire_StringList(List<String> raw) {
+    final ans = inner.new_StringList_0(raw.length);
+    for (var i = 0; i < raw.length; i++) {
+      ans.ref.ptr[i] = api2wire_String(raw[i]);
     }
     return ans;
   }
 
   @protected
-  ffi.Pointer<wire_list_search_criterion> api2wire_list_search_criterion(List<SearchCriterion> raw) {
-    final ans = inner.new_list_search_criterion_0(raw.length);
+  ffi.Pointer<wire_AoiAdapter> api2wire_box_aoi_adapter(AoiAdapter raw) {
+    final ptr = inner.new_box_aoi_adapter_0();
+    _api_fill_to_wire_aoi_adapter(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
+  ffi.Pointer<wire_AoiPeripheral> api2wire_box_aoi_peripheral(AoiPeripheral raw) {
+    final ptr = inner.new_box_aoi_peripheral_0();
+    _api_fill_to_wire_aoi_peripheral(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
+  ffi.Pointer<wire_AoiAdapter> api2wire_box_autoadd_aoi_adapter(AoiAdapter raw) {
+    final ptr = inner.new_box_autoadd_aoi_adapter_0();
+    _api_fill_to_wire_aoi_adapter(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
+  ffi.Pointer<wire_AoiCharacteristic> api2wire_box_autoadd_aoi_characteristic(AoiCharacteristic raw) {
+    final ptr = inner.new_box_autoadd_aoi_characteristic_0();
+    _api_fill_to_wire_aoi_characteristic(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
+  ffi.Pointer<wire_AoiConnectedPeripheral> api2wire_box_autoadd_aoi_connected_peripheral(AoiConnectedPeripheral raw) {
+    final ptr = inner.new_box_autoadd_aoi_connected_peripheral_0();
+    _api_fill_to_wire_aoi_connected_peripheral(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
+  ffi.Pointer<wire_AoiPeripheral> api2wire_box_autoadd_aoi_peripheral(AoiPeripheral raw) {
+    final ptr = inner.new_box_autoadd_aoi_peripheral_0();
+    _api_fill_to_wire_aoi_peripheral(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
+  ffi.Pointer<wire_FilterCriteria> api2wire_box_autoadd_filter_criteria(FilterCriteria raw) {
+    final ptr = inner.new_box_autoadd_filter_criteria_0();
+    _api_fill_to_wire_filter_criteria(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
+  ffi.Pointer<wire_list_aoi_characteristic> api2wire_list_aoi_characteristic(List<AoiCharacteristic> raw) {
+    final ans = inner.new_list_aoi_characteristic_0(raw.length);
     for (var i = 0; i < raw.length; ++i) {
-      _api_fill_to_wire_search_criterion(raw[i], ans.ref.ptr[i]);
+      _api_fill_to_wire_aoi_characteristic(raw[i], ans.ref.ptr[i]);
     }
+    return ans;
+  }
+
+  @protected
+  ffi.Pointer<wire_list_filter_criterion> api2wire_list_filter_criterion(List<FilterCriterion> raw) {
+    final ans = inner.new_list_filter_criterion_0(raw.length);
+    for (var i = 0; i < raw.length; ++i) {
+      _api_fill_to_wire_filter_criterion(raw[i], ans.ref.ptr[i]);
+    }
+    return ans;
+  }
+
+  @protected
+  ffi.Pointer<wire_uint_8_list> api2wire_opt_String(String? raw) {
+    return raw == null ? ffi.nullptr : api2wire_String(raw);
+  }
+
+  @protected
+  ffi.Pointer<wire_FilterCriteria> api2wire_opt_box_autoadd_filter_criteria(FilterCriteria? raw) {
+    return raw == null ? ffi.nullptr : api2wire_box_autoadd_filter_criteria(raw);
+  }
+
+  @protected
+  ffi.Pointer<wire_uint_8_list> api2wire_u8_array_6(U8Array6 raw) {
+    final ans = inner.new_uint_8_list_0(6);
+    ans.ref.ptr.asTypedList(6).setAll(0, raw);
     return ans;
   }
 
@@ -61,49 +121,115 @@ class NativePlatform extends FlutterRustBridgeBase<NativeWire> {
     ans.ref.ptr.asTypedList(raw.length).setAll(0, raw);
     return ans;
   }
+
 // Section: finalizer
 
 // Section: api_fill_to_wire
 
-  void _api_fill_to_wire_search_criteria(SearchCriteria apiObj, wire_SearchCriteria wireObj) {
-    if (apiObj is SearchCriteria_Any) {
-      var pre_field0 = api2wire_list_search_criterion(apiObj.field0);
+  void _api_fill_to_wire_aoi_adapter(AoiAdapter apiObj, wire_AoiAdapter wireObj) {
+    wireObj.index = api2wire_usize(apiObj.index);
+  }
+
+  void _api_fill_to_wire_aoi_characteristic(AoiCharacteristic apiObj, wire_AoiCharacteristic wireObj) {
+    wireObj.uuid = api2wire_String(apiObj.uuid);
+    wireObj.service_uuid = api2wire_String(apiObj.serviceUuid);
+    wireObj.properties = api2wire_u8(apiObj.properties);
+  }
+
+  void _api_fill_to_wire_aoi_connected_peripheral(AoiConnectedPeripheral apiObj, wire_AoiConnectedPeripheral wireObj) {
+    wireObj.peripheral = api2wire_box_aoi_peripheral(apiObj.peripheral);
+    wireObj.characteristics = api2wire_list_aoi_characteristic(apiObj.characteristics);
+  }
+
+  void _api_fill_to_wire_aoi_peripheral(AoiPeripheral apiObj, wire_AoiPeripheral wireObj) {
+    wireObj.adapter = api2wire_box_aoi_adapter(apiObj.adapter);
+    wireObj.name = api2wire_opt_String(apiObj.name);
+    wireObj.address = api2wire_u8_array_6(apiObj.address);
+    wireObj.services = api2wire_StringList(apiObj.services);
+    wireObj.manufacturer_data = api2wire_uint_8_list(apiObj.manufacturerData);
+  }
+
+  void _api_fill_to_wire_box_aoi_adapter(AoiAdapter apiObj, ffi.Pointer<wire_AoiAdapter> wireObj) {
+    _api_fill_to_wire_aoi_adapter(apiObj, wireObj.ref);
+  }
+
+  void _api_fill_to_wire_box_aoi_peripheral(AoiPeripheral apiObj, ffi.Pointer<wire_AoiPeripheral> wireObj) {
+    _api_fill_to_wire_aoi_peripheral(apiObj, wireObj.ref);
+  }
+
+  void _api_fill_to_wire_box_autoadd_aoi_adapter(AoiAdapter apiObj, ffi.Pointer<wire_AoiAdapter> wireObj) {
+    _api_fill_to_wire_aoi_adapter(apiObj, wireObj.ref);
+  }
+
+  void _api_fill_to_wire_box_autoadd_aoi_characteristic(
+      AoiCharacteristic apiObj, ffi.Pointer<wire_AoiCharacteristic> wireObj) {
+    _api_fill_to_wire_aoi_characteristic(apiObj, wireObj.ref);
+  }
+
+  void _api_fill_to_wire_box_autoadd_aoi_connected_peripheral(
+      AoiConnectedPeripheral apiObj, ffi.Pointer<wire_AoiConnectedPeripheral> wireObj) {
+    _api_fill_to_wire_aoi_connected_peripheral(apiObj, wireObj.ref);
+  }
+
+  void _api_fill_to_wire_box_autoadd_aoi_peripheral(AoiPeripheral apiObj, ffi.Pointer<wire_AoiPeripheral> wireObj) {
+    _api_fill_to_wire_aoi_peripheral(apiObj, wireObj.ref);
+  }
+
+  void _api_fill_to_wire_box_autoadd_filter_criteria(FilterCriteria apiObj, ffi.Pointer<wire_FilterCriteria> wireObj) {
+    _api_fill_to_wire_filter_criteria(apiObj, wireObj.ref);
+  }
+
+  void _api_fill_to_wire_filter_criteria(FilterCriteria apiObj, wire_FilterCriteria wireObj) {
+    if (apiObj is FilterCriteria_Any) {
+      var pre_field0 = api2wire_list_filter_criterion(apiObj.field0);
       wireObj.tag = 0;
-      wireObj.kind = inner.inflate_SearchCriteria_Any();
+      wireObj.kind = inner.inflate_FilterCriteria_Any();
       wireObj.kind.ref.Any.ref.field0 = pre_field0;
       return;
     }
-    if (apiObj is SearchCriteria_All) {
-      var pre_field0 = api2wire_list_search_criterion(apiObj.field0);
+    if (apiObj is FilterCriteria_All) {
+      var pre_field0 = api2wire_list_filter_criterion(apiObj.field0);
       wireObj.tag = 1;
-      wireObj.kind = inner.inflate_SearchCriteria_All();
+      wireObj.kind = inner.inflate_FilterCriteria_All();
       wireObj.kind.ref.All.ref.field0 = pre_field0;
       return;
     }
   }
 
-  void _api_fill_to_wire_search_criterion(SearchCriterion apiObj, wire_SearchCriterion wireObj) {
-    if (apiObj is SearchCriterion_WithService) {
-      var pre_field0 = api2wire_Uuid(apiObj.field0);
+  void _api_fill_to_wire_filter_criterion(FilterCriterion apiObj, wire_FilterCriterion wireObj) {
+    if (apiObj is FilterCriterion_HasServiceUuid) {
+      var pre_field0 = api2wire_String(apiObj.field0);
       wireObj.tag = 0;
-      wireObj.kind = inner.inflate_SearchCriterion_WithService();
-      wireObj.kind.ref.WithService.ref.field0 = pre_field0;
+      wireObj.kind = inner.inflate_FilterCriterion_HasServiceUuid();
+      wireObj.kind.ref.HasServiceUuid.ref.field0 = pre_field0;
       return;
     }
-    if (apiObj is SearchCriterion_NameMatchesExactly) {
+    if (apiObj is FilterCriterion_NameMatchesExactly) {
       var pre_field0 = api2wire_String(apiObj.field0);
       wireObj.tag = 1;
-      wireObj.kind = inner.inflate_SearchCriterion_NameMatchesExactly();
+      wireObj.kind = inner.inflate_FilterCriterion_NameMatchesExactly();
       wireObj.kind.ref.NameMatchesExactly.ref.field0 = pre_field0;
       return;
     }
-    if (apiObj is SearchCriterion_NameContains) {
+    if (apiObj is FilterCriterion_NameContains) {
       var pre_field0 = api2wire_String(apiObj.field0);
       wireObj.tag = 2;
-      wireObj.kind = inner.inflate_SearchCriterion_NameContains();
+      wireObj.kind = inner.inflate_FilterCriterion_NameContains();
       wireObj.kind.ref.NameContains.ref.field0 = pre_field0;
       return;
     }
+    if (apiObj is FilterCriterion_ManufacturerDataMatches) {
+      var pre_field0 = api2wire_uint_8_list(apiObj.field0);
+      wireObj.tag = 3;
+      wireObj.kind = inner.inflate_FilterCriterion_ManufacturerDataMatches();
+      wireObj.kind.ref.ManufacturerDataMatches.ref.field0 = pre_field0;
+      return;
+    }
+  }
+
+  void _api_fill_to_wire_opt_box_autoadd_filter_criteria(
+      FilterCriteria? apiObj, ffi.Pointer<wire_FilterCriteria> wireObj) {
+    if (apiObj != null) _api_fill_to_wire_box_autoadd_filter_criteria(apiObj, wireObj);
   }
 }
 
@@ -184,74 +310,246 @@ class NativeWire implements FlutterRustBridgeWireBase {
       _lookup<ffi.NativeFunction<ffi.IntPtr Function(ffi.Pointer<ffi.Void>)>>('init_frb_dart_api_dl');
   late final _init_frb_dart_api_dl = _init_frb_dart_api_dlPtr.asFunction<int Function(ffi.Pointer<ffi.Void>)>();
 
-  void wire_platform(
+  void wire_get_adapters__static_method__AoiAdapter(
     int port_,
   ) {
-    return _wire_platform(
+    return _wire_get_adapters__static_method__AoiAdapter(
       port_,
     );
   }
 
-  late final _wire_platformPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>('wire_platform');
-  late final _wire_platform = _wire_platformPtr.asFunction<void Function(int)>();
+  late final _wire_get_adapters__static_method__AoiAdapterPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>('wire_get_adapters__static_method__AoiAdapter');
+  late final _wire_get_adapters__static_method__AoiAdapter =
+      _wire_get_adapters__static_method__AoiAdapterPtr.asFunction<void Function(int)>();
 
-  void wire_rust_release_mode(
+  void wire_start_scan__method__AoiAdapter(
     int port_,
+    ffi.Pointer<wire_AoiAdapter> that,
+    ffi.Pointer<wire_FilterCriteria> filter,
   ) {
-    return _wire_rust_release_mode(
+    return _wire_start_scan__method__AoiAdapter(
       port_,
+      that,
+      filter,
     );
   }
 
-  late final _wire_rust_release_modePtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>('wire_rust_release_mode');
-  late final _wire_rust_release_mode = _wire_rust_release_modePtr.asFunction<void Function(int)>();
+  late final _wire_start_scan__method__AoiAdapterPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiAdapter>,
+              ffi.Pointer<wire_FilterCriteria>)>>('wire_start_scan__method__AoiAdapter');
+  late final _wire_start_scan__method__AoiAdapter = _wire_start_scan__method__AoiAdapterPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_AoiAdapter>, ffi.Pointer<wire_FilterCriteria>)>();
 
-  void wire_find_ble_devices(
+  void wire_stop_scan__method__AoiAdapter(
     int port_,
-    ffi.Pointer<wire_list_search_criteria> search_criteria,
-    int search_duration,
+    ffi.Pointer<wire_AoiAdapter> that,
   ) {
-    return _wire_find_ble_devices(
+    return _wire_stop_scan__method__AoiAdapter(
       port_,
-      search_criteria,
-      search_duration,
+      that,
     );
   }
 
-  late final _wire_find_ble_devicesPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_list_search_criteria>, ffi.Int64)>>(
-          'wire_find_ble_devices');
-  late final _wire_find_ble_devices =
-      _wire_find_ble_devicesPtr.asFunction<void Function(int, ffi.Pointer<wire_list_search_criteria>, int)>();
+  late final _wire_stop_scan__method__AoiAdapterPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiAdapter>)>>(
+          'wire_stop_scan__method__AoiAdapter');
+  late final _wire_stop_scan__method__AoiAdapter =
+      _wire_stop_scan__method__AoiAdapterPtr.asFunction<void Function(int, ffi.Pointer<wire_AoiAdapter>)>();
 
-  ffi.Pointer<wire_list_search_criteria> new_list_search_criteria_0(
+  void wire_connect__method__AoiPeripheral(
+    int port_,
+    ffi.Pointer<wire_AoiPeripheral> that,
+  ) {
+    return _wire_connect__method__AoiPeripheral(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_connect__method__AoiPeripheralPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiPeripheral>)>>(
+          'wire_connect__method__AoiPeripheral');
+  late final _wire_connect__method__AoiPeripheral =
+      _wire_connect__method__AoiPeripheralPtr.asFunction<void Function(int, ffi.Pointer<wire_AoiPeripheral>)>();
+
+  void wire_read__method__AoiConnectedPeripheral(
+    int port_,
+    ffi.Pointer<wire_AoiConnectedPeripheral> that,
+    ffi.Pointer<wire_AoiCharacteristic> characteristic,
+  ) {
+    return _wire_read__method__AoiConnectedPeripheral(
+      port_,
+      that,
+      characteristic,
+    );
+  }
+
+  late final _wire_read__method__AoiConnectedPeripheralPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiConnectedPeripheral>,
+              ffi.Pointer<wire_AoiCharacteristic>)>>('wire_read__method__AoiConnectedPeripheral');
+  late final _wire_read__method__AoiConnectedPeripheral = _wire_read__method__AoiConnectedPeripheralPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_AoiConnectedPeripheral>, ffi.Pointer<wire_AoiCharacteristic>)>();
+
+  void wire_write__method__AoiConnectedPeripheral(
+    int port_,
+    ffi.Pointer<wire_AoiConnectedPeripheral> that,
+    ffi.Pointer<wire_AoiCharacteristic> characteristic,
+    ffi.Pointer<wire_uint_8_list> data,
+  ) {
+    return _wire_write__method__AoiConnectedPeripheral(
+      port_,
+      that,
+      characteristic,
+      data,
+    );
+  }
+
+  late final _wire_write__method__AoiConnectedPeripheralPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiConnectedPeripheral>, ffi.Pointer<wire_AoiCharacteristic>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_write__method__AoiConnectedPeripheral');
+  late final _wire_write__method__AoiConnectedPeripheral = _wire_write__method__AoiConnectedPeripheralPtr.asFunction<
+      void Function(int, ffi.Pointer<wire_AoiConnectedPeripheral>, ffi.Pointer<wire_AoiCharacteristic>,
+          ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_disconnect__method__AoiConnectedPeripheral(
+    int port_,
+    ffi.Pointer<wire_AoiConnectedPeripheral> that,
+  ) {
+    return _wire_disconnect__method__AoiConnectedPeripheral(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_disconnect__method__AoiConnectedPeripheralPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiConnectedPeripheral>)>>(
+          'wire_disconnect__method__AoiConnectedPeripheral');
+  late final _wire_disconnect__method__AoiConnectedPeripheral = _wire_disconnect__method__AoiConnectedPeripheralPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_AoiConnectedPeripheral>)>();
+
+  void wire_get_properties__method__AoiCharacteristic(
+    int port_,
+    ffi.Pointer<wire_AoiCharacteristic> that,
+  ) {
+    return _wire_get_properties__method__AoiCharacteristic(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_get_properties__method__AoiCharacteristicPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiCharacteristic>)>>(
+          'wire_get_properties__method__AoiCharacteristic');
+  late final _wire_get_properties__method__AoiCharacteristic = _wire_get_properties__method__AoiCharacteristicPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_AoiCharacteristic>)>();
+
+  ffi.Pointer<wire_StringList> new_StringList_0(
     int len,
   ) {
-    return _new_list_search_criteria_0(
+    return _new_StringList_0(
       len,
     );
   }
 
-  late final _new_list_search_criteria_0Ptr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<wire_list_search_criteria> Function(ffi.Int32)>>(
-          'new_list_search_criteria_0');
-  late final _new_list_search_criteria_0 =
-      _new_list_search_criteria_0Ptr.asFunction<ffi.Pointer<wire_list_search_criteria> Function(int)>();
+  late final _new_StringList_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_StringList> Function(ffi.Int32)>>('new_StringList_0');
+  late final _new_StringList_0 = _new_StringList_0Ptr.asFunction<ffi.Pointer<wire_StringList> Function(int)>();
 
-  ffi.Pointer<wire_list_search_criterion> new_list_search_criterion_0(
+  ffi.Pointer<wire_AoiAdapter> new_box_aoi_adapter_0() {
+    return _new_box_aoi_adapter_0();
+  }
+
+  late final _new_box_aoi_adapter_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiAdapter> Function()>>('new_box_aoi_adapter_0');
+  late final _new_box_aoi_adapter_0 = _new_box_aoi_adapter_0Ptr.asFunction<ffi.Pointer<wire_AoiAdapter> Function()>();
+
+  ffi.Pointer<wire_AoiPeripheral> new_box_aoi_peripheral_0() {
+    return _new_box_aoi_peripheral_0();
+  }
+
+  late final _new_box_aoi_peripheral_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiPeripheral> Function()>>('new_box_aoi_peripheral_0');
+  late final _new_box_aoi_peripheral_0 =
+      _new_box_aoi_peripheral_0Ptr.asFunction<ffi.Pointer<wire_AoiPeripheral> Function()>();
+
+  ffi.Pointer<wire_AoiAdapter> new_box_autoadd_aoi_adapter_0() {
+    return _new_box_autoadd_aoi_adapter_0();
+  }
+
+  late final _new_box_autoadd_aoi_adapter_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiAdapter> Function()>>('new_box_autoadd_aoi_adapter_0');
+  late final _new_box_autoadd_aoi_adapter_0 =
+      _new_box_autoadd_aoi_adapter_0Ptr.asFunction<ffi.Pointer<wire_AoiAdapter> Function()>();
+
+  ffi.Pointer<wire_AoiCharacteristic> new_box_autoadd_aoi_characteristic_0() {
+    return _new_box_autoadd_aoi_characteristic_0();
+  }
+
+  late final _new_box_autoadd_aoi_characteristic_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiCharacteristic> Function()>>(
+          'new_box_autoadd_aoi_characteristic_0');
+  late final _new_box_autoadd_aoi_characteristic_0 =
+      _new_box_autoadd_aoi_characteristic_0Ptr.asFunction<ffi.Pointer<wire_AoiCharacteristic> Function()>();
+
+  ffi.Pointer<wire_AoiConnectedPeripheral> new_box_autoadd_aoi_connected_peripheral_0() {
+    return _new_box_autoadd_aoi_connected_peripheral_0();
+  }
+
+  late final _new_box_autoadd_aoi_connected_peripheral_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiConnectedPeripheral> Function()>>(
+          'new_box_autoadd_aoi_connected_peripheral_0');
+  late final _new_box_autoadd_aoi_connected_peripheral_0 =
+      _new_box_autoadd_aoi_connected_peripheral_0Ptr.asFunction<ffi.Pointer<wire_AoiConnectedPeripheral> Function()>();
+
+  ffi.Pointer<wire_AoiPeripheral> new_box_autoadd_aoi_peripheral_0() {
+    return _new_box_autoadd_aoi_peripheral_0();
+  }
+
+  late final _new_box_autoadd_aoi_peripheral_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiPeripheral> Function()>>('new_box_autoadd_aoi_peripheral_0');
+  late final _new_box_autoadd_aoi_peripheral_0 =
+      _new_box_autoadd_aoi_peripheral_0Ptr.asFunction<ffi.Pointer<wire_AoiPeripheral> Function()>();
+
+  ffi.Pointer<wire_FilterCriteria> new_box_autoadd_filter_criteria_0() {
+    return _new_box_autoadd_filter_criteria_0();
+  }
+
+  late final _new_box_autoadd_filter_criteria_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_FilterCriteria> Function()>>('new_box_autoadd_filter_criteria_0');
+  late final _new_box_autoadd_filter_criteria_0 =
+      _new_box_autoadd_filter_criteria_0Ptr.asFunction<ffi.Pointer<wire_FilterCriteria> Function()>();
+
+  ffi.Pointer<wire_list_aoi_characteristic> new_list_aoi_characteristic_0(
     int len,
   ) {
-    return _new_list_search_criterion_0(
+    return _new_list_aoi_characteristic_0(
       len,
     );
   }
 
-  late final _new_list_search_criterion_0Ptr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<wire_list_search_criterion> Function(ffi.Int32)>>(
-          'new_list_search_criterion_0');
-  late final _new_list_search_criterion_0 =
-      _new_list_search_criterion_0Ptr.asFunction<ffi.Pointer<wire_list_search_criterion> Function(int)>();
+  late final _new_list_aoi_characteristic_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_list_aoi_characteristic> Function(ffi.Int32)>>(
+          'new_list_aoi_characteristic_0');
+  late final _new_list_aoi_characteristic_0 =
+      _new_list_aoi_characteristic_0Ptr.asFunction<ffi.Pointer<wire_list_aoi_characteristic> Function(int)>();
+
+  ffi.Pointer<wire_list_filter_criterion> new_list_filter_criterion_0(
+    int len,
+  ) {
+    return _new_list_filter_criterion_0(
+      len,
+    );
+  }
+
+  late final _new_list_filter_criterion_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_list_filter_criterion> Function(ffi.Int32)>>(
+          'new_list_filter_criterion_0');
+  late final _new_list_filter_criterion_0 =
+      _new_list_filter_criterion_0Ptr.asFunction<ffi.Pointer<wire_list_filter_criterion> Function(int)>();
 
   ffi.Pointer<wire_uint_8_list> new_uint_8_list_0(
     int len,
@@ -265,51 +563,62 @@ class NativeWire implements FlutterRustBridgeWireBase {
       _lookup<ffi.NativeFunction<ffi.Pointer<wire_uint_8_list> Function(ffi.Int32)>>('new_uint_8_list_0');
   late final _new_uint_8_list_0 = _new_uint_8_list_0Ptr.asFunction<ffi.Pointer<wire_uint_8_list> Function(int)>();
 
-  ffi.Pointer<SearchCriteriaKind> inflate_SearchCriteria_Any() {
-    return _inflate_SearchCriteria_Any();
+  ffi.Pointer<FilterCriteriaKind> inflate_FilterCriteria_Any() {
+    return _inflate_FilterCriteria_Any();
   }
 
-  late final _inflate_SearchCriteria_AnyPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<SearchCriteriaKind> Function()>>('inflate_SearchCriteria_Any');
-  late final _inflate_SearchCriteria_Any =
-      _inflate_SearchCriteria_AnyPtr.asFunction<ffi.Pointer<SearchCriteriaKind> Function()>();
+  late final _inflate_FilterCriteria_AnyPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriteriaKind> Function()>>('inflate_FilterCriteria_Any');
+  late final _inflate_FilterCriteria_Any =
+      _inflate_FilterCriteria_AnyPtr.asFunction<ffi.Pointer<FilterCriteriaKind> Function()>();
 
-  ffi.Pointer<SearchCriteriaKind> inflate_SearchCriteria_All() {
-    return _inflate_SearchCriteria_All();
+  ffi.Pointer<FilterCriteriaKind> inflate_FilterCriteria_All() {
+    return _inflate_FilterCriteria_All();
   }
 
-  late final _inflate_SearchCriteria_AllPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<SearchCriteriaKind> Function()>>('inflate_SearchCriteria_All');
-  late final _inflate_SearchCriteria_All =
-      _inflate_SearchCriteria_AllPtr.asFunction<ffi.Pointer<SearchCriteriaKind> Function()>();
+  late final _inflate_FilterCriteria_AllPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriteriaKind> Function()>>('inflate_FilterCriteria_All');
+  late final _inflate_FilterCriteria_All =
+      _inflate_FilterCriteria_AllPtr.asFunction<ffi.Pointer<FilterCriteriaKind> Function()>();
 
-  ffi.Pointer<SearchCriterionKind> inflate_SearchCriterion_WithService() {
-    return _inflate_SearchCriterion_WithService();
+  ffi.Pointer<FilterCriterionKind> inflate_FilterCriterion_HasServiceUuid() {
+    return _inflate_FilterCriterion_HasServiceUuid();
   }
 
-  late final _inflate_SearchCriterion_WithServicePtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<SearchCriterionKind> Function()>>('inflate_SearchCriterion_WithService');
-  late final _inflate_SearchCriterion_WithService =
-      _inflate_SearchCriterion_WithServicePtr.asFunction<ffi.Pointer<SearchCriterionKind> Function()>();
+  late final _inflate_FilterCriterion_HasServiceUuidPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>(
+          'inflate_FilterCriterion_HasServiceUuid');
+  late final _inflate_FilterCriterion_HasServiceUuid =
+      _inflate_FilterCriterion_HasServiceUuidPtr.asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
 
-  ffi.Pointer<SearchCriterionKind> inflate_SearchCriterion_NameMatchesExactly() {
-    return _inflate_SearchCriterion_NameMatchesExactly();
+  ffi.Pointer<FilterCriterionKind> inflate_FilterCriterion_NameMatchesExactly() {
+    return _inflate_FilterCriterion_NameMatchesExactly();
   }
 
-  late final _inflate_SearchCriterion_NameMatchesExactlyPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<SearchCriterionKind> Function()>>(
-          'inflate_SearchCriterion_NameMatchesExactly');
-  late final _inflate_SearchCriterion_NameMatchesExactly =
-      _inflate_SearchCriterion_NameMatchesExactlyPtr.asFunction<ffi.Pointer<SearchCriterionKind> Function()>();
+  late final _inflate_FilterCriterion_NameMatchesExactlyPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>(
+          'inflate_FilterCriterion_NameMatchesExactly');
+  late final _inflate_FilterCriterion_NameMatchesExactly =
+      _inflate_FilterCriterion_NameMatchesExactlyPtr.asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
 
-  ffi.Pointer<SearchCriterionKind> inflate_SearchCriterion_NameContains() {
-    return _inflate_SearchCriterion_NameContains();
+  ffi.Pointer<FilterCriterionKind> inflate_FilterCriterion_NameContains() {
+    return _inflate_FilterCriterion_NameContains();
   }
 
-  late final _inflate_SearchCriterion_NameContainsPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<SearchCriterionKind> Function()>>('inflate_SearchCriterion_NameContains');
-  late final _inflate_SearchCriterion_NameContains =
-      _inflate_SearchCriterion_NameContainsPtr.asFunction<ffi.Pointer<SearchCriterionKind> Function()>();
+  late final _inflate_FilterCriterion_NameContainsPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>('inflate_FilterCriterion_NameContains');
+  late final _inflate_FilterCriterion_NameContains =
+      _inflate_FilterCriterion_NameContainsPtr.asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
+
+  ffi.Pointer<FilterCriterionKind> inflate_FilterCriterion_ManufacturerDataMatches() {
+    return _inflate_FilterCriterion_ManufacturerDataMatches();
+  }
+
+  late final _inflate_FilterCriterion_ManufacturerDataMatchesPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>(
+          'inflate_FilterCriterion_ManufacturerDataMatches');
+  late final _inflate_FilterCriterion_ManufacturerDataMatches =
+      _inflate_FilterCriterion_ManufacturerDataMatchesPtr.asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
 
   void free_WireSyncReturn(
     WireSyncReturn ptr,
@@ -326,6 +635,11 @@ class NativeWire implements FlutterRustBridgeWireBase {
 
 class _Dart_Handle extends ffi.Opaque {}
 
+class wire_AoiAdapter extends ffi.Struct {
+  @ffi.UintPtr()
+  external int index;
+}
+
 class wire_uint_8_list extends ffi.Struct {
   external ffi.Pointer<ffi.Uint8> ptr;
 
@@ -333,66 +647,106 @@ class wire_uint_8_list extends ffi.Struct {
   external int len;
 }
 
-class wire_SearchCriterion_WithService extends ffi.Struct {
+class wire_FilterCriterion_HasServiceUuid extends ffi.Struct {
   external ffi.Pointer<wire_uint_8_list> field0;
 }
 
-class wire_SearchCriterion_NameMatchesExactly extends ffi.Struct {
+class wire_FilterCriterion_NameMatchesExactly extends ffi.Struct {
   external ffi.Pointer<wire_uint_8_list> field0;
 }
 
-class wire_SearchCriterion_NameContains extends ffi.Struct {
+class wire_FilterCriterion_NameContains extends ffi.Struct {
   external ffi.Pointer<wire_uint_8_list> field0;
 }
 
-class SearchCriterionKind extends ffi.Union {
-  external ffi.Pointer<wire_SearchCriterion_WithService> WithService;
-
-  external ffi.Pointer<wire_SearchCriterion_NameMatchesExactly> NameMatchesExactly;
-
-  external ffi.Pointer<wire_SearchCriterion_NameContains> NameContains;
+class wire_FilterCriterion_ManufacturerDataMatches extends ffi.Struct {
+  external ffi.Pointer<wire_uint_8_list> field0;
 }
 
-class wire_SearchCriterion extends ffi.Struct {
+class FilterCriterionKind extends ffi.Union {
+  external ffi.Pointer<wire_FilterCriterion_HasServiceUuid> HasServiceUuid;
+
+  external ffi.Pointer<wire_FilterCriterion_NameMatchesExactly> NameMatchesExactly;
+
+  external ffi.Pointer<wire_FilterCriterion_NameContains> NameContains;
+
+  external ffi.Pointer<wire_FilterCriterion_ManufacturerDataMatches> ManufacturerDataMatches;
+}
+
+class wire_FilterCriterion extends ffi.Struct {
   @ffi.Int32()
   external int tag;
 
-  external ffi.Pointer<SearchCriterionKind> kind;
+  external ffi.Pointer<FilterCriterionKind> kind;
 }
 
-class wire_list_search_criterion extends ffi.Struct {
-  external ffi.Pointer<wire_SearchCriterion> ptr;
+class wire_list_filter_criterion extends ffi.Struct {
+  external ffi.Pointer<wire_FilterCriterion> ptr;
 
   @ffi.Int32()
   external int len;
 }
 
-class wire_SearchCriteria_Any extends ffi.Struct {
-  external ffi.Pointer<wire_list_search_criterion> field0;
+class wire_FilterCriteria_Any extends ffi.Struct {
+  external ffi.Pointer<wire_list_filter_criterion> field0;
 }
 
-class wire_SearchCriteria_All extends ffi.Struct {
-  external ffi.Pointer<wire_list_search_criterion> field0;
+class wire_FilterCriteria_All extends ffi.Struct {
+  external ffi.Pointer<wire_list_filter_criterion> field0;
 }
 
-class SearchCriteriaKind extends ffi.Union {
-  external ffi.Pointer<wire_SearchCriteria_Any> Any;
+class FilterCriteriaKind extends ffi.Union {
+  external ffi.Pointer<wire_FilterCriteria_Any> Any;
 
-  external ffi.Pointer<wire_SearchCriteria_All> All;
+  external ffi.Pointer<wire_FilterCriteria_All> All;
 }
 
-class wire_SearchCriteria extends ffi.Struct {
+class wire_FilterCriteria extends ffi.Struct {
   @ffi.Int32()
   external int tag;
 
-  external ffi.Pointer<SearchCriteriaKind> kind;
+  external ffi.Pointer<FilterCriteriaKind> kind;
 }
 
-class wire_list_search_criteria extends ffi.Struct {
-  external ffi.Pointer<wire_SearchCriteria> ptr;
+class wire_StringList extends ffi.Struct {
+  external ffi.Pointer<ffi.Pointer<wire_uint_8_list>> ptr;
 
   @ffi.Int32()
   external int len;
+}
+
+class wire_AoiPeripheral extends ffi.Struct {
+  external ffi.Pointer<wire_AoiAdapter> adapter;
+
+  external ffi.Pointer<wire_uint_8_list> name;
+
+  external ffi.Pointer<wire_uint_8_list> address;
+
+  external ffi.Pointer<wire_StringList> services;
+
+  external ffi.Pointer<wire_uint_8_list> manufacturer_data;
+}
+
+class wire_AoiCharacteristic extends ffi.Struct {
+  external ffi.Pointer<wire_uint_8_list> uuid;
+
+  external ffi.Pointer<wire_uint_8_list> service_uuid;
+
+  @ffi.Uint8()
+  external int properties;
+}
+
+class wire_list_aoi_characteristic extends ffi.Struct {
+  external ffi.Pointer<wire_AoiCharacteristic> ptr;
+
+  @ffi.Int32()
+  external int len;
+}
+
+class wire_AoiConnectedPeripheral extends ffi.Struct {
+  external ffi.Pointer<wire_AoiPeripheral> peripheral;
+
+  external ffi.Pointer<wire_list_aoi_characteristic> characteristics;
 }
 
 typedef DartPostCObjectFnType = ffi.Pointer<ffi.NativeFunction<ffi.Bool Function(DartPort, ffi.Pointer<ffi.Void>)>>;

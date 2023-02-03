@@ -21,41 +21,137 @@ use std::sync::Arc;
 
 // Section: wire functions
 
-fn wire_platform_impl(port_: MessagePort) {
+fn wire_get_adapters__static_method__AoiAdapter_impl(port_: MessagePort) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "platform",
+            debug_name: "get_adapters__static_method__AoiAdapter",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(platform()),
+        move || move |task_callback| Ok(AoiAdapter::get_adapters()),
     )
 }
-fn wire_rust_release_mode_impl(port_: MessagePort) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "rust_release_mode",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || move |task_callback| Ok(rust_release_mode()),
-    )
-}
-fn wire_find_ble_devices_impl(
+fn wire_start_scan__method__AoiAdapter_impl(
     port_: MessagePort,
-    search_criteria: impl Wire2Api<Vec<SearchCriteria>> + UnwindSafe,
-    search_duration: impl Wire2Api<chrono::Duration> + UnwindSafe,
+    that: impl Wire2Api<AoiAdapter> + UnwindSafe,
+    filter: impl Wire2Api<Option<FilterCriteria>> + UnwindSafe,
 ) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "find_ble_devices",
+            debug_name: "start_scan__method__AoiAdapter",
+            port: Some(port_),
+            mode: FfiCallMode::Stream,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_filter = filter.wire2api();
+            move |task_callback| {
+                AoiAdapter::start_scan(&api_that, api_filter, task_callback.stream_sink())
+            }
+        },
+    )
+}
+fn wire_stop_scan__method__AoiAdapter_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<AoiAdapter> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "stop_scan__method__AoiAdapter",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
         move || {
-            let api_search_criteria = search_criteria.wire2api();
-            let api_search_duration = search_duration.wire2api();
-            move |task_callback| Ok(find_ble_devices(api_search_criteria, api_search_duration))
+            let api_that = that.wire2api();
+            move |task_callback| AoiAdapter::stop_scan(&api_that)
+        },
+    )
+}
+fn wire_connect__method__AoiPeripheral_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<AoiPeripheral> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "connect__method__AoiPeripheral",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            move |task_callback| AoiPeripheral::connect(&api_that)
+        },
+    )
+}
+fn wire_read__method__AoiConnectedPeripheral_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<AoiConnectedPeripheral> + UnwindSafe,
+    characteristic: impl Wire2Api<AoiCharacteristic> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "read__method__AoiConnectedPeripheral",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_characteristic = characteristic.wire2api();
+            move |task_callback| AoiConnectedPeripheral::read(&api_that, api_characteristic)
+        },
+    )
+}
+fn wire_write__method__AoiConnectedPeripheral_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<AoiConnectedPeripheral> + UnwindSafe,
+    characteristic: impl Wire2Api<AoiCharacteristic> + UnwindSafe,
+    data: impl Wire2Api<Vec<u8>> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "write__method__AoiConnectedPeripheral",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_characteristic = characteristic.wire2api();
+            let api_data = data.wire2api();
+            move |task_callback| {
+                AoiConnectedPeripheral::write(&api_that, api_characteristic, api_data)
+            }
+        },
+    )
+}
+fn wire_disconnect__method__AoiConnectedPeripheral_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<AoiConnectedPeripheral> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "disconnect__method__AoiConnectedPeripheral",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            move |task_callback| AoiConnectedPeripheral::disconnect(&api_that)
+        },
+    )
+}
+fn wire_get_properties__method__AoiCharacteristic_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<AoiCharacteristic> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_properties__method__AoiCharacteristic",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            move |task_callback| Ok(AoiCharacteristic::get_properties(&api_that))
         },
     )
 }
@@ -82,49 +178,62 @@ where
     }
 }
 
-impl Wire2Api<i64> for i64 {
-    fn wire2api(self) -> i64 {
-        self
-    }
-}
-
 impl Wire2Api<u8> for u8 {
     fn wire2api(self) -> u8 {
         self
     }
 }
 
+impl Wire2Api<usize> for usize {
+    fn wire2api(self) -> usize {
+        self
+    }
+}
 // Section: impl IntoDart
 
-impl support::IntoDart for BleAddress {
+impl support::IntoDart for AoiAdapter {
     fn into_dart(self) -> support::DartAbi {
-        vec![self.address.into_dart()].into_dart()
+        vec![self.index.into_dart()].into_dart()
     }
 }
-impl support::IntoDartExceptPrimitive for BleAddress {}
+impl support::IntoDartExceptPrimitive for AoiAdapter {}
 
-impl support::IntoDart for BleDevice {
+impl support::IntoDart for AoiCharacteristic {
     fn into_dart(self) -> support::DartAbi {
-        vec![self.name.into_dart(), self.address.into_dart()].into_dart()
-    }
-}
-impl support::IntoDartExceptPrimitive for BleDevice {}
-
-impl support::IntoDart for Platform {
-    fn into_dart(self) -> support::DartAbi {
-        match self {
-            Self::Unknown => 0,
-            Self::Android => 1,
-            Self::Ios => 2,
-            Self::Windows => 3,
-            Self::Unix => 4,
-            Self::MacIntel => 5,
-            Self::MacApple => 6,
-            Self::Wasm => 7,
-        }
+        vec![
+            self.uuid.into_dart(),
+            self.service_uuid.into_dart(),
+            self.properties.into_dart(),
+        ]
         .into_dart()
     }
 }
+impl support::IntoDartExceptPrimitive for AoiCharacteristic {}
+
+impl support::IntoDart for AoiConnectedPeripheral {
+    fn into_dart(self) -> support::DartAbi {
+        vec![
+            (*self.peripheral).into_dart(),
+            self.characteristics.into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for AoiConnectedPeripheral {}
+
+impl support::IntoDart for AoiPeripheral {
+    fn into_dart(self) -> support::DartAbi {
+        vec![
+            (*self.adapter).into_dart(),
+            self.name.into_dart(),
+            self.address.into_dart(),
+            self.services.into_dart(),
+            self.manufacturer_data.into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for AoiPeripheral {}
 
 // Section: executor
 

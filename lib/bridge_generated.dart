@@ -17,52 +17,144 @@ class NativeImpl implements Native {
   /// Only valid on web/WASM platforms.
   factory NativeImpl.wasm(FutureOr<WasmModule> module) => NativeImpl(module as ExternalLibrary);
   NativeImpl.raw(this._platform);
-  Future<Platform> platform({dynamic hint}) {
+  Future<List<AoiAdapter>> getAdaptersStaticMethodAoiAdapter({dynamic hint}) {
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_platform(port_),
-      parseSuccessData: _wire2api_platform,
-      constMeta: kPlatformConstMeta,
+      callFfi: (port_) => _platform.inner.wire_get_adapters__static_method__AoiAdapter(port_),
+      parseSuccessData: _wire2api_list_aoi_adapter,
+      constMeta: kGetAdaptersStaticMethodAoiAdapterConstMeta,
       argValues: [],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kPlatformConstMeta => const FlutterRustBridgeTaskConstMeta(
-        debugName: "platform",
+  FlutterRustBridgeTaskConstMeta get kGetAdaptersStaticMethodAoiAdapterConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "get_adapters__static_method__AoiAdapter",
         argNames: [],
       );
 
-  Future<bool> rustReleaseMode({dynamic hint}) {
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_rust_release_mode(port_),
-      parseSuccessData: _wire2api_bool,
-      constMeta: kRustReleaseModeConstMeta,
-      argValues: [],
+  Stream<AoiPeripheral> startScanMethodAoiAdapter({required AoiAdapter that, FilterCriteria? filter, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_aoi_adapter(that);
+    var arg1 = _platform.api2wire_opt_box_autoadd_filter_criteria(filter);
+    return _platform.executeStream(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_start_scan__method__AoiAdapter(port_, arg0, arg1),
+      parseSuccessData: (d) => _wire2api_aoi_peripheral(d),
+      constMeta: kStartScanMethodAoiAdapterConstMeta,
+      argValues: [that, filter],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kRustReleaseModeConstMeta => const FlutterRustBridgeTaskConstMeta(
-        debugName: "rust_release_mode",
-        argNames: [],
+  FlutterRustBridgeTaskConstMeta get kStartScanMethodAoiAdapterConstMeta => const FlutterRustBridgeTaskConstMeta(
+        debugName: "start_scan__method__AoiAdapter",
+        argNames: ["that", "filter"],
       );
 
-  Future<List<BleDevice>> findBleDevices(
-      {required List<SearchCriteria> searchCriteria, required Duration searchDuration, dynamic hint}) {
-    var arg0 = _platform.api2wire_list_search_criteria(searchCriteria);
-    var arg1 = _platform.api2wire_Chrono_Duration(searchDuration);
+  Future<void> stopScanMethodAoiAdapter({required AoiAdapter that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_aoi_adapter(that);
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_find_ble_devices(port_, arg0, arg1),
-      parseSuccessData: _wire2api_list_ble_device,
-      constMeta: kFindBleDevicesConstMeta,
-      argValues: [searchCriteria, searchDuration],
+      callFfi: (port_) => _platform.inner.wire_stop_scan__method__AoiAdapter(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kStopScanMethodAoiAdapterConstMeta,
+      argValues: [that],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kFindBleDevicesConstMeta => const FlutterRustBridgeTaskConstMeta(
-        debugName: "find_ble_devices",
-        argNames: ["searchCriteria", "searchDuration"],
+  FlutterRustBridgeTaskConstMeta get kStopScanMethodAoiAdapterConstMeta => const FlutterRustBridgeTaskConstMeta(
+        debugName: "stop_scan__method__AoiAdapter",
+        argNames: ["that"],
+      );
+
+  Future<AoiConnectedPeripheral> connectMethodAoiPeripheral({required AoiPeripheral that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_aoi_peripheral(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_connect__method__AoiPeripheral(port_, arg0),
+      parseSuccessData: (d) => _wire2api_aoi_connected_peripheral(d),
+      constMeta: kConnectMethodAoiPeripheralConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kConnectMethodAoiPeripheralConstMeta => const FlutterRustBridgeTaskConstMeta(
+        debugName: "connect__method__AoiPeripheral",
+        argNames: ["that"],
+      );
+
+  Future<Uint8List> readMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that, required AoiCharacteristic characteristic, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_aoi_connected_peripheral(that);
+    var arg1 = _platform.api2wire_box_autoadd_aoi_characteristic(characteristic);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_read__method__AoiConnectedPeripheral(port_, arg0, arg1),
+      parseSuccessData: _wire2api_uint_8_list,
+      constMeta: kReadMethodAoiConnectedPeripheralConstMeta,
+      argValues: [that, characteristic],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kReadMethodAoiConnectedPeripheralConstMeta => const FlutterRustBridgeTaskConstMeta(
+        debugName: "read__method__AoiConnectedPeripheral",
+        argNames: ["that", "characteristic"],
+      );
+
+  Future<void> writeMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that,
+      required AoiCharacteristic characteristic,
+      required Uint8List data,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_aoi_connected_peripheral(that);
+    var arg1 = _platform.api2wire_box_autoadd_aoi_characteristic(characteristic);
+    var arg2 = _platform.api2wire_uint_8_list(data);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_write__method__AoiConnectedPeripheral(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kWriteMethodAoiConnectedPeripheralConstMeta,
+      argValues: [that, characteristic, data],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kWriteMethodAoiConnectedPeripheralConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "write__method__AoiConnectedPeripheral",
+        argNames: ["that", "characteristic", "data"],
+      );
+
+  Future<void> disconnectMethodAoiConnectedPeripheral({required AoiConnectedPeripheral that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_aoi_connected_peripheral(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_disconnect__method__AoiConnectedPeripheral(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kDisconnectMethodAoiConnectedPeripheralConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kDisconnectMethodAoiConnectedPeripheralConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "disconnect__method__AoiConnectedPeripheral",
+        argNames: ["that"],
+      );
+
+  Future<Int32List> getPropertiesMethodAoiCharacteristic({required AoiCharacteristic that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_aoi_characteristic(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_get_properties__method__AoiCharacteristic(port_, arg0),
+      parseSuccessData: _wire2api_int_32_list,
+      constMeta: kGetPropertiesMethodAoiCharacteristicConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kGetPropertiesMethodAoiCharacteristicConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "get_properties__method__AoiCharacteristic",
+        argNames: ["that"],
       );
 
   void dispose() {
@@ -74,41 +166,79 @@ class NativeImpl implements Native {
     return raw as String;
   }
 
-  BleAddress _wire2api_ble_address(dynamic raw) {
+  List<String> _wire2api_StringList(dynamic raw) {
+    return (raw as List<dynamic>).cast<String>();
+  }
+
+  AoiAdapter _wire2api_aoi_adapter(dynamic raw) {
     final arr = raw as List<dynamic>;
     if (arr.length != 1) throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
-    return BleAddress(
-      address: _wire2api_u8_array_6(arr[0]),
+    return AoiAdapter(
+      bridge: this,
+      index: _wire2api_usize(arr[0]),
     );
   }
 
-  BleDevice _wire2api_ble_device(dynamic raw) {
+  AoiCharacteristic _wire2api_aoi_characteristic(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 3) throw Exception('unexpected arr length: expect 3 but see ${arr.length}');
+    return AoiCharacteristic(
+      bridge: this,
+      uuid: _wire2api_String(arr[0]),
+      serviceUuid: _wire2api_String(arr[1]),
+      properties: _wire2api_u8(arr[2]),
+    );
+  }
+
+  AoiConnectedPeripheral _wire2api_aoi_connected_peripheral(dynamic raw) {
     final arr = raw as List<dynamic>;
     if (arr.length != 2) throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
-    return BleDevice(
-      name: _wire2api_opt_String(arr[0]),
-      address: _wire2api_ble_address(arr[1]),
+    return AoiConnectedPeripheral(
+      bridge: this,
+      peripheral: _wire2api_box_aoi_peripheral(arr[0]),
+      characteristics: _wire2api_list_aoi_characteristic(arr[1]),
     );
   }
 
-  bool _wire2api_bool(dynamic raw) {
-    return raw as bool;
+  AoiPeripheral _wire2api_aoi_peripheral(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 5) throw Exception('unexpected arr length: expect 5 but see ${arr.length}');
+    return AoiPeripheral(
+      bridge: this,
+      adapter: _wire2api_box_aoi_adapter(arr[0]),
+      name: _wire2api_opt_String(arr[1]),
+      address: _wire2api_u8_array_6(arr[2]),
+      services: _wire2api_StringList(arr[3]),
+      manufacturerData: _wire2api_uint_8_list(arr[4]),
+    );
+  }
+
+  AoiAdapter _wire2api_box_aoi_adapter(dynamic raw) {
+    return _wire2api_aoi_adapter(raw);
+  }
+
+  AoiPeripheral _wire2api_box_aoi_peripheral(dynamic raw) {
+    return _wire2api_aoi_peripheral(raw);
   }
 
   int _wire2api_i32(dynamic raw) {
     return raw as int;
   }
 
-  List<BleDevice> _wire2api_list_ble_device(dynamic raw) {
-    return (raw as List<dynamic>).map(_wire2api_ble_device).toList();
+  Int32List _wire2api_int_32_list(dynamic raw) {
+    return raw as Int32List;
+  }
+
+  List<AoiAdapter> _wire2api_list_aoi_adapter(dynamic raw) {
+    return (raw as List<dynamic>).map(_wire2api_aoi_adapter).toList();
+  }
+
+  List<AoiCharacteristic> _wire2api_list_aoi_characteristic(dynamic raw) {
+    return (raw as List<dynamic>).map(_wire2api_aoi_characteristic).toList();
   }
 
   String? _wire2api_opt_String(dynamic raw) {
     return raw == null ? null : _wire2api_String(raw);
-  }
-
-  Platform _wire2api_platform(dynamic raw) {
-    return Platform.values[raw];
   }
 
   int _wire2api_u8(dynamic raw) {
@@ -122,6 +252,14 @@ class NativeImpl implements Native {
   Uint8List _wire2api_uint_8_list(dynamic raw) {
     return raw as Uint8List;
   }
+
+  void _wire2api_unit(dynamic raw) {
+    return;
+  }
+
+  int _wire2api_usize(dynamic raw) {
+    return castInt(raw);
+  }
 }
 
 // Section: api2wire
@@ -131,4 +269,8 @@ int api2wire_u8(int raw) {
   return raw;
 }
 
+@protected
+int api2wire_usize(int raw) {
+  return raw;
+}
 // Section: finalizer

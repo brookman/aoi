@@ -14,70 +14,159 @@ import 'package:collection/collection.dart';
 part 'bridge_definitions.freezed.dart';
 
 abstract class Native {
-  Future<Platform> platform({dynamic hint});
+  Future<List<AoiAdapter>> getAdaptersStaticMethodAoiAdapter({dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta get kPlatformConstMeta;
+  FlutterRustBridgeTaskConstMeta get kGetAdaptersStaticMethodAoiAdapterConstMeta;
 
-  Future<bool> rustReleaseMode({dynamic hint});
+  Stream<AoiPeripheral> startScanMethodAoiAdapter({required AoiAdapter that, FilterCriteria? filter, dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta get kRustReleaseModeConstMeta;
+  FlutterRustBridgeTaskConstMeta get kStartScanMethodAoiAdapterConstMeta;
 
-  Future<List<BleDevice>> findBleDevices(
-      {required List<SearchCriteria> searchCriteria, required Duration searchDuration, dynamic hint});
+  Future<void> stopScanMethodAoiAdapter({required AoiAdapter that, dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta get kFindBleDevicesConstMeta;
+  FlutterRustBridgeTaskConstMeta get kStopScanMethodAoiAdapterConstMeta;
+
+  Future<AoiConnectedPeripheral> connectMethodAoiPeripheral({required AoiPeripheral that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kConnectMethodAoiPeripheralConstMeta;
+
+  Future<Uint8List> readMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that, required AoiCharacteristic characteristic, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kReadMethodAoiConnectedPeripheralConstMeta;
+
+  Future<void> writeMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that,
+      required AoiCharacteristic characteristic,
+      required Uint8List data,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kWriteMethodAoiConnectedPeripheralConstMeta;
+
+  Future<void> disconnectMethodAoiConnectedPeripheral({required AoiConnectedPeripheral that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kDisconnectMethodAoiConnectedPeripheralConstMeta;
+
+  Future<Int32List> getPropertiesMethodAoiCharacteristic({required AoiCharacteristic that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kGetPropertiesMethodAoiCharacteristicConstMeta;
 }
 
-class BleAddress {
-  final U8Array6 address;
+class AoiAdapter {
+  final Native bridge;
+  final int index;
 
-  BleAddress({
-    required this.address,
+  AoiAdapter({
+    required this.bridge,
+    required this.index,
   });
+
+  static Future<List<AoiAdapter>> getAdapters({required Native bridge, dynamic hint}) =>
+      bridge.getAdaptersStaticMethodAoiAdapter(hint: hint);
+
+  Stream<AoiPeripheral> startScan({FilterCriteria? filter, dynamic hint}) => bridge.startScanMethodAoiAdapter(
+        that: this,
+        filter: filter,
+      );
+
+  Future<void> stopScan({dynamic hint}) => bridge.stopScanMethodAoiAdapter(
+        that: this,
+      );
 }
 
-class BleDevice {
-  final String? name;
-  final BleAddress address;
+class AoiCharacteristic {
+  final Native bridge;
+  final String uuid;
+  final String serviceUuid;
+  final int properties;
 
-  BleDevice({
+  AoiCharacteristic({
+    required this.bridge,
+    required this.uuid,
+    required this.serviceUuid,
+    required this.properties,
+  });
+
+  Future<Int32List> getProperties({dynamic hint}) => bridge.getPropertiesMethodAoiCharacteristic(
+        that: this,
+      );
+}
+
+class AoiConnectedPeripheral {
+  final Native bridge;
+  final AoiPeripheral peripheral;
+  final List<AoiCharacteristic> characteristics;
+
+  AoiConnectedPeripheral({
+    required this.bridge,
+    required this.peripheral,
+    required this.characteristics,
+  });
+
+  Future<Uint8List> read({required AoiCharacteristic characteristic, dynamic hint}) =>
+      bridge.readMethodAoiConnectedPeripheral(
+        that: this,
+        characteristic: characteristic,
+      );
+
+  Future<void> write({required AoiCharacteristic characteristic, required Uint8List data, dynamic hint}) =>
+      bridge.writeMethodAoiConnectedPeripheral(
+        that: this,
+        characteristic: characteristic,
+        data: data,
+      );
+
+  Future<void> disconnect({dynamic hint}) => bridge.disconnectMethodAoiConnectedPeripheral(
+        that: this,
+      );
+}
+
+class AoiPeripheral {
+  final Native bridge;
+  final AoiAdapter adapter;
+  final String? name;
+  final U8Array6 address;
+  final List<String> services;
+  final Uint8List manufacturerData;
+
+  AoiPeripheral({
+    required this.bridge,
+    required this.adapter,
     this.name,
     required this.address,
+    required this.services,
+    required this.manufacturerData,
   });
-}
 
-enum Platform {
-  Unknown,
-  Android,
-  Ios,
-  Windows,
-  Unix,
-  MacIntel,
-  MacApple,
-  Wasm,
+  Future<AoiConnectedPeripheral> connect({dynamic hint}) => bridge.connectMethodAoiPeripheral(
+        that: this,
+      );
 }
 
 @freezed
-class SearchCriteria with _$SearchCriteria {
-  const factory SearchCriteria.any(
-    List<SearchCriterion> field0,
-  ) = SearchCriteria_Any;
-  const factory SearchCriteria.all(
-    List<SearchCriterion> field0,
-  ) = SearchCriteria_All;
+class FilterCriteria with _$FilterCriteria {
+  const factory FilterCriteria.any(
+    List<FilterCriterion> field0,
+  ) = FilterCriteria_Any;
+  const factory FilterCriteria.all(
+    List<FilterCriterion> field0,
+  ) = FilterCriteria_All;
 }
 
 @freezed
-class SearchCriterion with _$SearchCriterion {
-  const factory SearchCriterion.withService(
-    UuidValue field0,
-  ) = SearchCriterion_WithService;
-  const factory SearchCriterion.nameMatchesExactly(
+class FilterCriterion with _$FilterCriterion {
+  const factory FilterCriterion.hasServiceUuid(
     String field0,
-  ) = SearchCriterion_NameMatchesExactly;
-  const factory SearchCriterion.nameContains(
+  ) = FilterCriterion_HasServiceUuid;
+  const factory FilterCriterion.nameMatchesExactly(
     String field0,
-  ) = SearchCriterion_NameContains;
+  ) = FilterCriterion_NameMatchesExactly;
+  const factory FilterCriterion.nameContains(
+    String field0,
+  ) = FilterCriterion_NameContains;
+  const factory FilterCriterion.manufacturerDataMatches(
+    Uint8List field0,
+  ) = FilterCriterion_ManufacturerDataMatches;
 }
 
 class U8Array6 extends NonGrowableListView<int> {
