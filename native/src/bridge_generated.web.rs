@@ -133,6 +133,16 @@ impl Wire2Api<AoiPeripheral> for JsValue {
         }
     }
 }
+impl Wire2Api<AoiPeripheralAddress> for JsValue {
+    fn wire2api(self) -> AoiPeripheralAddress {
+        let self_ = self.unchecked_into::<JsArray>();
+        match self_.get(0).unchecked_into_f64() as _ {
+            0 => AoiPeripheralAddress::MacAddress(self_.get(1).wire2api()),
+            1 => AoiPeripheralAddress::Uuid(self_.get(1).wire2api()),
+            _ => unreachable!(),
+        }
+    }
+}
 
 impl Wire2Api<FilterCriteria> for JsValue {
     fn wire2api(self) -> FilterCriteria {
@@ -211,6 +221,11 @@ impl Wire2Api<Box<AoiAdapter>> for JsValue {
 }
 impl Wire2Api<Box<AoiPeripheral>> for JsValue {
     fn wire2api(self) -> Box<AoiPeripheral> {
+        Box::new(self.wire2api())
+    }
+}
+impl Wire2Api<Box<AoiPeripheralAddress>> for JsValue {
+    fn wire2api(self) -> Box<AoiPeripheralAddress> {
         Box::new(self.wire2api())
     }
 }

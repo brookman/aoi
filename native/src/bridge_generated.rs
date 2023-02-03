@@ -226,7 +226,7 @@ impl support::IntoDart for AoiPeripheral {
         vec![
             (*self.adapter).into_dart(),
             self.name.into_dart(),
-            self.address.into_dart(),
+            (*self.address).into_dart(),
             self.services.into_dart(),
             self.manufacturer_data.into_dart(),
         ]
@@ -234,6 +234,17 @@ impl support::IntoDart for AoiPeripheral {
     }
 }
 impl support::IntoDartExceptPrimitive for AoiPeripheral {}
+
+impl support::IntoDart for AoiPeripheralAddress {
+    fn into_dart(self) -> support::DartAbi {
+        match self {
+            Self::MacAddress(field0) => vec![0.into_dart(), field0.into_dart()],
+            Self::Uuid(field0) => vec![1.into_dart(), field0.into_dart()],
+        }
+        .into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for AoiPeripheralAddress {}
 
 // Section: executor
 

@@ -6,8 +6,7 @@ use flutter_rust_bridge::StreamSink;
 use once_cell::sync::OnceCell;
 
 use btleplug::{
-    api::{
-        BDAddr, Central, CentralEvent, CharPropFlags, Characteristic, Manager as _, Peripheral,
+    api::{ Central, CentralEvent, CharPropFlags, Characteristic, Manager as _, Peripheral,
         ScanFilter, WriteType,
     },
     platform::{Adapter, Manager, PeripheralId},
@@ -16,10 +15,7 @@ use futures::Future;
 use tokio::runtime::Runtime;
 use uuid::Uuid;
 
-use crate::api::{
-    AoiAdapter, AoiCharacteristic, AoiConnectedPeripheral, AoiPeripheral, FilterCriteria,
-    FilterCriterion,
-};
+use crate::api::*;
 
 use anyhow::{Context, Error, Result};
 use futures::stream::StreamExt;
@@ -254,7 +250,7 @@ impl AoiPeripheral {
                 return Some(AoiPeripheral {
                     adapter: Box::new(adapter.into()),
                     name,
-                    address: peripheral.address().into_inner(),
+                    address: Box::new(peripheral.id().into()),
                     services,
                     manufacturer_data: vec![], // TODO
                 });
@@ -262,7 +258,7 @@ impl AoiPeripheral {
                 return Some(AoiPeripheral {
                     adapter: Box::new(adapter.into()),
                     name: None,
-                    address: peripheral.address().into_inner(),
+                    address: Box::new(peripheral.id().into()),
                     services: vec![],
                     manufacturer_data: vec![], // TODO
                 });
@@ -279,8 +275,19 @@ impl AoiPeripheral {
     }
 
     fn get_id(&self) -> PeripheralId {
-        let addr: BDAddr = self.address.into();
-        addr.into()
+        self.address.as_ref().into()
+    }
+}
+
+impl From<PeripheralId> for AoiPeripheralAddress {
+    fn from(_: PeripheralId) -> Self {
+        todo!()
+    }
+}
+
+impl From<&AoiPeripheralAddress> for PeripheralId {
+    fn from(_: &AoiPeripheralAddress) -> Self {
+        todo!()
     }
 }
 

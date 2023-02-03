@@ -207,10 +207,25 @@ class NativeImpl implements Native {
       bridge: this,
       adapter: _wire2api_box_aoi_adapter(arr[0]),
       name: _wire2api_opt_String(arr[1]),
-      address: _wire2api_u8_array_6(arr[2]),
+      address: _wire2api_box_aoi_peripheral_address(arr[2]),
       services: _wire2api_StringList(arr[3]),
       manufacturerData: _wire2api_uint_8_list(arr[4]),
     );
+  }
+
+  AoiPeripheralAddress _wire2api_aoi_peripheral_address(dynamic raw) {
+    switch (raw[0]) {
+      case 0:
+        return AoiPeripheralAddress_MacAddress(
+          _wire2api_u8_array_6(raw[1]),
+        );
+      case 1:
+        return AoiPeripheralAddress_Uuid(
+          _wire2api_String(raw[1]),
+        );
+      default:
+        throw Exception("unreachable");
+    }
   }
 
   AoiAdapter _wire2api_box_aoi_adapter(dynamic raw) {
@@ -219,6 +234,10 @@ class NativeImpl implements Native {
 
   AoiPeripheral _wire2api_box_aoi_peripheral(dynamic raw) {
     return _wire2api_aoi_peripheral(raw);
+  }
+
+  AoiPeripheralAddress _wire2api_box_aoi_peripheral_address(dynamic raw) {
+    return _wire2api_aoi_peripheral_address(raw);
   }
 
   int _wire2api_i32(dynamic raw) {

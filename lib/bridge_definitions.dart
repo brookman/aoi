@@ -125,7 +125,7 @@ class AoiPeripheral {
   final Native bridge;
   final AoiAdapter adapter;
   final String? name;
-  final U8Array6 address;
+  final AoiPeripheralAddress address;
   final List<String> services;
   final Uint8List manufacturerData;
 
@@ -141,6 +141,16 @@ class AoiPeripheral {
   Future<AoiConnectedPeripheral> connect({dynamic hint}) => bridge.connectMethodAoiPeripheral(
         that: this,
       );
+}
+
+@freezed
+class AoiPeripheralAddress with _$AoiPeripheralAddress {
+  const factory AoiPeripheralAddress.macAddress(
+    U8Array6 field0,
+  ) = AoiPeripheralAddress_MacAddress;
+  const factory AoiPeripheralAddress.uuid(
+    String field0,
+  ) = AoiPeripheralAddress_Uuid;
 }
 
 @freezed

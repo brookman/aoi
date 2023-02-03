@@ -15,6 +15,333 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+mixin _$AoiPeripheralAddress {
+  Object get field0 => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(U8Array6 field0) macAddress,
+    required TResult Function(String field0) uuid,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(U8Array6 field0)? macAddress,
+    TResult? Function(String field0)? uuid,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(U8Array6 field0)? macAddress,
+    TResult Function(String field0)? uuid,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AoiPeripheralAddress_MacAddress value) macAddress,
+    required TResult Function(AoiPeripheralAddress_Uuid value) uuid,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AoiPeripheralAddress_MacAddress value)? macAddress,
+    TResult? Function(AoiPeripheralAddress_Uuid value)? uuid,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AoiPeripheralAddress_MacAddress value)? macAddress,
+    TResult Function(AoiPeripheralAddress_Uuid value)? uuid,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AoiPeripheralAddressCopyWith<$Res> {
+  factory $AoiPeripheralAddressCopyWith(AoiPeripheralAddress value, $Res Function(AoiPeripheralAddress) then) =
+      _$AoiPeripheralAddressCopyWithImpl<$Res, AoiPeripheralAddress>;
+}
+
+/// @nodoc
+class _$AoiPeripheralAddressCopyWithImpl<$Res, $Val extends AoiPeripheralAddress>
+    implements $AoiPeripheralAddressCopyWith<$Res> {
+  _$AoiPeripheralAddressCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$AoiPeripheralAddress_MacAddressCopyWith<$Res> {
+  factory _$$AoiPeripheralAddress_MacAddressCopyWith(
+          _$AoiPeripheralAddress_MacAddress value, $Res Function(_$AoiPeripheralAddress_MacAddress) then) =
+      __$$AoiPeripheralAddress_MacAddressCopyWithImpl<$Res>;
+  @useResult
+  $Res call({U8Array6 field0});
+}
+
+/// @nodoc
+class __$$AoiPeripheralAddress_MacAddressCopyWithImpl<$Res>
+    extends _$AoiPeripheralAddressCopyWithImpl<$Res, _$AoiPeripheralAddress_MacAddress>
+    implements _$$AoiPeripheralAddress_MacAddressCopyWith<$Res> {
+  __$$AoiPeripheralAddress_MacAddressCopyWithImpl(
+      _$AoiPeripheralAddress_MacAddress _value, $Res Function(_$AoiPeripheralAddress_MacAddress) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field0 = null,
+  }) {
+    return _then(_$AoiPeripheralAddress_MacAddress(
+      null == field0
+          ? _value.field0
+          : field0 // ignore: cast_nullable_to_non_nullable
+              as U8Array6,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AoiPeripheralAddress_MacAddress implements AoiPeripheralAddress_MacAddress {
+  const _$AoiPeripheralAddress_MacAddress(this.field0);
+
+  @override
+  final U8Array6 field0;
+
+  @override
+  String toString() {
+    return 'AoiPeripheralAddress.macAddress(field0: $field0)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AoiPeripheralAddress_MacAddress &&
+            const DeepCollectionEquality().equals(other.field0, field0));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(field0));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AoiPeripheralAddress_MacAddressCopyWith<_$AoiPeripheralAddress_MacAddress> get copyWith =>
+      __$$AoiPeripheralAddress_MacAddressCopyWithImpl<_$AoiPeripheralAddress_MacAddress>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(U8Array6 field0) macAddress,
+    required TResult Function(String field0) uuid,
+  }) {
+    return macAddress(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(U8Array6 field0)? macAddress,
+    TResult? Function(String field0)? uuid,
+  }) {
+    return macAddress?.call(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(U8Array6 field0)? macAddress,
+    TResult Function(String field0)? uuid,
+    required TResult orElse(),
+  }) {
+    if (macAddress != null) {
+      return macAddress(field0);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AoiPeripheralAddress_MacAddress value) macAddress,
+    required TResult Function(AoiPeripheralAddress_Uuid value) uuid,
+  }) {
+    return macAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AoiPeripheralAddress_MacAddress value)? macAddress,
+    TResult? Function(AoiPeripheralAddress_Uuid value)? uuid,
+  }) {
+    return macAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AoiPeripheralAddress_MacAddress value)? macAddress,
+    TResult Function(AoiPeripheralAddress_Uuid value)? uuid,
+    required TResult orElse(),
+  }) {
+    if (macAddress != null) {
+      return macAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AoiPeripheralAddress_MacAddress implements AoiPeripheralAddress {
+  const factory AoiPeripheralAddress_MacAddress(final U8Array6 field0) = _$AoiPeripheralAddress_MacAddress;
+
+  @override
+  U8Array6 get field0;
+  @JsonKey(ignore: true)
+  _$$AoiPeripheralAddress_MacAddressCopyWith<_$AoiPeripheralAddress_MacAddress> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AoiPeripheralAddress_UuidCopyWith<$Res> {
+  factory _$$AoiPeripheralAddress_UuidCopyWith(
+          _$AoiPeripheralAddress_Uuid value, $Res Function(_$AoiPeripheralAddress_Uuid) then) =
+      __$$AoiPeripheralAddress_UuidCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String field0});
+}
+
+/// @nodoc
+class __$$AoiPeripheralAddress_UuidCopyWithImpl<$Res>
+    extends _$AoiPeripheralAddressCopyWithImpl<$Res, _$AoiPeripheralAddress_Uuid>
+    implements _$$AoiPeripheralAddress_UuidCopyWith<$Res> {
+  __$$AoiPeripheralAddress_UuidCopyWithImpl(
+      _$AoiPeripheralAddress_Uuid _value, $Res Function(_$AoiPeripheralAddress_Uuid) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field0 = null,
+  }) {
+    return _then(_$AoiPeripheralAddress_Uuid(
+      null == field0
+          ? _value.field0
+          : field0 // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AoiPeripheralAddress_Uuid implements AoiPeripheralAddress_Uuid {
+  const _$AoiPeripheralAddress_Uuid(this.field0);
+
+  @override
+  final String field0;
+
+  @override
+  String toString() {
+    return 'AoiPeripheralAddress.uuid(field0: $field0)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AoiPeripheralAddress_Uuid &&
+            (identical(other.field0, field0) || other.field0 == field0));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, field0);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AoiPeripheralAddress_UuidCopyWith<_$AoiPeripheralAddress_Uuid> get copyWith =>
+      __$$AoiPeripheralAddress_UuidCopyWithImpl<_$AoiPeripheralAddress_Uuid>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(U8Array6 field0) macAddress,
+    required TResult Function(String field0) uuid,
+  }) {
+    return uuid(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(U8Array6 field0)? macAddress,
+    TResult? Function(String field0)? uuid,
+  }) {
+    return uuid?.call(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(U8Array6 field0)? macAddress,
+    TResult Function(String field0)? uuid,
+    required TResult orElse(),
+  }) {
+    if (uuid != null) {
+      return uuid(field0);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AoiPeripheralAddress_MacAddress value) macAddress,
+    required TResult Function(AoiPeripheralAddress_Uuid value) uuid,
+  }) {
+    return uuid(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AoiPeripheralAddress_MacAddress value)? macAddress,
+    TResult? Function(AoiPeripheralAddress_Uuid value)? uuid,
+  }) {
+    return uuid?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AoiPeripheralAddress_MacAddress value)? macAddress,
+    TResult Function(AoiPeripheralAddress_Uuid value)? uuid,
+    required TResult orElse(),
+  }) {
+    if (uuid != null) {
+      return uuid(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AoiPeripheralAddress_Uuid implements AoiPeripheralAddress {
+  const factory AoiPeripheralAddress_Uuid(final String field0) = _$AoiPeripheralAddress_Uuid;
+
+  @override
+  String get field0;
+  @JsonKey(ignore: true)
+  _$$AoiPeripheralAddress_UuidCopyWith<_$AoiPeripheralAddress_Uuid> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$FilterCriteria {
   List<FilterCriterion> get field0 => throw _privateConstructorUsedError;
   @optionalTypeArgs

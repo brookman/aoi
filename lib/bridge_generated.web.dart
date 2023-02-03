@@ -49,10 +49,22 @@ class NativePlatform extends FlutterRustBridgeBase<NativeWire> with FlutterRustB
     return [
       api2wire_box_aoi_adapter(raw.adapter),
       api2wire_opt_String(raw.name),
-      api2wire_u8_array_6(raw.address),
+      api2wire_box_aoi_peripheral_address(raw.address),
       api2wire_StringList(raw.services),
       api2wire_uint_8_list(raw.manufacturerData)
     ];
+  }
+
+  @protected
+  List<dynamic> api2wire_aoi_peripheral_address(AoiPeripheralAddress raw) {
+    if (raw is AoiPeripheralAddress_MacAddress) {
+      return [0, api2wire_u8_array_6(raw.field0)];
+    }
+    if (raw is AoiPeripheralAddress_Uuid) {
+      return [1, api2wire_String(raw.field0)];
+    }
+
+    throw Exception('unreachable');
   }
 
   @protected
@@ -63,6 +75,11 @@ class NativePlatform extends FlutterRustBridgeBase<NativeWire> with FlutterRustB
   @protected
   List<dynamic> api2wire_box_aoi_peripheral(AoiPeripheral raw) {
     return api2wire_aoi_peripheral(raw);
+  }
+
+  @protected
+  List<dynamic> api2wire_box_aoi_peripheral_address(AoiPeripheralAddress raw) {
+    return api2wire_aoi_peripheral_address(raw);
   }
 
   @protected
@@ -151,6 +168,7 @@ class NativePlatform extends FlutterRustBridgeBase<NativeWire> with FlutterRustB
   }
 
 // Section: finalizer
+
 }
 
 // Section: WASM wire module

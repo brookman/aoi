@@ -46,6 +46,13 @@ class NativePlatform extends FlutterRustBridgeBase<NativeWire> {
   }
 
   @protected
+  ffi.Pointer<wire_AoiPeripheralAddress> api2wire_box_aoi_peripheral_address(AoiPeripheralAddress raw) {
+    final ptr = inner.new_box_aoi_peripheral_address_0();
+    _api_fill_to_wire_aoi_peripheral_address(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
   ffi.Pointer<wire_AoiAdapter> api2wire_box_autoadd_aoi_adapter(AoiAdapter raw) {
     final ptr = inner.new_box_autoadd_aoi_adapter_0();
     _api_fill_to_wire_aoi_adapter(raw, ptr.ref);
@@ -144,9 +151,26 @@ class NativePlatform extends FlutterRustBridgeBase<NativeWire> {
   void _api_fill_to_wire_aoi_peripheral(AoiPeripheral apiObj, wire_AoiPeripheral wireObj) {
     wireObj.adapter = api2wire_box_aoi_adapter(apiObj.adapter);
     wireObj.name = api2wire_opt_String(apiObj.name);
-    wireObj.address = api2wire_u8_array_6(apiObj.address);
+    wireObj.address = api2wire_box_aoi_peripheral_address(apiObj.address);
     wireObj.services = api2wire_StringList(apiObj.services);
     wireObj.manufacturer_data = api2wire_uint_8_list(apiObj.manufacturerData);
+  }
+
+  void _api_fill_to_wire_aoi_peripheral_address(AoiPeripheralAddress apiObj, wire_AoiPeripheralAddress wireObj) {
+    if (apiObj is AoiPeripheralAddress_MacAddress) {
+      var pre_field0 = api2wire_u8_array_6(apiObj.field0);
+      wireObj.tag = 0;
+      wireObj.kind = inner.inflate_AoiPeripheralAddress_MacAddress();
+      wireObj.kind.ref.MacAddress.ref.field0 = pre_field0;
+      return;
+    }
+    if (apiObj is AoiPeripheralAddress_Uuid) {
+      var pre_field0 = api2wire_String(apiObj.field0);
+      wireObj.tag = 1;
+      wireObj.kind = inner.inflate_AoiPeripheralAddress_Uuid();
+      wireObj.kind.ref.Uuid.ref.field0 = pre_field0;
+      return;
+    }
   }
 
   void _api_fill_to_wire_box_aoi_adapter(AoiAdapter apiObj, ffi.Pointer<wire_AoiAdapter> wireObj) {
@@ -155,6 +179,11 @@ class NativePlatform extends FlutterRustBridgeBase<NativeWire> {
 
   void _api_fill_to_wire_box_aoi_peripheral(AoiPeripheral apiObj, ffi.Pointer<wire_AoiPeripheral> wireObj) {
     _api_fill_to_wire_aoi_peripheral(apiObj, wireObj.ref);
+  }
+
+  void _api_fill_to_wire_box_aoi_peripheral_address(
+      AoiPeripheralAddress apiObj, ffi.Pointer<wire_AoiPeripheralAddress> wireObj) {
+    _api_fill_to_wire_aoi_peripheral_address(apiObj, wireObj.ref);
   }
 
   void _api_fill_to_wire_box_autoadd_aoi_adapter(AoiAdapter apiObj, ffi.Pointer<wire_AoiAdapter> wireObj) {
@@ -476,6 +505,16 @@ class NativeWire implements FlutterRustBridgeWireBase {
   late final _new_box_aoi_peripheral_0 =
       _new_box_aoi_peripheral_0Ptr.asFunction<ffi.Pointer<wire_AoiPeripheral> Function()>();
 
+  ffi.Pointer<wire_AoiPeripheralAddress> new_box_aoi_peripheral_address_0() {
+    return _new_box_aoi_peripheral_address_0();
+  }
+
+  late final _new_box_aoi_peripheral_address_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiPeripheralAddress> Function()>>(
+          'new_box_aoi_peripheral_address_0');
+  late final _new_box_aoi_peripheral_address_0 =
+      _new_box_aoi_peripheral_address_0Ptr.asFunction<ffi.Pointer<wire_AoiPeripheralAddress> Function()>();
+
   ffi.Pointer<wire_AoiAdapter> new_box_autoadd_aoi_adapter_0() {
     return _new_box_autoadd_aoi_adapter_0();
   }
@@ -562,6 +601,26 @@ class NativeWire implements FlutterRustBridgeWireBase {
   late final _new_uint_8_list_0Ptr =
       _lookup<ffi.NativeFunction<ffi.Pointer<wire_uint_8_list> Function(ffi.Int32)>>('new_uint_8_list_0');
   late final _new_uint_8_list_0 = _new_uint_8_list_0Ptr.asFunction<ffi.Pointer<wire_uint_8_list> Function(int)>();
+
+  ffi.Pointer<AoiPeripheralAddressKind> inflate_AoiPeripheralAddress_MacAddress() {
+    return _inflate_AoiPeripheralAddress_MacAddress();
+  }
+
+  late final _inflate_AoiPeripheralAddress_MacAddressPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>>(
+          'inflate_AoiPeripheralAddress_MacAddress');
+  late final _inflate_AoiPeripheralAddress_MacAddress =
+      _inflate_AoiPeripheralAddress_MacAddressPtr.asFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>();
+
+  ffi.Pointer<AoiPeripheralAddressKind> inflate_AoiPeripheralAddress_Uuid() {
+    return _inflate_AoiPeripheralAddress_Uuid();
+  }
+
+  late final _inflate_AoiPeripheralAddress_UuidPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>>(
+          'inflate_AoiPeripheralAddress_Uuid');
+  late final _inflate_AoiPeripheralAddress_Uuid =
+      _inflate_AoiPeripheralAddress_UuidPtr.asFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>();
 
   ffi.Pointer<FilterCriteriaKind> inflate_FilterCriteria_Any() {
     return _inflate_FilterCriteria_Any();
@@ -708,6 +767,27 @@ class wire_FilterCriteria extends ffi.Struct {
   external ffi.Pointer<FilterCriteriaKind> kind;
 }
 
+class wire_AoiPeripheralAddress_MacAddress extends ffi.Struct {
+  external ffi.Pointer<wire_uint_8_list> field0;
+}
+
+class wire_AoiPeripheralAddress_Uuid extends ffi.Struct {
+  external ffi.Pointer<wire_uint_8_list> field0;
+}
+
+class AoiPeripheralAddressKind extends ffi.Union {
+  external ffi.Pointer<wire_AoiPeripheralAddress_MacAddress> MacAddress;
+
+  external ffi.Pointer<wire_AoiPeripheralAddress_Uuid> Uuid;
+}
+
+class wire_AoiPeripheralAddress extends ffi.Struct {
+  @ffi.Int32()
+  external int tag;
+
+  external ffi.Pointer<AoiPeripheralAddressKind> kind;
+}
+
 class wire_StringList extends ffi.Struct {
   external ffi.Pointer<ffi.Pointer<wire_uint_8_list>> ptr;
 
@@ -720,7 +800,7 @@ class wire_AoiPeripheral extends ffi.Struct {
 
   external ffi.Pointer<wire_uint_8_list> name;
 
-  external ffi.Pointer<wire_uint_8_list> address;
+  external ffi.Pointer<wire_AoiPeripheralAddress> address;
 
   external ffi.Pointer<wire_StringList> services;
 

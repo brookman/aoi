@@ -82,6 +82,11 @@ pub extern "C" fn new_box_aoi_peripheral_0() -> *mut wire_AoiPeripheral {
 }
 
 #[no_mangle]
+pub extern "C" fn new_box_aoi_peripheral_address_0() -> *mut wire_AoiPeripheralAddress {
+    support::new_leak_box_ptr(wire_AoiPeripheralAddress::new_with_null_ptr())
+}
+
+#[no_mangle]
 pub extern "C" fn new_box_autoadd_aoi_adapter_0() -> *mut wire_AoiAdapter {
     support::new_leak_box_ptr(wire_AoiAdapter::new_with_null_ptr())
 }
@@ -187,6 +192,23 @@ impl Wire2Api<AoiPeripheral> for wire_AoiPeripheral {
         }
     }
 }
+impl Wire2Api<AoiPeripheralAddress> for wire_AoiPeripheralAddress {
+    fn wire2api(self) -> AoiPeripheralAddress {
+        match self.tag {
+            0 => unsafe {
+                let ans = support::box_from_leak_ptr(self.kind);
+                let ans = support::box_from_leak_ptr(ans.MacAddress);
+                AoiPeripheralAddress::MacAddress(ans.field0.wire2api())
+            },
+            1 => unsafe {
+                let ans = support::box_from_leak_ptr(self.kind);
+                let ans = support::box_from_leak_ptr(ans.Uuid);
+                AoiPeripheralAddress::Uuid(ans.field0.wire2api())
+            },
+            _ => unreachable!(),
+        }
+    }
+}
 impl Wire2Api<Box<AoiAdapter>> for *mut wire_AoiAdapter {
     fn wire2api(self) -> Box<AoiAdapter> {
         let wrap = unsafe { support::box_from_leak_ptr(self) };
@@ -197,6 +219,12 @@ impl Wire2Api<Box<AoiPeripheral>> for *mut wire_AoiPeripheral {
     fn wire2api(self) -> Box<AoiPeripheral> {
         let wrap = unsafe { support::box_from_leak_ptr(self) };
         Wire2Api::<AoiPeripheral>::wire2api(*wrap).into()
+    }
+}
+impl Wire2Api<Box<AoiPeripheralAddress>> for *mut wire_AoiPeripheralAddress {
+    fn wire2api(self) -> Box<AoiPeripheralAddress> {
+        let wrap = unsafe { support::box_from_leak_ptr(self) };
+        Wire2Api::<AoiPeripheralAddress>::wire2api(*wrap).into()
     }
 }
 impl Wire2Api<AoiAdapter> for *mut wire_AoiAdapter {
@@ -342,7 +370,7 @@ pub struct wire_AoiConnectedPeripheral {
 pub struct wire_AoiPeripheral {
     adapter: *mut wire_AoiAdapter,
     name: *mut wire_uint_8_list,
-    address: *mut wire_uint_8_list,
+    address: *mut wire_AoiPeripheralAddress,
     services: *mut wire_StringList,
     manufacturer_data: *mut wire_uint_8_list,
 }
@@ -366,6 +394,31 @@ pub struct wire_list_filter_criterion {
 pub struct wire_uint_8_list {
     ptr: *mut u8,
     len: i32,
+}
+
+#[repr(C)]
+#[derive(Clone)]
+pub struct wire_AoiPeripheralAddress {
+    tag: i32,
+    kind: *mut AoiPeripheralAddressKind,
+}
+
+#[repr(C)]
+pub union AoiPeripheralAddressKind {
+    MacAddress: *mut wire_AoiPeripheralAddress_MacAddress,
+    Uuid: *mut wire_AoiPeripheralAddress_Uuid,
+}
+
+#[repr(C)]
+#[derive(Clone)]
+pub struct wire_AoiPeripheralAddress_MacAddress {
+    field0: *mut wire_uint_8_list,
+}
+
+#[repr(C)]
+#[derive(Clone)]
+pub struct wire_AoiPeripheralAddress_Uuid {
+    field0: *mut wire_uint_8_list,
 }
 
 #[repr(C)]
@@ -480,6 +533,33 @@ impl NewWithNullPtr for wire_AoiPeripheral {
             manufacturer_data: core::ptr::null_mut(),
         }
     }
+}
+
+impl NewWithNullPtr for wire_AoiPeripheralAddress {
+    fn new_with_null_ptr() -> Self {
+        Self {
+            tag: -1,
+            kind: core::ptr::null_mut(),
+        }
+    }
+}
+
+#[no_mangle]
+pub extern "C" fn inflate_AoiPeripheralAddress_MacAddress() -> *mut AoiPeripheralAddressKind {
+    support::new_leak_box_ptr(AoiPeripheralAddressKind {
+        MacAddress: support::new_leak_box_ptr(wire_AoiPeripheralAddress_MacAddress {
+            field0: core::ptr::null_mut(),
+        }),
+    })
+}
+
+#[no_mangle]
+pub extern "C" fn inflate_AoiPeripheralAddress_Uuid() -> *mut AoiPeripheralAddressKind {
+    support::new_leak_box_ptr(AoiPeripheralAddressKind {
+        Uuid: support::new_leak_box_ptr(wire_AoiPeripheralAddress_Uuid {
+            field0: core::ptr::null_mut(),
+        }),
+    })
 }
 
 impl NewWithNullPtr for wire_FilterCriteria {

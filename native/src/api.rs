@@ -24,9 +24,15 @@ pub struct AoiAdapter {
 pub struct AoiPeripheral {
     pub adapter: Box<AoiAdapter>,
     pub name: Option<String>,
-    pub address: [u8; 6],
+    pub address: Box<AoiPeripheralAddress>,
     pub services: Vec<String>,
     pub manufacturer_data: Vec<u8>,
+}
+
+#[derive(Debug, Clone)]
+pub enum AoiPeripheralAddress {
+    MacAddress([u8; 6]),
+    Uuid(String),
 }
 
 #[derive(Debug, Clone)]
