@@ -7,11 +7,15 @@ use once_cell::sync::OnceCell;
 
 use btleplug::{
     api::{
-        BDAddr, Central, CentralEvent, CharPropFlags, Characteristic, Manager as _, Peripheral,
+        Central, CentralEvent, CharPropFlags, Characteristic, Manager as _, Peripheral,
         ScanFilter, WriteType,
     },
     platform::{Adapter, Manager, PeripheralId},
 };
+
+#[cfg(target_os = "windows")]
+use btleplug::api::BDAddr;
+
 use futures::Future;
 use tokio::runtime::Runtime;
 use uuid::Uuid;
@@ -275,7 +279,10 @@ impl AoiPeripheral {
 
     #[cfg(any(target_os = "macos", target_os = "ios"))]
     fn into_address(peripheral: &impl Peripheral) -> AoiPeripheralAddress {
-        AoiPeripheralAddress::Uuid(peripheral.id().into())
+        let id_string = format!("{:?}", &peripheral.id()); // TODO: Get rid of this workaround
+        let id_str = id_string.as_str();
+        let uuid_string = id_str[13..49].to_string();
+        AoiPeripheralAddress::Uuid(uuid_string)
     }
 }
 
@@ -307,11 +314,11 @@ impl From<&AoiPeripheralAddress> for PeripheralId {
 impl From<&AoiPeripheralAddress> for PeripheralId {
     fn from(address: &AoiPeripheralAddress) -> Self {
         match address {
-            AoiPeripheralAddress::MacAddress(mac) => {
+            AoiPeripheralAddress::MacAddress(_) => {
                 panic!("Expect UUID on mac/ios and but got mac address")
             }
             AoiPeripheralAddress::Uuid(uuid_string) => {
-                let uuid = Uuid::from_str(uuid_string.as_str());
+                let uuid = Uuid::from_str(uuid_string.as_str()).unwrap();
                 uuid.into()
             }
         }
