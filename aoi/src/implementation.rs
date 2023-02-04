@@ -157,7 +157,7 @@ impl AoiAdapter {
 impl AoiPeripheral {
     pub fn connect_impl(&self) -> Result<AoiConnectedPeripheral> {
         run_blocking(async {
-            let peripheral = self.into_peripheral().await;
+            let peripheral = self.as_peripheral().await;
             peripheral.connect().await?;
             peripheral.discover_services().await?;
 
@@ -170,7 +170,7 @@ impl AoiPeripheral {
 
             Ok(AoiConnectedPeripheral {
                 peripheral: Box::new(self.clone()),
-                characteristics: characteristics,
+                characteristics,
             })
         })
     }
@@ -179,14 +179,14 @@ impl AoiPeripheral {
 impl AoiConnectedPeripheral {
     pub fn read_impl(&self, characteristic: AoiCharacteristic) -> Result<Vec<u8>> {
         run_blocking(async {
-            let peripheral = self.peripheral.into_peripheral().await;
+            let peripheral = self.peripheral.as_peripheral().await;
             Ok(peripheral.read(&characteristic.try_into()?).await?)
         })
     }
 
     pub fn write_impl(&self, characteristic: AoiCharacteristic, data: Vec<u8>) -> Result<()> {
         run_blocking(async {
-            let peripheral = self.peripheral.into_peripheral().await;
+            let peripheral = self.peripheral.as_peripheral().await;
             peripheral
                 .write(&characteristic.try_into()?, &data, WriteType::WithResponse)
                 .await?;
@@ -200,7 +200,7 @@ impl AoiConnectedPeripheral {
         data: Vec<u8>,
     ) -> Result<()> {
         run_blocking(async {
-            let peripheral = self.peripheral.into_peripheral().await;
+            let peripheral = self.peripheral.as_peripheral().await;
             peripheral
                 .write(
                     &characteristic.try_into()?,
@@ -214,7 +214,7 @@ impl AoiConnectedPeripheral {
 
     pub fn disconnect_impl(&self) -> Result<()> {
         run_blocking(async {
-            let peripheral = self.peripheral.into_peripheral().await;
+            let peripheral = self.peripheral.as_peripheral().await;
             peripheral.disconnect().await?;
             Ok(())
         })
@@ -251,10 +251,10 @@ impl AoiPeripheral {
                     .manufacturer_data
                     .into_iter()
                     .map(|(manufacturer_id, data)| {
-                        return AoiManufacturerData {
+                        AoiManufacturerData {
                             manufacturer_id,
                             data,
-                        };
+                        }
                     })
                     .collect::<Vec<_>>();
 
@@ -293,7 +293,7 @@ impl AoiPeripheral {
 }
 
 impl AoiPeripheral {
-    pub async fn into_peripheral(&self) -> impl Peripheral {
+    pub async fn as_peripheral(&self) -> impl Peripheral {
         let adapter = get_adapter_unsafe(self.adapter.index);
         adapter.adapter.peripheral(&self.get_id()).await.unwrap()
     }
