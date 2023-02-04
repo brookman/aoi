@@ -14,11 +14,11 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Corrosion)
 
-corrosion_import_crate(MANIFEST_PATH ../native/Cargo.toml)
+corrosion_import_crate(MANIFEST_PATH ../aoi/Cargo.toml)
 
 # Flutter-specific
 
-set(CRATE_NAME "native")
+set(CRATE_NAME "aoi")
 
 target_link_libraries(${BINARY_NAME} PRIVATE ${CRATE_NAME})
 

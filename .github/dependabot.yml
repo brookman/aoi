@@ -6,6 +6,6 @@ updates:
     schedule:
       interval: daily
   - package-ecosystem: cargo
-    directory: "/native"
+    directory: "/aoi"
     schedule:
       interval: daily

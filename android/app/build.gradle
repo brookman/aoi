@@ -83,7 +83,7 @@ dependencies {
         }
     }
     tasks.register("cargoBuild$taskPostfix", Exec) {
-        workingDir "../../native"
+        workingDir "../../aoi"
         environment ANDROID_NDK_HOME: "$ANDROID_NDK"
         commandLine 'cargo', 'ndk',
                 // the 2 ABIs below are used by real Android devices
