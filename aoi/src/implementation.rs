@@ -1,6 +1,6 @@
 use flutter_rust_bridge::StreamSink;
 use once_cell::sync::OnceCell;
-use std::str::FromStr;
+use std::{str::FromStr, time::Duration};
 
 use btleplug::{
     api::{
@@ -14,7 +14,7 @@ use btleplug::{
 use btleplug::api::BDAddr;
 
 use futures::Future;
-use tokio::runtime::Runtime;
+use tokio::{runtime::Runtime, time::timeout};
 use uuid::Uuid;
 
 use crate::api::*;
@@ -23,6 +23,8 @@ use anyhow::{Context, Error, Result};
 use futures::stream::StreamExt;
 
 // Infra: ------------------------------------------------------------
+const READ_WRITE_TIMEOUT: Duration = Duration::from_secs(5);
+
 pub struct AdapterWithIndex {
     pub adapter: Adapter,
     pub index: usize,
@@ -157,7 +159,7 @@ impl AoiAdapter {
 impl AoiPeripheral {
     pub fn connect_impl(&self) -> Result<AoiConnectedPeripheral> {
         run_blocking(async {
-            let peripheral = self.as_peripheral().await;
+            let peripheral = self.as_peripheral().await?;
             peripheral.connect().await?;
             peripheral.discover_services().await?;
 
@@ -179,19 +181,16 @@ impl AoiPeripheral {
 impl AoiConnectedPeripheral {
     pub fn read_impl(&self, characteristic: AoiCharacteristic) -> Result<Vec<u8>> {
         run_blocking(async {
-            let peripheral = self.peripheral.as_peripheral().await;
-            Ok(peripheral.read(&characteristic.try_into()?).await?)
+            let peripheral = self.peripheral.as_peripheral().await?;
+            let characteristic: Characteristic = characteristic.try_into()?;
+            let read_future = peripheral.read(&characteristic);
+            let result = timeout(READ_WRITE_TIMEOUT, read_future).await?;
+            result.context("Could not read characteristic")
         })
     }
 
     pub fn write_impl(&self, characteristic: AoiCharacteristic, data: Vec<u8>) -> Result<()> {
-        run_blocking(async {
-            let peripheral = self.peripheral.as_peripheral().await;
-            peripheral
-                .write(&characteristic.try_into()?, &data, WriteType::WithResponse)
-                .await?;
-            Ok(())
-        })
+        run_blocking(async { self.write_internal(characteristic, data, WriteType::WithResponse) })
     }
 
     pub fn write_without_response_impl(
@@ -200,21 +199,28 @@ impl AoiConnectedPeripheral {
         data: Vec<u8>,
     ) -> Result<()> {
         run_blocking(async {
-            let peripheral = self.peripheral.as_peripheral().await;
-            peripheral
-                .write(
-                    &characteristic.try_into()?,
-                    &data,
-                    WriteType::WithoutResponse,
-                )
-                .await?;
-            Ok(())
+            self.write_internal(characteristic, data, WriteType::WithoutResponse)
+        })
+    }
+
+    fn write_internal(
+        &self,
+        characteristic: AoiCharacteristic,
+        data: Vec<u8>,
+        write_type: WriteType,
+    ) -> Result<()> {
+        run_blocking(async {
+            let peripheral = self.peripheral.as_peripheral().await?;
+            let characteristic: Characteristic = characteristic.try_into()?;
+            let write_future = peripheral.write(&characteristic, &data, write_type);
+            let result = timeout(READ_WRITE_TIMEOUT, write_future).await?;
+            result.context("Could not write characteristic")
         })
     }
 
     pub fn disconnect_impl(&self) -> Result<()> {
         run_blocking(async {
-            let peripheral = self.peripheral.as_peripheral().await;
+            let peripheral = self.peripheral.as_peripheral().await?;
             peripheral.disconnect().await?;
             Ok(())
         })
@@ -250,11 +256,9 @@ impl AoiPeripheral {
                 let manufacturer_data = properties
                     .manufacturer_data
                     .into_iter()
-                    .map(|(manufacturer_id, data)| {
-                        AoiManufacturerData {
-                            manufacturer_id,
-                            data,
-                        }
+                    .map(|(manufacturer_id, data)| AoiManufacturerData {
+                        manufacturer_id,
+                        data,
                     })
                     .collect::<Vec<_>>();
 
@@ -293,9 +297,13 @@ impl AoiPeripheral {
 }
 
 impl AoiPeripheral {
-    pub async fn as_peripheral(&self) -> impl Peripheral {
+    pub async fn as_peripheral(&self) -> Result<impl Peripheral> {
         let adapter = get_adapter_unsafe(self.adapter.index);
-        adapter.adapter.peripheral(&self.get_id()).await.unwrap()
+        adapter
+            .adapter
+            .peripheral(&self.get_id())
+            .await
+            .context("Could not get peripheral")
     }
 
     fn get_id(&self) -> PeripheralId {
