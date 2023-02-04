@@ -4,8 +4,11 @@ use lib_flutter_rust_bridge_codegen::{
 
 /// Path of input Rust code
 const RUST_INPUT: &str = "src/api.rs";
+
 /// Path of output generated Dart code
 const DART_OUTPUT: &str = "../lib/bridge_generated.dart";
+const C_OUTPUT: &str = "../ios/Runner/bridge_generated.h";
+const EXTRA_C_OUTPUT: &str = "../macos/Runner/";
 
 fn main() {
     // Tell Cargo that if the input Rust code changes, to rerun this build script.
@@ -16,8 +19,10 @@ fn main() {
         rust_input: vec![RUST_INPUT.to_string()],
         // Path of output generated Dart code
         dart_output: vec![DART_OUTPUT.to_string()],
-        wasm: true,
-        dart_decl_output: Some("../lib/bridge_definitions.dart".into()),
+        c_output: Some(vec![C_OUTPUT.to_string()]),
+        extra_c_output_path: Some(vec![EXTRA_C_OUTPUT.to_string()]),
+        wasm: false,
+        //dart_decl_output: Some("../lib/bridge_definitions.dart".into()),
         dart_format_line_length: 120,
         // for other options use defaults
         ..Default::default()

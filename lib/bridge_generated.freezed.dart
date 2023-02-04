@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'bridge_definitions.dart';
+part of 'bridge_generated.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -700,7 +700,8 @@ mixin _$FilterCriterion {
     required TResult Function(String field0) hasServiceUuid,
     required TResult Function(String field0) nameMatchesExactly,
     required TResult Function(String field0) nameContains,
-    required TResult Function(Uint8List field0) manufacturerDataMatches,
+    required TResult Function(int field0) manufacturerId,
+    required TResult Function(int field0, Uint8List field1) manufacturerData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -708,7 +709,8 @@ mixin _$FilterCriterion {
     TResult? Function(String field0)? hasServiceUuid,
     TResult? Function(String field0)? nameMatchesExactly,
     TResult? Function(String field0)? nameContains,
-    TResult? Function(Uint8List field0)? manufacturerDataMatches,
+    TResult? Function(int field0)? manufacturerId,
+    TResult? Function(int field0, Uint8List field1)? manufacturerData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -716,7 +718,8 @@ mixin _$FilterCriterion {
     TResult Function(String field0)? hasServiceUuid,
     TResult Function(String field0)? nameMatchesExactly,
     TResult Function(String field0)? nameContains,
-    TResult Function(Uint8List field0)? manufacturerDataMatches,
+    TResult Function(int field0)? manufacturerId,
+    TResult Function(int field0, Uint8List field1)? manufacturerData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -725,7 +728,8 @@ mixin _$FilterCriterion {
     required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
     required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
     required TResult Function(FilterCriterion_NameContains value) nameContains,
-    required TResult Function(FilterCriterion_ManufacturerDataMatches value) manufacturerDataMatches,
+    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -733,7 +737,8 @@ mixin _$FilterCriterion {
     TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
     TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
     TResult? Function(FilterCriterion_NameContains value)? nameContains,
-    TResult? Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -741,7 +746,8 @@ mixin _$FilterCriterion {
     TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
     TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
     TResult Function(FilterCriterion_NameContains value)? nameContains,
-    TResult Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -830,7 +836,8 @@ class _$FilterCriterion_HasServiceUuid implements FilterCriterion_HasServiceUuid
     required TResult Function(String field0) hasServiceUuid,
     required TResult Function(String field0) nameMatchesExactly,
     required TResult Function(String field0) nameContains,
-    required TResult Function(Uint8List field0) manufacturerDataMatches,
+    required TResult Function(int field0) manufacturerId,
+    required TResult Function(int field0, Uint8List field1) manufacturerData,
   }) {
     return hasServiceUuid(field0);
   }
@@ -841,7 +848,8 @@ class _$FilterCriterion_HasServiceUuid implements FilterCriterion_HasServiceUuid
     TResult? Function(String field0)? hasServiceUuid,
     TResult? Function(String field0)? nameMatchesExactly,
     TResult? Function(String field0)? nameContains,
-    TResult? Function(Uint8List field0)? manufacturerDataMatches,
+    TResult? Function(int field0)? manufacturerId,
+    TResult? Function(int field0, Uint8List field1)? manufacturerData,
   }) {
     return hasServiceUuid?.call(field0);
   }
@@ -852,7 +860,8 @@ class _$FilterCriterion_HasServiceUuid implements FilterCriterion_HasServiceUuid
     TResult Function(String field0)? hasServiceUuid,
     TResult Function(String field0)? nameMatchesExactly,
     TResult Function(String field0)? nameContains,
-    TResult Function(Uint8List field0)? manufacturerDataMatches,
+    TResult Function(int field0)? manufacturerId,
+    TResult Function(int field0, Uint8List field1)? manufacturerData,
     required TResult orElse(),
   }) {
     if (hasServiceUuid != null) {
@@ -867,7 +876,8 @@ class _$FilterCriterion_HasServiceUuid implements FilterCriterion_HasServiceUuid
     required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
     required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
     required TResult Function(FilterCriterion_NameContains value) nameContains,
-    required TResult Function(FilterCriterion_ManufacturerDataMatches value) manufacturerDataMatches,
+    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
   }) {
     return hasServiceUuid(this);
   }
@@ -878,7 +888,8 @@ class _$FilterCriterion_HasServiceUuid implements FilterCriterion_HasServiceUuid
     TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
     TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
     TResult? Function(FilterCriterion_NameContains value)? nameContains,
-    TResult? Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
   }) {
     return hasServiceUuid?.call(this);
   }
@@ -889,7 +900,8 @@ class _$FilterCriterion_HasServiceUuid implements FilterCriterion_HasServiceUuid
     TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
     TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
     TResult Function(FilterCriterion_NameContains value)? nameContains,
-    TResult Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
     required TResult orElse(),
   }) {
     if (hasServiceUuid != null) {
@@ -976,7 +988,8 @@ class _$FilterCriterion_NameMatchesExactly implements FilterCriterion_NameMatche
     required TResult Function(String field0) hasServiceUuid,
     required TResult Function(String field0) nameMatchesExactly,
     required TResult Function(String field0) nameContains,
-    required TResult Function(Uint8List field0) manufacturerDataMatches,
+    required TResult Function(int field0) manufacturerId,
+    required TResult Function(int field0, Uint8List field1) manufacturerData,
   }) {
     return nameMatchesExactly(field0);
   }
@@ -987,7 +1000,8 @@ class _$FilterCriterion_NameMatchesExactly implements FilterCriterion_NameMatche
     TResult? Function(String field0)? hasServiceUuid,
     TResult? Function(String field0)? nameMatchesExactly,
     TResult? Function(String field0)? nameContains,
-    TResult? Function(Uint8List field0)? manufacturerDataMatches,
+    TResult? Function(int field0)? manufacturerId,
+    TResult? Function(int field0, Uint8List field1)? manufacturerData,
   }) {
     return nameMatchesExactly?.call(field0);
   }
@@ -998,7 +1012,8 @@ class _$FilterCriterion_NameMatchesExactly implements FilterCriterion_NameMatche
     TResult Function(String field0)? hasServiceUuid,
     TResult Function(String field0)? nameMatchesExactly,
     TResult Function(String field0)? nameContains,
-    TResult Function(Uint8List field0)? manufacturerDataMatches,
+    TResult Function(int field0)? manufacturerId,
+    TResult Function(int field0, Uint8List field1)? manufacturerData,
     required TResult orElse(),
   }) {
     if (nameMatchesExactly != null) {
@@ -1013,7 +1028,8 @@ class _$FilterCriterion_NameMatchesExactly implements FilterCriterion_NameMatche
     required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
     required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
     required TResult Function(FilterCriterion_NameContains value) nameContains,
-    required TResult Function(FilterCriterion_ManufacturerDataMatches value) manufacturerDataMatches,
+    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
   }) {
     return nameMatchesExactly(this);
   }
@@ -1024,7 +1040,8 @@ class _$FilterCriterion_NameMatchesExactly implements FilterCriterion_NameMatche
     TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
     TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
     TResult? Function(FilterCriterion_NameContains value)? nameContains,
-    TResult? Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
   }) {
     return nameMatchesExactly?.call(this);
   }
@@ -1035,7 +1052,8 @@ class _$FilterCriterion_NameMatchesExactly implements FilterCriterion_NameMatche
     TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
     TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
     TResult Function(FilterCriterion_NameContains value)? nameContains,
-    TResult Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
     required TResult orElse(),
   }) {
     if (nameMatchesExactly != null) {
@@ -1122,7 +1140,8 @@ class _$FilterCriterion_NameContains implements FilterCriterion_NameContains {
     required TResult Function(String field0) hasServiceUuid,
     required TResult Function(String field0) nameMatchesExactly,
     required TResult Function(String field0) nameContains,
-    required TResult Function(Uint8List field0) manufacturerDataMatches,
+    required TResult Function(int field0) manufacturerId,
+    required TResult Function(int field0, Uint8List field1) manufacturerData,
   }) {
     return nameContains(field0);
   }
@@ -1133,7 +1152,8 @@ class _$FilterCriterion_NameContains implements FilterCriterion_NameContains {
     TResult? Function(String field0)? hasServiceUuid,
     TResult? Function(String field0)? nameMatchesExactly,
     TResult? Function(String field0)? nameContains,
-    TResult? Function(Uint8List field0)? manufacturerDataMatches,
+    TResult? Function(int field0)? manufacturerId,
+    TResult? Function(int field0, Uint8List field1)? manufacturerData,
   }) {
     return nameContains?.call(field0);
   }
@@ -1144,7 +1164,8 @@ class _$FilterCriterion_NameContains implements FilterCriterion_NameContains {
     TResult Function(String field0)? hasServiceUuid,
     TResult Function(String field0)? nameMatchesExactly,
     TResult Function(String field0)? nameContains,
-    TResult Function(Uint8List field0)? manufacturerDataMatches,
+    TResult Function(int field0)? manufacturerId,
+    TResult Function(int field0, Uint8List field1)? manufacturerData,
     required TResult orElse(),
   }) {
     if (nameContains != null) {
@@ -1159,7 +1180,8 @@ class _$FilterCriterion_NameContains implements FilterCriterion_NameContains {
     required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
     required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
     required TResult Function(FilterCriterion_NameContains value) nameContains,
-    required TResult Function(FilterCriterion_ManufacturerDataMatches value) manufacturerDataMatches,
+    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
   }) {
     return nameContains(this);
   }
@@ -1170,7 +1192,8 @@ class _$FilterCriterion_NameContains implements FilterCriterion_NameContains {
     TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
     TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
     TResult? Function(FilterCriterion_NameContains value)? nameContains,
-    TResult? Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
   }) {
     return nameContains?.call(this);
   }
@@ -1181,7 +1204,8 @@ class _$FilterCriterion_NameContains implements FilterCriterion_NameContains {
     TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
     TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
     TResult Function(FilterCriterion_NameContains value)? nameContains,
-    TResult Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
     required TResult orElse(),
   }) {
     if (nameContains != null) {
@@ -1202,20 +1226,20 @@ abstract class FilterCriterion_NameContains implements FilterCriterion {
 }
 
 /// @nodoc
-abstract class _$$FilterCriterion_ManufacturerDataMatchesCopyWith<$Res> {
-  factory _$$FilterCriterion_ManufacturerDataMatchesCopyWith(_$FilterCriterion_ManufacturerDataMatches value,
-          $Res Function(_$FilterCriterion_ManufacturerDataMatches) then) =
-      __$$FilterCriterion_ManufacturerDataMatchesCopyWithImpl<$Res>;
+abstract class _$$FilterCriterion_ManufacturerIdCopyWith<$Res> {
+  factory _$$FilterCriterion_ManufacturerIdCopyWith(
+          _$FilterCriterion_ManufacturerId value, $Res Function(_$FilterCriterion_ManufacturerId) then) =
+      __$$FilterCriterion_ManufacturerIdCopyWithImpl<$Res>;
   @useResult
-  $Res call({Uint8List field0});
+  $Res call({int field0});
 }
 
 /// @nodoc
-class __$$FilterCriterion_ManufacturerDataMatchesCopyWithImpl<$Res>
-    extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_ManufacturerDataMatches>
-    implements _$$FilterCriterion_ManufacturerDataMatchesCopyWith<$Res> {
-  __$$FilterCriterion_ManufacturerDataMatchesCopyWithImpl(
-      _$FilterCriterion_ManufacturerDataMatches _value, $Res Function(_$FilterCriterion_ManufacturerDataMatches) _then)
+class __$$FilterCriterion_ManufacturerIdCopyWithImpl<$Res>
+    extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_ManufacturerId>
+    implements _$$FilterCriterion_ManufacturerIdCopyWith<$Res> {
+  __$$FilterCriterion_ManufacturerIdCopyWithImpl(
+      _$FilterCriterion_ManufacturerId _value, $Res Function(_$FilterCriterion_ManufacturerId) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1223,45 +1247,44 @@ class __$$FilterCriterion_ManufacturerDataMatchesCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$FilterCriterion_ManufacturerDataMatches(
+    return _then(_$FilterCriterion_ManufacturerId(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
-              as Uint8List,
+              as int,
     ));
   }
 }
 
 /// @nodoc
 
-class _$FilterCriterion_ManufacturerDataMatches implements FilterCriterion_ManufacturerDataMatches {
-  const _$FilterCriterion_ManufacturerDataMatches(this.field0);
+class _$FilterCriterion_ManufacturerId implements FilterCriterion_ManufacturerId {
+  const _$FilterCriterion_ManufacturerId(this.field0);
 
   @override
-  final Uint8List field0;
+  final int field0;
 
   @override
   String toString() {
-    return 'FilterCriterion.manufacturerDataMatches(field0: $field0)';
+    return 'FilterCriterion.manufacturerId(field0: $field0)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FilterCriterion_ManufacturerDataMatches &&
-            const DeepCollectionEquality().equals(other.field0, field0));
+            other is _$FilterCriterion_ManufacturerId &&
+            (identical(other.field0, field0) || other.field0 == field0));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(field0));
+  int get hashCode => Object.hash(runtimeType, field0);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterCriterion_ManufacturerDataMatchesCopyWith<_$FilterCriterion_ManufacturerDataMatches> get copyWith =>
-      __$$FilterCriterion_ManufacturerDataMatchesCopyWithImpl<_$FilterCriterion_ManufacturerDataMatches>(
-          this, _$identity);
+  _$$FilterCriterion_ManufacturerIdCopyWith<_$FilterCriterion_ManufacturerId> get copyWith =>
+      __$$FilterCriterion_ManufacturerIdCopyWithImpl<_$FilterCriterion_ManufacturerId>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1269,9 +1292,10 @@ class _$FilterCriterion_ManufacturerDataMatches implements FilterCriterion_Manuf
     required TResult Function(String field0) hasServiceUuid,
     required TResult Function(String field0) nameMatchesExactly,
     required TResult Function(String field0) nameContains,
-    required TResult Function(Uint8List field0) manufacturerDataMatches,
+    required TResult Function(int field0) manufacturerId,
+    required TResult Function(int field0, Uint8List field1) manufacturerData,
   }) {
-    return manufacturerDataMatches(field0);
+    return manufacturerId(field0);
   }
 
   @override
@@ -1280,9 +1304,10 @@ class _$FilterCriterion_ManufacturerDataMatches implements FilterCriterion_Manuf
     TResult? Function(String field0)? hasServiceUuid,
     TResult? Function(String field0)? nameMatchesExactly,
     TResult? Function(String field0)? nameContains,
-    TResult? Function(Uint8List field0)? manufacturerDataMatches,
+    TResult? Function(int field0)? manufacturerId,
+    TResult? Function(int field0, Uint8List field1)? manufacturerData,
   }) {
-    return manufacturerDataMatches?.call(field0);
+    return manufacturerId?.call(field0);
   }
 
   @override
@@ -1291,11 +1316,12 @@ class _$FilterCriterion_ManufacturerDataMatches implements FilterCriterion_Manuf
     TResult Function(String field0)? hasServiceUuid,
     TResult Function(String field0)? nameMatchesExactly,
     TResult Function(String field0)? nameContains,
-    TResult Function(Uint8List field0)? manufacturerDataMatches,
+    TResult Function(int field0)? manufacturerId,
+    TResult Function(int field0, Uint8List field1)? manufacturerData,
     required TResult orElse(),
   }) {
-    if (manufacturerDataMatches != null) {
-      return manufacturerDataMatches(field0);
+    if (manufacturerId != null) {
+      return manufacturerId(field0);
     }
     return orElse();
   }
@@ -1306,9 +1332,10 @@ class _$FilterCriterion_ManufacturerDataMatches implements FilterCriterion_Manuf
     required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
     required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
     required TResult Function(FilterCriterion_NameContains value) nameContains,
-    required TResult Function(FilterCriterion_ManufacturerDataMatches value) manufacturerDataMatches,
+    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
   }) {
-    return manufacturerDataMatches(this);
+    return manufacturerId(this);
   }
 
   @override
@@ -1317,9 +1344,10 @@ class _$FilterCriterion_ManufacturerDataMatches implements FilterCriterion_Manuf
     TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
     TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
     TResult? Function(FilterCriterion_NameContains value)? nameContains,
-    TResult? Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
   }) {
-    return manufacturerDataMatches?.call(this);
+    return manufacturerId?.call(this);
   }
 
   @override
@@ -1328,23 +1356,185 @@ class _$FilterCriterion_ManufacturerDataMatches implements FilterCriterion_Manuf
     TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
     TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
     TResult Function(FilterCriterion_NameContains value)? nameContains,
-    TResult Function(FilterCriterion_ManufacturerDataMatches value)? manufacturerDataMatches,
+    TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
     required TResult orElse(),
   }) {
-    if (manufacturerDataMatches != null) {
-      return manufacturerDataMatches(this);
+    if (manufacturerId != null) {
+      return manufacturerId(this);
     }
     return orElse();
   }
 }
 
-abstract class FilterCriterion_ManufacturerDataMatches implements FilterCriterion {
-  const factory FilterCriterion_ManufacturerDataMatches(final Uint8List field0) =
-      _$FilterCriterion_ManufacturerDataMatches;
+abstract class FilterCriterion_ManufacturerId implements FilterCriterion {
+  const factory FilterCriterion_ManufacturerId(final int field0) = _$FilterCriterion_ManufacturerId;
 
   @override
-  Uint8List get field0;
+  int get field0;
   @JsonKey(ignore: true)
-  _$$FilterCriterion_ManufacturerDataMatchesCopyWith<_$FilterCriterion_ManufacturerDataMatches> get copyWith =>
+  _$$FilterCriterion_ManufacturerIdCopyWith<_$FilterCriterion_ManufacturerId> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FilterCriterion_ManufacturerDataCopyWith<$Res> {
+  factory _$$FilterCriterion_ManufacturerDataCopyWith(
+          _$FilterCriterion_ManufacturerData value, $Res Function(_$FilterCriterion_ManufacturerData) then) =
+      __$$FilterCriterion_ManufacturerDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int field0, Uint8List field1});
+}
+
+/// @nodoc
+class __$$FilterCriterion_ManufacturerDataCopyWithImpl<$Res>
+    extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_ManufacturerData>
+    implements _$$FilterCriterion_ManufacturerDataCopyWith<$Res> {
+  __$$FilterCriterion_ManufacturerDataCopyWithImpl(
+      _$FilterCriterion_ManufacturerData _value, $Res Function(_$FilterCriterion_ManufacturerData) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field0 = null,
+    Object? field1 = null,
+  }) {
+    return _then(_$FilterCriterion_ManufacturerData(
+      null == field0
+          ? _value.field0
+          : field0 // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == field1
+          ? _value.field1
+          : field1 // ignore: cast_nullable_to_non_nullable
+              as Uint8List,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FilterCriterion_ManufacturerData implements FilterCriterion_ManufacturerData {
+  const _$FilterCriterion_ManufacturerData(this.field0, this.field1);
+
+  @override
+  final int field0;
+  @override
+  final Uint8List field1;
+
+  @override
+  String toString() {
+    return 'FilterCriterion.manufacturerData(field0: $field0, field1: $field1)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterCriterion_ManufacturerData &&
+            (identical(other.field0, field0) || other.field0 == field0) &&
+            const DeepCollectionEquality().equals(other.field1, field1));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, field0, const DeepCollectionEquality().hash(field1));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FilterCriterion_ManufacturerDataCopyWith<_$FilterCriterion_ManufacturerData> get copyWith =>
+      __$$FilterCriterion_ManufacturerDataCopyWithImpl<_$FilterCriterion_ManufacturerData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String field0) hasServiceUuid,
+    required TResult Function(String field0) nameMatchesExactly,
+    required TResult Function(String field0) nameContains,
+    required TResult Function(int field0) manufacturerId,
+    required TResult Function(int field0, Uint8List field1) manufacturerData,
+  }) {
+    return manufacturerData(field0, field1);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String field0)? hasServiceUuid,
+    TResult? Function(String field0)? nameMatchesExactly,
+    TResult? Function(String field0)? nameContains,
+    TResult? Function(int field0)? manufacturerId,
+    TResult? Function(int field0, Uint8List field1)? manufacturerData,
+  }) {
+    return manufacturerData?.call(field0, field1);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String field0)? hasServiceUuid,
+    TResult Function(String field0)? nameMatchesExactly,
+    TResult Function(String field0)? nameContains,
+    TResult Function(int field0)? manufacturerId,
+    TResult Function(int field0, Uint8List field1)? manufacturerData,
+    required TResult orElse(),
+  }) {
+    if (manufacturerData != null) {
+      return manufacturerData(field0, field1);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_NameContains value) nameContains,
+    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
+  }) {
+    return manufacturerData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameContains value)? nameContains,
+    TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
+  }) {
+    return manufacturerData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
+    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameContains value)? nameContains,
+    TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
+    TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
+    required TResult orElse(),
+  }) {
+    if (manufacturerData != null) {
+      return manufacturerData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FilterCriterion_ManufacturerData implements FilterCriterion {
+  const factory FilterCriterion_ManufacturerData(final int field0, final Uint8List field1) =
+      _$FilterCriterion_ManufacturerData;
+
+  @override
+  int get field0;
+  Uint8List get field1;
+  @JsonKey(ignore: true)
+  _$$FilterCriterion_ManufacturerDataCopyWith<_$FilterCriterion_ManufacturerData> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,14 +1,11 @@
-use std::str::FromStr;
-
-use bitflags::bitflags;
-
 use flutter_rust_bridge::StreamSink;
 use once_cell::sync::OnceCell;
+use std::str::FromStr;
 
 use btleplug::{
     api::{
-        Central, CentralEvent, CharPropFlags, Characteristic, Manager as _, Peripheral,
-        ScanFilter, WriteType,
+        Central, CentralEvent, CharPropFlags, Characteristic, Manager as _, Peripheral, ScanFilter,
+        WriteType,
     },
     platform::{Adapter, Manager, PeripheralId},
 };
@@ -137,7 +134,14 @@ impl AoiAdapter {
                     false
                 }
             }
-            FilterCriterion::ManufacturerDataMatches(data) => &perpheral.manufacturer_data == data,
+            FilterCriterion::ManufacturerId(id) => perpheral
+                .manufacturer_data
+                .iter()
+                .any(|m| m.manufacturer_id == *id),
+            FilterCriterion::ManufacturerData(id, data) => perpheral
+                .manufacturer_data
+                .iter()
+                .any(|m| m.manufacturer_id == *id && m.data == *data),
         }
     }
 
@@ -190,37 +194,30 @@ impl AoiConnectedPeripheral {
         })
     }
 
+    pub fn write_without_response_impl(
+        &self,
+        characteristic: AoiCharacteristic,
+        data: Vec<u8>,
+    ) -> Result<()> {
+        run_blocking(async {
+            let peripheral = self.peripheral.into_peripheral().await;
+            peripheral
+                .write(
+                    &characteristic.try_into()?,
+                    &data,
+                    WriteType::WithoutResponse,
+                )
+                .await?;
+            Ok(())
+        })
+    }
+
     pub fn disconnect_impl(&self) -> Result<()> {
         run_blocking(async {
             let peripheral = self.peripheral.into_peripheral().await;
             peripheral.disconnect().await?;
             Ok(())
         })
-    }
-}
-
-bitflags! {
-    #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-    pub struct AoiCharPropFlags: u8 {
-        const BROADCAST = 0x01;
-        const READ = 0x02;
-        const WRITE_WITHOUT_RESPONSE = 0x04;
-        const WRITE = 0x08;
-        const NOTIFY = 0x10;
-        const INDICATE = 0x20;
-        const AUTHENTICATED_SIGNED_WRITES = 0x40;
-        const EXTENDED_PROPERTIES = 0x80;
-    }
-}
-
-impl AoiCharacteristic {
-    pub fn get_properties_impl(&self) -> Vec<i32> {
-        AoiCharPropFlags::all()
-            .iter()
-            .filter(|p| p.bits() & self.properties > 0)
-            .enumerate()
-            .map(|(i, _)| i as i32)
-            .collect()
     }
 }
 
@@ -250,14 +247,23 @@ impl AoiPeripheral {
             if let Ok(Some(properties)) = peripheral.properties().await {
                 let name = properties.local_name;
                 let services = properties.services.iter().map(|u| u.to_string()).collect();
-                // let manufacturer_data = properties.manufacturer_data.into_values().collect::<Vec<u8>>();
+                let manufacturer_data = properties
+                    .manufacturer_data
+                    .into_iter()
+                    .map(|(manufacturer_id, data)| {
+                        return AoiManufacturerData {
+                            manufacturer_id,
+                            data,
+                        };
+                    })
+                    .collect::<Vec<_>>();
 
                 return Some(AoiPeripheral {
                     adapter: Box::new(adapter.into()),
                     name,
                     address: Box::new(Self::into_address(&peripheral)),
                     services,
-                    manufacturer_data: vec![], // TODO
+                    manufacturer_data,
                 });
             } else {
                 return Some(AoiPeripheral {
@@ -265,7 +271,7 @@ impl AoiPeripheral {
                     name: None,
                     address: Box::new(Self::into_address(&peripheral)),
                     services: vec![],
-                    manufacturer_data: vec![], // TODO
+                    manufacturer_data: vec![],
                 });
             }
         }
@@ -330,7 +336,7 @@ impl From<&Characteristic> for AoiCharacteristic {
         AoiCharacteristic {
             uuid: c.uuid.to_string(),
             service_uuid: c.service_uuid.to_string(),
-            properties: c.properties.bits(),
+            properties_bits: c.properties.bits(),
         }
     }
 }
@@ -342,7 +348,7 @@ impl TryFrom<AoiCharacteristic> for Characteristic {
         Ok(Characteristic {
             uuid: Uuid::from_str(c.uuid.as_str())?,
             service_uuid: Uuid::from_str(c.service_uuid.as_str())?,
-            properties: CharPropFlags::from_bits(c.properties).context("invalid flags")?,
+            properties: CharPropFlags::from_bits(c.properties_bits).context("invalid bits")?,
         })
     }
 }

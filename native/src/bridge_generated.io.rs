@@ -45,19 +45,26 @@ pub extern "C" fn wire_write__method__AoiConnectedPeripheral(
 }
 
 #[no_mangle]
+pub extern "C" fn wire_write_without_response__method__AoiConnectedPeripheral(
+    port_: i64,
+    that: *mut wire_AoiConnectedPeripheral,
+    characteristic: *mut wire_AoiCharacteristic,
+    data: *mut wire_uint_8_list,
+) {
+    wire_write_without_response__method__AoiConnectedPeripheral_impl(
+        port_,
+        that,
+        characteristic,
+        data,
+    )
+}
+
+#[no_mangle]
 pub extern "C" fn wire_disconnect__method__AoiConnectedPeripheral(
     port_: i64,
     that: *mut wire_AoiConnectedPeripheral,
 ) {
     wire_disconnect__method__AoiConnectedPeripheral_impl(port_, that)
-}
-
-#[no_mangle]
-pub extern "C" fn wire_get_properties__method__AoiCharacteristic(
-    port_: i64,
-    that: *mut wire_AoiCharacteristic,
-) {
-    wire_get_properties__method__AoiCharacteristic_impl(port_, that)
 }
 
 // Section: allocate functions
@@ -121,6 +128,17 @@ pub extern "C" fn new_list_aoi_characteristic_0(len: i32) -> *mut wire_list_aoi_
 }
 
 #[no_mangle]
+pub extern "C" fn new_list_aoi_manufacturer_data_0(
+    len: i32,
+) -> *mut wire_list_aoi_manufacturer_data {
+    let wrap = wire_list_aoi_manufacturer_data {
+        ptr: support::new_leak_vec_ptr(<wire_AoiManufacturerData>::new_with_null_ptr(), len),
+        len,
+    };
+    support::new_leak_box_ptr(wrap)
+}
+
+#[no_mangle]
 pub extern "C" fn new_list_filter_criterion_0(len: i32) -> *mut wire_list_filter_criterion {
     let wrap = wire_list_filter_criterion {
         ptr: support::new_leak_vec_ptr(<wire_FilterCriterion>::new_with_null_ptr(), len),
@@ -169,7 +187,7 @@ impl Wire2Api<AoiCharacteristic> for wire_AoiCharacteristic {
         AoiCharacteristic {
             uuid: self.uuid.wire2api(),
             service_uuid: self.service_uuid.wire2api(),
-            properties: self.properties.wire2api(),
+            properties_bits: self.properties_bits.wire2api(),
         }
     }
 }
@@ -178,6 +196,14 @@ impl Wire2Api<AoiConnectedPeripheral> for wire_AoiConnectedPeripheral {
         AoiConnectedPeripheral {
             peripheral: self.peripheral.wire2api(),
             characteristics: self.characteristics.wire2api(),
+        }
+    }
+}
+impl Wire2Api<AoiManufacturerData> for wire_AoiManufacturerData {
+    fn wire2api(self) -> AoiManufacturerData {
+        AoiManufacturerData {
+            manufacturer_id: self.manufacturer_id.wire2api(),
+            data: self.data.wire2api(),
         }
     }
 }
@@ -294,8 +320,13 @@ impl Wire2Api<FilterCriterion> for wire_FilterCriterion {
             },
             3 => unsafe {
                 let ans = support::box_from_leak_ptr(self.kind);
-                let ans = support::box_from_leak_ptr(ans.ManufacturerDataMatches);
-                FilterCriterion::ManufacturerDataMatches(ans.field0.wire2api())
+                let ans = support::box_from_leak_ptr(ans.ManufacturerId);
+                FilterCriterion::ManufacturerId(ans.field0.wire2api())
+            },
+            4 => unsafe {
+                let ans = support::box_from_leak_ptr(self.kind);
+                let ans = support::box_from_leak_ptr(ans.ManufacturerData);
+                FilterCriterion::ManufacturerData(ans.field0.wire2api(), ans.field1.wire2api())
             },
             _ => unreachable!(),
         }
@@ -303,6 +334,15 @@ impl Wire2Api<FilterCriterion> for wire_FilterCriterion {
 }
 impl Wire2Api<Vec<AoiCharacteristic>> for *mut wire_list_aoi_characteristic {
     fn wire2api(self) -> Vec<AoiCharacteristic> {
+        let vec = unsafe {
+            let wrap = support::box_from_leak_ptr(self);
+            support::vec_from_leak_ptr(wrap.ptr, wrap.len)
+        };
+        vec.into_iter().map(Wire2Api::wire2api).collect()
+    }
+}
+impl Wire2Api<Vec<AoiManufacturerData>> for *mut wire_list_aoi_manufacturer_data {
+    fn wire2api(self) -> Vec<AoiManufacturerData> {
         let vec = unsafe {
             let wrap = support::box_from_leak_ptr(self);
             support::vec_from_leak_ptr(wrap.ptr, wrap.len)
@@ -355,7 +395,7 @@ pub struct wire_AoiAdapter {
 pub struct wire_AoiCharacteristic {
     uuid: *mut wire_uint_8_list,
     service_uuid: *mut wire_uint_8_list,
-    properties: u8,
+    properties_bits: u8,
 }
 
 #[repr(C)]
@@ -367,18 +407,32 @@ pub struct wire_AoiConnectedPeripheral {
 
 #[repr(C)]
 #[derive(Clone)]
+pub struct wire_AoiManufacturerData {
+    manufacturer_id: u16,
+    data: *mut wire_uint_8_list,
+}
+
+#[repr(C)]
+#[derive(Clone)]
 pub struct wire_AoiPeripheral {
     adapter: *mut wire_AoiAdapter,
     name: *mut wire_uint_8_list,
     address: *mut wire_AoiPeripheralAddress,
     services: *mut wire_StringList,
-    manufacturer_data: *mut wire_uint_8_list,
+    manufacturer_data: *mut wire_list_aoi_manufacturer_data,
 }
 
 #[repr(C)]
 #[derive(Clone)]
 pub struct wire_list_aoi_characteristic {
     ptr: *mut wire_AoiCharacteristic,
+    len: i32,
+}
+
+#[repr(C)]
+#[derive(Clone)]
+pub struct wire_list_aoi_manufacturer_data {
+    ptr: *mut wire_AoiManufacturerData,
     len: i32,
 }
 
@@ -457,7 +511,8 @@ pub union FilterCriterionKind {
     HasServiceUuid: *mut wire_FilterCriterion_HasServiceUuid,
     NameMatchesExactly: *mut wire_FilterCriterion_NameMatchesExactly,
     NameContains: *mut wire_FilterCriterion_NameContains,
-    ManufacturerDataMatches: *mut wire_FilterCriterion_ManufacturerDataMatches,
+    ManufacturerId: *mut wire_FilterCriterion_ManufacturerId,
+    ManufacturerData: *mut wire_FilterCriterion_ManufacturerData,
 }
 
 #[repr(C)]
@@ -480,8 +535,15 @@ pub struct wire_FilterCriterion_NameContains {
 
 #[repr(C)]
 #[derive(Clone)]
-pub struct wire_FilterCriterion_ManufacturerDataMatches {
-    field0: *mut wire_uint_8_list,
+pub struct wire_FilterCriterion_ManufacturerId {
+    field0: u16,
+}
+
+#[repr(C)]
+#[derive(Clone)]
+pub struct wire_FilterCriterion_ManufacturerData {
+    field0: u16,
+    field1: *mut wire_uint_8_list,
 }
 
 // Section: impl NewWithNullPtr
@@ -509,7 +571,7 @@ impl NewWithNullPtr for wire_AoiCharacteristic {
         Self {
             uuid: core::ptr::null_mut(),
             service_uuid: core::ptr::null_mut(),
-            properties: Default::default(),
+            properties_bits: Default::default(),
         }
     }
 }
@@ -519,6 +581,15 @@ impl NewWithNullPtr for wire_AoiConnectedPeripheral {
         Self {
             peripheral: core::ptr::null_mut(),
             characteristics: core::ptr::null_mut(),
+        }
+    }
+}
+
+impl NewWithNullPtr for wire_AoiManufacturerData {
+    fn new_with_null_ptr() -> Self {
+        Self {
+            manufacturer_id: Default::default(),
+            data: core::ptr::null_mut(),
         }
     }
 }
@@ -626,13 +697,21 @@ pub extern "C" fn inflate_FilterCriterion_NameContains() -> *mut FilterCriterion
 }
 
 #[no_mangle]
-pub extern "C" fn inflate_FilterCriterion_ManufacturerDataMatches() -> *mut FilterCriterionKind {
+pub extern "C" fn inflate_FilterCriterion_ManufacturerId() -> *mut FilterCriterionKind {
     support::new_leak_box_ptr(FilterCriterionKind {
-        ManufacturerDataMatches: support::new_leak_box_ptr(
-            wire_FilterCriterion_ManufacturerDataMatches {
-                field0: core::ptr::null_mut(),
-            },
-        ),
+        ManufacturerId: support::new_leak_box_ptr(wire_FilterCriterion_ManufacturerId {
+            field0: Default::default(),
+        }),
+    })
+}
+
+#[no_mangle]
+pub extern "C" fn inflate_FilterCriterion_ManufacturerData() -> *mut FilterCriterionKind {
+    support::new_leak_box_ptr(FilterCriterionKind {
+        ManufacturerData: support::new_leak_box_ptr(wire_FilterCriterion_ManufacturerData {
+            field0: Default::default(),
+            field1: core::ptr::null_mut(),
+        }),
     })
 }
 

@@ -123,6 +123,32 @@ fn wire_write__method__AoiConnectedPeripheral_impl(
         },
     )
 }
+fn wire_write_without_response__method__AoiConnectedPeripheral_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<AoiConnectedPeripheral> + UnwindSafe,
+    characteristic: impl Wire2Api<AoiCharacteristic> + UnwindSafe,
+    data: impl Wire2Api<Vec<u8>> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "write_without_response__method__AoiConnectedPeripheral",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_characteristic = characteristic.wire2api();
+            let api_data = data.wire2api();
+            move |task_callback| {
+                AoiConnectedPeripheral::write_without_response(
+                    &api_that,
+                    api_characteristic,
+                    api_data,
+                )
+            }
+        },
+    )
+}
 fn wire_disconnect__method__AoiConnectedPeripheral_impl(
     port_: MessagePort,
     that: impl Wire2Api<AoiConnectedPeripheral> + UnwindSafe,
@@ -136,22 +162,6 @@ fn wire_disconnect__method__AoiConnectedPeripheral_impl(
         move || {
             let api_that = that.wire2api();
             move |task_callback| AoiConnectedPeripheral::disconnect(&api_that)
-        },
-    )
-}
-fn wire_get_properties__method__AoiCharacteristic_impl(
-    port_: MessagePort,
-    that: impl Wire2Api<AoiCharacteristic> + UnwindSafe,
-) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "get_properties__method__AoiCharacteristic",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || {
-            let api_that = that.wire2api();
-            move |task_callback| Ok(AoiCharacteristic::get_properties(&api_that))
         },
     )
 }
@@ -178,6 +188,11 @@ where
     }
 }
 
+impl Wire2Api<u16> for u16 {
+    fn wire2api(self) -> u16 {
+        self
+    }
+}
 impl Wire2Api<u8> for u8 {
     fn wire2api(self) -> u8 {
         self
@@ -203,7 +218,7 @@ impl support::IntoDart for AoiCharacteristic {
         vec![
             self.uuid.into_dart(),
             self.service_uuid.into_dart(),
-            self.properties.into_dart(),
+            self.properties_bits.into_dart(),
         ]
         .into_dart()
     }
@@ -220,6 +235,13 @@ impl support::IntoDart for AoiConnectedPeripheral {
     }
 }
 impl support::IntoDartExceptPrimitive for AoiConnectedPeripheral {}
+
+impl support::IntoDart for AoiManufacturerData {
+    fn into_dart(self) -> support::DartAbi {
+        vec![self.manufacturer_id.into_dart(), self.data.into_dart()].into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for AoiManufacturerData {}
 
 impl support::IntoDart for AoiPeripheral {
     fn into_dart(self) -> support::DartAbi {
@@ -251,13 +273,6 @@ impl support::IntoDartExceptPrimitive for AoiPeripheralAddress {}
 support::lazy_static! {
     pub static ref FLUTTER_RUST_BRIDGE_HANDLER: support::DefaultHandler = Default::default();
 }
-
-/// cbindgen:ignore
-#[cfg(target_family = "wasm")]
-#[path = "bridge_generated.web.rs"]
-mod web;
-#[cfg(target_family = "wasm")]
-pub use web::*;
 
 #[cfg(not(target_family = "wasm"))]
 #[path = "bridge_generated.io.rs"]

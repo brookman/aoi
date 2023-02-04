@@ -12,7 +12,8 @@ pub enum FilterCriterion {
     HasServiceUuid(String),
     NameMatchesExactly(String),
     NameContains(String),
-    ManufacturerDataMatches(Vec<u8>),
+    ManufacturerId(u16),
+    ManufacturerData(u16, Vec<u8>),
 }
 
 #[derive(Debug, Clone)]
@@ -26,7 +27,7 @@ pub struct AoiPeripheral {
     pub name: Option<String>,
     pub address: Box<AoiPeripheralAddress>,
     pub services: Vec<String>,
-    pub manufacturer_data: Vec<u8>,
+    pub manufacturer_data: Vec<AoiManufacturerData>,
 }
 
 #[derive(Debug, Clone)]
@@ -45,7 +46,13 @@ pub struct AoiConnectedPeripheral {
 pub struct AoiCharacteristic {
     pub uuid: String,
     pub service_uuid: String,
-    pub properties: u8,
+    pub properties_bits: u8,
+}
+
+#[derive(Debug, Clone)]
+pub struct AoiManufacturerData {
+    pub manufacturer_id: u16,
+    pub data: Vec<u8>,
 }
 
 impl AoiAdapter {
@@ -81,13 +88,11 @@ impl AoiConnectedPeripheral {
         self.write_impl(characteristic, data)
     }
 
+    pub fn write_without_response(&self, characteristic: AoiCharacteristic, data: Vec<u8>) -> Result<()> {
+        self.write_without_response_impl(characteristic, data)
+    }
+
     pub fn disconnect(&self) -> Result<()> {
         self.disconnect_impl()
-    }
-}
-
-impl AoiCharacteristic {
-    pub fn get_properties(&self) -> Vec<i32> {
-        self.get_properties_impl()
     }
 }
