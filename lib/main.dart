@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_rust_bridge_template/extensions.dart';
+import 'extensions.dart';
 
 import 'ffi.dart' if (dart.library.html) 'ffi_web.dart';
 
@@ -37,7 +37,7 @@ Future<void> init() async {
     if (c.hasProperty(AoiCharacteristicProperty.read)) {
       print('Trying to read it...');
       try {
-        final data = await connectedPeripheral.read(characteristic: c).timeout(const Duration(seconds: 5));
+        final data = await connectedPeripheral.read(characteristic: c).timeout(const Duration(seconds: 10));
         print('Data: $data');
         try {
           print('Data as string: ${const Utf8Decoder().convert(data)}');
@@ -50,9 +50,13 @@ Future<void> init() async {
     }
   }
 
+  print('Disconnect');
   await connectedPeripheral.disconnect();
 
+  print('Stop scan');
   await adapter.stopScan();
+
+  print('Done');
 }
 
 class MyApp extends StatelessWidget {

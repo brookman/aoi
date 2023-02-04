@@ -27,7 +27,7 @@
 		33CC10F62044A3C60003C045 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33CC10F42044A3C60003C045 /* MainMenu.xib */; };
 		33CC11132044BFA00003C045 /* MainFlutterWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC11122044BFA00003C045 /* MainFlutterWindow.swift */; };
 		85662E8B298ABA6800F23E75 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85662E89298ABA6800F23E75 /* CoreBluetooth.framework */; };
-		A3D4964229384C8700FB0055 /* libnative_static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D4963929384B5900FB0055 /* libnative_static.a */; };
+		A3D4964229384C8700FB0055 /* libaoi_static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D4963929384B5900FB0055 /* libaoi_static.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,24 +40,24 @@
 		};
 		A3D4963629384B5900FB0055 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A352534B2866B29F00EFD9C6 /* native.xcodeproj */;
+			containerPortal = A352534B2866B29F00EFD9C6 /* aoi.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = CA603EE7FF4DEAC3B2E0A336;
-			remoteInfo = "native-cdylib";
+			remoteInfo = "aoi-cdylib";
 		};
 		A3D4963829384B5900FB0055 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A352534B2866B29F00EFD9C6 /* native.xcodeproj */;
+			containerPortal = A352534B2866B29F00EFD9C6 /* aoi.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = CA60F0FEBE702969E816930C;
-			remoteInfo = "native-staticlib";
+			remoteInfo = "aoi-staticlib";
 		};
 		A3D4964029384C8200FB0055 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A352534B2866B29F00EFD9C6 /* native.xcodeproj */;
+			containerPortal = A352534B2866B29F00EFD9C6 /* aoi.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = CA60F0FEBE701C83950DBC35;
-			remoteInfo = "native-staticlib";
+			remoteInfo = "aoi-staticlib";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -92,7 +92,7 @@
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		85662E89298ABA6800F23E75 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		A352534B2866B29F00EFD9C6 /* native.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = native.xcodeproj; path = ../native/native.xcodeproj; sourceTree = "<group>"; };
+		A352534B2866B29F00EFD9C6 /* aoi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aoi.xcodeproj; path = ../aoi/aoi.xcodeproj; sourceTree = "<group>"; };
 		A35253572866B2C900EFD9C6 /* bridge_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge_generated.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85662E8B298ABA6800F23E75 /* CoreBluetooth.framework in Frameworks */,
-				A3D4964229384C8700FB0055 /* libnative_static.a in Frameworks */,
+				A3D4964229384C8700FB0055 /* libaoi_static.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +127,7 @@
 				33CEB47122A05771004F2AC0 /* Flutter */,
 				33CC10EE2044A3C60003C045 /* Products */,
 				D73912EC22F37F3D000D13A0 /* Frameworks */,
-				A352534B2866B29F00EFD9C6 /* native.xcodeproj */,
+				A352534B2866B29F00EFD9C6 /* aoi.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,8 +178,8 @@
 		A3D4963029384B5700FB0055 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A3D4963729384B5900FB0055 /* native.dylib */,
-				A3D4963929384B5900FB0055 /* libnative_static.a */,
+				A3D4963729384B5900FB0055 /* aoi.dylib */,
+				A3D4963929384B5900FB0055 /* libaoi_static.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			projectReferences = (
 				{
 					ProductGroup = A3D4963029384B5700FB0055 /* Products */;
-					ProjectRef = A352534B2866B29F00EFD9C6 /* native.xcodeproj */;
+					ProjectRef = A352534B2866B29F00EFD9C6 /* aoi.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -268,17 +268,17 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		A3D4963729384B5900FB0055 /* native.dylib */ = {
+		A3D4963729384B5900FB0055 /* aoi.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = native.dylib;
+			path = aoi.dylib;
 			remoteRef = A3D4963629384B5900FB0055 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A3D4963929384B5900FB0055 /* libnative_static.a */ = {
+		A3D4963929384B5900FB0055 /* libaoi_static.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libnative_static.a;
+			path = libaoi_static.a;
 			remoteRef = A3D4963829384B5900FB0055 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -357,7 +357,7 @@
 		};
 		A3D4964129384C8200FB0055 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "native-staticlib";
+			name = "aoi-staticlib";
 			targetProxy = A3D4964029384C8200FB0055 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
