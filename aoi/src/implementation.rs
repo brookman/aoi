@@ -1,6 +1,6 @@
 use flutter_rust_bridge::StreamSink;
-use once_cell::sync::OnceCell;
-use std::{str::FromStr, time::Duration};
+use once_cell::sync::{Lazy, OnceCell};
+use std::{collections::HashSet, str::FromStr, sync::Mutex, time::Duration};
 
 use btleplug::{
     api::{
@@ -28,6 +28,20 @@ const READ_WRITE_TIMEOUT: Duration = Duration::from_secs(5);
 pub struct AdapterWithIndex {
     pub adapter: Adapter,
     pub index: usize,
+}
+
+static SCAN_STATUS: Lazy<Mutex<HashSet<usize>>> = Lazy::new(|| Mutex::new(HashSet::new()));
+
+fn global_adapter_scanning(adapter_index: &usize) -> bool {
+    SCAN_STATUS.lock().unwrap().contains(adapter_index)
+}
+
+fn global_set_adapter_scanning(adapter_index: usize, value: bool) {
+    if value {
+        SCAN_STATUS.lock().unwrap().insert(adapter_index);
+    } else {
+        SCAN_STATUS.lock().unwrap().remove(&adapter_index);
+    }
 }
 
 fn global_runtime() -> &'static Runtime {
@@ -76,29 +90,33 @@ impl AoiAdapter {
         let adapter = get_adapter_unsafe(self.index);
         run_blocking(async {
             adapter.adapter.start_scan(ScanFilter::default()).await?;
+            global_set_adapter_scanning(self.index, true);
 
             let mut events = adapter.adapter.events().await?;
 
-            while let Some(event) = events.next().await {
-                let id = match event {
-                    CentralEvent::DeviceDiscovered(id) => id,
-                    CentralEvent::DeviceUpdated(id) => id,
-                    CentralEvent::DeviceConnected(id) => id,
-                    CentralEvent::DeviceDisconnected(id) => id,
-                    CentralEvent::ManufacturerDataAdvertisement {
-                        id,
-                        manufacturer_data: _,
-                    } => id,
-                    CentralEvent::ServiceDataAdvertisement {
-                        id,
-                        service_data: _,
-                    } => id,
-                    CentralEvent::ServicesAdvertisement { id, services: _ } => id,
-                };
+            while global_adapter_scanning(&self.index) {
+                let maybe_event = timeout(Duration::from_secs(1), events.next()).await;
+                if let Ok(Some(event)) = maybe_event {
+                    let id = match event {
+                        CentralEvent::DeviceDiscovered(id) => id,
+                        CentralEvent::DeviceUpdated(id) => id,
+                        CentralEvent::DeviceConnected(id) => id,
+                        CentralEvent::DeviceDisconnected(id) => id,
+                        CentralEvent::ManufacturerDataAdvertisement {
+                            id,
+                            manufacturer_data: _,
+                        } => id,
+                        CentralEvent::ServiceDataAdvertisement {
+                            id,
+                            service_data: _,
+                        } => id,
+                        CentralEvent::ServicesAdvertisement { id, services: _ } => id,
+                    };
 
-                if let Some(peripheral) = AoiPeripheral::create(adapter, &id).await {
-                    if Self::filter(&peripheral, &filter) {
-                        sink.add(peripheral);
+                    if let Some(peripheral) = AoiPeripheral::create(adapter, &id).await {
+                        if Self::filter(&peripheral, &filter) {
+                            sink.add(peripheral);
+                        }
                     }
                 }
             }
@@ -150,6 +168,7 @@ impl AoiAdapter {
     pub fn stop_scan_impl(&self) -> Result<()> {
         let adapter = get_adapter_unsafe(self.index);
         run_blocking(async {
+            global_set_adapter_scanning(self.index, false);
             adapter.adapter.stop_scan().await?;
             Ok(())
         })

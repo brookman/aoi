@@ -88,7 +88,11 @@ impl AoiConnectedPeripheral {
         self.write_impl(characteristic, data)
     }
 
-    pub fn write_without_response(&self, characteristic: AoiCharacteristic, data: Vec<u8>) -> Result<()> {
+    pub fn write_without_response(
+        &self,
+        characteristic: AoiCharacteristic,
+        data: Vec<u8>,
+    ) -> Result<()> {
         self.write_without_response_impl(characteristic, data)
     }
 

@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'extensions.dart';
 
+import 'extensions.dart';
 import 'ffi.dart' if (dart.library.html) 'ffi_web.dart';
 
 void main() {
@@ -17,17 +17,19 @@ Future<void> init() async {
 
   final aura = await adapter
       .startScan(
-        filter: FilterCriteria.any([
-          const FilterCriterion.nameContains('aura'),
-          FilterCriterion.manufacturerData(0x123, Uint8List.fromList([0x00, 0x01, 0x02])),
-          const FilterCriterion.hasServiceUuid('0000181c-0000-1000-8000-00805f9b34fb'),
-          const FilterCriterion.hasServiceUuid('0000fff0-0000-0000-0000-aaaabbbbcccc'),
-        ]),
-      )
+          filter: FilterCriteria.any([
+        const FilterCriterion.nameContains('aura'),
+        FilterCriterion.manufacturerData(0x123, Uint8List.fromList([0x00, 0x01, 0x02])),
+        const FilterCriterion.hasServiceUuid('0000181c-0000-1000-8000-00805f9b34fb'),
+        const FilterCriterion.hasServiceUuid('0000fff0-0000-0000-0000-aaaabbbbcccc'),
+      ]))
       .first
       .timeout(const Duration(seconds: 10));
 
   print('Found peripheral: ${aura.prettyPrint()}');
+
+  print('Stop scan');
+  await adapter.stopScan();
 
   final connectedPeripheral = await aura.connect();
 
@@ -52,9 +54,6 @@ Future<void> init() async {
 
   print('Disconnect');
   await connectedPeripheral.disconnect();
-
-  print('Stop scan');
-  await adapter.stopScan();
 
   print('Done');
 }
