@@ -1,5 +1,5 @@
 name: aoi
-description: A new Flutter FFI plugin project.
+description: A Flutter wrapper for btleplug, the Rust BLE library.
 version: 0.0.1
 homepage:
 

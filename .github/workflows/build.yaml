@@ -14,18 +14,39 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: 1.64.0
           components: rustfmt, clippy
 
       - name: Build the XCFramework
         run: bash scripts/build-apple.sh
-      - name: Copy the XCFramework to the needed location
-        run: |
-          CURR_VERSION=aoi-v`awk '/^version: /{print $2}' pubspec.yaml`
-          cp platform-build/Aoi.xcframework.zip macos/Frameworks/$CURR_VERSION.zip
-          cp platform-build/Aoi.xcframework.zip ios/Frameworks/$CURR_VERSION.zip
-          echo Copied file!
 
-      - name: Run Flutter integration tests
-        working-directory: packages/flutter_library_name/example
-        run: flutter test -d macos integration_test
+      - name: Upload build artifact (iOS & MacOS)
+        uses: actions/upload-artifact@v3
+          with:
+            name: Aoi.xcframework.zip
+            path: platform-build/Aoi.xcframework.zip
+
+
+  build_windows_linux:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      - uses: goto-bus-stop/setup-zig@v2
+      - uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "15"
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: 1.64.0
+          components: rustfmt, clippy
+
+      - name: Build the binaries
+        run: bash scripts/build-other.sh
+
+      - name: Upload build artifact (Linux & Windows)
+        uses: actions/upload-artifact@v3
+          with:
+            name: other.tar.gz
+            path: platform-build/other.tar.gz
