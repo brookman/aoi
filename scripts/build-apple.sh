@@ -7,6 +7,7 @@ cd $BUILD_DIR
 
 # Build static libs
 rustup install 1.64.0
+rustup default 1.64.0
 
 for TARGET in \
         aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim \
