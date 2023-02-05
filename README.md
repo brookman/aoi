@@ -1,59 +1,61 @@
-# flutter_rust_bridge_template
+# Aoi
 
-This repository serves as a template for Flutter projects calling into native Rust
-libraries via `flutter_rust_bridge`.
+A Flutter wrapper for [btleplug](https://github.com/deviceplug/btleplug), the Rust Bluetooth Low Energy (BLE) library.
 
-## Getting Started
+[flutter_rust_bridge](https://github.com/fzyzcjy/flutter_rust_bridge) is used for integrating Flutter/Dart & Rust.
 
-To begin, ensure that you have a working installation of the following items:
-- [Flutter SDK](https://docs.flutter.dev/get-started/install)
-- [Rust language](https://rustup.rs/)
-- Appropriate [Rust targets](https://rust-lang.github.io/rustup/cross-compilation.html) for cross-compiling to your device
-- For Android targets:
-    - Install [cargo-ndk](https://github.com/bbqsrc/cargo-ndk#installing)
-    - Install Android NDK 22, then put its path in one of the `gradle.properties`, e.g.:
+Tested on Windows, MacOS and iOS.
 
+## How to build
+
+### Install Rust
+Install instructions via rustup: https://www.rust-lang.org/tools/install
+
+### Set the Rust version to 1.64.0 (iOS / MacOS only)
+Currently btleplug does not compile with versions >= 1.65.0 on iOS / MacOS. See issue: https://github.com/deviceplug/btleplug/issues/293
 ```
-echo "ANDROID_NDK=.." >> ~/.gradle/gradle.properties
-```
-
-- [Web dependencies](http://cjycode.com/flutter_rust_bridge/template/setup_web.html) for the Web
-
-Then go ahead and run `flutter run`! When you're ready, refer to our documentation
-[here](https://fzyzcjy.github.io/flutter_rust_bridge/index.html)
-to learn how to write and use binding code.
-
-Once you have edited `api.rs` to incorporate your own Rust code, the bridge files `bridge_definitions.dart` and `bridge_generated.dart` are generated using the following command:
-
-### Windows
-```
-flutter_rust_bridge_codegen --rust-input native\src\api.rs --dart-output .\lib\bridge_generated.dart --dart-decl-output .\lib\bridge_definitions.dart
+rustup install 1.64.0
 ```
 
-### Linux/MacOS/any other Unix
+### Install the targets you want to compile for:
+Windows
 ```
-flutter_rust_bridge_codegen --rust-input native/src/api.rs --dart-output ./lib/bridge_generated.dart --dart-decl-output ./lib/bridge_definitions.dart
+rustup target add x86_64-pc-windows-msvc
+```
+iOS
+```
+rustup target add arch64-apple-ios
+```
+MacOS (Intel CPUs)
+```
+rustup target add x86_64-apple-darwin
+```
+MacOS (Apple CPUs, M1 or newer)
+```
+rustup target add aarch64-apple-darwin
 ```
 
-## Scaffolding in existing projects
+### Install Flutter
+Install instructions: https://docs.flutter.dev/get-started/install
 
-If you would like to generate boilerplate for using `flutter_rust_bridge` in your existing projects,
-check out the [`flutter_rust_bridge` brick](https://brickhub.dev/bricks/flutter_rust_bridge/)
-for more details.
+### Install the flutter_rust_bridge code generator
+```
+cargo install flutter_rust_bridge_codegen
+```
 
-## Disclaimer
+### Generate code and compile
+Change to the "aoi" sub-directory and run cargo build:
+```
+cd aoi
+cargo build --release
+```
 
-This template is not affiliated with flutter_rust_bridge. Please file issues and PRs related to the template here,
-not flutter_rust_bridge.
+### Run the code generator only
+From the root directory run:
+```
+flutter_rust_bridge_codegen --rust-input aoi\src\api.rs --dart-output .\lib\bridge_generated.dart -c ios/Runner/bridge_generated.h
+```
 
 ## License
 
-Copyright 2022 Viet Dinh.
-
-This template is licensed under either of
-- [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) ([LICENSE-APACHE](LICENSE-APACHE))
-- [MIT license](https://opensource.org/licenses/MIT) ([LICENSE-MIT](LICENSE-MIT))
-
-at your option.
-
-The [SPDX](https://spdx.dev/) license identifier for this project is `MIT OR Apache-2.0`.
+???
