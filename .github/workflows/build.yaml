@@ -22,9 +22,9 @@ jobs:
 
       - name: Upload build artifact (iOS & MacOS)
         uses: actions/upload-artifact@v3
-          with:
-            name: Aoi.xcframework.zip
-            path: platform-build/Aoi.xcframework.zip
+        with:
+          name: Aoi.xcframework.zip
+          path: platform-build/Aoi.xcframework.zip
 
 
   build_windows_linux:
@@ -47,6 +47,6 @@ jobs:
 
       - name: Upload build artifact (Linux & Windows)
         uses: actions/upload-artifact@v3
-          with:
-            name: other.tar.gz
-            path: platform-build/other.tar.gz
+        with:
+          name: other.tar.gz
+          path: platform-build/other.tar.gz
