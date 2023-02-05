@@ -51,3 +51,4 @@ jniLibs
 
 Cargo.lock
 pubspec.lock
+platform-build

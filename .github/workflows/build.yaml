@@ -1,0 +1,31 @@
+name: Build & Test
+
+on:
+  #pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_apple:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+
+      - name: Build the XCFramework
+        run: bash scripts/build-apple.sh
+      - name: Copy the XCFramework to the needed location
+        run: |
+          CURR_VERSION=aoi-v`awk '/^version: /{print $2}' pubspec.yaml`
+          cp platform-build/Aoi.xcframework.zip macos/Frameworks/$CURR_VERSION.zip
+          cp platform-build/Aoi.xcframework.zip ios/Frameworks/$CURR_VERSION.zip
+          echo Copied file!
+
+      - name: Run Flutter integration tests
+        working-directory: packages/flutter_library_name/example
+        run: flutter test -d macos integration_test
