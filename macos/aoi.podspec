@@ -32,6 +32,8 @@ Pod::Spec.new do |spec|
   spec.public_header_files = 'Classes/**/*.h'
   spec.vendored_frameworks = "Frameworks/#{framework_name}"
 
+  spec.platform = :osx, '10.13'
+
   spec.ios.deployment_target = '11.0'
-  spec.osx.deployment_target = '10.11'
+  spec.osx.deployment_target = '10.13'
 end

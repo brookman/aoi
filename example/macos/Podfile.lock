@@ -1,0 +1,21 @@
+PODS:
+  - aoi (0.0.1)
+  - FlutterMacOS (1.0.0)
+
+DEPENDENCIES:
+  - aoi (from `Flutter/ephemeral/.symlinks/plugins/aoi/macos`)
+  - FlutterMacOS (from `Flutter/ephemeral`)
+
+EXTERNAL SOURCES:
+  aoi:
+    :path: Flutter/ephemeral/.symlinks/plugins/aoi/macos
+  FlutterMacOS:
+    :path: Flutter/ephemeral
+
+SPEC CHECKSUMS:
+  aoi: 6f9a9b7669d62343e7dd4409f9f08a6ce687a9bc
+  FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
+
+PODFILE CHECKSUM: a884f6dd3f7494f3892ee6c81feea3a3abbf9153
+
+COCOAPODS: 1.11.3
