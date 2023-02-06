@@ -36,7 +36,7 @@ execute_process(
 # List of absolute paths to libraries that should be bundled with the plugin.
 # This list could contain prebuilt libraries, or libraries created by an
 # external build triggered from this build file.
-set(flutter_library_name_bundled_libraries
-  "${LibRoot}/${FLUTTER_TARGET_PLATFORM}/library_name.dll"
+set(aoi_bundled_libraries
+  "${LibRoot}/${FLUTTER_TARGET_PLATFORM}/aoi.dll"
   PARENT_SCOPE
 )
