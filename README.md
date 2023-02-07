@@ -1,6 +1,6 @@
 # aoi
 
-A new Flutter FFI plugin project.
+An experimental Flutter wrapper for https://github.com/deviceplug/btleplug
 
 ## Getting Started
 
