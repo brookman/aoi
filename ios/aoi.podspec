@@ -8,14 +8,14 @@ url = "https://github.com/YourGitHubAccount/repo_name/releases/download/#{releas
 local_zip_name = "#{release_tag_name}.zip"
 `
 cd Frameworks
-rm -rf #{framework_name}
+#rm -rf #{framework_name}
 
 if [ ! -f #{local_zip_name} ]
 then
   curl -L #{url} -o #{local_zip_name}
 fi
 
-unzip #{local_zip_name}
+#unzip #{local_zip_name}
 cd -
 `
 
@@ -33,5 +33,5 @@ Pod::Spec.new do |spec|
   spec.vendored_frameworks = "Frameworks/#{framework_name}"
 
   spec.ios.deployment_target = '11.0'
-  spec.osx.deployment_target = '10.13'
+  spec.osx.deployment_target = '12.0'
 end

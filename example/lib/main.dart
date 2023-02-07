@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:aoi/bridge_generated.dart';
 import 'package:aoi/extensions.dart';
 import 'package:aoi/ffi.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +19,12 @@ Future<void> init() async {
       .startScan(
           filter: FilterCriteria.any([
         const FilterCriterion.nameContains('aura'),
-        FilterCriterion.manufacturerData(0x123, Uint8List.fromList([0x00, 0x01, 0x02])),
-        const FilterCriterion.hasServiceUuid('0000181c-0000-1000-8000-00805f9b34fb'),
-        const FilterCriterion.hasServiceUuid('0000fff0-0000-0000-0000-aaaabbbbcccc'),
+        FilterCriterion.manufacturerData(
+            0x123, Uint8List.fromList([0x00, 0x01, 0x02])),
+        const FilterCriterion.hasServiceUuid(
+            '0000181c-0000-1000-8000-00805f9b34fb'),
+        const FilterCriterion.hasServiceUuid(
+            '0000fff0-0000-0000-0000-aaaabbbbcccc'),
       ]))
       .first
       .timeout(const Duration(seconds: 10));
@@ -38,7 +42,9 @@ Future<void> init() async {
     if (c.hasProperty(AoiCharacteristicProperty.read)) {
       print('Trying to read it...');
       try {
-        final data = await connectedPeripheral.read(characteristic: c).timeout(const Duration(seconds: 10));
+        final data = await connectedPeripheral
+            .read(characteristic: c)
+            .timeout(const Duration(seconds: 10));
         print('Data: $data');
         try {
           print('Data as string: ${const Utf8Decoder().convert(data)}');

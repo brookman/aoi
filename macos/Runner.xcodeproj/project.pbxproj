@@ -26,8 +26,8 @@
 		33CC10F32044A3C60003C045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33CC10F22044A3C60003C045 /* Assets.xcassets */; };
 		33CC10F62044A3C60003C045 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33CC10F42044A3C60003C045 /* MainMenu.xib */; };
 		33CC11132044BFA00003C045 /* MainFlutterWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC11122044BFA00003C045 /* MainFlutterWindow.swift */; };
-		85662E8B298ABA6800F23E75 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85662E89298ABA6800F23E75 /* CoreBluetooth.framework */; };
-		A3D4964229384C8700FB0055 /* libaoi_static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D4963929384B5900FB0055 /* libaoi_static.a */; };
+		85B8AE2129924261007D086E /* aoi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D4963729384B5900FB0055 /* aoi.dylib */; };
+		85B8AE2229924271007D086E /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85662E89298ABA6800F23E75 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 33CC111A2044C6BA0003C045;
 			remoteInfo = FLX;
+		};
+		85B8AE1E29924237007D086E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A352534B2866B29F00EFD9C6 /* aoi.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CA603EE7FF4DCCA7472EC19F;
+			remoteInfo = "aoi-cdylib";
 		};
 		A3D4963629384B5900FB0055 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -50,13 +57,6 @@
 			containerPortal = A352534B2866B29F00EFD9C6 /* aoi.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = CA60F0FEBE702969E816930C;
-			remoteInfo = "aoi-staticlib";
-		};
-		A3D4964029384C8200FB0055 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A352534B2866B29F00EFD9C6 /* aoi.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CA60F0FEBE701C83950DBC35;
 			remoteInfo = "aoi-staticlib";
 		};
 /* End PBXContainerItemProxy section */
@@ -101,8 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85662E8B298ABA6800F23E75 /* CoreBluetooth.framework in Frameworks */,
-				A3D4964229384C8700FB0055 /* libaoi_static.a in Frameworks */,
+				85B8AE2229924271007D086E /* CoreBluetooth.framework in Frameworks */,
+				85B8AE2129924261007D086E /* aoi.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +208,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A3D4964129384C8200FB0055 /* PBXTargetDependency */,
+				85B8AE1F29924237007D086E /* PBXTargetDependency */,
 				33CC11202044C79F0003C045 /* PBXTargetDependency */,
 			);
 			name = Runner;
@@ -355,10 +355,10 @@
 			target = 33CC111A2044C6BA0003C045 /* Flutter Assemble */;
 			targetProxy = 33CC111F2044C79F0003C045 /* PBXContainerItemProxy */;
 		};
-		A3D4964129384C8200FB0055 /* PBXTargetDependency */ = {
+		85B8AE1F29924237007D086E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "aoi-staticlib";
-			targetProxy = A3D4964029384C8200FB0055 /* PBXContainerItemProxy */;
+			name = "aoi-cdylib";
+			targetProxy = 85B8AE1E29924237007D086E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -436,6 +436,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRIP_STYLE = "non-global";
 				SWIFT_OBJC_BRIDGING_HEADER = Runner/bridge_generated.h;
 				SWIFT_VERSION = 5.0;
 			};
@@ -563,6 +564,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRIP_STYLE = "non-global";
 				SWIFT_OBJC_BRIDGING_HEADER = Runner/bridge_generated.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -584,6 +586,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRIP_STYLE = "non-global";
 				SWIFT_OBJC_BRIDGING_HEADER = Runner/bridge_generated.h;
 				SWIFT_VERSION = 5.0;
 			};

@@ -8,14 +8,14 @@ url = "https://github.com/YourGitHubAccount/repo_name/releases/download/#{releas
 local_zip_name = "#{release_tag_name}.zip"
 `
 cd Frameworks
-rm -rf #{framework_name}
+#rm -rf #{framework_name}
 
 if [ ! -f #{local_zip_name} ]
 then
   curl -L #{url} -o #{local_zip_name}
 fi
 
-unzip #{local_zip_name}
+#unzip #{local_zip_name}
 cd -
 `
 
@@ -25,15 +25,15 @@ Pod::Spec.new do |spec|
   spec.license       = { :file => '../LICENSE' }
   spec.homepage      = 'https://github.com/YourGitHubAccount/repo_name'
   spec.authors       = { 'Your Name' => 'your-email@example.com' }
-  spec.summary       = 'iOS/macOS Flutter bindings for library_name'
+  spec.summary       = 'iOS/macOS Flutter bindings for aoi'
 
   spec.source              = { :path => '.' }
   spec.source_files        = 'Classes/**/*'
   spec.public_header_files = 'Classes/**/*.h'
   spec.vendored_frameworks = "Frameworks/#{framework_name}"
 
-  spec.platform = :osx, '10.13'
+  spec.platform = :osx, '12.0'
 
   spec.ios.deployment_target = '11.0'
-  spec.osx.deployment_target = '10.13'
+  spec.osx.deployment_target = '12.0'
 end

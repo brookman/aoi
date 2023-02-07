@@ -5,3 +5,8 @@
 # Xcode-related
 **/dgph
 **/xcuserdata/
+
+Frameworks/*
+!Frameworks/.gitkeep
+!Frameworks/aoi-v0.0.0.zip
+!Frameworks/Aoi.xcframework
