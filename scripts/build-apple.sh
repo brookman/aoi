@@ -12,7 +12,8 @@ for TARGET in \
 do
     rustup target add $TARGET
     # Apple's App Sandbox disallows SysV semaphores; use POSIX semaphores instead
-    cargo build -r --target=$TARGET --features posix-sem
+    # cargo build -r --target=$TARGET --features posix-sem
+    cargo build -r --target=$TARGET
 done
 
 # Create XCFramework zip
