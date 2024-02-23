@@ -6,20 +6,18 @@ mkdir $BUILD_DIR
 cd $BUILD_DIR
 
 # Build static libs
-rustup install 1.64.0
-rustup default 1.64.0
-
 for TARGET in \
         aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim \
         x86_64-apple-darwin aarch64-apple-darwin
 do
     rustup target add $TARGET
-    cargo build -r --target=$TARGET
+    # Apple's App Sandbox disallows SysV semaphores; use POSIX semaphores instead
+    cargo build -r --target=$TARGET --features posix-sem
 done
 
 # Create XCFramework zip
-FRAMEWORK="Aoi.xcframework"
-LIBNAME=libaoi.a
+FRAMEWORK="EmbeddedAoi.xcframework"
+LIBNAME=libembedded_aoi.a
 mkdir mac-lipo ios-sim-lipo
 IOS_SIM_LIPO=ios-sim-lipo/$LIBNAME
 MAC_LIPO=mac-lipo/$LIBNAME

@@ -1,0 +1,37 @@
+name: flutter_aoi
+description: >
+  A Dart/Flutter wrapper for btleplug, the Rust BLE library.
+version: 0.0.0
+homepage: https://github.com/brookman/aoi
+repository: https://github.com/brookman/aoi
+issue_tracker: https://github.com/brookman/aoi/issues
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  meta: ^1.9.1
+  aoi: ^0.0.0
+  path: ^1.8.3
+  path_provider: ^2.0.15
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      ios:
+        ffiPlugin: true
+      macos:
+        ffiPlugin: true
+      android:
+        ffiPlugin: true
+      linux:
+        ffiPlugin: true
+      windows:
+        ffiPlugin: true

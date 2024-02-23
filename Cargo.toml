@@ -1,2 +1,2 @@
 [workspace]
-members = ["aoi"]
+members = ["packages/aoi/native"]

@@ -5,9 +5,6 @@ BUILD_DIR=platform-build
 mkdir $BUILD_DIR
 cd $BUILD_DIR
 
-rustup install 1.64.0
-rustup default 1.64.0
-
 # Install build dependencies
 cargo install cargo-zigbuild
 cargo install cargo-xwin
@@ -33,17 +30,15 @@ win_build () {
 }
 
 # Build all the dynamic libraries
-
-# LINUX_LIBNAME=libaoi.so
-# zig_build aarch64-unknown-linux-gnu linux-arm64 $LINUX_LIBNAME
-# zig_build x86_64-unknown-linux-gnu linux-x64
-
-WINDOWS_LIBNAME=aoi.dll
+LINUX_LIBNAME=libembedded_aoi.so
+zig_build aarch64-unknown-linux-gnu linux-arm64 $LINUX_LIBNAME
+zig_build x86_64-unknown-linux-gnu linux-x64 $LINUX_LIBNAME
+WINDOWS_LIBNAME=embedded_aoi.dll
 win_build aarch64-pc-windows-msvc windows-arm64 $WINDOWS_LIBNAME
 win_build x86_64-pc-windows-msvc windows-x64 $WINDOWS_LIBNAME
 
 # Archive the dynamic libs
-tar -czvf other.tar.gz linux-* windows-*
+tar -czvf EmbeddedAoi.tar.gz linux-* windows-*
 
 # Cleanup
 rm -rf linux-* windows-*
