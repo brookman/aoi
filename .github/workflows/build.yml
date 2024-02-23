@@ -24,6 +24,10 @@ jobs:
           toolchain: stable
           components: rustfmt, clippy
 
+      # Dependencies
+      - name: Install dependencies
+        run: sudo apt install libdbus-1-dev pkg-config
+
       # Rust
       - name: Check Rust format
         working-directory: ./packages/aoi/native/src
