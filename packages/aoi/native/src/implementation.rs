@@ -9,7 +9,8 @@ use std::{
 
 use btleplug::{
     api::{
-        Central, CentralEvent, CharPropFlags, Characteristic, Descriptor, Manager as _, Peripheral, ScanFilter, WriteType
+        Central, CentralEvent, CharPropFlags, Characteristic, Descriptor, Manager as _, Peripheral,
+        ScanFilter, WriteType,
     },
     platform::{Adapter, Manager, PeripheralId},
 };
