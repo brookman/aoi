@@ -30,7 +30,7 @@ jobs:
 
       # Rust
       - name: Check Rust format
-        run: rustfmt --edition 2021 --check .\packages\aoi\native\src\lib.rs
+        run: rustfmt --edition 2021 --check packages/aoi/native/src/lib.rs
       - name: Rust code analysis
         run: cargo clippy -- -D warnings
       - name: Run Rust tests
