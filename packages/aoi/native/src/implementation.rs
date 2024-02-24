@@ -345,7 +345,9 @@ impl From<&AoiPeripheralAddress> for PeripheralId {
                 let addr: BDAddr = (*mac).into();
                 addr.into()
             }
-            AoiPeripheralAddress::Uuid(_) => panic!("Expected mac address on non-apple but got UUID"),
+            AoiPeripheralAddress::Uuid(_) => {
+                panic!("Expected mac address on non-apple but got UUID")
+            }
         }
     }
 }
