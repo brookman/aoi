@@ -16,9 +16,11 @@ enum AoiCharacteristicProperty {
 }
 
 extension AoiCharacteristicExtensions on AoiCharacteristic {
-  bool hasProperty(AoiCharacteristicProperty property) => property.bit & propertiesBits != 0;
+  bool hasProperty(AoiCharacteristicProperty property) =>
+      property.bit & propertiesBits != 0;
 
-  Set<AoiCharacteristicProperty> get properties => AoiCharacteristicProperty.values.where(hasProperty).toSet();
+  Set<AoiCharacteristicProperty> get properties =>
+      AoiCharacteristicProperty.values.where(hasProperty).toSet();
 
   String prettyPrint() {
     return 'AoiCharacteristic{uuid: $uuid, serviceUuid: $serviceUuid, properties: $properties}';
@@ -27,7 +29,8 @@ extension AoiCharacteristicExtensions on AoiCharacteristic {
 
 extension AoiPeripheralExtensions on AoiPeripheral {
   String prettyPrint() {
-    return 'AoiPeripheral{name: $name, address: $address, services: $services, manufacturerData: ${manufacturerData.map((m) => m.prettyPrint()).toList()}';
+    final data = manufacturerData.map((m) => m.prettyPrint()).toList();
+    return 'AoiPeripheral{name: $name, address: $address, services: $services, manufacturerData: $data';
   }
 }
 

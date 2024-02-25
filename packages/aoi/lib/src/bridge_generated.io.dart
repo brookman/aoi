@@ -38,56 +38,65 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> {
   }
 
   @protected
-  ffi.Pointer<wire_AoiPeripheral> api2wire_box_aoi_peripheral(AoiPeripheral raw) {
+  ffi.Pointer<wire_AoiPeripheral> api2wire_box_aoi_peripheral(
+      AoiPeripheral raw) {
     final ptr = inner.new_box_aoi_peripheral_0();
     _api_fill_to_wire_aoi_peripheral(raw, ptr.ref);
     return ptr;
   }
 
   @protected
-  ffi.Pointer<wire_AoiPeripheralAddress> api2wire_box_aoi_peripheral_address(AoiPeripheralAddress raw) {
+  ffi.Pointer<wire_AoiPeripheralAddress> api2wire_box_aoi_peripheral_address(
+      AoiPeripheralAddress raw) {
     final ptr = inner.new_box_aoi_peripheral_address_0();
     _api_fill_to_wire_aoi_peripheral_address(raw, ptr.ref);
     return ptr;
   }
 
   @protected
-  ffi.Pointer<wire_AoiAdapter> api2wire_box_autoadd_aoi_adapter(AoiAdapter raw) {
+  ffi.Pointer<wire_AoiAdapter> api2wire_box_autoadd_aoi_adapter(
+      AoiAdapter raw) {
     final ptr = inner.new_box_autoadd_aoi_adapter_0();
     _api_fill_to_wire_aoi_adapter(raw, ptr.ref);
     return ptr;
   }
 
   @protected
-  ffi.Pointer<wire_AoiCharacteristic> api2wire_box_autoadd_aoi_characteristic(AoiCharacteristic raw) {
+  ffi.Pointer<wire_AoiCharacteristic> api2wire_box_autoadd_aoi_characteristic(
+      AoiCharacteristic raw) {
     final ptr = inner.new_box_autoadd_aoi_characteristic_0();
     _api_fill_to_wire_aoi_characteristic(raw, ptr.ref);
     return ptr;
   }
 
   @protected
-  ffi.Pointer<wire_AoiConnectedPeripheral> api2wire_box_autoadd_aoi_connected_peripheral(AoiConnectedPeripheral raw) {
+  ffi.Pointer<wire_AoiConnectedPeripheral>
+      api2wire_box_autoadd_aoi_connected_peripheral(
+          AoiConnectedPeripheral raw) {
     final ptr = inner.new_box_autoadd_aoi_connected_peripheral_0();
     _api_fill_to_wire_aoi_connected_peripheral(raw, ptr.ref);
     return ptr;
   }
 
   @protected
-  ffi.Pointer<wire_AoiPeripheral> api2wire_box_autoadd_aoi_peripheral(AoiPeripheral raw) {
+  ffi.Pointer<wire_AoiPeripheral> api2wire_box_autoadd_aoi_peripheral(
+      AoiPeripheral raw) {
     final ptr = inner.new_box_autoadd_aoi_peripheral_0();
     _api_fill_to_wire_aoi_peripheral(raw, ptr.ref);
     return ptr;
   }
 
   @protected
-  ffi.Pointer<wire_FilterCriteria> api2wire_box_autoadd_filter_criteria(FilterCriteria raw) {
+  ffi.Pointer<wire_FilterCriteria> api2wire_box_autoadd_filter_criteria(
+      FilterCriteria raw) {
     final ptr = inner.new_box_autoadd_filter_criteria_0();
     _api_fill_to_wire_filter_criteria(raw, ptr.ref);
     return ptr;
   }
 
   @protected
-  ffi.Pointer<wire_list_aoi_characteristic> api2wire_list_aoi_characteristic(List<AoiCharacteristic> raw) {
+  ffi.Pointer<wire_list_aoi_characteristic> api2wire_list_aoi_characteristic(
+      List<AoiCharacteristic> raw) {
     final ans = inner.new_list_aoi_characteristic_0(raw.length);
     for (var i = 0; i < raw.length; ++i) {
       _api_fill_to_wire_aoi_characteristic(raw[i], ans.ref.ptr[i]);
@@ -96,7 +105,8 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> {
   }
 
   @protected
-  ffi.Pointer<wire_list_aoi_descriptor> api2wire_list_aoi_descriptor(List<AoiDescriptor> raw) {
+  ffi.Pointer<wire_list_aoi_descriptor> api2wire_list_aoi_descriptor(
+      List<AoiDescriptor> raw) {
     final ans = inner.new_list_aoi_descriptor_0(raw.length);
     for (var i = 0; i < raw.length; ++i) {
       _api_fill_to_wire_aoi_descriptor(raw[i], ans.ref.ptr[i]);
@@ -105,7 +115,8 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> {
   }
 
   @protected
-  ffi.Pointer<wire_list_aoi_manufacturer_data> api2wire_list_aoi_manufacturer_data(List<AoiManufacturerData> raw) {
+  ffi.Pointer<wire_list_aoi_manufacturer_data>
+      api2wire_list_aoi_manufacturer_data(List<AoiManufacturerData> raw) {
     final ans = inner.new_list_aoi_manufacturer_data_0(raw.length);
     for (var i = 0; i < raw.length; ++i) {
       _api_fill_to_wire_aoi_manufacturer_data(raw[i], ans.ref.ptr[i]);
@@ -114,7 +125,8 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> {
   }
 
   @protected
-  ffi.Pointer<wire_list_filter_criterion> api2wire_list_filter_criterion(List<FilterCriterion> raw) {
+  ffi.Pointer<wire_list_filter_criterion> api2wire_list_filter_criterion(
+      List<FilterCriterion> raw) {
     final ans = inner.new_list_filter_criterion_0(raw.length);
     for (var i = 0; i < raw.length; ++i) {
       _api_fill_to_wire_filter_criterion(raw[i], ans.ref.ptr[i]);
@@ -128,8 +140,11 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> {
   }
 
   @protected
-  ffi.Pointer<wire_FilterCriteria> api2wire_opt_box_autoadd_filter_criteria(FilterCriteria? raw) {
-    return raw == null ? ffi.nullptr : api2wire_box_autoadd_filter_criteria(raw);
+  ffi.Pointer<wire_FilterCriteria> api2wire_opt_box_autoadd_filter_criteria(
+      FilterCriteria? raw) {
+    return raw == null
+        ? ffi.nullptr
+        : api2wire_box_autoadd_filter_criteria(raw);
   }
 
   @protected
@@ -150,42 +165,51 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> {
 
 // Section: api_fill_to_wire
 
-  void _api_fill_to_wire_aoi_adapter(AoiAdapter apiObj, wire_AoiAdapter wireObj) {
+  void _api_fill_to_wire_aoi_adapter(
+      AoiAdapter apiObj, wire_AoiAdapter wireObj) {
     wireObj.index = api2wire_usize(apiObj.index);
   }
 
-  void _api_fill_to_wire_aoi_characteristic(AoiCharacteristic apiObj, wire_AoiCharacteristic wireObj) {
+  void _api_fill_to_wire_aoi_characteristic(
+      AoiCharacteristic apiObj, wire_AoiCharacteristic wireObj) {
     wireObj.uuid = api2wire_String(apiObj.uuid);
     wireObj.service_uuid = api2wire_String(apiObj.serviceUuid);
     wireObj.properties_bits = api2wire_u8(apiObj.propertiesBits);
     wireObj.descriptors = api2wire_list_aoi_descriptor(apiObj.descriptors);
   }
 
-  void _api_fill_to_wire_aoi_connected_peripheral(AoiConnectedPeripheral apiObj, wire_AoiConnectedPeripheral wireObj) {
+  void _api_fill_to_wire_aoi_connected_peripheral(
+      AoiConnectedPeripheral apiObj, wire_AoiConnectedPeripheral wireObj) {
     wireObj.peripheral = api2wire_box_aoi_peripheral(apiObj.peripheral);
-    wireObj.characteristics = api2wire_list_aoi_characteristic(apiObj.characteristics);
+    wireObj.characteristics =
+        api2wire_list_aoi_characteristic(apiObj.characteristics);
   }
 
-  void _api_fill_to_wire_aoi_descriptor(AoiDescriptor apiObj, wire_AoiDescriptor wireObj) {
+  void _api_fill_to_wire_aoi_descriptor(
+      AoiDescriptor apiObj, wire_AoiDescriptor wireObj) {
     wireObj.uuid = api2wire_String(apiObj.uuid);
     wireObj.service_uuid = api2wire_String(apiObj.serviceUuid);
     wireObj.characteristic_uuid = api2wire_String(apiObj.characteristicUuid);
   }
 
-  void _api_fill_to_wire_aoi_manufacturer_data(AoiManufacturerData apiObj, wire_AoiManufacturerData wireObj) {
+  void _api_fill_to_wire_aoi_manufacturer_data(
+      AoiManufacturerData apiObj, wire_AoiManufacturerData wireObj) {
     wireObj.manufacturer_id = api2wire_u16(apiObj.manufacturerId);
     wireObj.data = api2wire_uint_8_list(apiObj.data);
   }
 
-  void _api_fill_to_wire_aoi_peripheral(AoiPeripheral apiObj, wire_AoiPeripheral wireObj) {
+  void _api_fill_to_wire_aoi_peripheral(
+      AoiPeripheral apiObj, wire_AoiPeripheral wireObj) {
     wireObj.adapter = api2wire_box_aoi_adapter(apiObj.adapter);
     wireObj.name = api2wire_opt_String(apiObj.name);
     wireObj.address = api2wire_box_aoi_peripheral_address(apiObj.address);
     wireObj.services = api2wire_StringList(apiObj.services);
-    wireObj.manufacturer_data = api2wire_list_aoi_manufacturer_data(apiObj.manufacturerData);
+    wireObj.manufacturer_data =
+        api2wire_list_aoi_manufacturer_data(apiObj.manufacturerData);
   }
 
-  void _api_fill_to_wire_aoi_peripheral_address(AoiPeripheralAddress apiObj, wire_AoiPeripheralAddress wireObj) {
+  void _api_fill_to_wire_aoi_peripheral_address(
+      AoiPeripheralAddress apiObj, wire_AoiPeripheralAddress wireObj) {
     if (apiObj is AoiPeripheralAddress_MacAddress) {
       var pre_field0 = api2wire_u8_array_6(apiObj.field0);
       wireObj.tag = 0;
@@ -209,39 +233,49 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> {
     }
   }
 
-  void _api_fill_to_wire_box_aoi_adapter(AoiAdapter apiObj, ffi.Pointer<wire_AoiAdapter> wireObj) {
+  void _api_fill_to_wire_box_aoi_adapter(
+      AoiAdapter apiObj, ffi.Pointer<wire_AoiAdapter> wireObj) {
     _api_fill_to_wire_aoi_adapter(apiObj, wireObj.ref);
   }
 
-  void _api_fill_to_wire_box_aoi_peripheral(AoiPeripheral apiObj, ffi.Pointer<wire_AoiPeripheral> wireObj) {
+  void _api_fill_to_wire_box_aoi_peripheral(
+      AoiPeripheral apiObj, ffi.Pointer<wire_AoiPeripheral> wireObj) {
     _api_fill_to_wire_aoi_peripheral(apiObj, wireObj.ref);
   }
 
-  void _api_fill_to_wire_box_aoi_peripheral_address(AoiPeripheralAddress apiObj, ffi.Pointer<wire_AoiPeripheralAddress> wireObj) {
+  void _api_fill_to_wire_box_aoi_peripheral_address(AoiPeripheralAddress apiObj,
+      ffi.Pointer<wire_AoiPeripheralAddress> wireObj) {
     _api_fill_to_wire_aoi_peripheral_address(apiObj, wireObj.ref);
   }
 
-  void _api_fill_to_wire_box_autoadd_aoi_adapter(AoiAdapter apiObj, ffi.Pointer<wire_AoiAdapter> wireObj) {
+  void _api_fill_to_wire_box_autoadd_aoi_adapter(
+      AoiAdapter apiObj, ffi.Pointer<wire_AoiAdapter> wireObj) {
     _api_fill_to_wire_aoi_adapter(apiObj, wireObj.ref);
   }
 
-  void _api_fill_to_wire_box_autoadd_aoi_characteristic(AoiCharacteristic apiObj, ffi.Pointer<wire_AoiCharacteristic> wireObj) {
+  void _api_fill_to_wire_box_autoadd_aoi_characteristic(
+      AoiCharacteristic apiObj, ffi.Pointer<wire_AoiCharacteristic> wireObj) {
     _api_fill_to_wire_aoi_characteristic(apiObj, wireObj.ref);
   }
 
-  void _api_fill_to_wire_box_autoadd_aoi_connected_peripheral(AoiConnectedPeripheral apiObj, ffi.Pointer<wire_AoiConnectedPeripheral> wireObj) {
+  void _api_fill_to_wire_box_autoadd_aoi_connected_peripheral(
+      AoiConnectedPeripheral apiObj,
+      ffi.Pointer<wire_AoiConnectedPeripheral> wireObj) {
     _api_fill_to_wire_aoi_connected_peripheral(apiObj, wireObj.ref);
   }
 
-  void _api_fill_to_wire_box_autoadd_aoi_peripheral(AoiPeripheral apiObj, ffi.Pointer<wire_AoiPeripheral> wireObj) {
+  void _api_fill_to_wire_box_autoadd_aoi_peripheral(
+      AoiPeripheral apiObj, ffi.Pointer<wire_AoiPeripheral> wireObj) {
     _api_fill_to_wire_aoi_peripheral(apiObj, wireObj.ref);
   }
 
-  void _api_fill_to_wire_box_autoadd_filter_criteria(FilterCriteria apiObj, ffi.Pointer<wire_FilterCriteria> wireObj) {
+  void _api_fill_to_wire_box_autoadd_filter_criteria(
+      FilterCriteria apiObj, ffi.Pointer<wire_FilterCriteria> wireObj) {
     _api_fill_to_wire_filter_criteria(apiObj, wireObj.ref);
   }
 
-  void _api_fill_to_wire_filter_criteria(FilterCriteria apiObj, wire_FilterCriteria wireObj) {
+  void _api_fill_to_wire_filter_criteria(
+      FilterCriteria apiObj, wire_FilterCriteria wireObj) {
     if (apiObj is FilterCriteria_Any) {
       var pre_field0 = api2wire_list_filter_criterion(apiObj.field0);
       wireObj.tag = 0;
@@ -258,7 +292,8 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> {
     }
   }
 
-  void _api_fill_to_wire_filter_criterion(FilterCriterion apiObj, wire_FilterCriterion wireObj) {
+  void _api_fill_to_wire_filter_criterion(
+      FilterCriterion apiObj, wire_FilterCriterion wireObj) {
     if (apiObj is FilterCriterion_HasServiceUuid) {
       var pre_field0 = api2wire_String(apiObj.field0);
       wireObj.tag = 0;
@@ -312,13 +347,18 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
   late final dartApi = DartApiDl(init_frb_dart_api_dl);
 
   /// Holds the symbol lookup function.
-  final ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName) _lookup;
+  final ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName)
+      _lookup;
 
   /// The symbols are looked up in [dynamicLibrary].
-  EmbeddedAoiWire(ffi.DynamicLibrary dynamicLibrary) : _lookup = dynamicLibrary.lookup;
+  EmbeddedAoiWire(ffi.DynamicLibrary dynamicLibrary)
+      : _lookup = dynamicLibrary.lookup;
 
   /// The symbols are looked up with [lookup].
-  EmbeddedAoiWire.fromLookup(ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName) lookup) : _lookup = lookup;
+  EmbeddedAoiWire.fromLookup(
+      ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName)
+          lookup)
+      : _lookup = lookup;
 
   void store_dart_post_cobject(
     DartPostCObjectFnType ptr,
@@ -328,8 +368,11 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _store_dart_post_cobjectPtr = _lookup<ffi.NativeFunction<ffi.Void Function(DartPostCObjectFnType)>>('store_dart_post_cobject');
-  late final _store_dart_post_cobject = _store_dart_post_cobjectPtr.asFunction<void Function(DartPostCObjectFnType)>();
+  late final _store_dart_post_cobjectPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(DartPostCObjectFnType)>>(
+          'store_dart_post_cobject');
+  late final _store_dart_post_cobject = _store_dart_post_cobjectPtr
+      .asFunction<void Function(DartPostCObjectFnType)>();
 
   Object get_dart_object(
     int ptr,
@@ -339,8 +382,11 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _get_dart_objectPtr = _lookup<ffi.NativeFunction<ffi.Handle Function(ffi.UintPtr)>>('get_dart_object');
-  late final _get_dart_object = _get_dart_objectPtr.asFunction<Object Function(int)>();
+  late final _get_dart_objectPtr =
+      _lookup<ffi.NativeFunction<ffi.Handle Function(ffi.UintPtr)>>(
+          'get_dart_object');
+  late final _get_dart_object =
+      _get_dart_objectPtr.asFunction<Object Function(int)>();
 
   void drop_dart_object(
     int ptr,
@@ -350,8 +396,11 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _drop_dart_objectPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.UintPtr)>>('drop_dart_object');
-  late final _drop_dart_object = _drop_dart_objectPtr.asFunction<void Function(int)>();
+  late final _drop_dart_objectPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.UintPtr)>>(
+          'drop_dart_object');
+  late final _drop_dart_object =
+      _drop_dart_objectPtr.asFunction<void Function(int)>();
 
   int new_dart_opaque(
     Object handle,
@@ -361,8 +410,11 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _new_dart_opaquePtr = _lookup<ffi.NativeFunction<ffi.UintPtr Function(ffi.Handle)>>('new_dart_opaque');
-  late final _new_dart_opaque = _new_dart_opaquePtr.asFunction<int Function(Object)>();
+  late final _new_dart_opaquePtr =
+      _lookup<ffi.NativeFunction<ffi.UintPtr Function(ffi.Handle)>>(
+          'new_dart_opaque');
+  late final _new_dart_opaque =
+      _new_dart_opaquePtr.asFunction<int Function(Object)>();
 
   int init_frb_dart_api_dl(
     ffi.Pointer<ffi.Void> obj,
@@ -372,8 +424,11 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _init_frb_dart_api_dlPtr = _lookup<ffi.NativeFunction<ffi.IntPtr Function(ffi.Pointer<ffi.Void>)>>('init_frb_dart_api_dl');
-  late final _init_frb_dart_api_dl = _init_frb_dart_api_dlPtr.asFunction<int Function(ffi.Pointer<ffi.Void>)>();
+  late final _init_frb_dart_api_dlPtr =
+      _lookup<ffi.NativeFunction<ffi.IntPtr Function(ffi.Pointer<ffi.Void>)>>(
+          'init_frb_dart_api_dl');
+  late final _init_frb_dart_api_dl = _init_frb_dart_api_dlPtr
+      .asFunction<int Function(ffi.Pointer<ffi.Void>)>();
 
   void wire_get_adapters__static_method__AoiAdapter(
     int port_,
@@ -383,8 +438,12 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_get_adapters__static_method__AoiAdapterPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>('wire_get_adapters__static_method__AoiAdapter');
-  late final _wire_get_adapters__static_method__AoiAdapter = _wire_get_adapters__static_method__AoiAdapterPtr.asFunction<void Function(int)>();
+  late final _wire_get_adapters__static_method__AoiAdapterPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_get_adapters__static_method__AoiAdapter');
+  late final _wire_get_adapters__static_method__AoiAdapter =
+      _wire_get_adapters__static_method__AoiAdapterPtr
+          .asFunction<void Function(int)>();
 
   void wire_start_scan__method__AoiAdapter(
     int port_,
@@ -398,8 +457,15 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_start_scan__method__AoiAdapterPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiAdapter>, ffi.Pointer<wire_FilterCriteria>)>>('wire_start_scan__method__AoiAdapter');
-  late final _wire_start_scan__method__AoiAdapter = _wire_start_scan__method__AoiAdapterPtr.asFunction<void Function(int, ffi.Pointer<wire_AoiAdapter>, ffi.Pointer<wire_FilterCriteria>)>();
+  late final _wire_start_scan__method__AoiAdapterPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiAdapter>,
+                  ffi.Pointer<wire_FilterCriteria>)>>(
+      'wire_start_scan__method__AoiAdapter');
+  late final _wire_start_scan__method__AoiAdapter =
+      _wire_start_scan__method__AoiAdapterPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_AoiAdapter>,
+              ffi.Pointer<wire_FilterCriteria>)>();
 
   void wire_stop_scan__method__AoiAdapter(
     int port_,
@@ -411,8 +477,13 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_stop_scan__method__AoiAdapterPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiAdapter>)>>('wire_stop_scan__method__AoiAdapter');
-  late final _wire_stop_scan__method__AoiAdapter = _wire_stop_scan__method__AoiAdapterPtr.asFunction<void Function(int, ffi.Pointer<wire_AoiAdapter>)>();
+  late final _wire_stop_scan__method__AoiAdapterPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiAdapter>)>>(
+      'wire_stop_scan__method__AoiAdapter');
+  late final _wire_stop_scan__method__AoiAdapter =
+      _wire_stop_scan__method__AoiAdapterPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_AoiAdapter>)>();
 
   void wire_connect__method__AoiPeripheral(
     int port_,
@@ -424,8 +495,13 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_connect__method__AoiPeripheralPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiPeripheral>)>>('wire_connect__method__AoiPeripheral');
-  late final _wire_connect__method__AoiPeripheral = _wire_connect__method__AoiPeripheralPtr.asFunction<void Function(int, ffi.Pointer<wire_AoiPeripheral>)>();
+  late final _wire_connect__method__AoiPeripheralPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiPeripheral>)>>(
+      'wire_connect__method__AoiPeripheral');
+  late final _wire_connect__method__AoiPeripheral =
+      _wire_connect__method__AoiPeripheralPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_AoiPeripheral>)>();
 
   void wire_read__method__AoiConnectedPeripheral(
     int port_,
@@ -439,8 +515,17 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_read__method__AoiConnectedPeripheralPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiConnectedPeripheral>, ffi.Pointer<wire_AoiCharacteristic>)>>('wire_read__method__AoiConnectedPeripheral');
-  late final _wire_read__method__AoiConnectedPeripheral = _wire_read__method__AoiConnectedPeripheralPtr.asFunction<void Function(int, ffi.Pointer<wire_AoiConnectedPeripheral>, ffi.Pointer<wire_AoiCharacteristic>)>();
+  late final _wire_read__method__AoiConnectedPeripheralPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_AoiConnectedPeripheral>,
+                  ffi.Pointer<wire_AoiCharacteristic>)>>(
+      'wire_read__method__AoiConnectedPeripheral');
+  late final _wire_read__method__AoiConnectedPeripheral =
+      _wire_read__method__AoiConnectedPeripheralPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_AoiConnectedPeripheral>,
+              ffi.Pointer<wire_AoiCharacteristic>)>();
 
   void wire_write__method__AoiConnectedPeripheral(
     int port_,
@@ -456,8 +541,21 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_write__method__AoiConnectedPeripheralPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiConnectedPeripheral>, ffi.Pointer<wire_AoiCharacteristic>, ffi.Pointer<wire_uint_8_list>)>>('wire_write__method__AoiConnectedPeripheral');
-  late final _wire_write__method__AoiConnectedPeripheral = _wire_write__method__AoiConnectedPeripheralPtr.asFunction<void Function(int, ffi.Pointer<wire_AoiConnectedPeripheral>, ffi.Pointer<wire_AoiCharacteristic>, ffi.Pointer<wire_uint_8_list>)>();
+  late final _wire_write__method__AoiConnectedPeripheralPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_AoiConnectedPeripheral>,
+                  ffi.Pointer<wire_AoiCharacteristic>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_write__method__AoiConnectedPeripheral');
+  late final _wire_write__method__AoiConnectedPeripheral =
+      _wire_write__method__AoiConnectedPeripheralPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_AoiConnectedPeripheral>,
+              ffi.Pointer<wire_AoiCharacteristic>,
+              ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_write_without_response__method__AoiConnectedPeripheral(
     int port_,
@@ -473,8 +571,23 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_write_without_response__method__AoiConnectedPeripheralPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiConnectedPeripheral>, ffi.Pointer<wire_AoiCharacteristic>, ffi.Pointer<wire_uint_8_list>)>>('wire_write_without_response__method__AoiConnectedPeripheral');
-  late final _wire_write_without_response__method__AoiConnectedPeripheral = _wire_write_without_response__method__AoiConnectedPeripheralPtr.asFunction<void Function(int, ffi.Pointer<wire_AoiConnectedPeripheral>, ffi.Pointer<wire_AoiCharacteristic>, ffi.Pointer<wire_uint_8_list>)>();
+  late final _wire_write_without_response__method__AoiConnectedPeripheralPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_AoiConnectedPeripheral>,
+                      ffi.Pointer<wire_AoiCharacteristic>,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_write_without_response__method__AoiConnectedPeripheral');
+  late final _wire_write_without_response__method__AoiConnectedPeripheral =
+      _wire_write_without_response__method__AoiConnectedPeripheralPtr
+          .asFunction<
+              void Function(
+                  int,
+                  ffi.Pointer<wire_AoiConnectedPeripheral>,
+                  ffi.Pointer<wire_AoiCharacteristic>,
+                  ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_disconnect__method__AoiConnectedPeripheral(
     int port_,
@@ -486,8 +599,14 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_disconnect__method__AoiConnectedPeripheralPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_AoiConnectedPeripheral>)>>('wire_disconnect__method__AoiConnectedPeripheral');
-  late final _wire_disconnect__method__AoiConnectedPeripheral = _wire_disconnect__method__AoiConnectedPeripheralPtr.asFunction<void Function(int, ffi.Pointer<wire_AoiConnectedPeripheral>)>();
+  late final _wire_disconnect__method__AoiConnectedPeripheralPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_AoiConnectedPeripheral>)>>(
+      'wire_disconnect__method__AoiConnectedPeripheral');
+  late final _wire_disconnect__method__AoiConnectedPeripheral =
+      _wire_disconnect__method__AoiConnectedPeripheralPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_AoiConnectedPeripheral>)>();
 
   ffi.Pointer<wire_StringList> new_StringList_0(
     int len,
@@ -497,64 +616,99 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _new_StringList_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_StringList> Function(ffi.Int32)>>('new_StringList_0');
-  late final _new_StringList_0 = _new_StringList_0Ptr.asFunction<ffi.Pointer<wire_StringList> Function(int)>();
+  late final _new_StringList_0Ptr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<wire_StringList> Function(ffi.Int32)>>(
+      'new_StringList_0');
+  late final _new_StringList_0 = _new_StringList_0Ptr
+      .asFunction<ffi.Pointer<wire_StringList> Function(int)>();
 
   ffi.Pointer<wire_AoiAdapter> new_box_aoi_adapter_0() {
     return _new_box_aoi_adapter_0();
   }
 
-  late final _new_box_aoi_adapter_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiAdapter> Function()>>('new_box_aoi_adapter_0');
-  late final _new_box_aoi_adapter_0 = _new_box_aoi_adapter_0Ptr.asFunction<ffi.Pointer<wire_AoiAdapter> Function()>();
+  late final _new_box_aoi_adapter_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiAdapter> Function()>>(
+          'new_box_aoi_adapter_0');
+  late final _new_box_aoi_adapter_0 = _new_box_aoi_adapter_0Ptr
+      .asFunction<ffi.Pointer<wire_AoiAdapter> Function()>();
 
   ffi.Pointer<wire_AoiPeripheral> new_box_aoi_peripheral_0() {
     return _new_box_aoi_peripheral_0();
   }
 
-  late final _new_box_aoi_peripheral_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiPeripheral> Function()>>('new_box_aoi_peripheral_0');
-  late final _new_box_aoi_peripheral_0 = _new_box_aoi_peripheral_0Ptr.asFunction<ffi.Pointer<wire_AoiPeripheral> Function()>();
+  late final _new_box_aoi_peripheral_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiPeripheral> Function()>>(
+          'new_box_aoi_peripheral_0');
+  late final _new_box_aoi_peripheral_0 = _new_box_aoi_peripheral_0Ptr
+      .asFunction<ffi.Pointer<wire_AoiPeripheral> Function()>();
 
   ffi.Pointer<wire_AoiPeripheralAddress> new_box_aoi_peripheral_address_0() {
     return _new_box_aoi_peripheral_address_0();
   }
 
-  late final _new_box_aoi_peripheral_address_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiPeripheralAddress> Function()>>('new_box_aoi_peripheral_address_0');
-  late final _new_box_aoi_peripheral_address_0 = _new_box_aoi_peripheral_address_0Ptr.asFunction<ffi.Pointer<wire_AoiPeripheralAddress> Function()>();
+  late final _new_box_aoi_peripheral_address_0Ptr = _lookup<
+          ffi
+          .NativeFunction<ffi.Pointer<wire_AoiPeripheralAddress> Function()>>(
+      'new_box_aoi_peripheral_address_0');
+  late final _new_box_aoi_peripheral_address_0 =
+      _new_box_aoi_peripheral_address_0Ptr
+          .asFunction<ffi.Pointer<wire_AoiPeripheralAddress> Function()>();
 
   ffi.Pointer<wire_AoiAdapter> new_box_autoadd_aoi_adapter_0() {
     return _new_box_autoadd_aoi_adapter_0();
   }
 
-  late final _new_box_autoadd_aoi_adapter_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiAdapter> Function()>>('new_box_autoadd_aoi_adapter_0');
-  late final _new_box_autoadd_aoi_adapter_0 = _new_box_autoadd_aoi_adapter_0Ptr.asFunction<ffi.Pointer<wire_AoiAdapter> Function()>();
+  late final _new_box_autoadd_aoi_adapter_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiAdapter> Function()>>(
+          'new_box_autoadd_aoi_adapter_0');
+  late final _new_box_autoadd_aoi_adapter_0 = _new_box_autoadd_aoi_adapter_0Ptr
+      .asFunction<ffi.Pointer<wire_AoiAdapter> Function()>();
 
   ffi.Pointer<wire_AoiCharacteristic> new_box_autoadd_aoi_characteristic_0() {
     return _new_box_autoadd_aoi_characteristic_0();
   }
 
-  late final _new_box_autoadd_aoi_characteristic_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiCharacteristic> Function()>>('new_box_autoadd_aoi_characteristic_0');
-  late final _new_box_autoadd_aoi_characteristic_0 = _new_box_autoadd_aoi_characteristic_0Ptr.asFunction<ffi.Pointer<wire_AoiCharacteristic> Function()>();
+  late final _new_box_autoadd_aoi_characteristic_0Ptr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<wire_AoiCharacteristic> Function()>>(
+      'new_box_autoadd_aoi_characteristic_0');
+  late final _new_box_autoadd_aoi_characteristic_0 =
+      _new_box_autoadd_aoi_characteristic_0Ptr
+          .asFunction<ffi.Pointer<wire_AoiCharacteristic> Function()>();
 
-  ffi.Pointer<wire_AoiConnectedPeripheral> new_box_autoadd_aoi_connected_peripheral_0() {
+  ffi.Pointer<wire_AoiConnectedPeripheral>
+      new_box_autoadd_aoi_connected_peripheral_0() {
     return _new_box_autoadd_aoi_connected_peripheral_0();
   }
 
-  late final _new_box_autoadd_aoi_connected_peripheral_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiConnectedPeripheral> Function()>>('new_box_autoadd_aoi_connected_peripheral_0');
-  late final _new_box_autoadd_aoi_connected_peripheral_0 = _new_box_autoadd_aoi_connected_peripheral_0Ptr.asFunction<ffi.Pointer<wire_AoiConnectedPeripheral> Function()>();
+  late final _new_box_autoadd_aoi_connected_peripheral_0Ptr = _lookup<
+          ffi
+          .NativeFunction<ffi.Pointer<wire_AoiConnectedPeripheral> Function()>>(
+      'new_box_autoadd_aoi_connected_peripheral_0');
+  late final _new_box_autoadd_aoi_connected_peripheral_0 =
+      _new_box_autoadd_aoi_connected_peripheral_0Ptr
+          .asFunction<ffi.Pointer<wire_AoiConnectedPeripheral> Function()>();
 
   ffi.Pointer<wire_AoiPeripheral> new_box_autoadd_aoi_peripheral_0() {
     return _new_box_autoadd_aoi_peripheral_0();
   }
 
-  late final _new_box_autoadd_aoi_peripheral_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiPeripheral> Function()>>('new_box_autoadd_aoi_peripheral_0');
-  late final _new_box_autoadd_aoi_peripheral_0 = _new_box_autoadd_aoi_peripheral_0Ptr.asFunction<ffi.Pointer<wire_AoiPeripheral> Function()>();
+  late final _new_box_autoadd_aoi_peripheral_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_AoiPeripheral> Function()>>(
+          'new_box_autoadd_aoi_peripheral_0');
+  late final _new_box_autoadd_aoi_peripheral_0 =
+      _new_box_autoadd_aoi_peripheral_0Ptr
+          .asFunction<ffi.Pointer<wire_AoiPeripheral> Function()>();
 
   ffi.Pointer<wire_FilterCriteria> new_box_autoadd_filter_criteria_0() {
     return _new_box_autoadd_filter_criteria_0();
   }
 
-  late final _new_box_autoadd_filter_criteria_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_FilterCriteria> Function()>>('new_box_autoadd_filter_criteria_0');
-  late final _new_box_autoadd_filter_criteria_0 = _new_box_autoadd_filter_criteria_0Ptr.asFunction<ffi.Pointer<wire_FilterCriteria> Function()>();
+  late final _new_box_autoadd_filter_criteria_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_FilterCriteria> Function()>>(
+          'new_box_autoadd_filter_criteria_0');
+  late final _new_box_autoadd_filter_criteria_0 =
+      _new_box_autoadd_filter_criteria_0Ptr
+          .asFunction<ffi.Pointer<wire_FilterCriteria> Function()>();
 
   ffi.Pointer<wire_list_aoi_characteristic> new_list_aoi_characteristic_0(
     int len,
@@ -564,8 +718,12 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _new_list_aoi_characteristic_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_list_aoi_characteristic> Function(ffi.Int32)>>('new_list_aoi_characteristic_0');
-  late final _new_list_aoi_characteristic_0 = _new_list_aoi_characteristic_0Ptr.asFunction<ffi.Pointer<wire_list_aoi_characteristic> Function(int)>();
+  late final _new_list_aoi_characteristic_0Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wire_list_aoi_characteristic> Function(
+              ffi.Int32)>>('new_list_aoi_characteristic_0');
+  late final _new_list_aoi_characteristic_0 = _new_list_aoi_characteristic_0Ptr
+      .asFunction<ffi.Pointer<wire_list_aoi_characteristic> Function(int)>();
 
   ffi.Pointer<wire_list_aoi_descriptor> new_list_aoi_descriptor_0(
     int len,
@@ -575,8 +733,12 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _new_list_aoi_descriptor_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_list_aoi_descriptor> Function(ffi.Int32)>>('new_list_aoi_descriptor_0');
-  late final _new_list_aoi_descriptor_0 = _new_list_aoi_descriptor_0Ptr.asFunction<ffi.Pointer<wire_list_aoi_descriptor> Function(int)>();
+  late final _new_list_aoi_descriptor_0Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wire_list_aoi_descriptor> Function(
+              ffi.Int32)>>('new_list_aoi_descriptor_0');
+  late final _new_list_aoi_descriptor_0 = _new_list_aoi_descriptor_0Ptr
+      .asFunction<ffi.Pointer<wire_list_aoi_descriptor> Function(int)>();
 
   ffi.Pointer<wire_list_aoi_manufacturer_data> new_list_aoi_manufacturer_data_0(
     int len,
@@ -586,8 +748,13 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _new_list_aoi_manufacturer_data_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_list_aoi_manufacturer_data> Function(ffi.Int32)>>('new_list_aoi_manufacturer_data_0');
-  late final _new_list_aoi_manufacturer_data_0 = _new_list_aoi_manufacturer_data_0Ptr.asFunction<ffi.Pointer<wire_list_aoi_manufacturer_data> Function(int)>();
+  late final _new_list_aoi_manufacturer_data_0Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wire_list_aoi_manufacturer_data> Function(
+              ffi.Int32)>>('new_list_aoi_manufacturer_data_0');
+  late final _new_list_aoi_manufacturer_data_0 =
+      _new_list_aoi_manufacturer_data_0Ptr.asFunction<
+          ffi.Pointer<wire_list_aoi_manufacturer_data> Function(int)>();
 
   ffi.Pointer<wire_list_filter_criterion> new_list_filter_criterion_0(
     int len,
@@ -597,8 +764,12 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _new_list_filter_criterion_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_list_filter_criterion> Function(ffi.Int32)>>('new_list_filter_criterion_0');
-  late final _new_list_filter_criterion_0 = _new_list_filter_criterion_0Ptr.asFunction<ffi.Pointer<wire_list_filter_criterion> Function(int)>();
+  late final _new_list_filter_criterion_0Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wire_list_filter_criterion> Function(
+              ffi.Int32)>>('new_list_filter_criterion_0');
+  late final _new_list_filter_criterion_0 = _new_list_filter_criterion_0Ptr
+      .asFunction<ffi.Pointer<wire_list_filter_criterion> Function(int)>();
 
   ffi.Pointer<wire_uint_8_list> new_uint_8_list_0(
     int len,
@@ -608,78 +779,123 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _new_uint_8_list_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_uint_8_list> Function(ffi.Int32)>>('new_uint_8_list_0');
-  late final _new_uint_8_list_0 = _new_uint_8_list_0Ptr.asFunction<ffi.Pointer<wire_uint_8_list> Function(int)>();
+  late final _new_uint_8_list_0Ptr = _lookup<
+          ffi
+          .NativeFunction<ffi.Pointer<wire_uint_8_list> Function(ffi.Int32)>>(
+      'new_uint_8_list_0');
+  late final _new_uint_8_list_0 = _new_uint_8_list_0Ptr
+      .asFunction<ffi.Pointer<wire_uint_8_list> Function(int)>();
 
-  ffi.Pointer<AoiPeripheralAddressKind> inflate_AoiPeripheralAddress_MacAddress() {
+  ffi.Pointer<AoiPeripheralAddressKind>
+      inflate_AoiPeripheralAddress_MacAddress() {
     return _inflate_AoiPeripheralAddress_MacAddress();
   }
 
-  late final _inflate_AoiPeripheralAddress_MacAddressPtr = _lookup<ffi.NativeFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>>('inflate_AoiPeripheralAddress_MacAddress');
-  late final _inflate_AoiPeripheralAddress_MacAddress = _inflate_AoiPeripheralAddress_MacAddressPtr.asFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>();
+  late final _inflate_AoiPeripheralAddress_MacAddressPtr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>>(
+      'inflate_AoiPeripheralAddress_MacAddress');
+  late final _inflate_AoiPeripheralAddress_MacAddress =
+      _inflate_AoiPeripheralAddress_MacAddressPtr
+          .asFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>();
 
   ffi.Pointer<AoiPeripheralAddressKind> inflate_AoiPeripheralAddress_Uuid() {
     return _inflate_AoiPeripheralAddress_Uuid();
   }
 
-  late final _inflate_AoiPeripheralAddress_UuidPtr = _lookup<ffi.NativeFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>>('inflate_AoiPeripheralAddress_Uuid');
-  late final _inflate_AoiPeripheralAddress_Uuid = _inflate_AoiPeripheralAddress_UuidPtr.asFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>();
+  late final _inflate_AoiPeripheralAddress_UuidPtr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>>(
+      'inflate_AoiPeripheralAddress_Uuid');
+  late final _inflate_AoiPeripheralAddress_Uuid =
+      _inflate_AoiPeripheralAddress_UuidPtr
+          .asFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>();
 
-  ffi.Pointer<AoiPeripheralAddressKind> inflate_AoiPeripheralAddress_DeviceId() {
+  ffi.Pointer<AoiPeripheralAddressKind>
+      inflate_AoiPeripheralAddress_DeviceId() {
     return _inflate_AoiPeripheralAddress_DeviceId();
   }
 
-  late final _inflate_AoiPeripheralAddress_DeviceIdPtr = _lookup<ffi.NativeFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>>('inflate_AoiPeripheralAddress_DeviceId');
-  late final _inflate_AoiPeripheralAddress_DeviceId = _inflate_AoiPeripheralAddress_DeviceIdPtr.asFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>();
+  late final _inflate_AoiPeripheralAddress_DeviceIdPtr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>>(
+      'inflate_AoiPeripheralAddress_DeviceId');
+  late final _inflate_AoiPeripheralAddress_DeviceId =
+      _inflate_AoiPeripheralAddress_DeviceIdPtr
+          .asFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>();
 
   ffi.Pointer<FilterCriteriaKind> inflate_FilterCriteria_Any() {
     return _inflate_FilterCriteria_Any();
   }
 
-  late final _inflate_FilterCriteria_AnyPtr = _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriteriaKind> Function()>>('inflate_FilterCriteria_Any');
-  late final _inflate_FilterCriteria_Any = _inflate_FilterCriteria_AnyPtr.asFunction<ffi.Pointer<FilterCriteriaKind> Function()>();
+  late final _inflate_FilterCriteria_AnyPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriteriaKind> Function()>>(
+          'inflate_FilterCriteria_Any');
+  late final _inflate_FilterCriteria_Any = _inflate_FilterCriteria_AnyPtr
+      .asFunction<ffi.Pointer<FilterCriteriaKind> Function()>();
 
   ffi.Pointer<FilterCriteriaKind> inflate_FilterCriteria_All() {
     return _inflate_FilterCriteria_All();
   }
 
-  late final _inflate_FilterCriteria_AllPtr = _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriteriaKind> Function()>>('inflate_FilterCriteria_All');
-  late final _inflate_FilterCriteria_All = _inflate_FilterCriteria_AllPtr.asFunction<ffi.Pointer<FilterCriteriaKind> Function()>();
+  late final _inflate_FilterCriteria_AllPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriteriaKind> Function()>>(
+          'inflate_FilterCriteria_All');
+  late final _inflate_FilterCriteria_All = _inflate_FilterCriteria_AllPtr
+      .asFunction<ffi.Pointer<FilterCriteriaKind> Function()>();
 
   ffi.Pointer<FilterCriterionKind> inflate_FilterCriterion_HasServiceUuid() {
     return _inflate_FilterCriterion_HasServiceUuid();
   }
 
-  late final _inflate_FilterCriterion_HasServiceUuidPtr = _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>('inflate_FilterCriterion_HasServiceUuid');
-  late final _inflate_FilterCriterion_HasServiceUuid = _inflate_FilterCriterion_HasServiceUuidPtr.asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
+  late final _inflate_FilterCriterion_HasServiceUuidPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>(
+          'inflate_FilterCriterion_HasServiceUuid');
+  late final _inflate_FilterCriterion_HasServiceUuid =
+      _inflate_FilterCriterion_HasServiceUuidPtr
+          .asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
 
-  ffi.Pointer<FilterCriterionKind> inflate_FilterCriterion_NameMatchesExactly() {
+  ffi.Pointer<FilterCriterionKind>
+      inflate_FilterCriterion_NameMatchesExactly() {
     return _inflate_FilterCriterion_NameMatchesExactly();
   }
 
-  late final _inflate_FilterCriterion_NameMatchesExactlyPtr = _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>('inflate_FilterCriterion_NameMatchesExactly');
-  late final _inflate_FilterCriterion_NameMatchesExactly = _inflate_FilterCriterion_NameMatchesExactlyPtr.asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
+  late final _inflate_FilterCriterion_NameMatchesExactlyPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>(
+          'inflate_FilterCriterion_NameMatchesExactly');
+  late final _inflate_FilterCriterion_NameMatchesExactly =
+      _inflate_FilterCriterion_NameMatchesExactlyPtr
+          .asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
 
   ffi.Pointer<FilterCriterionKind> inflate_FilterCriterion_NameContains() {
     return _inflate_FilterCriterion_NameContains();
   }
 
-  late final _inflate_FilterCriterion_NameContainsPtr = _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>('inflate_FilterCriterion_NameContains');
-  late final _inflate_FilterCriterion_NameContains = _inflate_FilterCriterion_NameContainsPtr.asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
+  late final _inflate_FilterCriterion_NameContainsPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>(
+          'inflate_FilterCriterion_NameContains');
+  late final _inflate_FilterCriterion_NameContains =
+      _inflate_FilterCriterion_NameContainsPtr
+          .asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
 
   ffi.Pointer<FilterCriterionKind> inflate_FilterCriterion_ManufacturerId() {
     return _inflate_FilterCriterion_ManufacturerId();
   }
 
-  late final _inflate_FilterCriterion_ManufacturerIdPtr = _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>('inflate_FilterCriterion_ManufacturerId');
-  late final _inflate_FilterCriterion_ManufacturerId = _inflate_FilterCriterion_ManufacturerIdPtr.asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
+  late final _inflate_FilterCriterion_ManufacturerIdPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>(
+          'inflate_FilterCriterion_ManufacturerId');
+  late final _inflate_FilterCriterion_ManufacturerId =
+      _inflate_FilterCriterion_ManufacturerIdPtr
+          .asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
 
   ffi.Pointer<FilterCriterionKind> inflate_FilterCriterion_ManufacturerData() {
     return _inflate_FilterCriterion_ManufacturerData();
   }
 
-  late final _inflate_FilterCriterion_ManufacturerDataPtr = _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>('inflate_FilterCriterion_ManufacturerData');
-  late final _inflate_FilterCriterion_ManufacturerData = _inflate_FilterCriterion_ManufacturerDataPtr.asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
+  late final _inflate_FilterCriterion_ManufacturerDataPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FilterCriterionKind> Function()>>(
+          'inflate_FilterCriterion_ManufacturerData');
+  late final _inflate_FilterCriterion_ManufacturerData =
+      _inflate_FilterCriterion_ManufacturerDataPtr
+          .asFunction<ffi.Pointer<FilterCriterionKind> Function()>();
 
   void free_WireSyncReturn(
     WireSyncReturn ptr,
@@ -689,8 +905,11 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _free_WireSyncReturnPtr = _lookup<ffi.NativeFunction<ffi.Void Function(WireSyncReturn)>>('free_WireSyncReturn');
-  late final _free_WireSyncReturn = _free_WireSyncReturnPtr.asFunction<void Function(WireSyncReturn)>();
+  late final _free_WireSyncReturnPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(WireSyncReturn)>>(
+          'free_WireSyncReturn');
+  late final _free_WireSyncReturn =
+      _free_WireSyncReturnPtr.asFunction<void Function(WireSyncReturn)>();
 }
 
 final class _Dart_Handle extends ffi.Opaque {}
@@ -734,7 +953,8 @@ final class wire_FilterCriterion_ManufacturerData extends ffi.Struct {
 final class FilterCriterionKind extends ffi.Union {
   external ffi.Pointer<wire_FilterCriterion_HasServiceUuid> HasServiceUuid;
 
-  external ffi.Pointer<wire_FilterCriterion_NameMatchesExactly> NameMatchesExactly;
+  external ffi.Pointer<wire_FilterCriterion_NameMatchesExactly>
+      NameMatchesExactly;
 
   external ffi.Pointer<wire_FilterCriterion_NameContains> NameContains;
 
@@ -877,5 +1097,7 @@ final class wire_AoiConnectedPeripheral extends ffi.Struct {
   external ffi.Pointer<wire_list_aoi_characteristic> characteristics;
 }
 
-typedef DartPostCObjectFnType = ffi.Pointer<ffi.NativeFunction<ffi.Bool Function(DartPort port_id, ffi.Pointer<ffi.Void> message)>>;
+typedef DartPostCObjectFnType = ffi.Pointer<
+    ffi.NativeFunction<
+        ffi.Bool Function(DartPort port_id, ffi.Pointer<ffi.Void> message)>>;
 typedef DartPort = ffi.Int64;

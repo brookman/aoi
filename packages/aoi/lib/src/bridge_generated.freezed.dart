@@ -11,7 +11,8 @@ part of 'bridge_generated.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AoiPeripheralAddress {
@@ -64,11 +65,15 @@ mixin _$AoiPeripheralAddress {
 
 /// @nodoc
 abstract class $AoiPeripheralAddressCopyWith<$Res> {
-  factory $AoiPeripheralAddressCopyWith(AoiPeripheralAddress value, $Res Function(AoiPeripheralAddress) then) = _$AoiPeripheralAddressCopyWithImpl<$Res, AoiPeripheralAddress>;
+  factory $AoiPeripheralAddressCopyWith(AoiPeripheralAddress value,
+          $Res Function(AoiPeripheralAddress) then) =
+      _$AoiPeripheralAddressCopyWithImpl<$Res, AoiPeripheralAddress>;
 }
 
 /// @nodoc
-class _$AoiPeripheralAddressCopyWithImpl<$Res, $Val extends AoiPeripheralAddress> implements $AoiPeripheralAddressCopyWith<$Res> {
+class _$AoiPeripheralAddressCopyWithImpl<$Res,
+        $Val extends AoiPeripheralAddress>
+    implements $AoiPeripheralAddressCopyWith<$Res> {
   _$AoiPeripheralAddressCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -79,14 +84,23 @@ class _$AoiPeripheralAddressCopyWithImpl<$Res, $Val extends AoiPeripheralAddress
 
 /// @nodoc
 abstract class _$$AoiPeripheralAddress_MacAddressImplCopyWith<$Res> {
-  factory _$$AoiPeripheralAddress_MacAddressImplCopyWith(_$AoiPeripheralAddress_MacAddressImpl value, $Res Function(_$AoiPeripheralAddress_MacAddressImpl) then) = __$$AoiPeripheralAddress_MacAddressImplCopyWithImpl<$Res>;
+  factory _$$AoiPeripheralAddress_MacAddressImplCopyWith(
+          _$AoiPeripheralAddress_MacAddressImpl value,
+          $Res Function(_$AoiPeripheralAddress_MacAddressImpl) then) =
+      __$$AoiPeripheralAddress_MacAddressImplCopyWithImpl<$Res>;
   @useResult
   $Res call({U8Array6 field0});
 }
 
 /// @nodoc
-class __$$AoiPeripheralAddress_MacAddressImplCopyWithImpl<$Res> extends _$AoiPeripheralAddressCopyWithImpl<$Res, _$AoiPeripheralAddress_MacAddressImpl> implements _$$AoiPeripheralAddress_MacAddressImplCopyWith<$Res> {
-  __$$AoiPeripheralAddress_MacAddressImplCopyWithImpl(_$AoiPeripheralAddress_MacAddressImpl _value, $Res Function(_$AoiPeripheralAddress_MacAddressImpl) _then) : super(_value, _then);
+class __$$AoiPeripheralAddress_MacAddressImplCopyWithImpl<$Res>
+    extends _$AoiPeripheralAddressCopyWithImpl<$Res,
+        _$AoiPeripheralAddress_MacAddressImpl>
+    implements _$$AoiPeripheralAddress_MacAddressImplCopyWith<$Res> {
+  __$$AoiPeripheralAddress_MacAddressImplCopyWithImpl(
+      _$AoiPeripheralAddress_MacAddressImpl _value,
+      $Res Function(_$AoiPeripheralAddress_MacAddressImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -104,7 +118,8 @@ class __$$AoiPeripheralAddress_MacAddressImplCopyWithImpl<$Res> extends _$AoiPer
 
 /// @nodoc
 
-class _$AoiPeripheralAddress_MacAddressImpl implements AoiPeripheralAddress_MacAddress {
+class _$AoiPeripheralAddress_MacAddressImpl
+    implements AoiPeripheralAddress_MacAddress {
   const _$AoiPeripheralAddress_MacAddressImpl(this.field0);
 
   @override
@@ -117,16 +132,23 @@ class _$AoiPeripheralAddress_MacAddressImpl implements AoiPeripheralAddress_MacA
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AoiPeripheralAddress_MacAddressImpl && const DeepCollectionEquality().equals(other.field0, field0));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AoiPeripheralAddress_MacAddressImpl &&
+            const DeepCollectionEquality().equals(other.field0, field0));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(field0));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(field0));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AoiPeripheralAddress_MacAddressImplCopyWith<_$AoiPeripheralAddress_MacAddressImpl> get copyWith => __$$AoiPeripheralAddress_MacAddressImplCopyWithImpl<_$AoiPeripheralAddress_MacAddressImpl>(this, _$identity);
+  _$$AoiPeripheralAddress_MacAddressImplCopyWith<
+          _$AoiPeripheralAddress_MacAddressImpl>
+      get copyWith => __$$AoiPeripheralAddress_MacAddressImplCopyWithImpl<
+          _$AoiPeripheralAddress_MacAddressImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -198,24 +220,36 @@ class _$AoiPeripheralAddress_MacAddressImpl implements AoiPeripheralAddress_MacA
 }
 
 abstract class AoiPeripheralAddress_MacAddress implements AoiPeripheralAddress {
-  const factory AoiPeripheralAddress_MacAddress(final U8Array6 field0) = _$AoiPeripheralAddress_MacAddressImpl;
+  const factory AoiPeripheralAddress_MacAddress(final U8Array6 field0) =
+      _$AoiPeripheralAddress_MacAddressImpl;
 
   @override
   U8Array6 get field0;
   @JsonKey(ignore: true)
-  _$$AoiPeripheralAddress_MacAddressImplCopyWith<_$AoiPeripheralAddress_MacAddressImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$AoiPeripheralAddress_MacAddressImplCopyWith<
+          _$AoiPeripheralAddress_MacAddressImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$AoiPeripheralAddress_UuidImplCopyWith<$Res> {
-  factory _$$AoiPeripheralAddress_UuidImplCopyWith(_$AoiPeripheralAddress_UuidImpl value, $Res Function(_$AoiPeripheralAddress_UuidImpl) then) = __$$AoiPeripheralAddress_UuidImplCopyWithImpl<$Res>;
+  factory _$$AoiPeripheralAddress_UuidImplCopyWith(
+          _$AoiPeripheralAddress_UuidImpl value,
+          $Res Function(_$AoiPeripheralAddress_UuidImpl) then) =
+      __$$AoiPeripheralAddress_UuidImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String field0});
 }
 
 /// @nodoc
-class __$$AoiPeripheralAddress_UuidImplCopyWithImpl<$Res> extends _$AoiPeripheralAddressCopyWithImpl<$Res, _$AoiPeripheralAddress_UuidImpl> implements _$$AoiPeripheralAddress_UuidImplCopyWith<$Res> {
-  __$$AoiPeripheralAddress_UuidImplCopyWithImpl(_$AoiPeripheralAddress_UuidImpl _value, $Res Function(_$AoiPeripheralAddress_UuidImpl) _then) : super(_value, _then);
+class __$$AoiPeripheralAddress_UuidImplCopyWithImpl<$Res>
+    extends _$AoiPeripheralAddressCopyWithImpl<$Res,
+        _$AoiPeripheralAddress_UuidImpl>
+    implements _$$AoiPeripheralAddress_UuidImplCopyWith<$Res> {
+  __$$AoiPeripheralAddress_UuidImplCopyWithImpl(
+      _$AoiPeripheralAddress_UuidImpl _value,
+      $Res Function(_$AoiPeripheralAddress_UuidImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -246,7 +280,10 @@ class _$AoiPeripheralAddress_UuidImpl implements AoiPeripheralAddress_Uuid {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AoiPeripheralAddress_UuidImpl && (identical(other.field0, field0) || other.field0 == field0));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AoiPeripheralAddress_UuidImpl &&
+            (identical(other.field0, field0) || other.field0 == field0));
   }
 
   @override
@@ -255,7 +292,9 @@ class _$AoiPeripheralAddress_UuidImpl implements AoiPeripheralAddress_Uuid {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AoiPeripheralAddress_UuidImplCopyWith<_$AoiPeripheralAddress_UuidImpl> get copyWith => __$$AoiPeripheralAddress_UuidImplCopyWithImpl<_$AoiPeripheralAddress_UuidImpl>(this, _$identity);
+  _$$AoiPeripheralAddress_UuidImplCopyWith<_$AoiPeripheralAddress_UuidImpl>
+      get copyWith => __$$AoiPeripheralAddress_UuidImplCopyWithImpl<
+          _$AoiPeripheralAddress_UuidImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -327,24 +366,35 @@ class _$AoiPeripheralAddress_UuidImpl implements AoiPeripheralAddress_Uuid {
 }
 
 abstract class AoiPeripheralAddress_Uuid implements AoiPeripheralAddress {
-  const factory AoiPeripheralAddress_Uuid(final String field0) = _$AoiPeripheralAddress_UuidImpl;
+  const factory AoiPeripheralAddress_Uuid(final String field0) =
+      _$AoiPeripheralAddress_UuidImpl;
 
   @override
   String get field0;
   @JsonKey(ignore: true)
-  _$$AoiPeripheralAddress_UuidImplCopyWith<_$AoiPeripheralAddress_UuidImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$AoiPeripheralAddress_UuidImplCopyWith<_$AoiPeripheralAddress_UuidImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$AoiPeripheralAddress_DeviceIdImplCopyWith<$Res> {
-  factory _$$AoiPeripheralAddress_DeviceIdImplCopyWith(_$AoiPeripheralAddress_DeviceIdImpl value, $Res Function(_$AoiPeripheralAddress_DeviceIdImpl) then) = __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl<$Res>;
+  factory _$$AoiPeripheralAddress_DeviceIdImplCopyWith(
+          _$AoiPeripheralAddress_DeviceIdImpl value,
+          $Res Function(_$AoiPeripheralAddress_DeviceIdImpl) then) =
+      __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String field0});
 }
 
 /// @nodoc
-class __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl<$Res> extends _$AoiPeripheralAddressCopyWithImpl<$Res, _$AoiPeripheralAddress_DeviceIdImpl> implements _$$AoiPeripheralAddress_DeviceIdImplCopyWith<$Res> {
-  __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl(_$AoiPeripheralAddress_DeviceIdImpl _value, $Res Function(_$AoiPeripheralAddress_DeviceIdImpl) _then) : super(_value, _then);
+class __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl<$Res>
+    extends _$AoiPeripheralAddressCopyWithImpl<$Res,
+        _$AoiPeripheralAddress_DeviceIdImpl>
+    implements _$$AoiPeripheralAddress_DeviceIdImplCopyWith<$Res> {
+  __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl(
+      _$AoiPeripheralAddress_DeviceIdImpl _value,
+      $Res Function(_$AoiPeripheralAddress_DeviceIdImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -362,7 +412,8 @@ class __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl<$Res> extends _$AoiPerip
 
 /// @nodoc
 
-class _$AoiPeripheralAddress_DeviceIdImpl implements AoiPeripheralAddress_DeviceId {
+class _$AoiPeripheralAddress_DeviceIdImpl
+    implements AoiPeripheralAddress_DeviceId {
   const _$AoiPeripheralAddress_DeviceIdImpl(this.field0);
 
   @override
@@ -375,7 +426,10 @@ class _$AoiPeripheralAddress_DeviceIdImpl implements AoiPeripheralAddress_Device
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AoiPeripheralAddress_DeviceIdImpl && (identical(other.field0, field0) || other.field0 == field0));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AoiPeripheralAddress_DeviceIdImpl &&
+            (identical(other.field0, field0) || other.field0 == field0));
   }
 
   @override
@@ -384,7 +438,10 @@ class _$AoiPeripheralAddress_DeviceIdImpl implements AoiPeripheralAddress_Device
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AoiPeripheralAddress_DeviceIdImplCopyWith<_$AoiPeripheralAddress_DeviceIdImpl> get copyWith => __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl<_$AoiPeripheralAddress_DeviceIdImpl>(this, _$identity);
+  _$$AoiPeripheralAddress_DeviceIdImplCopyWith<
+          _$AoiPeripheralAddress_DeviceIdImpl>
+      get copyWith => __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl<
+          _$AoiPeripheralAddress_DeviceIdImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -456,12 +513,15 @@ class _$AoiPeripheralAddress_DeviceIdImpl implements AoiPeripheralAddress_Device
 }
 
 abstract class AoiPeripheralAddress_DeviceId implements AoiPeripheralAddress {
-  const factory AoiPeripheralAddress_DeviceId(final String field0) = _$AoiPeripheralAddress_DeviceIdImpl;
+  const factory AoiPeripheralAddress_DeviceId(final String field0) =
+      _$AoiPeripheralAddress_DeviceIdImpl;
 
   @override
   String get field0;
   @JsonKey(ignore: true)
-  _$$AoiPeripheralAddress_DeviceIdImplCopyWith<_$AoiPeripheralAddress_DeviceIdImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$AoiPeripheralAddress_DeviceIdImplCopyWith<
+          _$AoiPeripheralAddress_DeviceIdImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -507,18 +567,22 @@ mixin _$FilterCriteria {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FilterCriteriaCopyWith<FilterCriteria> get copyWith => throw _privateConstructorUsedError;
+  $FilterCriteriaCopyWith<FilterCriteria> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $FilterCriteriaCopyWith<$Res> {
-  factory $FilterCriteriaCopyWith(FilterCriteria value, $Res Function(FilterCriteria) then) = _$FilterCriteriaCopyWithImpl<$Res, FilterCriteria>;
+  factory $FilterCriteriaCopyWith(
+          FilterCriteria value, $Res Function(FilterCriteria) then) =
+      _$FilterCriteriaCopyWithImpl<$Res, FilterCriteria>;
   @useResult
   $Res call({List<FilterCriterion> field0});
 }
 
 /// @nodoc
-class _$FilterCriteriaCopyWithImpl<$Res, $Val extends FilterCriteria> implements $FilterCriteriaCopyWith<$Res> {
+class _$FilterCriteriaCopyWithImpl<$Res, $Val extends FilterCriteria>
+    implements $FilterCriteriaCopyWith<$Res> {
   _$FilterCriteriaCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -541,16 +605,23 @@ class _$FilterCriteriaCopyWithImpl<$Res, $Val extends FilterCriteria> implements
 }
 
 /// @nodoc
-abstract class _$$FilterCriteria_AnyImplCopyWith<$Res> implements $FilterCriteriaCopyWith<$Res> {
-  factory _$$FilterCriteria_AnyImplCopyWith(_$FilterCriteria_AnyImpl value, $Res Function(_$FilterCriteria_AnyImpl) then) = __$$FilterCriteria_AnyImplCopyWithImpl<$Res>;
+abstract class _$$FilterCriteria_AnyImplCopyWith<$Res>
+    implements $FilterCriteriaCopyWith<$Res> {
+  factory _$$FilterCriteria_AnyImplCopyWith(_$FilterCriteria_AnyImpl value,
+          $Res Function(_$FilterCriteria_AnyImpl) then) =
+      __$$FilterCriteria_AnyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<FilterCriterion> field0});
 }
 
 /// @nodoc
-class __$$FilterCriteria_AnyImplCopyWithImpl<$Res> extends _$FilterCriteriaCopyWithImpl<$Res, _$FilterCriteria_AnyImpl> implements _$$FilterCriteria_AnyImplCopyWith<$Res> {
-  __$$FilterCriteria_AnyImplCopyWithImpl(_$FilterCriteria_AnyImpl _value, $Res Function(_$FilterCriteria_AnyImpl) _then) : super(_value, _then);
+class __$$FilterCriteria_AnyImplCopyWithImpl<$Res>
+    extends _$FilterCriteriaCopyWithImpl<$Res, _$FilterCriteria_AnyImpl>
+    implements _$$FilterCriteria_AnyImplCopyWith<$Res> {
+  __$$FilterCriteria_AnyImplCopyWithImpl(_$FilterCriteria_AnyImpl _value,
+      $Res Function(_$FilterCriteria_AnyImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -569,7 +640,8 @@ class __$$FilterCriteria_AnyImplCopyWithImpl<$Res> extends _$FilterCriteriaCopyW
 /// @nodoc
 
 class _$FilterCriteria_AnyImpl implements FilterCriteria_Any {
-  const _$FilterCriteria_AnyImpl(final List<FilterCriterion> field0) : _field0 = field0;
+  const _$FilterCriteria_AnyImpl(final List<FilterCriterion> field0)
+      : _field0 = field0;
 
   final List<FilterCriterion> _field0;
   @override
@@ -586,16 +658,22 @@ class _$FilterCriteria_AnyImpl implements FilterCriteria_Any {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$FilterCriteria_AnyImpl && const DeepCollectionEquality().equals(other._field0, _field0));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterCriteria_AnyImpl &&
+            const DeepCollectionEquality().equals(other._field0, _field0));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_field0));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_field0));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterCriteria_AnyImplCopyWith<_$FilterCriteria_AnyImpl> get copyWith => __$$FilterCriteria_AnyImplCopyWithImpl<_$FilterCriteria_AnyImpl>(this, _$identity);
+  _$$FilterCriteria_AnyImplCopyWith<_$FilterCriteria_AnyImpl> get copyWith =>
+      __$$FilterCriteria_AnyImplCopyWithImpl<_$FilterCriteria_AnyImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -661,26 +739,35 @@ class _$FilterCriteria_AnyImpl implements FilterCriteria_Any {
 }
 
 abstract class FilterCriteria_Any implements FilterCriteria {
-  const factory FilterCriteria_Any(final List<FilterCriterion> field0) = _$FilterCriteria_AnyImpl;
+  const factory FilterCriteria_Any(final List<FilterCriterion> field0) =
+      _$FilterCriteria_AnyImpl;
 
   @override
   List<FilterCriterion> get field0;
   @override
   @JsonKey(ignore: true)
-  _$$FilterCriteria_AnyImplCopyWith<_$FilterCriteria_AnyImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$FilterCriteria_AnyImplCopyWith<_$FilterCriteria_AnyImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FilterCriteria_AllImplCopyWith<$Res> implements $FilterCriteriaCopyWith<$Res> {
-  factory _$$FilterCriteria_AllImplCopyWith(_$FilterCriteria_AllImpl value, $Res Function(_$FilterCriteria_AllImpl) then) = __$$FilterCriteria_AllImplCopyWithImpl<$Res>;
+abstract class _$$FilterCriteria_AllImplCopyWith<$Res>
+    implements $FilterCriteriaCopyWith<$Res> {
+  factory _$$FilterCriteria_AllImplCopyWith(_$FilterCriteria_AllImpl value,
+          $Res Function(_$FilterCriteria_AllImpl) then) =
+      __$$FilterCriteria_AllImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<FilterCriterion> field0});
 }
 
 /// @nodoc
-class __$$FilterCriteria_AllImplCopyWithImpl<$Res> extends _$FilterCriteriaCopyWithImpl<$Res, _$FilterCriteria_AllImpl> implements _$$FilterCriteria_AllImplCopyWith<$Res> {
-  __$$FilterCriteria_AllImplCopyWithImpl(_$FilterCriteria_AllImpl _value, $Res Function(_$FilterCriteria_AllImpl) _then) : super(_value, _then);
+class __$$FilterCriteria_AllImplCopyWithImpl<$Res>
+    extends _$FilterCriteriaCopyWithImpl<$Res, _$FilterCriteria_AllImpl>
+    implements _$$FilterCriteria_AllImplCopyWith<$Res> {
+  __$$FilterCriteria_AllImplCopyWithImpl(_$FilterCriteria_AllImpl _value,
+      $Res Function(_$FilterCriteria_AllImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -699,7 +786,8 @@ class __$$FilterCriteria_AllImplCopyWithImpl<$Res> extends _$FilterCriteriaCopyW
 /// @nodoc
 
 class _$FilterCriteria_AllImpl implements FilterCriteria_All {
-  const _$FilterCriteria_AllImpl(final List<FilterCriterion> field0) : _field0 = field0;
+  const _$FilterCriteria_AllImpl(final List<FilterCriterion> field0)
+      : _field0 = field0;
 
   final List<FilterCriterion> _field0;
   @override
@@ -716,16 +804,22 @@ class _$FilterCriteria_AllImpl implements FilterCriteria_All {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$FilterCriteria_AllImpl && const DeepCollectionEquality().equals(other._field0, _field0));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterCriteria_AllImpl &&
+            const DeepCollectionEquality().equals(other._field0, _field0));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_field0));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_field0));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterCriteria_AllImplCopyWith<_$FilterCriteria_AllImpl> get copyWith => __$$FilterCriteria_AllImplCopyWithImpl<_$FilterCriteria_AllImpl>(this, _$identity);
+  _$$FilterCriteria_AllImplCopyWith<_$FilterCriteria_AllImpl> get copyWith =>
+      __$$FilterCriteria_AllImplCopyWithImpl<_$FilterCriteria_AllImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -791,13 +885,15 @@ class _$FilterCriteria_AllImpl implements FilterCriteria_All {
 }
 
 abstract class FilterCriteria_All implements FilterCriteria {
-  const factory FilterCriteria_All(final List<FilterCriterion> field0) = _$FilterCriteria_AllImpl;
+  const factory FilterCriteria_All(final List<FilterCriterion> field0) =
+      _$FilterCriteria_AllImpl;
 
   @override
   List<FilterCriterion> get field0;
   @override
   @JsonKey(ignore: true)
-  _$$FilterCriteria_AllImplCopyWith<_$FilterCriteria_AllImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$FilterCriteria_AllImplCopyWith<_$FilterCriteria_AllImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -833,17 +929,22 @@ mixin _$FilterCriterion {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
-    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_HasServiceUuid value)
+        hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value)
+        nameMatchesExactly,
     required TResult Function(FilterCriterion_NameContains value) nameContains,
-    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
-    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
+    required TResult Function(FilterCriterion_ManufacturerId value)
+        manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value)
+        manufacturerData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult? Function(FilterCriterion_NameContains value)? nameContains,
     TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -852,7 +953,8 @@ mixin _$FilterCriterion {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult Function(FilterCriterion_NameContains value)? nameContains,
     TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -863,11 +965,14 @@ mixin _$FilterCriterion {
 
 /// @nodoc
 abstract class $FilterCriterionCopyWith<$Res> {
-  factory $FilterCriterionCopyWith(FilterCriterion value, $Res Function(FilterCriterion) then) = _$FilterCriterionCopyWithImpl<$Res, FilterCriterion>;
+  factory $FilterCriterionCopyWith(
+          FilterCriterion value, $Res Function(FilterCriterion) then) =
+      _$FilterCriterionCopyWithImpl<$Res, FilterCriterion>;
 }
 
 /// @nodoc
-class _$FilterCriterionCopyWithImpl<$Res, $Val extends FilterCriterion> implements $FilterCriterionCopyWith<$Res> {
+class _$FilterCriterionCopyWithImpl<$Res, $Val extends FilterCriterion>
+    implements $FilterCriterionCopyWith<$Res> {
   _$FilterCriterionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -878,14 +983,23 @@ class _$FilterCriterionCopyWithImpl<$Res, $Val extends FilterCriterion> implemen
 
 /// @nodoc
 abstract class _$$FilterCriterion_HasServiceUuidImplCopyWith<$Res> {
-  factory _$$FilterCriterion_HasServiceUuidImplCopyWith(_$FilterCriterion_HasServiceUuidImpl value, $Res Function(_$FilterCriterion_HasServiceUuidImpl) then) = __$$FilterCriterion_HasServiceUuidImplCopyWithImpl<$Res>;
+  factory _$$FilterCriterion_HasServiceUuidImplCopyWith(
+          _$FilterCriterion_HasServiceUuidImpl value,
+          $Res Function(_$FilterCriterion_HasServiceUuidImpl) then) =
+      __$$FilterCriterion_HasServiceUuidImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String field0});
 }
 
 /// @nodoc
-class __$$FilterCriterion_HasServiceUuidImplCopyWithImpl<$Res> extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_HasServiceUuidImpl> implements _$$FilterCriterion_HasServiceUuidImplCopyWith<$Res> {
-  __$$FilterCriterion_HasServiceUuidImplCopyWithImpl(_$FilterCriterion_HasServiceUuidImpl _value, $Res Function(_$FilterCriterion_HasServiceUuidImpl) _then) : super(_value, _then);
+class __$$FilterCriterion_HasServiceUuidImplCopyWithImpl<$Res>
+    extends _$FilterCriterionCopyWithImpl<$Res,
+        _$FilterCriterion_HasServiceUuidImpl>
+    implements _$$FilterCriterion_HasServiceUuidImplCopyWith<$Res> {
+  __$$FilterCriterion_HasServiceUuidImplCopyWithImpl(
+      _$FilterCriterion_HasServiceUuidImpl _value,
+      $Res Function(_$FilterCriterion_HasServiceUuidImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -903,7 +1017,8 @@ class __$$FilterCriterion_HasServiceUuidImplCopyWithImpl<$Res> extends _$FilterC
 
 /// @nodoc
 
-class _$FilterCriterion_HasServiceUuidImpl implements FilterCriterion_HasServiceUuid {
+class _$FilterCriterion_HasServiceUuidImpl
+    implements FilterCriterion_HasServiceUuid {
   const _$FilterCriterion_HasServiceUuidImpl(this.field0);
 
   @override
@@ -916,7 +1031,10 @@ class _$FilterCriterion_HasServiceUuidImpl implements FilterCriterion_HasService
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$FilterCriterion_HasServiceUuidImpl && (identical(other.field0, field0) || other.field0 == field0));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterCriterion_HasServiceUuidImpl &&
+            (identical(other.field0, field0) || other.field0 == field0));
   }
 
   @override
@@ -925,7 +1043,10 @@ class _$FilterCriterion_HasServiceUuidImpl implements FilterCriterion_HasService
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterCriterion_HasServiceUuidImplCopyWith<_$FilterCriterion_HasServiceUuidImpl> get copyWith => __$$FilterCriterion_HasServiceUuidImplCopyWithImpl<_$FilterCriterion_HasServiceUuidImpl>(this, _$identity);
+  _$$FilterCriterion_HasServiceUuidImplCopyWith<
+          _$FilterCriterion_HasServiceUuidImpl>
+      get copyWith => __$$FilterCriterion_HasServiceUuidImplCopyWithImpl<
+          _$FilterCriterion_HasServiceUuidImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -970,11 +1091,15 @@ class _$FilterCriterion_HasServiceUuidImpl implements FilterCriterion_HasService
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
-    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_HasServiceUuid value)
+        hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value)
+        nameMatchesExactly,
     required TResult Function(FilterCriterion_NameContains value) nameContains,
-    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
-    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
+    required TResult Function(FilterCriterion_ManufacturerId value)
+        manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value)
+        manufacturerData,
   }) {
     return hasServiceUuid(this);
   }
@@ -983,7 +1108,8 @@ class _$FilterCriterion_HasServiceUuidImpl implements FilterCriterion_HasService
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult? Function(FilterCriterion_NameContains value)? nameContains,
     TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -995,7 +1121,8 @@ class _$FilterCriterion_HasServiceUuidImpl implements FilterCriterion_HasService
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult Function(FilterCriterion_NameContains value)? nameContains,
     TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -1009,24 +1136,36 @@ class _$FilterCriterion_HasServiceUuidImpl implements FilterCriterion_HasService
 }
 
 abstract class FilterCriterion_HasServiceUuid implements FilterCriterion {
-  const factory FilterCriterion_HasServiceUuid(final String field0) = _$FilterCriterion_HasServiceUuidImpl;
+  const factory FilterCriterion_HasServiceUuid(final String field0) =
+      _$FilterCriterion_HasServiceUuidImpl;
 
   @override
   String get field0;
   @JsonKey(ignore: true)
-  _$$FilterCriterion_HasServiceUuidImplCopyWith<_$FilterCriterion_HasServiceUuidImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$FilterCriterion_HasServiceUuidImplCopyWith<
+          _$FilterCriterion_HasServiceUuidImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$FilterCriterion_NameMatchesExactlyImplCopyWith<$Res> {
-  factory _$$FilterCriterion_NameMatchesExactlyImplCopyWith(_$FilterCriterion_NameMatchesExactlyImpl value, $Res Function(_$FilterCriterion_NameMatchesExactlyImpl) then) = __$$FilterCriterion_NameMatchesExactlyImplCopyWithImpl<$Res>;
+  factory _$$FilterCriterion_NameMatchesExactlyImplCopyWith(
+          _$FilterCriterion_NameMatchesExactlyImpl value,
+          $Res Function(_$FilterCriterion_NameMatchesExactlyImpl) then) =
+      __$$FilterCriterion_NameMatchesExactlyImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String field0});
 }
 
 /// @nodoc
-class __$$FilterCriterion_NameMatchesExactlyImplCopyWithImpl<$Res> extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_NameMatchesExactlyImpl> implements _$$FilterCriterion_NameMatchesExactlyImplCopyWith<$Res> {
-  __$$FilterCriterion_NameMatchesExactlyImplCopyWithImpl(_$FilterCriterion_NameMatchesExactlyImpl _value, $Res Function(_$FilterCriterion_NameMatchesExactlyImpl) _then) : super(_value, _then);
+class __$$FilterCriterion_NameMatchesExactlyImplCopyWithImpl<$Res>
+    extends _$FilterCriterionCopyWithImpl<$Res,
+        _$FilterCriterion_NameMatchesExactlyImpl>
+    implements _$$FilterCriterion_NameMatchesExactlyImplCopyWith<$Res> {
+  __$$FilterCriterion_NameMatchesExactlyImplCopyWithImpl(
+      _$FilterCriterion_NameMatchesExactlyImpl _value,
+      $Res Function(_$FilterCriterion_NameMatchesExactlyImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -1044,7 +1183,8 @@ class __$$FilterCriterion_NameMatchesExactlyImplCopyWithImpl<$Res> extends _$Fil
 
 /// @nodoc
 
-class _$FilterCriterion_NameMatchesExactlyImpl implements FilterCriterion_NameMatchesExactly {
+class _$FilterCriterion_NameMatchesExactlyImpl
+    implements FilterCriterion_NameMatchesExactly {
   const _$FilterCriterion_NameMatchesExactlyImpl(this.field0);
 
   @override
@@ -1057,7 +1197,10 @@ class _$FilterCriterion_NameMatchesExactlyImpl implements FilterCriterion_NameMa
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$FilterCriterion_NameMatchesExactlyImpl && (identical(other.field0, field0) || other.field0 == field0));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterCriterion_NameMatchesExactlyImpl &&
+            (identical(other.field0, field0) || other.field0 == field0));
   }
 
   @override
@@ -1066,7 +1209,10 @@ class _$FilterCriterion_NameMatchesExactlyImpl implements FilterCriterion_NameMa
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterCriterion_NameMatchesExactlyImplCopyWith<_$FilterCriterion_NameMatchesExactlyImpl> get copyWith => __$$FilterCriterion_NameMatchesExactlyImplCopyWithImpl<_$FilterCriterion_NameMatchesExactlyImpl>(this, _$identity);
+  _$$FilterCriterion_NameMatchesExactlyImplCopyWith<
+          _$FilterCriterion_NameMatchesExactlyImpl>
+      get copyWith => __$$FilterCriterion_NameMatchesExactlyImplCopyWithImpl<
+          _$FilterCriterion_NameMatchesExactlyImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1111,11 +1257,15 @@ class _$FilterCriterion_NameMatchesExactlyImpl implements FilterCriterion_NameMa
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
-    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_HasServiceUuid value)
+        hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value)
+        nameMatchesExactly,
     required TResult Function(FilterCriterion_NameContains value) nameContains,
-    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
-    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
+    required TResult Function(FilterCriterion_ManufacturerId value)
+        manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value)
+        manufacturerData,
   }) {
     return nameMatchesExactly(this);
   }
@@ -1124,7 +1274,8 @@ class _$FilterCriterion_NameMatchesExactlyImpl implements FilterCriterion_NameMa
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult? Function(FilterCriterion_NameContains value)? nameContains,
     TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -1136,7 +1287,8 @@ class _$FilterCriterion_NameMatchesExactlyImpl implements FilterCriterion_NameMa
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult Function(FilterCriterion_NameContains value)? nameContains,
     TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -1150,24 +1302,36 @@ class _$FilterCriterion_NameMatchesExactlyImpl implements FilterCriterion_NameMa
 }
 
 abstract class FilterCriterion_NameMatchesExactly implements FilterCriterion {
-  const factory FilterCriterion_NameMatchesExactly(final String field0) = _$FilterCriterion_NameMatchesExactlyImpl;
+  const factory FilterCriterion_NameMatchesExactly(final String field0) =
+      _$FilterCriterion_NameMatchesExactlyImpl;
 
   @override
   String get field0;
   @JsonKey(ignore: true)
-  _$$FilterCriterion_NameMatchesExactlyImplCopyWith<_$FilterCriterion_NameMatchesExactlyImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$FilterCriterion_NameMatchesExactlyImplCopyWith<
+          _$FilterCriterion_NameMatchesExactlyImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$FilterCriterion_NameContainsImplCopyWith<$Res> {
-  factory _$$FilterCriterion_NameContainsImplCopyWith(_$FilterCriterion_NameContainsImpl value, $Res Function(_$FilterCriterion_NameContainsImpl) then) = __$$FilterCriterion_NameContainsImplCopyWithImpl<$Res>;
+  factory _$$FilterCriterion_NameContainsImplCopyWith(
+          _$FilterCriterion_NameContainsImpl value,
+          $Res Function(_$FilterCriterion_NameContainsImpl) then) =
+      __$$FilterCriterion_NameContainsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String field0});
 }
 
 /// @nodoc
-class __$$FilterCriterion_NameContainsImplCopyWithImpl<$Res> extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_NameContainsImpl> implements _$$FilterCriterion_NameContainsImplCopyWith<$Res> {
-  __$$FilterCriterion_NameContainsImplCopyWithImpl(_$FilterCriterion_NameContainsImpl _value, $Res Function(_$FilterCriterion_NameContainsImpl) _then) : super(_value, _then);
+class __$$FilterCriterion_NameContainsImplCopyWithImpl<$Res>
+    extends _$FilterCriterionCopyWithImpl<$Res,
+        _$FilterCriterion_NameContainsImpl>
+    implements _$$FilterCriterion_NameContainsImplCopyWith<$Res> {
+  __$$FilterCriterion_NameContainsImplCopyWithImpl(
+      _$FilterCriterion_NameContainsImpl _value,
+      $Res Function(_$FilterCriterion_NameContainsImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -1185,7 +1349,8 @@ class __$$FilterCriterion_NameContainsImplCopyWithImpl<$Res> extends _$FilterCri
 
 /// @nodoc
 
-class _$FilterCriterion_NameContainsImpl implements FilterCriterion_NameContains {
+class _$FilterCriterion_NameContainsImpl
+    implements FilterCriterion_NameContains {
   const _$FilterCriterion_NameContainsImpl(this.field0);
 
   @override
@@ -1198,7 +1363,10 @@ class _$FilterCriterion_NameContainsImpl implements FilterCriterion_NameContains
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$FilterCriterion_NameContainsImpl && (identical(other.field0, field0) || other.field0 == field0));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterCriterion_NameContainsImpl &&
+            (identical(other.field0, field0) || other.field0 == field0));
   }
 
   @override
@@ -1207,7 +1375,10 @@ class _$FilterCriterion_NameContainsImpl implements FilterCriterion_NameContains
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterCriterion_NameContainsImplCopyWith<_$FilterCriterion_NameContainsImpl> get copyWith => __$$FilterCriterion_NameContainsImplCopyWithImpl<_$FilterCriterion_NameContainsImpl>(this, _$identity);
+  _$$FilterCriterion_NameContainsImplCopyWith<
+          _$FilterCriterion_NameContainsImpl>
+      get copyWith => __$$FilterCriterion_NameContainsImplCopyWithImpl<
+          _$FilterCriterion_NameContainsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1252,11 +1423,15 @@ class _$FilterCriterion_NameContainsImpl implements FilterCriterion_NameContains
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
-    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_HasServiceUuid value)
+        hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value)
+        nameMatchesExactly,
     required TResult Function(FilterCriterion_NameContains value) nameContains,
-    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
-    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
+    required TResult Function(FilterCriterion_ManufacturerId value)
+        manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value)
+        manufacturerData,
   }) {
     return nameContains(this);
   }
@@ -1265,7 +1440,8 @@ class _$FilterCriterion_NameContainsImpl implements FilterCriterion_NameContains
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult? Function(FilterCriterion_NameContains value)? nameContains,
     TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -1277,7 +1453,8 @@ class _$FilterCriterion_NameContainsImpl implements FilterCriterion_NameContains
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult Function(FilterCriterion_NameContains value)? nameContains,
     TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -1291,24 +1468,36 @@ class _$FilterCriterion_NameContainsImpl implements FilterCriterion_NameContains
 }
 
 abstract class FilterCriterion_NameContains implements FilterCriterion {
-  const factory FilterCriterion_NameContains(final String field0) = _$FilterCriterion_NameContainsImpl;
+  const factory FilterCriterion_NameContains(final String field0) =
+      _$FilterCriterion_NameContainsImpl;
 
   @override
   String get field0;
   @JsonKey(ignore: true)
-  _$$FilterCriterion_NameContainsImplCopyWith<_$FilterCriterion_NameContainsImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$FilterCriterion_NameContainsImplCopyWith<
+          _$FilterCriterion_NameContainsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$FilterCriterion_ManufacturerIdImplCopyWith<$Res> {
-  factory _$$FilterCriterion_ManufacturerIdImplCopyWith(_$FilterCriterion_ManufacturerIdImpl value, $Res Function(_$FilterCriterion_ManufacturerIdImpl) then) = __$$FilterCriterion_ManufacturerIdImplCopyWithImpl<$Res>;
+  factory _$$FilterCriterion_ManufacturerIdImplCopyWith(
+          _$FilterCriterion_ManufacturerIdImpl value,
+          $Res Function(_$FilterCriterion_ManufacturerIdImpl) then) =
+      __$$FilterCriterion_ManufacturerIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int field0});
 }
 
 /// @nodoc
-class __$$FilterCriterion_ManufacturerIdImplCopyWithImpl<$Res> extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_ManufacturerIdImpl> implements _$$FilterCriterion_ManufacturerIdImplCopyWith<$Res> {
-  __$$FilterCriterion_ManufacturerIdImplCopyWithImpl(_$FilterCriterion_ManufacturerIdImpl _value, $Res Function(_$FilterCriterion_ManufacturerIdImpl) _then) : super(_value, _then);
+class __$$FilterCriterion_ManufacturerIdImplCopyWithImpl<$Res>
+    extends _$FilterCriterionCopyWithImpl<$Res,
+        _$FilterCriterion_ManufacturerIdImpl>
+    implements _$$FilterCriterion_ManufacturerIdImplCopyWith<$Res> {
+  __$$FilterCriterion_ManufacturerIdImplCopyWithImpl(
+      _$FilterCriterion_ManufacturerIdImpl _value,
+      $Res Function(_$FilterCriterion_ManufacturerIdImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -1326,7 +1515,8 @@ class __$$FilterCriterion_ManufacturerIdImplCopyWithImpl<$Res> extends _$FilterC
 
 /// @nodoc
 
-class _$FilterCriterion_ManufacturerIdImpl implements FilterCriterion_ManufacturerId {
+class _$FilterCriterion_ManufacturerIdImpl
+    implements FilterCriterion_ManufacturerId {
   const _$FilterCriterion_ManufacturerIdImpl(this.field0);
 
   @override
@@ -1339,7 +1529,10 @@ class _$FilterCriterion_ManufacturerIdImpl implements FilterCriterion_Manufactur
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$FilterCriterion_ManufacturerIdImpl && (identical(other.field0, field0) || other.field0 == field0));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterCriterion_ManufacturerIdImpl &&
+            (identical(other.field0, field0) || other.field0 == field0));
   }
 
   @override
@@ -1348,7 +1541,10 @@ class _$FilterCriterion_ManufacturerIdImpl implements FilterCriterion_Manufactur
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterCriterion_ManufacturerIdImplCopyWith<_$FilterCriterion_ManufacturerIdImpl> get copyWith => __$$FilterCriterion_ManufacturerIdImplCopyWithImpl<_$FilterCriterion_ManufacturerIdImpl>(this, _$identity);
+  _$$FilterCriterion_ManufacturerIdImplCopyWith<
+          _$FilterCriterion_ManufacturerIdImpl>
+      get copyWith => __$$FilterCriterion_ManufacturerIdImplCopyWithImpl<
+          _$FilterCriterion_ManufacturerIdImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1393,11 +1589,15 @@ class _$FilterCriterion_ManufacturerIdImpl implements FilterCriterion_Manufactur
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
-    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_HasServiceUuid value)
+        hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value)
+        nameMatchesExactly,
     required TResult Function(FilterCriterion_NameContains value) nameContains,
-    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
-    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
+    required TResult Function(FilterCriterion_ManufacturerId value)
+        manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value)
+        manufacturerData,
   }) {
     return manufacturerId(this);
   }
@@ -1406,7 +1606,8 @@ class _$FilterCriterion_ManufacturerIdImpl implements FilterCriterion_Manufactur
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult? Function(FilterCriterion_NameContains value)? nameContains,
     TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -1418,7 +1619,8 @@ class _$FilterCriterion_ManufacturerIdImpl implements FilterCriterion_Manufactur
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult Function(FilterCriterion_NameContains value)? nameContains,
     TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -1432,24 +1634,36 @@ class _$FilterCriterion_ManufacturerIdImpl implements FilterCriterion_Manufactur
 }
 
 abstract class FilterCriterion_ManufacturerId implements FilterCriterion {
-  const factory FilterCriterion_ManufacturerId(final int field0) = _$FilterCriterion_ManufacturerIdImpl;
+  const factory FilterCriterion_ManufacturerId(final int field0) =
+      _$FilterCriterion_ManufacturerIdImpl;
 
   @override
   int get field0;
   @JsonKey(ignore: true)
-  _$$FilterCriterion_ManufacturerIdImplCopyWith<_$FilterCriterion_ManufacturerIdImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$FilterCriterion_ManufacturerIdImplCopyWith<
+          _$FilterCriterion_ManufacturerIdImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$FilterCriterion_ManufacturerDataImplCopyWith<$Res> {
-  factory _$$FilterCriterion_ManufacturerDataImplCopyWith(_$FilterCriterion_ManufacturerDataImpl value, $Res Function(_$FilterCriterion_ManufacturerDataImpl) then) = __$$FilterCriterion_ManufacturerDataImplCopyWithImpl<$Res>;
+  factory _$$FilterCriterion_ManufacturerDataImplCopyWith(
+          _$FilterCriterion_ManufacturerDataImpl value,
+          $Res Function(_$FilterCriterion_ManufacturerDataImpl) then) =
+      __$$FilterCriterion_ManufacturerDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int field0, Uint8List field1});
 }
 
 /// @nodoc
-class __$$FilterCriterion_ManufacturerDataImplCopyWithImpl<$Res> extends _$FilterCriterionCopyWithImpl<$Res, _$FilterCriterion_ManufacturerDataImpl> implements _$$FilterCriterion_ManufacturerDataImplCopyWith<$Res> {
-  __$$FilterCriterion_ManufacturerDataImplCopyWithImpl(_$FilterCriterion_ManufacturerDataImpl _value, $Res Function(_$FilterCriterion_ManufacturerDataImpl) _then) : super(_value, _then);
+class __$$FilterCriterion_ManufacturerDataImplCopyWithImpl<$Res>
+    extends _$FilterCriterionCopyWithImpl<$Res,
+        _$FilterCriterion_ManufacturerDataImpl>
+    implements _$$FilterCriterion_ManufacturerDataImplCopyWith<$Res> {
+  __$$FilterCriterion_ManufacturerDataImplCopyWithImpl(
+      _$FilterCriterion_ManufacturerDataImpl _value,
+      $Res Function(_$FilterCriterion_ManufacturerDataImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -1472,7 +1686,8 @@ class __$$FilterCriterion_ManufacturerDataImplCopyWithImpl<$Res> extends _$Filte
 
 /// @nodoc
 
-class _$FilterCriterion_ManufacturerDataImpl implements FilterCriterion_ManufacturerData {
+class _$FilterCriterion_ManufacturerDataImpl
+    implements FilterCriterion_ManufacturerData {
   const _$FilterCriterion_ManufacturerDataImpl(this.field0, this.field1);
 
   @override
@@ -1487,16 +1702,24 @@ class _$FilterCriterion_ManufacturerDataImpl implements FilterCriterion_Manufact
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$FilterCriterion_ManufacturerDataImpl && (identical(other.field0, field0) || other.field0 == field0) && const DeepCollectionEquality().equals(other.field1, field1));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterCriterion_ManufacturerDataImpl &&
+            (identical(other.field0, field0) || other.field0 == field0) &&
+            const DeepCollectionEquality().equals(other.field1, field1));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, field0, const DeepCollectionEquality().hash(field1));
+  int get hashCode => Object.hash(
+      runtimeType, field0, const DeepCollectionEquality().hash(field1));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterCriterion_ManufacturerDataImplCopyWith<_$FilterCriterion_ManufacturerDataImpl> get copyWith => __$$FilterCriterion_ManufacturerDataImplCopyWithImpl<_$FilterCriterion_ManufacturerDataImpl>(this, _$identity);
+  _$$FilterCriterion_ManufacturerDataImplCopyWith<
+          _$FilterCriterion_ManufacturerDataImpl>
+      get copyWith => __$$FilterCriterion_ManufacturerDataImplCopyWithImpl<
+          _$FilterCriterion_ManufacturerDataImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1541,11 +1764,15 @@ class _$FilterCriterion_ManufacturerDataImpl implements FilterCriterion_Manufact
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FilterCriterion_HasServiceUuid value) hasServiceUuid,
-    required TResult Function(FilterCriterion_NameMatchesExactly value) nameMatchesExactly,
+    required TResult Function(FilterCriterion_HasServiceUuid value)
+        hasServiceUuid,
+    required TResult Function(FilterCriterion_NameMatchesExactly value)
+        nameMatchesExactly,
     required TResult Function(FilterCriterion_NameContains value) nameContains,
-    required TResult Function(FilterCriterion_ManufacturerId value) manufacturerId,
-    required TResult Function(FilterCriterion_ManufacturerData value) manufacturerData,
+    required TResult Function(FilterCriterion_ManufacturerId value)
+        manufacturerId,
+    required TResult Function(FilterCriterion_ManufacturerData value)
+        manufacturerData,
   }) {
     return manufacturerData(this);
   }
@@ -1554,7 +1781,8 @@ class _$FilterCriterion_ManufacturerDataImpl implements FilterCriterion_Manufact
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult? Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult? Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult? Function(FilterCriterion_NameContains value)? nameContains,
     TResult? Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult? Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -1566,7 +1794,8 @@ class _$FilterCriterion_ManufacturerDataImpl implements FilterCriterion_Manufact
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FilterCriterion_HasServiceUuid value)? hasServiceUuid,
-    TResult Function(FilterCriterion_NameMatchesExactly value)? nameMatchesExactly,
+    TResult Function(FilterCriterion_NameMatchesExactly value)?
+        nameMatchesExactly,
     TResult Function(FilterCriterion_NameContains value)? nameContains,
     TResult Function(FilterCriterion_ManufacturerId value)? manufacturerId,
     TResult Function(FilterCriterion_ManufacturerData value)? manufacturerData,
@@ -1580,11 +1809,15 @@ class _$FilterCriterion_ManufacturerDataImpl implements FilterCriterion_Manufact
 }
 
 abstract class FilterCriterion_ManufacturerData implements FilterCriterion {
-  const factory FilterCriterion_ManufacturerData(final int field0, final Uint8List field1) = _$FilterCriterion_ManufacturerDataImpl;
+  const factory FilterCriterion_ManufacturerData(
+          final int field0, final Uint8List field1) =
+      _$FilterCriterion_ManufacturerDataImpl;
 
   @override
   int get field0;
   Uint8List get field1;
   @JsonKey(ignore: true)
-  _$$FilterCriterion_ManufacturerDataImplCopyWith<_$FilterCriterion_ManufacturerDataImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$FilterCriterion_ManufacturerDataImplCopyWith<
+          _$FilterCriterion_ManufacturerDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

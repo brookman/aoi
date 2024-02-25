@@ -15,42 +15,62 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge.dart';
 import 'package:uuid/uuid.dart';
-import 'bridge_generated.io.dart' if (dart.library.html) 'bridge_generated.web.dart';
+import 'bridge_generated.io.dart'
+    if (dart.library.html) 'bridge_generated.web.dart';
 
 part 'bridge_generated.freezed.dart';
 
 abstract class EmbeddedAoi {
   Future<List<AoiAdapter>> getAdaptersStaticMethodAoiAdapter({dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta get kGetAdaptersStaticMethodAoiAdapterConstMeta;
+  FlutterRustBridgeTaskConstMeta
+      get kGetAdaptersStaticMethodAoiAdapterConstMeta;
 
-  Stream<AoiPeripheral> startScanMethodAoiAdapter({required AoiAdapter that, FilterCriteria? filter, dynamic hint});
+  Stream<AoiPeripheral> startScanMethodAoiAdapter(
+      {required AoiAdapter that, FilterCriteria? filter, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kStartScanMethodAoiAdapterConstMeta;
 
-  Future<void> stopScanMethodAoiAdapter({required AoiAdapter that, dynamic hint});
+  Future<void> stopScanMethodAoiAdapter(
+      {required AoiAdapter that, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kStopScanMethodAoiAdapterConstMeta;
 
-  Future<AoiConnectedPeripheral> connectMethodAoiPeripheral({required AoiPeripheral that, dynamic hint});
+  Future<AoiConnectedPeripheral> connectMethodAoiPeripheral(
+      {required AoiPeripheral that, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kConnectMethodAoiPeripheralConstMeta;
 
-  Future<Uint8List> readMethodAoiConnectedPeripheral({required AoiConnectedPeripheral that, required AoiCharacteristic characteristic, dynamic hint});
+  Future<Uint8List> readMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that,
+      required AoiCharacteristic characteristic,
+      dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kReadMethodAoiConnectedPeripheralConstMeta;
 
-  Future<void> writeMethodAoiConnectedPeripheral({required AoiConnectedPeripheral that, required AoiCharacteristic characteristic, required Uint8List data, dynamic hint});
+  Future<void> writeMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that,
+      required AoiCharacteristic characteristic,
+      required Uint8List data,
+      dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta get kWriteMethodAoiConnectedPeripheralConstMeta;
+  FlutterRustBridgeTaskConstMeta
+      get kWriteMethodAoiConnectedPeripheralConstMeta;
 
-  Future<void> writeWithoutResponseMethodAoiConnectedPeripheral({required AoiConnectedPeripheral that, required AoiCharacteristic characteristic, required Uint8List data, dynamic hint});
+  Future<void> writeWithoutResponseMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that,
+      required AoiCharacteristic characteristic,
+      required Uint8List data,
+      dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta get kWriteWithoutResponseMethodAoiConnectedPeripheralConstMeta;
+  FlutterRustBridgeTaskConstMeta
+      get kWriteWithoutResponseMethodAoiConnectedPeripheralConstMeta;
 
-  Future<void> disconnectMethodAoiConnectedPeripheral({required AoiConnectedPeripheral that, dynamic hint});
+  Future<void> disconnectMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that, dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta get kDisconnectMethodAoiConnectedPeripheralConstMeta;
+  FlutterRustBridgeTaskConstMeta
+      get kDisconnectMethodAoiConnectedPeripheralConstMeta;
 }
 
 class AoiAdapter {
@@ -62,9 +82,12 @@ class AoiAdapter {
     required this.index,
   });
 
-  static Future<List<AoiAdapter>> getAdapters({required EmbeddedAoi bridge, dynamic hint}) => bridge.getAdaptersStaticMethodAoiAdapter(hint: hint);
+  static Future<List<AoiAdapter>> getAdapters(
+          {required EmbeddedAoi bridge, dynamic hint}) =>
+      bridge.getAdaptersStaticMethodAoiAdapter(hint: hint);
 
-  Stream<AoiPeripheral> startScan({FilterCriteria? filter, dynamic hint}) => bridge.startScanMethodAoiAdapter(
+  Stream<AoiPeripheral> startScan({FilterCriteria? filter, dynamic hint}) =>
+      bridge.startScanMethodAoiAdapter(
         that: this,
         filter: filter,
       );
@@ -99,24 +122,35 @@ class AoiConnectedPeripheral {
     required this.characteristics,
   });
 
-  Future<Uint8List> read({required AoiCharacteristic characteristic, dynamic hint}) => bridge.readMethodAoiConnectedPeripheral(
+  Future<Uint8List> read(
+          {required AoiCharacteristic characteristic, dynamic hint}) =>
+      bridge.readMethodAoiConnectedPeripheral(
         that: this,
         characteristic: characteristic,
       );
 
-  Future<void> write({required AoiCharacteristic characteristic, required Uint8List data, dynamic hint}) => bridge.writeMethodAoiConnectedPeripheral(
+  Future<void> write(
+          {required AoiCharacteristic characteristic,
+          required Uint8List data,
+          dynamic hint}) =>
+      bridge.writeMethodAoiConnectedPeripheral(
         that: this,
         characteristic: characteristic,
         data: data,
       );
 
-  Future<void> writeWithoutResponse({required AoiCharacteristic characteristic, required Uint8List data, dynamic hint}) => bridge.writeWithoutResponseMethodAoiConnectedPeripheral(
+  Future<void> writeWithoutResponse(
+          {required AoiCharacteristic characteristic,
+          required Uint8List data,
+          dynamic hint}) =>
+      bridge.writeWithoutResponseMethodAoiConnectedPeripheral(
         that: this,
         characteristic: characteristic,
         data: data,
       );
 
-  Future<void> disconnect({dynamic hint}) => bridge.disconnectMethodAoiConnectedPeripheral(
+  Future<void> disconnect({dynamic hint}) =>
+      bridge.disconnectMethodAoiConnectedPeripheral(
         that: this,
       );
 }
@@ -160,7 +194,8 @@ class AoiPeripheral {
     required this.manufacturerData,
   });
 
-  Future<AoiConnectedPeripheral> connect({dynamic hint}) => bridge.connectMethodAoiPeripheral(
+  Future<AoiConnectedPeripheral> connect({dynamic hint}) =>
+      bridge.connectMethodAoiPeripheral(
         that: this,
       );
 }
@@ -219,14 +254,17 @@ class U8Array6 extends NonGrowableListView<int> {
 
 class EmbeddedAoiImpl implements EmbeddedAoi {
   final EmbeddedAoiPlatform _platform;
-  factory EmbeddedAoiImpl(ExternalLibrary dylib) => EmbeddedAoiImpl.raw(EmbeddedAoiPlatform(dylib));
+  factory EmbeddedAoiImpl(ExternalLibrary dylib) =>
+      EmbeddedAoiImpl.raw(EmbeddedAoiPlatform(dylib));
 
   /// Only valid on web/WASM platforms.
-  factory EmbeddedAoiImpl.wasm(FutureOr<WasmModule> module) => EmbeddedAoiImpl(module as ExternalLibrary);
+  factory EmbeddedAoiImpl.wasm(FutureOr<WasmModule> module) =>
+      EmbeddedAoiImpl(module as ExternalLibrary);
   EmbeddedAoiImpl.raw(this._platform);
   Future<List<AoiAdapter>> getAdaptersStaticMethodAoiAdapter({dynamic hint}) {
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_get_adapters__static_method__AoiAdapter(port_),
+      callFfi: (port_) =>
+          _platform.inner.wire_get_adapters__static_method__AoiAdapter(port_),
       parseSuccessData: _wire2api_list_aoi_adapter,
       parseErrorData: null,
       constMeta: kGetAdaptersStaticMethodAoiAdapterConstMeta,
@@ -235,175 +273,174 @@ class EmbeddedAoiImpl implements EmbeddedAoi {
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kGetAdaptersStaticMethodAoiAdapterConstMeta => const FlutterRustBridgeTaskConstMeta(
-        debugName: "get_adapters__static_method__AoiAdapter",
-        argNames: [],
-      );
+  FlutterRustBridgeTaskConstMeta
+      get kGetAdaptersStaticMethodAoiAdapterConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_adapters__static_method__AoiAdapter",
+            argNames: [],
+          );
 
-  Stream<AoiPeripheral> startScanMethodAoiAdapter({required AoiAdapter that, FilterCriteria? filter, dynamic hint}) {
+  Stream<AoiPeripheral> startScanMethodAoiAdapter(
+      {required AoiAdapter that, FilterCriteria? filter, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_aoi_adapter(that);
     var arg1 = _platform.api2wire_opt_box_autoadd_filter_criteria(filter);
     return _platform.executeStream(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_start_scan__method__AoiAdapter(port_, arg0, arg1),
+      callFfi: (port_) => _platform.inner
+          .wire_start_scan__method__AoiAdapter(port_, arg0, arg1),
       parseSuccessData: (d) => _wire2api_aoi_peripheral(d),
       parseErrorData: _wire2api_FrbAnyhowException,
       constMeta: kStartScanMethodAoiAdapterConstMeta,
-      argValues: [
-        that,
-        filter
-      ],
+      argValues: [that, filter],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kStartScanMethodAoiAdapterConstMeta => const FlutterRustBridgeTaskConstMeta(
+  FlutterRustBridgeTaskConstMeta get kStartScanMethodAoiAdapterConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
         debugName: "start_scan__method__AoiAdapter",
-        argNames: [
-          "that",
-          "filter"
-        ],
+        argNames: ["that", "filter"],
       );
 
-  Future<void> stopScanMethodAoiAdapter({required AoiAdapter that, dynamic hint}) {
+  Future<void> stopScanMethodAoiAdapter(
+      {required AoiAdapter that, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_aoi_adapter(that);
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_stop_scan__method__AoiAdapter(port_, arg0),
+      callFfi: (port_) =>
+          _platform.inner.wire_stop_scan__method__AoiAdapter(port_, arg0),
       parseSuccessData: _wire2api_unit,
       parseErrorData: _wire2api_FrbAnyhowException,
       constMeta: kStopScanMethodAoiAdapterConstMeta,
-      argValues: [
-        that
-      ],
+      argValues: [that],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kStopScanMethodAoiAdapterConstMeta => const FlutterRustBridgeTaskConstMeta(
+  FlutterRustBridgeTaskConstMeta get kStopScanMethodAoiAdapterConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
         debugName: "stop_scan__method__AoiAdapter",
-        argNames: [
-          "that"
-        ],
+        argNames: ["that"],
       );
 
-  Future<AoiConnectedPeripheral> connectMethodAoiPeripheral({required AoiPeripheral that, dynamic hint}) {
+  Future<AoiConnectedPeripheral> connectMethodAoiPeripheral(
+      {required AoiPeripheral that, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_aoi_peripheral(that);
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_connect__method__AoiPeripheral(port_, arg0),
+      callFfi: (port_) =>
+          _platform.inner.wire_connect__method__AoiPeripheral(port_, arg0),
       parseSuccessData: (d) => _wire2api_aoi_connected_peripheral(d),
       parseErrorData: _wire2api_FrbAnyhowException,
       constMeta: kConnectMethodAoiPeripheralConstMeta,
-      argValues: [
-        that
-      ],
+      argValues: [that],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kConnectMethodAoiPeripheralConstMeta => const FlutterRustBridgeTaskConstMeta(
+  FlutterRustBridgeTaskConstMeta get kConnectMethodAoiPeripheralConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
         debugName: "connect__method__AoiPeripheral",
-        argNames: [
-          "that"
-        ],
+        argNames: ["that"],
       );
 
-  Future<Uint8List> readMethodAoiConnectedPeripheral({required AoiConnectedPeripheral that, required AoiCharacteristic characteristic, dynamic hint}) {
+  Future<Uint8List> readMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that,
+      required AoiCharacteristic characteristic,
+      dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_aoi_connected_peripheral(that);
-    var arg1 = _platform.api2wire_box_autoadd_aoi_characteristic(characteristic);
+    var arg1 =
+        _platform.api2wire_box_autoadd_aoi_characteristic(characteristic);
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_read__method__AoiConnectedPeripheral(port_, arg0, arg1),
+      callFfi: (port_) => _platform.inner
+          .wire_read__method__AoiConnectedPeripheral(port_, arg0, arg1),
       parseSuccessData: _wire2api_uint_8_list,
       parseErrorData: _wire2api_FrbAnyhowException,
       constMeta: kReadMethodAoiConnectedPeripheralConstMeta,
-      argValues: [
-        that,
-        characteristic
-      ],
+      argValues: [that, characteristic],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kReadMethodAoiConnectedPeripheralConstMeta => const FlutterRustBridgeTaskConstMeta(
-        debugName: "read__method__AoiConnectedPeripheral",
-        argNames: [
-          "that",
-          "characteristic"
-        ],
-      );
+  FlutterRustBridgeTaskConstMeta
+      get kReadMethodAoiConnectedPeripheralConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "read__method__AoiConnectedPeripheral",
+            argNames: ["that", "characteristic"],
+          );
 
-  Future<void> writeMethodAoiConnectedPeripheral({required AoiConnectedPeripheral that, required AoiCharacteristic characteristic, required Uint8List data, dynamic hint}) {
+  Future<void> writeMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that,
+      required AoiCharacteristic characteristic,
+      required Uint8List data,
+      dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_aoi_connected_peripheral(that);
-    var arg1 = _platform.api2wire_box_autoadd_aoi_characteristic(characteristic);
+    var arg1 =
+        _platform.api2wire_box_autoadd_aoi_characteristic(characteristic);
     var arg2 = _platform.api2wire_uint_8_list(data);
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_write__method__AoiConnectedPeripheral(port_, arg0, arg1, arg2),
+      callFfi: (port_) => _platform.inner
+          .wire_write__method__AoiConnectedPeripheral(port_, arg0, arg1, arg2),
       parseSuccessData: _wire2api_unit,
       parseErrorData: _wire2api_FrbAnyhowException,
       constMeta: kWriteMethodAoiConnectedPeripheralConstMeta,
-      argValues: [
-        that,
-        characteristic,
-        data
-      ],
+      argValues: [that, characteristic, data],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kWriteMethodAoiConnectedPeripheralConstMeta => const FlutterRustBridgeTaskConstMeta(
-        debugName: "write__method__AoiConnectedPeripheral",
-        argNames: [
-          "that",
-          "characteristic",
-          "data"
-        ],
-      );
+  FlutterRustBridgeTaskConstMeta
+      get kWriteMethodAoiConnectedPeripheralConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "write__method__AoiConnectedPeripheral",
+            argNames: ["that", "characteristic", "data"],
+          );
 
-  Future<void> writeWithoutResponseMethodAoiConnectedPeripheral({required AoiConnectedPeripheral that, required AoiCharacteristic characteristic, required Uint8List data, dynamic hint}) {
+  Future<void> writeWithoutResponseMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that,
+      required AoiCharacteristic characteristic,
+      required Uint8List data,
+      dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_aoi_connected_peripheral(that);
-    var arg1 = _platform.api2wire_box_autoadd_aoi_characteristic(characteristic);
+    var arg1 =
+        _platform.api2wire_box_autoadd_aoi_characteristic(characteristic);
     var arg2 = _platform.api2wire_uint_8_list(data);
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_write_without_response__method__AoiConnectedPeripheral(port_, arg0, arg1, arg2),
+      callFfi: (port_) => _platform.inner
+          .wire_write_without_response__method__AoiConnectedPeripheral(
+              port_, arg0, arg1, arg2),
       parseSuccessData: _wire2api_unit,
       parseErrorData: _wire2api_FrbAnyhowException,
       constMeta: kWriteWithoutResponseMethodAoiConnectedPeripheralConstMeta,
-      argValues: [
-        that,
-        characteristic,
-        data
-      ],
+      argValues: [that, characteristic, data],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kWriteWithoutResponseMethodAoiConnectedPeripheralConstMeta => const FlutterRustBridgeTaskConstMeta(
-        debugName: "write_without_response__method__AoiConnectedPeripheral",
-        argNames: [
-          "that",
-          "characteristic",
-          "data"
-        ],
-      );
+  FlutterRustBridgeTaskConstMeta
+      get kWriteWithoutResponseMethodAoiConnectedPeripheralConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "write_without_response__method__AoiConnectedPeripheral",
+            argNames: ["that", "characteristic", "data"],
+          );
 
-  Future<void> disconnectMethodAoiConnectedPeripheral({required AoiConnectedPeripheral that, dynamic hint}) {
+  Future<void> disconnectMethodAoiConnectedPeripheral(
+      {required AoiConnectedPeripheral that, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_aoi_connected_peripheral(that);
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_disconnect__method__AoiConnectedPeripheral(port_, arg0),
+      callFfi: (port_) => _platform.inner
+          .wire_disconnect__method__AoiConnectedPeripheral(port_, arg0),
       parseSuccessData: _wire2api_unit,
       parseErrorData: _wire2api_FrbAnyhowException,
       constMeta: kDisconnectMethodAoiConnectedPeripheralConstMeta,
-      argValues: [
-        that
-      ],
+      argValues: [that],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kDisconnectMethodAoiConnectedPeripheralConstMeta => const FlutterRustBridgeTaskConstMeta(
-        debugName: "disconnect__method__AoiConnectedPeripheral",
-        argNames: [
-          "that"
-        ],
-      );
+  FlutterRustBridgeTaskConstMeta
+      get kDisconnectMethodAoiConnectedPeripheralConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "disconnect__method__AoiConnectedPeripheral",
+            argNames: ["that"],
+          );
 
   void dispose() {
     _platform.dispose();
@@ -424,7 +461,8 @@ class EmbeddedAoiImpl implements EmbeddedAoi {
 
   AoiAdapter _wire2api_aoi_adapter(dynamic raw) {
     final arr = raw as List<dynamic>;
-    if (arr.length != 1) throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
+    if (arr.length != 1)
+      throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
     return AoiAdapter(
       bridge: this,
       index: _wire2api_usize(arr[0]),
@@ -433,7 +471,8 @@ class EmbeddedAoiImpl implements EmbeddedAoi {
 
   AoiCharacteristic _wire2api_aoi_characteristic(dynamic raw) {
     final arr = raw as List<dynamic>;
-    if (arr.length != 4) throw Exception('unexpected arr length: expect 4 but see ${arr.length}');
+    if (arr.length != 4)
+      throw Exception('unexpected arr length: expect 4 but see ${arr.length}');
     return AoiCharacteristic(
       uuid: _wire2api_String(arr[0]),
       serviceUuid: _wire2api_String(arr[1]),
@@ -444,7 +483,8 @@ class EmbeddedAoiImpl implements EmbeddedAoi {
 
   AoiConnectedPeripheral _wire2api_aoi_connected_peripheral(dynamic raw) {
     final arr = raw as List<dynamic>;
-    if (arr.length != 2) throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
+    if (arr.length != 2)
+      throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
     return AoiConnectedPeripheral(
       bridge: this,
       peripheral: _wire2api_box_aoi_peripheral(arr[0]),
@@ -454,7 +494,8 @@ class EmbeddedAoiImpl implements EmbeddedAoi {
 
   AoiDescriptor _wire2api_aoi_descriptor(dynamic raw) {
     final arr = raw as List<dynamic>;
-    if (arr.length != 3) throw Exception('unexpected arr length: expect 3 but see ${arr.length}');
+    if (arr.length != 3)
+      throw Exception('unexpected arr length: expect 3 but see ${arr.length}');
     return AoiDescriptor(
       uuid: _wire2api_String(arr[0]),
       serviceUuid: _wire2api_String(arr[1]),
@@ -464,7 +505,8 @@ class EmbeddedAoiImpl implements EmbeddedAoi {
 
   AoiManufacturerData _wire2api_aoi_manufacturer_data(dynamic raw) {
     final arr = raw as List<dynamic>;
-    if (arr.length != 2) throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
+    if (arr.length != 2)
+      throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
     return AoiManufacturerData(
       manufacturerId: _wire2api_u16(arr[0]),
       data: _wire2api_uint_8_list(arr[1]),
@@ -473,7 +515,8 @@ class EmbeddedAoiImpl implements EmbeddedAoi {
 
   AoiPeripheral _wire2api_aoi_peripheral(dynamic raw) {
     final arr = raw as List<dynamic>;
-    if (arr.length != 5) throw Exception('unexpected arr length: expect 5 but see ${arr.length}');
+    if (arr.length != 5)
+      throw Exception('unexpected arr length: expect 5 but see ${arr.length}');
     return AoiPeripheral(
       bridge: this,
       adapter: _wire2api_box_aoi_adapter(arr[0]),
