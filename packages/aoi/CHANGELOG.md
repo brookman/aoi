@@ -1,3 +1,7 @@
+## 0.0.1-dev.1
+
+ - **FIX**: Dependencies. ([e81fe5bb](https://github.com/brookman/aoi/commit/e81fe5bb418e294adfb8b16921d8cffa9109d952))
+
 ## 0.0.1-dev.0+2
 
  - **FIX**: Bump version. ([9a1c3949](https://github.com/brookman/aoi/commit/9a1c39499fda338e15a7e2cd26cdc7ba8fdc0914))
