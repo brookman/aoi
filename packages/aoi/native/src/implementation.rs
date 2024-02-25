@@ -15,7 +15,7 @@ use btleplug::{
     platform::{Adapter, Manager, PeripheralId},
 };
 
-#[cfg(not(any(target_os = "macos", target_os = "ios")))]
+#[cfg(target_os = "windows")]
 use btleplug::api::BDAddr;
 
 use futures::Future;
@@ -383,7 +383,7 @@ impl From<&AoiPeripheralAddress> for PeripheralId {
 impl From<&AoiPeripheralAddress> for PeripheralId {
     fn from(address: &AoiPeripheralAddress) -> Self {
         match address {
-            AoiPeripheralAddress::MacAddress(mac) => {
+            AoiPeripheralAddress::MacAddress(_) => {
                 panic!("Expected DeviceId on Linux but got mac address")
             }
             AoiPeripheralAddress::Uuid(_) => {
