@@ -83,9 +83,14 @@ typedef struct wire_AoiPeripheralAddress_Uuid {
   struct wire_uint_8_list *field0;
 } wire_AoiPeripheralAddress_Uuid;
 
+typedef struct wire_AoiPeripheralAddress_DeviceId {
+  struct wire_uint_8_list *field0;
+} wire_AoiPeripheralAddress_DeviceId;
+
 typedef union AoiPeripheralAddressKind {
   struct wire_AoiPeripheralAddress_MacAddress *MacAddress;
   struct wire_AoiPeripheralAddress_Uuid *Uuid;
+  struct wire_AoiPeripheralAddress_DeviceId *DeviceId;
 } AoiPeripheralAddressKind;
 
 typedef struct wire_AoiPeripheralAddress {
@@ -215,6 +220,8 @@ union AoiPeripheralAddressKind *inflate_AoiPeripheralAddress_MacAddress(void);
 
 union AoiPeripheralAddressKind *inflate_AoiPeripheralAddress_Uuid(void);
 
+union AoiPeripheralAddressKind *inflate_AoiPeripheralAddress_DeviceId(void);
+
 union FilterCriteriaKind *inflate_FilterCriteria_Any(void);
 
 union FilterCriteriaKind *inflate_FilterCriteria_All(void);
@@ -257,6 +264,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) new_uint_8_list_0);
     dummy_var ^= ((int64_t) (void*) inflate_AoiPeripheralAddress_MacAddress);
     dummy_var ^= ((int64_t) (void*) inflate_AoiPeripheralAddress_Uuid);
+    dummy_var ^= ((int64_t) (void*) inflate_AoiPeripheralAddress_DeviceId);
     dummy_var ^= ((int64_t) (void*) inflate_FilterCriteria_Any);
     dummy_var ^= ((int64_t) (void*) inflate_FilterCriteria_All);
     dummy_var ^= ((int64_t) (void*) inflate_FilterCriterion_HasServiceUuid);

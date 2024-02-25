@@ -20,18 +20,21 @@ mixin _$AoiPeripheralAddress {
   TResult when<TResult extends Object?>({
     required TResult Function(U8Array6 field0) macAddress,
     required TResult Function(String field0) uuid,
+    required TResult Function(String field0) deviceId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(U8Array6 field0)? macAddress,
     TResult? Function(String field0)? uuid,
+    TResult? Function(String field0)? deviceId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(U8Array6 field0)? macAddress,
     TResult Function(String field0)? uuid,
+    TResult Function(String field0)? deviceId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$AoiPeripheralAddress {
   TResult map<TResult extends Object?>({
     required TResult Function(AoiPeripheralAddress_MacAddress value) macAddress,
     required TResult Function(AoiPeripheralAddress_Uuid value) uuid,
+    required TResult Function(AoiPeripheralAddress_DeviceId value) deviceId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AoiPeripheralAddress_MacAddress value)? macAddress,
     TResult? Function(AoiPeripheralAddress_Uuid value)? uuid,
+    TResult? Function(AoiPeripheralAddress_DeviceId value)? deviceId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AoiPeripheralAddress_MacAddress value)? macAddress,
     TResult Function(AoiPeripheralAddress_Uuid value)? uuid,
+    TResult Function(AoiPeripheralAddress_DeviceId value)? deviceId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +133,7 @@ class _$AoiPeripheralAddress_MacAddressImpl implements AoiPeripheralAddress_MacA
   TResult when<TResult extends Object?>({
     required TResult Function(U8Array6 field0) macAddress,
     required TResult Function(String field0) uuid,
+    required TResult Function(String field0) deviceId,
   }) {
     return macAddress(field0);
   }
@@ -136,6 +143,7 @@ class _$AoiPeripheralAddress_MacAddressImpl implements AoiPeripheralAddress_MacA
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(U8Array6 field0)? macAddress,
     TResult? Function(String field0)? uuid,
+    TResult? Function(String field0)? deviceId,
   }) {
     return macAddress?.call(field0);
   }
@@ -145,6 +153,7 @@ class _$AoiPeripheralAddress_MacAddressImpl implements AoiPeripheralAddress_MacA
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(U8Array6 field0)? macAddress,
     TResult Function(String field0)? uuid,
+    TResult Function(String field0)? deviceId,
     required TResult orElse(),
   }) {
     if (macAddress != null) {
@@ -158,6 +167,7 @@ class _$AoiPeripheralAddress_MacAddressImpl implements AoiPeripheralAddress_MacA
   TResult map<TResult extends Object?>({
     required TResult Function(AoiPeripheralAddress_MacAddress value) macAddress,
     required TResult Function(AoiPeripheralAddress_Uuid value) uuid,
+    required TResult Function(AoiPeripheralAddress_DeviceId value) deviceId,
   }) {
     return macAddress(this);
   }
@@ -167,6 +177,7 @@ class _$AoiPeripheralAddress_MacAddressImpl implements AoiPeripheralAddress_MacA
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AoiPeripheralAddress_MacAddress value)? macAddress,
     TResult? Function(AoiPeripheralAddress_Uuid value)? uuid,
+    TResult? Function(AoiPeripheralAddress_DeviceId value)? deviceId,
   }) {
     return macAddress?.call(this);
   }
@@ -176,6 +187,7 @@ class _$AoiPeripheralAddress_MacAddressImpl implements AoiPeripheralAddress_MacA
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AoiPeripheralAddress_MacAddress value)? macAddress,
     TResult Function(AoiPeripheralAddress_Uuid value)? uuid,
+    TResult Function(AoiPeripheralAddress_DeviceId value)? deviceId,
     required TResult orElse(),
   }) {
     if (macAddress != null) {
@@ -250,6 +262,7 @@ class _$AoiPeripheralAddress_UuidImpl implements AoiPeripheralAddress_Uuid {
   TResult when<TResult extends Object?>({
     required TResult Function(U8Array6 field0) macAddress,
     required TResult Function(String field0) uuid,
+    required TResult Function(String field0) deviceId,
   }) {
     return uuid(field0);
   }
@@ -259,6 +272,7 @@ class _$AoiPeripheralAddress_UuidImpl implements AoiPeripheralAddress_Uuid {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(U8Array6 field0)? macAddress,
     TResult? Function(String field0)? uuid,
+    TResult? Function(String field0)? deviceId,
   }) {
     return uuid?.call(field0);
   }
@@ -268,6 +282,7 @@ class _$AoiPeripheralAddress_UuidImpl implements AoiPeripheralAddress_Uuid {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(U8Array6 field0)? macAddress,
     TResult Function(String field0)? uuid,
+    TResult Function(String field0)? deviceId,
     required TResult orElse(),
   }) {
     if (uuid != null) {
@@ -281,6 +296,7 @@ class _$AoiPeripheralAddress_UuidImpl implements AoiPeripheralAddress_Uuid {
   TResult map<TResult extends Object?>({
     required TResult Function(AoiPeripheralAddress_MacAddress value) macAddress,
     required TResult Function(AoiPeripheralAddress_Uuid value) uuid,
+    required TResult Function(AoiPeripheralAddress_DeviceId value) deviceId,
   }) {
     return uuid(this);
   }
@@ -290,6 +306,7 @@ class _$AoiPeripheralAddress_UuidImpl implements AoiPeripheralAddress_Uuid {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AoiPeripheralAddress_MacAddress value)? macAddress,
     TResult? Function(AoiPeripheralAddress_Uuid value)? uuid,
+    TResult? Function(AoiPeripheralAddress_DeviceId value)? deviceId,
   }) {
     return uuid?.call(this);
   }
@@ -299,6 +316,7 @@ class _$AoiPeripheralAddress_UuidImpl implements AoiPeripheralAddress_Uuid {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AoiPeripheralAddress_MacAddress value)? macAddress,
     TResult Function(AoiPeripheralAddress_Uuid value)? uuid,
+    TResult Function(AoiPeripheralAddress_DeviceId value)? deviceId,
     required TResult orElse(),
   }) {
     if (uuid != null) {
@@ -315,6 +333,135 @@ abstract class AoiPeripheralAddress_Uuid implements AoiPeripheralAddress {
   String get field0;
   @JsonKey(ignore: true)
   _$$AoiPeripheralAddress_UuidImplCopyWith<_$AoiPeripheralAddress_UuidImpl> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AoiPeripheralAddress_DeviceIdImplCopyWith<$Res> {
+  factory _$$AoiPeripheralAddress_DeviceIdImplCopyWith(_$AoiPeripheralAddress_DeviceIdImpl value, $Res Function(_$AoiPeripheralAddress_DeviceIdImpl) then) = __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String field0});
+}
+
+/// @nodoc
+class __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl<$Res> extends _$AoiPeripheralAddressCopyWithImpl<$Res, _$AoiPeripheralAddress_DeviceIdImpl> implements _$$AoiPeripheralAddress_DeviceIdImplCopyWith<$Res> {
+  __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl(_$AoiPeripheralAddress_DeviceIdImpl _value, $Res Function(_$AoiPeripheralAddress_DeviceIdImpl) _then) : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field0 = null,
+  }) {
+    return _then(_$AoiPeripheralAddress_DeviceIdImpl(
+      null == field0
+          ? _value.field0
+          : field0 // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AoiPeripheralAddress_DeviceIdImpl implements AoiPeripheralAddress_DeviceId {
+  const _$AoiPeripheralAddress_DeviceIdImpl(this.field0);
+
+  @override
+  final String field0;
+
+  @override
+  String toString() {
+    return 'AoiPeripheralAddress.deviceId(field0: $field0)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AoiPeripheralAddress_DeviceIdImpl && (identical(other.field0, field0) || other.field0 == field0));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, field0);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AoiPeripheralAddress_DeviceIdImplCopyWith<_$AoiPeripheralAddress_DeviceIdImpl> get copyWith => __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl<_$AoiPeripheralAddress_DeviceIdImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(U8Array6 field0) macAddress,
+    required TResult Function(String field0) uuid,
+    required TResult Function(String field0) deviceId,
+  }) {
+    return deviceId(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(U8Array6 field0)? macAddress,
+    TResult? Function(String field0)? uuid,
+    TResult? Function(String field0)? deviceId,
+  }) {
+    return deviceId?.call(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(U8Array6 field0)? macAddress,
+    TResult Function(String field0)? uuid,
+    TResult Function(String field0)? deviceId,
+    required TResult orElse(),
+  }) {
+    if (deviceId != null) {
+      return deviceId(field0);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AoiPeripheralAddress_MacAddress value) macAddress,
+    required TResult Function(AoiPeripheralAddress_Uuid value) uuid,
+    required TResult Function(AoiPeripheralAddress_DeviceId value) deviceId,
+  }) {
+    return deviceId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AoiPeripheralAddress_MacAddress value)? macAddress,
+    TResult? Function(AoiPeripheralAddress_Uuid value)? uuid,
+    TResult? Function(AoiPeripheralAddress_DeviceId value)? deviceId,
+  }) {
+    return deviceId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AoiPeripheralAddress_MacAddress value)? macAddress,
+    TResult Function(AoiPeripheralAddress_Uuid value)? uuid,
+    TResult Function(AoiPeripheralAddress_DeviceId value)? deviceId,
+    required TResult orElse(),
+  }) {
+    if (deviceId != null) {
+      return deviceId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AoiPeripheralAddress_DeviceId implements AoiPeripheralAddress {
+  const factory AoiPeripheralAddress_DeviceId(final String field0) = _$AoiPeripheralAddress_DeviceIdImpl;
+
+  @override
+  String get field0;
+  @JsonKey(ignore: true)
+  _$$AoiPeripheralAddress_DeviceIdImplCopyWith<_$AoiPeripheralAddress_DeviceIdImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

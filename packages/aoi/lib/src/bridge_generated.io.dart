@@ -200,6 +200,13 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> {
       wireObj.kind.ref.Uuid.ref.field0 = pre_field0;
       return;
     }
+    if (apiObj is AoiPeripheralAddress_DeviceId) {
+      var pre_field0 = api2wire_String(apiObj.field0);
+      wireObj.tag = 2;
+      wireObj.kind = inner.inflate_AoiPeripheralAddress_DeviceId();
+      wireObj.kind.ref.DeviceId.ref.field0 = pre_field0;
+      return;
+    }
   }
 
   void _api_fill_to_wire_box_aoi_adapter(AoiAdapter apiObj, ffi.Pointer<wire_AoiAdapter> wireObj) {
@@ -618,6 +625,13 @@ class EmbeddedAoiWire implements FlutterRustBridgeWireBase {
   late final _inflate_AoiPeripheralAddress_UuidPtr = _lookup<ffi.NativeFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>>('inflate_AoiPeripheralAddress_Uuid');
   late final _inflate_AoiPeripheralAddress_Uuid = _inflate_AoiPeripheralAddress_UuidPtr.asFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>();
 
+  ffi.Pointer<AoiPeripheralAddressKind> inflate_AoiPeripheralAddress_DeviceId() {
+    return _inflate_AoiPeripheralAddress_DeviceId();
+  }
+
+  late final _inflate_AoiPeripheralAddress_DeviceIdPtr = _lookup<ffi.NativeFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>>('inflate_AoiPeripheralAddress_DeviceId');
+  late final _inflate_AoiPeripheralAddress_DeviceId = _inflate_AoiPeripheralAddress_DeviceIdPtr.asFunction<ffi.Pointer<AoiPeripheralAddressKind> Function()>();
+
   ffi.Pointer<FilterCriteriaKind> inflate_FilterCriteria_Any() {
     return _inflate_FilterCriteria_Any();
   }
@@ -772,10 +786,16 @@ final class wire_AoiPeripheralAddress_Uuid extends ffi.Struct {
   external ffi.Pointer<wire_uint_8_list> field0;
 }
 
+final class wire_AoiPeripheralAddress_DeviceId extends ffi.Struct {
+  external ffi.Pointer<wire_uint_8_list> field0;
+}
+
 final class AoiPeripheralAddressKind extends ffi.Union {
   external ffi.Pointer<wire_AoiPeripheralAddress_MacAddress> MacAddress;
 
   external ffi.Pointer<wire_AoiPeripheralAddress_Uuid> Uuid;
+
+  external ffi.Pointer<wire_AoiPeripheralAddress_DeviceId> DeviceId;
 }
 
 final class wire_AoiPeripheralAddress extends ffi.Struct {

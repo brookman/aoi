@@ -34,6 +34,7 @@ pub struct AoiPeripheral {
 pub enum AoiPeripheralAddress {
     MacAddress([u8; 6]),
     Uuid(String),
+    DeviceId(String),
 }
 
 #[derive(Debug, Clone)]

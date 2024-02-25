@@ -95,6 +95,12 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> with Fl
         api2wire_String(raw.field0)
       ];
     }
+    if (raw is AoiPeripheralAddress_DeviceId) {
+      return [
+        2,
+        api2wire_String(raw.field0)
+      ];
+    }
 
     throw Exception('unreachable');
   }

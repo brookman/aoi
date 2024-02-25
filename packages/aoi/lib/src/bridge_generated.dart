@@ -173,6 +173,9 @@ class AoiPeripheralAddress with _$AoiPeripheralAddress {
   const factory AoiPeripheralAddress.uuid(
     String field0,
   ) = AoiPeripheralAddress_Uuid;
+  const factory AoiPeripheralAddress.deviceId(
+    String field0,
+  ) = AoiPeripheralAddress_DeviceId;
 }
 
 @freezed
@@ -489,6 +492,10 @@ class EmbeddedAoiImpl implements EmbeddedAoi {
         );
       case 1:
         return AoiPeripheralAddress_Uuid(
+          _wire2api_String(raw[1]),
+        );
+      case 2:
+        return AoiPeripheralAddress_DeviceId(
           _wire2api_String(raw[1]),
         );
       default:

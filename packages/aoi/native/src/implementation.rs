@@ -308,7 +308,7 @@ impl AoiPeripheral {
         None
     }
 
-    #[cfg(not(any(target_os = "macos", target_os = "ios")))]
+    #[cfg(target_os = "windows")]
     fn into_address(peripheral: &impl Peripheral) -> AoiPeripheralAddress {
         AoiPeripheralAddress::MacAddress(peripheral.address().into_inner())
     }
@@ -319,6 +319,12 @@ impl AoiPeripheral {
         let id_str = id_string.as_str();
         let uuid_string = id_str[13..49].to_string();
         AoiPeripheralAddress::Uuid(uuid_string)
+    }
+
+    #[cfg(target_os = "linux")]
+    fn into_address(peripheral: &impl Peripheral) -> AoiPeripheralAddress {
+        let id_string = format!("/org/bluez/{}", &peripheral.id());
+        AoiPeripheralAddress::DeviceId(id_string)
     }
 }
 
@@ -337,7 +343,7 @@ impl AoiPeripheral {
     }
 }
 
-#[cfg(not(any(target_os = "macos", target_os = "ios")))]
+#[cfg(target_os = "windows")]
 impl From<&AoiPeripheralAddress> for PeripheralId {
     fn from(address: &AoiPeripheralAddress) -> Self {
         match address {
@@ -346,7 +352,10 @@ impl From<&AoiPeripheralAddress> for PeripheralId {
                 addr.into()
             }
             AoiPeripheralAddress::Uuid(_) => {
-                panic!("Expected mac address on non-apple but got UUID")
+                panic!("Expected mac address on Windows but got UUID")
+            }
+            AoiPeripheralAddress::DeviceId(_) => {
+                panic!("Expected mac address on Windows but got DeviceId")
             }
         }
     }
@@ -362,6 +371,26 @@ impl From<&AoiPeripheralAddress> for PeripheralId {
             AoiPeripheralAddress::Uuid(uuid_string) => {
                 let uuid = Uuid::from_str(uuid_string.as_str()).unwrap();
                 uuid.into()
+            }
+            AoiPeripheralAddress::DeviceId(_) => {
+                panic!("Expect UUID on mac/ios and but got DeviceId")
+            }
+        }
+    }
+}
+
+#[cfg(target_os = "linux")]
+impl From<&AoiPeripheralAddress> for PeripheralId {
+    fn from(address: &AoiPeripheralAddress) -> Self {
+        match address {
+            AoiPeripheralAddress::MacAddress(mac) => {
+                panic!("Expected DeviceId on Linux but got mac address")
+            }
+            AoiPeripheralAddress::Uuid(_) => {
+                panic!("Expected DeviceId on Linux but got UUID")
+            }
+            AoiPeripheralAddress::DeviceId(_) => {
+                todo!("Not implemented yet")
             }
         }
     }
