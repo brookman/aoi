@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`aoi` - `v0.0.1-dev.2`](#aoi---v001-dev2)
+ - [`flutter_aoi` - `v0.0.1-dev.2`](#flutter_aoi---v001-dev2)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_aoi` - `v0.0.1-dev.2`
+
+---
+
+#### `aoi` - `v0.0.1-dev.2`
+
+ - **FIX**: dependency. ([aa0e175c](https://github.com/brookman/aoi/commit/aa0e175ca5ea6ed31a59e4dd8bb44cfc26d080db))
+
+
+## 2024-02-25
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`aoi` - `v0.0.1-dev.1`](#aoi---v001-dev1)
  - [`flutter_aoi` - `v0.0.1-dev.1`](#flutter_aoi---v001-dev1)
 

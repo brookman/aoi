@@ -1,3 +1,7 @@
+## 0.0.1-dev.2
+
+ - **FIX**: dependency. ([aa0e175c](https://github.com/brookman/aoi/commit/aa0e175ca5ea6ed31a59e4dd8bb44cfc26d080db))
+
 ## 0.0.1-dev.1
 
  - **FIX**: Dependencies. ([e81fe5bb](https://github.com/brookman/aoi/commit/e81fe5bb418e294adfb8b16921d8cffa9109d952))
