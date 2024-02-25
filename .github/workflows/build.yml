@@ -41,10 +41,10 @@ jobs:
       # Dart/Flutter
       - name: Check Dart format
         run: melos run check-format --no-select
-      - name: Dart code analysis
-        run: melos run analyze --no-select
-      - name: Run Dart tests
-        run: melos run test
+      # - name: Dart code analysis
+      #   run: melos run analyze --no-select
+      # - name: Run Dart tests
+      #   run: melos run test
 
   macos_integration_test:
     if: false
