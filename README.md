@@ -8,15 +8,30 @@
 <img src="https://github.com/brookman/aoi/blob/main/assets/banner.jpg?raw=true" width="100%" alt="Aoi Banner" />
 </p>
 
+# AOI - Bluetooth Low Energy (BLE) library
+
 An experimental Dart/Flutter wrapper for https://github.com/deviceplug/btleplug
+
+🚧 This is a work in progress: Do not use in production. 🚧
 
 ---
 
 ## Features
-- 
+- Access BLE adapters
+- Scan for peripherals
+- Filter by:
+  - Name
+  - Manufacturer ID
+  - Manufacturer data
+  - Having Service UUID
+- Connect to peripheral
+- List, read and write characteristics
+
+## Supported platforms (for now)
+- iOS
+- MacOS
+- Windows
 
 ## Getting Started
 - With Flutter, run `flutter pub add aoi flutter_aoi`
 - For Dart-only, run `dart pub add aoi`
-
-## TODO: Demo
