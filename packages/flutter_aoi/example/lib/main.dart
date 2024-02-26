@@ -9,24 +9,28 @@ void main() {
 }
 
 Future<void> init() async {
-  final adapters = await AoiAdapter.getAdapters(bridge: api);
+  final api = EmbeddedAoiImpl(createDynamicLibrary());
 
+  final adapters = await AoiAdapter.getAdapters(bridge: api);
   final adapter = adapters.first;
 
-  final aura =
+  final peripheral =
       await adapter.startScan().first.timeout(const Duration(seconds: 10));
 
-  print('Found peripheral: ${aura.prettyPrint()}');
+  print('Found peripheral: ${peripheral.prettyPrint()}');
 
-  print('Stop scan');
+  print('Stopping scan...');
   await adapter.stopScan();
+  print('Scan stopped');
 
   AoiConnectedPeripheral connectedPeripheral;
   try {
-    connectedPeripheral = await aura.connect();
+    print('Connecting...');
+    connectedPeripheral = await peripheral.connect();
+    print('Connected');
   } catch (e) {
     print('Could not connect: $e');
-    rethrow;
+    return;
   }
 
   print(
