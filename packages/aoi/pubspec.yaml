@@ -17,7 +17,7 @@ dependencies:
   meta: ^1.8.0
 
   # TODO https://github.com/fzyzcjy/flutter_rust_bridge/issues/1147
-  uuid: ^3.0.6
+  uuid: ^4.1.0
 
 dev_dependencies:
   build_runner: ^2.3.2
