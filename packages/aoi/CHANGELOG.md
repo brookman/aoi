@@ -1,3 +1,7 @@
+## 0.0.1+1
+
+ - **FIX**: revert UUID dependency version. ([6e326420](https://github.com/brookman/aoi/commit/6e326420adc7ac745ee0dc0eb601c51d8d8593c5))
+
 ## 0.0.1
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
