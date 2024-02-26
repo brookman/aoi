@@ -1,3 +1,8 @@
+## 0.0.1+3
+
+ - **FIX**: readme symlinks. ([5267ae5f](https://github.com/brookman/aoi/commit/5267ae5fce973166c1d0ce6f6502ee4d71bc0c1b))
+ - **FIX**: update readme and app description. ([a302cfd6](https://github.com/brookman/aoi/commit/a302cfd682e034c88db7db38eb42e8098fe32e28))
+
 ## 0.0.1+2
 
  - **FIX**: revert UUID dependency version. ([6e326420](https://github.com/brookman/aoi/commit/6e326420adc7ac745ee0dc0eb601c51d8d8593c5))
