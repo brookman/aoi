@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-02-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`aoi` - `v0.0.1`](#aoi---v001)
+ - [`flutter_aoi` - `v0.0.1`](#flutter_aoi---v001)
+
+Packages graduated to a stable release (see pre-releases prior to the stable version for changelog entries):
+
+ - `aoi` - `v0.0.1`
+ - `flutter_aoi` - `v0.0.1`
+
+---
+
+#### `aoi` - `v0.0.1`
+
+#### `flutter_aoi` - `v0.0.1`
+
+
 ## 2024-02-25
 
 ### Changes

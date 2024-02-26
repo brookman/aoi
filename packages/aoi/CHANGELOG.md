@@ -1,3 +1,7 @@
+## 0.0.1
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 0.0.1-dev.2
 
  - **FIX**: dependency. ([aa0e175c](https://github.com/brookman/aoi/commit/aa0e175ca5ea6ed31a59e4dd8bb44cfc26d080db))
