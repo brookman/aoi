@@ -34,4 +34,6 @@ A Dart/Flutter BLE library based on the multi-platform Rust library [btleplug](h
 ## Supported platforms (for now)
 - iOS
 - MacOS
+
+## Planned to support in the near future
 - Windows

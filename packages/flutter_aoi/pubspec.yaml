@@ -1,6 +1,6 @@
 name: flutter_aoi
 description: >
-  A Dart/Flutter wrapper for btleplug, the Rust BLE library.
+  A Dart/Flutter BLE library based on the multi-platform Rust library btleplug
 version: 0.0.1+2
 homepage: https://github.com/brookman/aoi
 repository: https://github.com/brookman/aoi
