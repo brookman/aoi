@@ -1,3 +1,7 @@
+## 0.0.1+4
+
+ - **FIX**: CMakeLists.txt for windows. ([87b601c0](https://github.com/brookman/aoi/commit/87b601c03bb2cdad388eeeece0eca5e3622a255d))
+
 ## 0.0.1+3
 
  - **FIX**: readme symlinks. ([5267ae5f](https://github.com/brookman/aoi/commit/5267ae5fce973166c1d0ce6f6502ee4d71bc0c1b))

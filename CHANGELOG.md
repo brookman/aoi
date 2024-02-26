@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_aoi` - `v0.0.1+4`](#flutter_aoi---v0014)
+
+---
+
+#### `flutter_aoi` - `v0.0.1+4`
+
+ - **FIX**: CMakeLists.txt for windows. ([87b601c0](https://github.com/brookman/aoi/commit/87b601c03bb2cdad388eeeece0eca5e3622a255d))
+
+
+## 2024-02-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`aoi` - `v0.0.1+3`](#aoi---v0013)
  - [`flutter_aoi` - `v0.0.1+3`](#flutter_aoi---v0013)
 
