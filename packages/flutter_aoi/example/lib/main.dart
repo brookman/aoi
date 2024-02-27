@@ -9,9 +9,7 @@ void main() {
 }
 
 Future<void> init() async {
-  final api = EmbeddedAoiImpl(createDynamicLibrary());
-
-  final adapters = await AoiAdapter.getAdapters(bridge: api);
+  final adapters = await AoiAdapter.getAdapters(bridge: aoi);
   final adapter = adapters.first;
 
   final peripheral =
@@ -26,7 +24,8 @@ Future<void> init() async {
   AoiConnectedPeripheral connectedPeripheral;
   try {
     print('Connecting...');
-    connectedPeripheral = await peripheral.connect();
+    connectedPeripheral =
+        await peripheral.connect().timeout(const Duration(seconds: 10));
     print('Connected');
   } catch (e) {
     print('Could not connect: $e');
