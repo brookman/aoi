@@ -8,8 +8,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_aoi: ^0.0.1+4
-  aoi: ^0.0.1+3
+  flutter_aoi: ^0.0.1+5
+  aoi: ^0.0.1+4
 
 dev_dependencies:
   flutter_test:

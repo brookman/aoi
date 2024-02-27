@@ -1,3 +1,9 @@
+## 0.0.1+4
+
+ - **FIX**: formatting. ([b092ce28](https://github.com/brookman/aoi/commit/b092ce282cceaf29374684c8c261570c930a88b8))
+ - **FIX**: licenses. ([40de3b07](https://github.com/brookman/aoi/commit/40de3b073d307661c83a67cdea3e8acd1255f227))
+ - **FIX**: regenerate rust code. ([9f794d0e](https://github.com/brookman/aoi/commit/9f794d0efef32c24fa6e43f73c157d6e18b2cc2d))
+
 ## 0.0.1+3
 
  - **FIX**: readme symlinks. ([5267ae5f](https://github.com/brookman/aoi/commit/5267ae5fce973166c1d0ce6f6502ee4d71bc0c1b))

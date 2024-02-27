@@ -1,3 +1,8 @@
+## 0.0.1+5
+
+ - **FIX**: licenses. ([40de3b07](https://github.com/brookman/aoi/commit/40de3b073d307661c83a67cdea3e8acd1255f227))
+ - **FIX**: improve flutter example. ([ff9e375e](https://github.com/brookman/aoi/commit/ff9e375e4975469f590a613a1080dc0c484e9eb3))
+
 ## 0.0.1+4
 
  - **FIX**: CMakeLists.txt for windows. ([87b601c0](https://github.com/brookman/aoi/commit/87b601c03bb2cdad388eeeece0eca5e3622a255d))

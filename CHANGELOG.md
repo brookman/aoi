@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-02-27
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`aoi` - `v0.0.1+4`](#aoi---v0014)
+ - [`flutter_aoi` - `v0.0.1+5`](#flutter_aoi---v0015)
+
+---
+
+#### `aoi` - `v0.0.1+4`
+
+ - **FIX**: formatting. ([b092ce28](https://github.com/brookman/aoi/commit/b092ce282cceaf29374684c8c261570c930a88b8))
+ - **FIX**: licenses. ([40de3b07](https://github.com/brookman/aoi/commit/40de3b073d307661c83a67cdea3e8acd1255f227))
+ - **FIX**: regenerate rust code. ([9f794d0e](https://github.com/brookman/aoi/commit/9f794d0efef32c24fa6e43f73c157d6e18b2cc2d))
+
+#### `flutter_aoi` - `v0.0.1+5`
+
+ - **FIX**: licenses. ([40de3b07](https://github.com/brookman/aoi/commit/40de3b073d307661c83a67cdea3e8acd1255f227))
+ - **FIX**: improve flutter example. ([ff9e375e](https://github.com/brookman/aoi/commit/ff9e375e4975469f590a613a1080dc0c484e9eb3))
+
+
 ## 2024-02-26
 
 ### Changes
