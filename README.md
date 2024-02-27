@@ -8,12 +8,12 @@
 <img src="https://github.com/brookman/aoi/blob/main/assets/banner.jpg?raw=true" width="100%" alt="Aoi Banner" />
 </p>
 
-# AOI - Bluetooth Low Energy (BLE) library
+# AOI - Bluetooth Low Energy (BLE) Library
 
-A Dart/Flutter BLE library based on the multi-platform Rust
-library [btleplug](https://github.com/deviceplug/btleplug).
+A Dart/Flutter BLE library leveraging the cross-platform capabilities of the
+Rust-based [btleplug](https://github.com/deviceplug/btleplug) library.
 
-🚧 This is a work in progress: Do not use in production. 🚧
+🚧 Under Development: Not recommended for production use. 🚧
 
 ---
 
