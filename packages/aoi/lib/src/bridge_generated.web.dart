@@ -10,8 +10,10 @@ import 'package:uuid/uuid.dart';
 import 'bridge_generated.dart';
 export 'bridge_generated.dart';
 
-class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> with FlutterRustBridgeSetupMixin {
-  EmbeddedAoiPlatform(FutureOr<WasmModule> dylib) : super(EmbeddedAoiWire(dylib)) {
+class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire>
+    with FlutterRustBridgeSetupMixin {
+  EmbeddedAoiPlatform(FutureOr<WasmModule> dylib)
+      : super(EmbeddedAoiWire(dylib)) {
     setupMixinConstructor();
   }
   Future<void> setup() => inner.init;
@@ -30,9 +32,7 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> with Fl
 
   @protected
   List<dynamic> api2wire_aoi_adapter(AoiAdapter raw) {
-    return [
-      api2wire_usize(raw.index)
-    ];
+    return [api2wire_usize(raw.index)];
   }
 
   @protected
@@ -64,10 +64,7 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> with Fl
 
   @protected
   List<dynamic> api2wire_aoi_manufacturer_data(AoiManufacturerData raw) {
-    return [
-      api2wire_u16(raw.manufacturerId),
-      api2wire_uint_8_list(raw.data)
-    ];
+    return [api2wire_u16(raw.manufacturerId), api2wire_uint_8_list(raw.data)];
   }
 
   @protected
@@ -84,16 +81,13 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> with Fl
   @protected
   List<dynamic> api2wire_aoi_peripheral_address(AoiPeripheralAddress raw) {
     if (raw is AoiPeripheralAddress_MacAddress) {
-      return [
-        0,
-        api2wire_u8_array_6(raw.field0)
-      ];
+      return [0, api2wire_u8_array_6(raw.field0)];
     }
     if (raw is AoiPeripheralAddress_Uuid) {
-      return [
-        1,
-        api2wire_String(raw.field0)
-      ];
+      return [1, api2wire_String(raw.field0)];
+    }
+    if (raw is AoiPeripheralAddress_DeviceId) {
+      return [2, api2wire_String(raw.field0)];
     }
 
     throw Exception('unreachable');
@@ -125,7 +119,8 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> with Fl
   }
 
   @protected
-  List<dynamic> api2wire_box_autoadd_aoi_connected_peripheral(AoiConnectedPeripheral raw) {
+  List<dynamic> api2wire_box_autoadd_aoi_connected_peripheral(
+      AoiConnectedPeripheral raw) {
     return api2wire_aoi_connected_peripheral(raw);
   }
 
@@ -142,16 +137,10 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> with Fl
   @protected
   List<dynamic> api2wire_filter_criteria(FilterCriteria raw) {
     if (raw is FilterCriteria_Any) {
-      return [
-        0,
-        api2wire_list_filter_criterion(raw.field0)
-      ];
+      return [0, api2wire_list_filter_criterion(raw.field0)];
     }
     if (raw is FilterCriteria_All) {
-      return [
-        1,
-        api2wire_list_filter_criterion(raw.field0)
-      ];
+      return [1, api2wire_list_filter_criterion(raw.field0)];
     }
 
     throw Exception('unreachable');
@@ -160,35 +149,19 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> with Fl
   @protected
   List<dynamic> api2wire_filter_criterion(FilterCriterion raw) {
     if (raw is FilterCriterion_HasServiceUuid) {
-      return [
-        0,
-        api2wire_String(raw.field0)
-      ];
+      return [0, api2wire_String(raw.field0)];
     }
     if (raw is FilterCriterion_NameMatchesExactly) {
-      return [
-        1,
-        api2wire_String(raw.field0)
-      ];
+      return [1, api2wire_String(raw.field0)];
     }
     if (raw is FilterCriterion_NameContains) {
-      return [
-        2,
-        api2wire_String(raw.field0)
-      ];
+      return [2, api2wire_String(raw.field0)];
     }
     if (raw is FilterCriterion_ManufacturerId) {
-      return [
-        3,
-        api2wire_u16(raw.field0)
-      ];
+      return [3, api2wire_u16(raw.field0)];
     }
     if (raw is FilterCriterion_ManufacturerData) {
-      return [
-        4,
-        api2wire_u16(raw.field0),
-        api2wire_uint_8_list(raw.field1)
-      ];
+      return [4, api2wire_u16(raw.field0), api2wire_uint_8_list(raw.field1)];
     }
 
     throw Exception('unreachable');
@@ -205,7 +178,8 @@ class EmbeddedAoiPlatform extends FlutterRustBridgeBase<EmbeddedAoiWire> with Fl
   }
 
   @protected
-  List<dynamic> api2wire_list_aoi_manufacturer_data(List<AoiManufacturerData> raw) {
+  List<dynamic> api2wire_list_aoi_manufacturer_data(
+      List<AoiManufacturerData> raw) {
     return raw.map(api2wire_aoi_manufacturer_data).toList();
   }
 
@@ -247,41 +221,79 @@ external EmbeddedAoiWasmModule get wasmModule;
 class EmbeddedAoiWasmModule implements WasmModule {
   external Object /* Promise */ call([String? moduleName]);
   external EmbeddedAoiWasmModule bind(dynamic thisArg, String moduleName);
-  external dynamic /* void */ wire_get_adapters__static_method__AoiAdapter(NativePortType port_);
+  external dynamic /* void */ wire_get_adapters__static_method__AoiAdapter(
+      NativePortType port_);
 
-  external dynamic /* void */ wire_start_scan__method__AoiAdapter(NativePortType port_, List<dynamic> that, List<dynamic>? filter);
+  external dynamic /* void */ wire_start_scan__method__AoiAdapter(
+      NativePortType port_, List<dynamic> that, List<dynamic>? filter);
 
-  external dynamic /* void */ wire_stop_scan__method__AoiAdapter(NativePortType port_, List<dynamic> that);
+  external dynamic /* void */ wire_stop_scan__method__AoiAdapter(
+      NativePortType port_, List<dynamic> that);
 
-  external dynamic /* void */ wire_connect__method__AoiPeripheral(NativePortType port_, List<dynamic> that);
+  external dynamic /* void */ wire_connect__method__AoiPeripheral(
+      NativePortType port_, List<dynamic> that);
 
-  external dynamic /* void */ wire_read__method__AoiConnectedPeripheral(NativePortType port_, List<dynamic> that, List<dynamic> characteristic);
+  external dynamic /* void */ wire_read__method__AoiConnectedPeripheral(
+      NativePortType port_, List<dynamic> that, List<dynamic> characteristic);
 
-  external dynamic /* void */ wire_write__method__AoiConnectedPeripheral(NativePortType port_, List<dynamic> that, List<dynamic> characteristic, Uint8List data);
+  external dynamic /* void */ wire_write__method__AoiConnectedPeripheral(
+      NativePortType port_,
+      List<dynamic> that,
+      List<dynamic> characteristic,
+      Uint8List data);
 
-  external dynamic /* void */ wire_write_without_response__method__AoiConnectedPeripheral(NativePortType port_, List<dynamic> that, List<dynamic> characteristic, Uint8List data);
+  external dynamic /* void */
+      wire_write_without_response__method__AoiConnectedPeripheral(
+          NativePortType port_,
+          List<dynamic> that,
+          List<dynamic> characteristic,
+          Uint8List data);
 
-  external dynamic /* void */ wire_disconnect__method__AoiConnectedPeripheral(NativePortType port_, List<dynamic> that);
+  external dynamic /* void */ wire_disconnect__method__AoiConnectedPeripheral(
+      NativePortType port_, List<dynamic> that);
 }
 
 // Section: WASM wire connector
 
-class EmbeddedAoiWire extends FlutterRustBridgeWasmWireBase<EmbeddedAoiWasmModule> {
-  EmbeddedAoiWire(FutureOr<WasmModule> module) : super(WasmModule.cast<EmbeddedAoiWasmModule>(module));
+class EmbeddedAoiWire
+    extends FlutterRustBridgeWasmWireBase<EmbeddedAoiWasmModule> {
+  EmbeddedAoiWire(FutureOr<WasmModule> module)
+      : super(WasmModule.cast<EmbeddedAoiWasmModule>(module));
 
-  void wire_get_adapters__static_method__AoiAdapter(NativePortType port_) => wasmModule.wire_get_adapters__static_method__AoiAdapter(port_);
+  void wire_get_adapters__static_method__AoiAdapter(NativePortType port_) =>
+      wasmModule.wire_get_adapters__static_method__AoiAdapter(port_);
 
-  void wire_start_scan__method__AoiAdapter(NativePortType port_, List<dynamic> that, List<dynamic>? filter) => wasmModule.wire_start_scan__method__AoiAdapter(port_, that, filter);
+  void wire_start_scan__method__AoiAdapter(
+          NativePortType port_, List<dynamic> that, List<dynamic>? filter) =>
+      wasmModule.wire_start_scan__method__AoiAdapter(port_, that, filter);
 
-  void wire_stop_scan__method__AoiAdapter(NativePortType port_, List<dynamic> that) => wasmModule.wire_stop_scan__method__AoiAdapter(port_, that);
+  void wire_stop_scan__method__AoiAdapter(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_stop_scan__method__AoiAdapter(port_, that);
 
-  void wire_connect__method__AoiPeripheral(NativePortType port_, List<dynamic> that) => wasmModule.wire_connect__method__AoiPeripheral(port_, that);
+  void wire_connect__method__AoiPeripheral(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_connect__method__AoiPeripheral(port_, that);
 
-  void wire_read__method__AoiConnectedPeripheral(NativePortType port_, List<dynamic> that, List<dynamic> characteristic) => wasmModule.wire_read__method__AoiConnectedPeripheral(port_, that, characteristic);
+  void wire_read__method__AoiConnectedPeripheral(NativePortType port_,
+          List<dynamic> that, List<dynamic> characteristic) =>
+      wasmModule.wire_read__method__AoiConnectedPeripheral(
+          port_, that, characteristic);
 
-  void wire_write__method__AoiConnectedPeripheral(NativePortType port_, List<dynamic> that, List<dynamic> characteristic, Uint8List data) => wasmModule.wire_write__method__AoiConnectedPeripheral(port_, that, characteristic, data);
+  void wire_write__method__AoiConnectedPeripheral(NativePortType port_,
+          List<dynamic> that, List<dynamic> characteristic, Uint8List data) =>
+      wasmModule.wire_write__method__AoiConnectedPeripheral(
+          port_, that, characteristic, data);
 
-  void wire_write_without_response__method__AoiConnectedPeripheral(NativePortType port_, List<dynamic> that, List<dynamic> characteristic, Uint8List data) => wasmModule.wire_write_without_response__method__AoiConnectedPeripheral(port_, that, characteristic, data);
+  void wire_write_without_response__method__AoiConnectedPeripheral(
+          NativePortType port_,
+          List<dynamic> that,
+          List<dynamic> characteristic,
+          Uint8List data) =>
+      wasmModule.wire_write_without_response__method__AoiConnectedPeripheral(
+          port_, that, characteristic, data);
 
-  void wire_disconnect__method__AoiConnectedPeripheral(NativePortType port_, List<dynamic> that) => wasmModule.wire_disconnect__method__AoiConnectedPeripheral(port_, that);
+  void wire_disconnect__method__AoiConnectedPeripheral(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_disconnect__method__AoiConnectedPeripheral(port_, that);
 }

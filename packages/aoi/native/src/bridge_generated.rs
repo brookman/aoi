@@ -314,6 +314,7 @@ impl support::IntoDart for AoiPeripheralAddress {
         match self {
             Self::MacAddress(field0) => vec![0.into_dart(), field0.into_into_dart().into_dart()],
             Self::Uuid(field0) => vec![1.into_dart(), field0.into_into_dart().into_dart()],
+            Self::DeviceId(field0) => vec![2.into_dart(), field0.into_into_dart().into_dart()],
         }
         .into_dart()
     }
@@ -517,6 +518,7 @@ mod web {
             match self_.get(0).unchecked_into_f64() as _ {
                 0 => AoiPeripheralAddress::MacAddress(self_.get(1).wire2api()),
                 1 => AoiPeripheralAddress::Uuid(self_.get(1).wire2api()),
+                2 => AoiPeripheralAddress::DeviceId(self_.get(1).wire2api()),
                 _ => unreachable!(),
             }
         }
@@ -920,6 +922,11 @@ mod io {
                     let ans = support::box_from_leak_ptr(ans.Uuid);
                     AoiPeripheralAddress::Uuid(ans.field0.wire2api())
                 },
+                2 => unsafe {
+                    let ans = support::box_from_leak_ptr(self.kind);
+                    let ans = support::box_from_leak_ptr(ans.DeviceId);
+                    AoiPeripheralAddress::DeviceId(ans.field0.wire2api())
+                },
                 _ => unreachable!(),
             }
         }
@@ -1175,6 +1182,7 @@ mod io {
     pub union AoiPeripheralAddressKind {
         MacAddress: *mut wire_AoiPeripheralAddress_MacAddress,
         Uuid: *mut wire_AoiPeripheralAddress_Uuid,
+        DeviceId: *mut wire_AoiPeripheralAddress_DeviceId,
     }
 
     #[repr(C)]
@@ -1186,6 +1194,12 @@ mod io {
     #[repr(C)]
     #[derive(Clone)]
     pub struct wire_AoiPeripheralAddress_Uuid {
+        field0: *mut wire_uint_8_list,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_AoiPeripheralAddress_DeviceId {
         field0: *mut wire_uint_8_list,
     }
 
@@ -1400,6 +1414,15 @@ mod io {
         })
     }
 
+    #[no_mangle]
+    pub extern "C" fn inflate_AoiPeripheralAddress_DeviceId() -> *mut AoiPeripheralAddressKind {
+        support::new_leak_box_ptr(AoiPeripheralAddressKind {
+            DeviceId: support::new_leak_box_ptr(wire_AoiPeripheralAddress_DeviceId {
+                field0: core::ptr::null_mut(),
+            }),
+        })
+    }
+
     impl Default for wire_FilterCriteria {
         fn default() -> Self {
             Self::new_with_null_ptr()
@@ -1507,3 +1530,35 @@ mod io {
 }
 #[cfg(not(target_family = "wasm"))]
 pub use self::io::*;
+
+// ----------- DUMMY CODE FOR BINDGEN ----------
+
+// copied from: allo-isolate
+pub type DartPort = i64;
+pub type DartPostCObjectFnType =
+    unsafe extern "C" fn(port_id: DartPort, message: *mut std::ffi::c_void) -> bool;
+#[no_mangle]
+pub unsafe extern "C" fn store_dart_post_cobject(ptr: DartPostCObjectFnType) {
+    panic!("dummy code")
+}
+#[no_mangle]
+pub unsafe extern "C" fn get_dart_object(ptr: usize) -> Dart_Handle {
+    panic!("dummy code")
+}
+#[no_mangle]
+pub unsafe extern "C" fn drop_dart_object(ptr: usize) {
+    panic!("dummy code")
+}
+#[no_mangle]
+pub unsafe extern "C" fn new_dart_opaque(handle: Dart_Handle) -> usize {
+    panic!("dummy code")
+}
+#[no_mangle]
+pub unsafe extern "C" fn init_frb_dart_api_dl(obj: *mut c_void) -> isize {
+    panic!("dummy code")
+}
+
+pub struct DartCObject;
+pub type WireSyncReturn = *mut DartCObject;
+
+// ---------------------------------------------

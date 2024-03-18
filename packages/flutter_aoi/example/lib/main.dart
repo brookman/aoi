@@ -9,29 +9,31 @@ void main() {
 }
 
 Future<void> init() async {
-  final adapters = await AoiAdapter.getAdapters(bridge: api);
-
+  final adapters = await AoiAdapter.getAdapters(bridge: aoi);
   final adapter = adapters.first;
 
-  final aura = await adapter
-      .startScan()
-      .first
-      .timeout(const Duration(seconds: 10));
+  final peripheral =
+      await adapter.startScan().first.timeout(const Duration(seconds: 10));
 
-  print('Found peripheral: ${aura.prettyPrint()}');
+  print('Found peripheral: ${peripheral.prettyPrint()}');
 
-  print('Stop scan');
+  print('Stopping scan...');
   await adapter.stopScan();
+  print('Scan stopped');
 
   AoiConnectedPeripheral connectedPeripheral;
   try {
-    connectedPeripheral = await aura.connect();
+    print('Connecting...');
+    connectedPeripheral =
+        await peripheral.connect().timeout(const Duration(seconds: 10));
+    print('Connected');
   } catch (e) {
     print('Could not connect: $e');
-    rethrow;
+    return;
   }
 
-  print('connectedPeripheral characteristics: ${connectedPeripheral.characteristics}');
+  print(
+      'connectedPeripheral characteristics: ${connectedPeripheral.characteristics}');
 
   for (final c in connectedPeripheral.characteristics) {
     print('Characteristic: ${c.prettyPrint()}');
@@ -39,7 +41,9 @@ Future<void> init() async {
     if (c.hasProperty(AoiCharacteristicProperty.read)) {
       print('Trying to read it...');
       try {
-        final data = await connectedPeripheral.read(characteristic: c).timeout(const Duration(seconds: 10));
+        final data = await connectedPeripheral
+            .read(characteristic: c)
+            .timeout(const Duration(seconds: 10));
         print('Data: $data');
         try {
           print('Data as string: ${const Utf8Decoder().convert(data)}');
@@ -64,7 +68,9 @@ Future<void> init() async {
 
     print('Trying to read it...');
     try {
-      final data = await connectedPeripheral.read(characteristic: c).timeout(const Duration(seconds: 10));
+      final data = await connectedPeripheral
+          .read(characteristic: c)
+          .timeout(const Duration(seconds: 10));
       print('Data: $data');
       try {
         print('Data as string: ${const Utf8Decoder().convert(data)}');
@@ -180,10 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
               // List<dynamic>.
               future: Future.wait([peripherals]),
               builder: (context, snap) {
-                final style = Theme
-                    .of(context)
-                    .textTheme
-                    .headline4;
+                final style = Theme.of(context).textTheme.headline4;
                 if (snap.error != null) {
                   // An error has been encountered, so give an appropriate response and
                   // pass the error details to an unobstructive tooltip.
