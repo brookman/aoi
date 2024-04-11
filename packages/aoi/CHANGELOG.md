@@ -1,3 +1,7 @@
+## 0.0.2-dev.1
+
+ - **FIX**: issues with new frb api. ([abda003c](https://github.com/brookman/aoi/commit/abda003cf2cd1de2d04ccf86abab516a0923abe3))
+
 ## 0.0.2-dev.0+1
 
  - **FIX**: try to fix windows cross compilation. ([8b0918d2](https://github.com/brookman/aoi/commit/8b0918d2987e3bb9e99796b6f11ef0b00ac68a71))

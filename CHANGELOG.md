@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`aoi` - `v0.0.2-dev.1`](#aoi---v002-dev1)
+ - [`flutter_aoi` - `v0.0.2-dev.1`](#flutter_aoi---v002-dev1)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_aoi` - `v0.0.2-dev.1`
+
+---
+
+#### `aoi` - `v0.0.2-dev.1`
+
+ - **FIX**: issues with new frb api. ([abda003c](https://github.com/brookman/aoi/commit/abda003cf2cd1de2d04ccf86abab516a0923abe3))
+
+
+## 2024-04-11
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`aoi` - `v0.0.2-dev.0+1`](#aoi---v002-dev01)
  - [`flutter_aoi` - `v0.0.2-dev.0+1`](#flutter_aoi---v002-dev01)
 
