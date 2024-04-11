@@ -1,3 +1,7 @@
+## 0.0.2-dev.0+1
+
+ - Update a dependency to the latest release.
+
 ## 0.0.2
 
  - **FEAT**: upgrade frb. ([bc88585f](https://github.com/brookman/aoi/commit/bc88585f32e4da9e8d4c2c6360dc6978f10701b2))

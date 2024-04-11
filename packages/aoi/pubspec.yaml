@@ -1,7 +1,7 @@
 name: aoi
 description: >
   A Dart/Flutter BLE library based on the multi-platform Rust library btleplug
-version: 0.0.2
+version: 0.0.2-dev.0+1
 homepage: https://github.com/brookman/aoi
 repository: https://github.com/brookman/aoi
 issue_tracker: https://github.com/brookman/aoi/issues

@@ -1,3 +1,7 @@
+## 0.0.2-dev.0+1
+
+ - **FIX**: try to fix windows cross compilation. ([8b0918d2](https://github.com/brookman/aoi/commit/8b0918d2987e3bb9e99796b6f11ef0b00ac68a71))
+
 ## 0.0.2
 
  - **FIX**: formatting. ([d6d313e6](https://github.com/brookman/aoi/commit/d6d313e6b43c6d4d8991cedbeb7ba6dc1455144f))
