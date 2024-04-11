@@ -1,3 +1,8 @@
+## 0.0.2
+
+ - **FIX**: formatting. ([d6d313e6](https://github.com/brookman/aoi/commit/d6d313e6b43c6d4d8991cedbeb7ba6dc1455144f))
+ - **FEAT**: upgrade frb. ([bc88585f](https://github.com/brookman/aoi/commit/bc88585f32e4da9e8d4c2c6360dc6978f10701b2))
+
 ## 0.0.1+4
 
  - **FIX**: formatting. ([b092ce28](https://github.com/brookman/aoi/commit/b092ce282cceaf29374684c8c261570c930a88b8))

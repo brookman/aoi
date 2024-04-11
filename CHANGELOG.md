@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-04-11
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`aoi` - `v0.0.2`](#aoi---v002)
+ - [`flutter_aoi` - `v0.0.2`](#flutter_aoi---v002)
+
+---
+
+#### `aoi` - `v0.0.2`
+
+ - **FIX**: formatting. ([d6d313e6](https://github.com/brookman/aoi/commit/d6d313e6b43c6d4d8991cedbeb7ba6dc1455144f))
+ - **FEAT**: upgrade frb. ([bc88585f](https://github.com/brookman/aoi/commit/bc88585f32e4da9e8d4c2c6360dc6978f10701b2))
+
+#### `flutter_aoi` - `v0.0.2`
+
+ - **FEAT**: upgrade frb. ([bc88585f](https://github.com/brookman/aoi/commit/bc88585f32e4da9e8d4c2c6360dc6978f10701b2))
+
+
 ## 2024-02-27
 
 ### Changes
