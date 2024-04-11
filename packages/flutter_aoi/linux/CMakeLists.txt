@@ -10,11 +10,11 @@ set(PROJECT_NAME "flutter_aoi")
 project(${PROJECT_NAME} LANGUAGES CXX)
 
 # Download the binaries if they are not already present.
-set(AoiLibRoot "${CMAKE_CURRENT_SOURCE_DIR}/${AoiVersion}")
+set(AoiLibRoot "${CMAKE_CURRENT_SOURCE_DIR}/${aoiVersion}")
 set(AoiArchivePath "${AoiLibRoot}.tar.gz")
 if(NOT EXISTS ${AoiArchivePath})
   file(DOWNLOAD
-    "https://github.com/brookman/aoi/releases/download/${AoiVersion}/EmbeddedAoi.tar.gz"
+    "https://github.com/brookman/aoi/releases/download/${aoiVersion}/EmbeddedAoi.tar.gz"
     ${AoiArchivePath}
     TLS_VERIFY ON
   )

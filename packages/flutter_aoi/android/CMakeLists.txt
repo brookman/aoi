@@ -12,10 +12,10 @@ cmake_minimum_required(VERSION 3.10)
 
 # Download the binaries if they are not already present.
 set(AoiLibRoot "${CMAKE_CURRENT_SOURCE_DIR}/src/main/jniLibs")
-set(AoiArchivePath "${CMAKE_CURRENT_SOURCE_DIR}/${AoiVersion}.tar.gz")
+set(AoiArchivePath "${CMAKE_CURRENT_SOURCE_DIR}/${aoiVersion}.tar.gz")
 if(NOT EXISTS ${AoiArchivePath})
   file(DOWNLOAD
-    "https://github.com/brookman/aoi/releases/download/${AoiVersion}/EmbeddedAoiAndroid.tar.gz"
+    "https://github.com/brookman/aoi/releases/download/${aoiVersion}/EmbeddedAoiAndroid.tar.gz"
     ${AoiArchivePath}
     TLS_VERIFY ON
   )
