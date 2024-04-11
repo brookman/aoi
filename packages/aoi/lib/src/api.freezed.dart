@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'bridge_generated.dart';
+part of 'api.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -119,8 +119,8 @@ class __$$AoiPeripheralAddress_MacAddressImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AoiPeripheralAddress_MacAddressImpl
-    implements AoiPeripheralAddress_MacAddress {
-  const _$AoiPeripheralAddress_MacAddressImpl(this.field0);
+    extends AoiPeripheralAddress_MacAddress {
+  const _$AoiPeripheralAddress_MacAddressImpl(this.field0) : super._();
 
   @override
   final U8Array6 field0;
@@ -219,9 +219,10 @@ class _$AoiPeripheralAddress_MacAddressImpl
   }
 }
 
-abstract class AoiPeripheralAddress_MacAddress implements AoiPeripheralAddress {
+abstract class AoiPeripheralAddress_MacAddress extends AoiPeripheralAddress {
   const factory AoiPeripheralAddress_MacAddress(final U8Array6 field0) =
       _$AoiPeripheralAddress_MacAddressImpl;
+  const AoiPeripheralAddress_MacAddress._() : super._();
 
   @override
   U8Array6 get field0;
@@ -267,8 +268,8 @@ class __$$AoiPeripheralAddress_UuidImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AoiPeripheralAddress_UuidImpl implements AoiPeripheralAddress_Uuid {
-  const _$AoiPeripheralAddress_UuidImpl(this.field0);
+class _$AoiPeripheralAddress_UuidImpl extends AoiPeripheralAddress_Uuid {
+  const _$AoiPeripheralAddress_UuidImpl(this.field0) : super._();
 
   @override
   final String field0;
@@ -365,9 +366,10 @@ class _$AoiPeripheralAddress_UuidImpl implements AoiPeripheralAddress_Uuid {
   }
 }
 
-abstract class AoiPeripheralAddress_Uuid implements AoiPeripheralAddress {
+abstract class AoiPeripheralAddress_Uuid extends AoiPeripheralAddress {
   const factory AoiPeripheralAddress_Uuid(final String field0) =
       _$AoiPeripheralAddress_UuidImpl;
+  const AoiPeripheralAddress_Uuid._() : super._();
 
   @override
   String get field0;
@@ -413,8 +415,8 @@ class __$$AoiPeripheralAddress_DeviceIdImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AoiPeripheralAddress_DeviceIdImpl
-    implements AoiPeripheralAddress_DeviceId {
-  const _$AoiPeripheralAddress_DeviceIdImpl(this.field0);
+    extends AoiPeripheralAddress_DeviceId {
+  const _$AoiPeripheralAddress_DeviceIdImpl(this.field0) : super._();
 
   @override
   final String field0;
@@ -512,9 +514,10 @@ class _$AoiPeripheralAddress_DeviceIdImpl
   }
 }
 
-abstract class AoiPeripheralAddress_DeviceId implements AoiPeripheralAddress {
+abstract class AoiPeripheralAddress_DeviceId extends AoiPeripheralAddress {
   const factory AoiPeripheralAddress_DeviceId(final String field0) =
       _$AoiPeripheralAddress_DeviceIdImpl;
+  const AoiPeripheralAddress_DeviceId._() : super._();
 
   @override
   String get field0;
@@ -639,9 +642,10 @@ class __$$FilterCriteria_AnyImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterCriteria_AnyImpl implements FilterCriteria_Any {
+class _$FilterCriteria_AnyImpl extends FilterCriteria_Any {
   const _$FilterCriteria_AnyImpl(final List<FilterCriterion> field0)
-      : _field0 = field0;
+      : _field0 = field0,
+        super._();
 
   final List<FilterCriterion> _field0;
   @override
@@ -738,9 +742,10 @@ class _$FilterCriteria_AnyImpl implements FilterCriteria_Any {
   }
 }
 
-abstract class FilterCriteria_Any implements FilterCriteria {
+abstract class FilterCriteria_Any extends FilterCriteria {
   const factory FilterCriteria_Any(final List<FilterCriterion> field0) =
       _$FilterCriteria_AnyImpl;
+  const FilterCriteria_Any._() : super._();
 
   @override
   List<FilterCriterion> get field0;
@@ -785,9 +790,10 @@ class __$$FilterCriteria_AllImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterCriteria_AllImpl implements FilterCriteria_All {
+class _$FilterCriteria_AllImpl extends FilterCriteria_All {
   const _$FilterCriteria_AllImpl(final List<FilterCriterion> field0)
-      : _field0 = field0;
+      : _field0 = field0,
+        super._();
 
   final List<FilterCriterion> _field0;
   @override
@@ -884,9 +890,10 @@ class _$FilterCriteria_AllImpl implements FilterCriteria_All {
   }
 }
 
-abstract class FilterCriteria_All implements FilterCriteria {
+abstract class FilterCriteria_All extends FilterCriteria {
   const factory FilterCriteria_All(final List<FilterCriterion> field0) =
       _$FilterCriteria_AllImpl;
+  const FilterCriteria_All._() : super._();
 
   @override
   List<FilterCriterion> get field0;
@@ -1018,8 +1025,8 @@ class __$$FilterCriterion_HasServiceUuidImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FilterCriterion_HasServiceUuidImpl
-    implements FilterCriterion_HasServiceUuid {
-  const _$FilterCriterion_HasServiceUuidImpl(this.field0);
+    extends FilterCriterion_HasServiceUuid {
+  const _$FilterCriterion_HasServiceUuidImpl(this.field0) : super._();
 
   @override
   final String field0;
@@ -1135,9 +1142,10 @@ class _$FilterCriterion_HasServiceUuidImpl
   }
 }
 
-abstract class FilterCriterion_HasServiceUuid implements FilterCriterion {
+abstract class FilterCriterion_HasServiceUuid extends FilterCriterion {
   const factory FilterCriterion_HasServiceUuid(final String field0) =
       _$FilterCriterion_HasServiceUuidImpl;
+  const FilterCriterion_HasServiceUuid._() : super._();
 
   @override
   String get field0;
@@ -1184,8 +1192,8 @@ class __$$FilterCriterion_NameMatchesExactlyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FilterCriterion_NameMatchesExactlyImpl
-    implements FilterCriterion_NameMatchesExactly {
-  const _$FilterCriterion_NameMatchesExactlyImpl(this.field0);
+    extends FilterCriterion_NameMatchesExactly {
+  const _$FilterCriterion_NameMatchesExactlyImpl(this.field0) : super._();
 
   @override
   final String field0;
@@ -1301,9 +1309,10 @@ class _$FilterCriterion_NameMatchesExactlyImpl
   }
 }
 
-abstract class FilterCriterion_NameMatchesExactly implements FilterCriterion {
+abstract class FilterCriterion_NameMatchesExactly extends FilterCriterion {
   const factory FilterCriterion_NameMatchesExactly(final String field0) =
       _$FilterCriterion_NameMatchesExactlyImpl;
+  const FilterCriterion_NameMatchesExactly._() : super._();
 
   @override
   String get field0;
@@ -1349,9 +1358,8 @@ class __$$FilterCriterion_NameContainsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterCriterion_NameContainsImpl
-    implements FilterCriterion_NameContains {
-  const _$FilterCriterion_NameContainsImpl(this.field0);
+class _$FilterCriterion_NameContainsImpl extends FilterCriterion_NameContains {
+  const _$FilterCriterion_NameContainsImpl(this.field0) : super._();
 
   @override
   final String field0;
@@ -1467,9 +1475,10 @@ class _$FilterCriterion_NameContainsImpl
   }
 }
 
-abstract class FilterCriterion_NameContains implements FilterCriterion {
+abstract class FilterCriterion_NameContains extends FilterCriterion {
   const factory FilterCriterion_NameContains(final String field0) =
       _$FilterCriterion_NameContainsImpl;
+  const FilterCriterion_NameContains._() : super._();
 
   @override
   String get field0;
@@ -1516,8 +1525,8 @@ class __$$FilterCriterion_ManufacturerIdImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FilterCriterion_ManufacturerIdImpl
-    implements FilterCriterion_ManufacturerId {
-  const _$FilterCriterion_ManufacturerIdImpl(this.field0);
+    extends FilterCriterion_ManufacturerId {
+  const _$FilterCriterion_ManufacturerIdImpl(this.field0) : super._();
 
   @override
   final int field0;
@@ -1633,9 +1642,10 @@ class _$FilterCriterion_ManufacturerIdImpl
   }
 }
 
-abstract class FilterCriterion_ManufacturerId implements FilterCriterion {
+abstract class FilterCriterion_ManufacturerId extends FilterCriterion {
   const factory FilterCriterion_ManufacturerId(final int field0) =
       _$FilterCriterion_ManufacturerIdImpl;
+  const FilterCriterion_ManufacturerId._() : super._();
 
   @override
   int get field0;
@@ -1687,8 +1697,9 @@ class __$$FilterCriterion_ManufacturerDataImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FilterCriterion_ManufacturerDataImpl
-    implements FilterCriterion_ManufacturerData {
-  const _$FilterCriterion_ManufacturerDataImpl(this.field0, this.field1);
+    extends FilterCriterion_ManufacturerData {
+  const _$FilterCriterion_ManufacturerDataImpl(this.field0, this.field1)
+      : super._();
 
   @override
   final int field0;
@@ -1808,10 +1819,11 @@ class _$FilterCriterion_ManufacturerDataImpl
   }
 }
 
-abstract class FilterCriterion_ManufacturerData implements FilterCriterion {
+abstract class FilterCriterion_ManufacturerData extends FilterCriterion {
   const factory FilterCriterion_ManufacturerData(
           final int field0, final Uint8List field1) =
       _$FilterCriterion_ManufacturerDataImpl;
+  const FilterCriterion_ManufacturerData._() : super._();
 
   @override
   int get field0;

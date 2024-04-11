@@ -1,281 +1,254 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
-typedef struct _Dart_Handle* Dart_Handle;
-
-typedef struct DartCObject DartCObject;
-
-typedef int64_t DartPort;
-
-typedef bool (*DartPostCObjectFnType)(DartPort port_id, void *message);
-
-typedef struct wire_AoiAdapter {
-  uintptr_t index;
-} wire_AoiAdapter;
-
-typedef struct wire_uint_8_list {
+// EXTRA BEGIN
+typedef struct DartCObject *WireSyncRust2DartDco;
+typedef struct WireSyncRust2DartSse {
   uint8_t *ptr;
   int32_t len;
-} wire_uint_8_list;
+} WireSyncRust2DartSse;
 
-typedef struct wire_FilterCriterion_HasServiceUuid {
-  struct wire_uint_8_list *field0;
-} wire_FilterCriterion_HasServiceUuid;
+typedef int64_t DartPort;
+typedef bool (*DartPostCObjectFnType)(DartPort port_id, void *message);
+void store_dart_post_cobject(DartPostCObjectFnType ptr);
+// EXTRA END
+typedef struct _Dart_Handle* Dart_Handle;
 
-typedef struct wire_FilterCriterion_NameMatchesExactly {
-  struct wire_uint_8_list *field0;
-} wire_FilterCriterion_NameMatchesExactly;
+typedef struct wire_cst_aoi_adapter {
+  uintptr_t index;
+} wire_cst_aoi_adapter;
 
-typedef struct wire_FilterCriterion_NameContains {
-  struct wire_uint_8_list *field0;
-} wire_FilterCriterion_NameContains;
+typedef struct wire_cst_list_prim_u_8_strict {
+  uint8_t *ptr;
+  int32_t len;
+} wire_cst_list_prim_u_8_strict;
 
-typedef struct wire_FilterCriterion_ManufacturerId {
+typedef struct wire_cst_FilterCriterion_HasServiceUuid {
+  struct wire_cst_list_prim_u_8_strict *field0;
+} wire_cst_FilterCriterion_HasServiceUuid;
+
+typedef struct wire_cst_FilterCriterion_NameMatchesExactly {
+  struct wire_cst_list_prim_u_8_strict *field0;
+} wire_cst_FilterCriterion_NameMatchesExactly;
+
+typedef struct wire_cst_FilterCriterion_NameContains {
+  struct wire_cst_list_prim_u_8_strict *field0;
+} wire_cst_FilterCriterion_NameContains;
+
+typedef struct wire_cst_FilterCriterion_ManufacturerId {
   uint16_t field0;
-} wire_FilterCriterion_ManufacturerId;
+} wire_cst_FilterCriterion_ManufacturerId;
 
-typedef struct wire_FilterCriterion_ManufacturerData {
+typedef struct wire_cst_FilterCriterion_ManufacturerData {
   uint16_t field0;
-  struct wire_uint_8_list *field1;
-} wire_FilterCriterion_ManufacturerData;
+  struct wire_cst_list_prim_u_8_strict *field1;
+} wire_cst_FilterCriterion_ManufacturerData;
 
 typedef union FilterCriterionKind {
-  struct wire_FilterCriterion_HasServiceUuid *HasServiceUuid;
-  struct wire_FilterCriterion_NameMatchesExactly *NameMatchesExactly;
-  struct wire_FilterCriterion_NameContains *NameContains;
-  struct wire_FilterCriterion_ManufacturerId *ManufacturerId;
-  struct wire_FilterCriterion_ManufacturerData *ManufacturerData;
+  struct wire_cst_FilterCriterion_HasServiceUuid HasServiceUuid;
+  struct wire_cst_FilterCriterion_NameMatchesExactly NameMatchesExactly;
+  struct wire_cst_FilterCriterion_NameContains NameContains;
+  struct wire_cst_FilterCriterion_ManufacturerId ManufacturerId;
+  struct wire_cst_FilterCriterion_ManufacturerData ManufacturerData;
 } FilterCriterionKind;
 
-typedef struct wire_FilterCriterion {
+typedef struct wire_cst_filter_criterion {
   int32_t tag;
-  union FilterCriterionKind *kind;
-} wire_FilterCriterion;
+  union FilterCriterionKind kind;
+} wire_cst_filter_criterion;
 
-typedef struct wire_list_filter_criterion {
-  struct wire_FilterCriterion *ptr;
+typedef struct wire_cst_list_filter_criterion {
+  struct wire_cst_filter_criterion *ptr;
   int32_t len;
-} wire_list_filter_criterion;
+} wire_cst_list_filter_criterion;
 
-typedef struct wire_FilterCriteria_Any {
-  struct wire_list_filter_criterion *field0;
-} wire_FilterCriteria_Any;
+typedef struct wire_cst_FilterCriteria_Any {
+  struct wire_cst_list_filter_criterion *field0;
+} wire_cst_FilterCriteria_Any;
 
-typedef struct wire_FilterCriteria_All {
-  struct wire_list_filter_criterion *field0;
-} wire_FilterCriteria_All;
+typedef struct wire_cst_FilterCriteria_All {
+  struct wire_cst_list_filter_criterion *field0;
+} wire_cst_FilterCriteria_All;
 
 typedef union FilterCriteriaKind {
-  struct wire_FilterCriteria_Any *Any;
-  struct wire_FilterCriteria_All *All;
+  struct wire_cst_FilterCriteria_Any Any;
+  struct wire_cst_FilterCriteria_All All;
 } FilterCriteriaKind;
 
-typedef struct wire_FilterCriteria {
+typedef struct wire_cst_filter_criteria {
   int32_t tag;
-  union FilterCriteriaKind *kind;
-} wire_FilterCriteria;
+  union FilterCriteriaKind kind;
+} wire_cst_filter_criteria;
 
-typedef struct wire_AoiPeripheralAddress_MacAddress {
-  struct wire_uint_8_list *field0;
-} wire_AoiPeripheralAddress_MacAddress;
+typedef struct wire_cst_AoiPeripheralAddress_MacAddress {
+  struct wire_cst_list_prim_u_8_strict *field0;
+} wire_cst_AoiPeripheralAddress_MacAddress;
 
-typedef struct wire_AoiPeripheralAddress_Uuid {
-  struct wire_uint_8_list *field0;
-} wire_AoiPeripheralAddress_Uuid;
+typedef struct wire_cst_AoiPeripheralAddress_Uuid {
+  struct wire_cst_list_prim_u_8_strict *field0;
+} wire_cst_AoiPeripheralAddress_Uuid;
 
-typedef struct wire_AoiPeripheralAddress_DeviceId {
-  struct wire_uint_8_list *field0;
-} wire_AoiPeripheralAddress_DeviceId;
+typedef struct wire_cst_AoiPeripheralAddress_DeviceId {
+  struct wire_cst_list_prim_u_8_strict *field0;
+} wire_cst_AoiPeripheralAddress_DeviceId;
 
 typedef union AoiPeripheralAddressKind {
-  struct wire_AoiPeripheralAddress_MacAddress *MacAddress;
-  struct wire_AoiPeripheralAddress_Uuid *Uuid;
-  struct wire_AoiPeripheralAddress_DeviceId *DeviceId;
+  struct wire_cst_AoiPeripheralAddress_MacAddress MacAddress;
+  struct wire_cst_AoiPeripheralAddress_Uuid Uuid;
+  struct wire_cst_AoiPeripheralAddress_DeviceId DeviceId;
 } AoiPeripheralAddressKind;
 
-typedef struct wire_AoiPeripheralAddress {
+typedef struct wire_cst_aoi_peripheral_address {
   int32_t tag;
-  union AoiPeripheralAddressKind *kind;
-} wire_AoiPeripheralAddress;
+  union AoiPeripheralAddressKind kind;
+} wire_cst_aoi_peripheral_address;
 
-typedef struct wire_StringList {
-  struct wire_uint_8_list **ptr;
+typedef struct wire_cst_list_String {
+  struct wire_cst_list_prim_u_8_strict **ptr;
   int32_t len;
-} wire_StringList;
+} wire_cst_list_String;
 
-typedef struct wire_AoiManufacturerData {
+typedef struct wire_cst_aoi_manufacturer_data {
   uint16_t manufacturer_id;
-  struct wire_uint_8_list *data;
-} wire_AoiManufacturerData;
+  struct wire_cst_list_prim_u_8_strict *data;
+} wire_cst_aoi_manufacturer_data;
 
-typedef struct wire_list_aoi_manufacturer_data {
-  struct wire_AoiManufacturerData *ptr;
+typedef struct wire_cst_list_aoi_manufacturer_data {
+  struct wire_cst_aoi_manufacturer_data *ptr;
   int32_t len;
-} wire_list_aoi_manufacturer_data;
+} wire_cst_list_aoi_manufacturer_data;
 
-typedef struct wire_AoiPeripheral {
-  struct wire_AoiAdapter *adapter;
-  struct wire_uint_8_list *name;
-  struct wire_AoiPeripheralAddress *address;
-  struct wire_StringList *services;
-  struct wire_list_aoi_manufacturer_data *manufacturer_data;
-} wire_AoiPeripheral;
+typedef struct wire_cst_aoi_peripheral {
+  struct wire_cst_aoi_adapter *adapter;
+  struct wire_cst_list_prim_u_8_strict *name;
+  struct wire_cst_aoi_peripheral_address *address;
+  struct wire_cst_list_String *services;
+  struct wire_cst_list_aoi_manufacturer_data *manufacturer_data;
+} wire_cst_aoi_peripheral;
 
-typedef struct wire_AoiDescriptor {
-  struct wire_uint_8_list *uuid;
-  struct wire_uint_8_list *service_uuid;
-  struct wire_uint_8_list *characteristic_uuid;
-} wire_AoiDescriptor;
+typedef struct wire_cst_aoi_descriptor {
+  struct wire_cst_list_prim_u_8_strict *uuid;
+  struct wire_cst_list_prim_u_8_strict *service_uuid;
+  struct wire_cst_list_prim_u_8_strict *characteristic_uuid;
+} wire_cst_aoi_descriptor;
 
-typedef struct wire_list_aoi_descriptor {
-  struct wire_AoiDescriptor *ptr;
+typedef struct wire_cst_list_aoi_descriptor {
+  struct wire_cst_aoi_descriptor *ptr;
   int32_t len;
-} wire_list_aoi_descriptor;
+} wire_cst_list_aoi_descriptor;
 
-typedef struct wire_AoiCharacteristic {
-  struct wire_uint_8_list *uuid;
-  struct wire_uint_8_list *service_uuid;
+typedef struct wire_cst_aoi_characteristic {
+  struct wire_cst_list_prim_u_8_strict *uuid;
+  struct wire_cst_list_prim_u_8_strict *service_uuid;
   uint8_t properties_bits;
-  struct wire_list_aoi_descriptor *descriptors;
-} wire_AoiCharacteristic;
+  struct wire_cst_list_aoi_descriptor *descriptors;
+} wire_cst_aoi_characteristic;
 
-typedef struct wire_list_aoi_characteristic {
-  struct wire_AoiCharacteristic *ptr;
+typedef struct wire_cst_list_aoi_characteristic {
+  struct wire_cst_aoi_characteristic *ptr;
   int32_t len;
-} wire_list_aoi_characteristic;
+} wire_cst_list_aoi_characteristic;
 
-typedef struct wire_AoiConnectedPeripheral {
-  struct wire_AoiPeripheral *peripheral;
-  struct wire_list_aoi_characteristic *characteristics;
-} wire_AoiConnectedPeripheral;
+typedef struct wire_cst_aoi_connected_peripheral {
+  struct wire_cst_aoi_peripheral *peripheral;
+  struct wire_cst_list_aoi_characteristic *characteristics;
+} wire_cst_aoi_connected_peripheral;
 
-typedef struct DartCObject *WireSyncReturn;
+typedef struct wire_cst_list_prim_u_8_loose {
+  uint8_t *ptr;
+  int32_t len;
+} wire_cst_list_prim_u_8_loose;
 
-void store_dart_post_cobject(DartPostCObjectFnType ptr);
+typedef struct wire_cst_list_aoi_adapter {
+  struct wire_cst_aoi_adapter *ptr;
+  int32_t len;
+} wire_cst_list_aoi_adapter;
 
-Dart_Handle get_dart_object(uintptr_t ptr);
+void frbgen_aoi_wire_aoi_adapter_get_adapters(int64_t port_);
 
-void drop_dart_object(uintptr_t ptr);
+void frbgen_aoi_wire_aoi_adapter_start_scan(int64_t port_,
+                                            struct wire_cst_aoi_adapter *that,
+                                            struct wire_cst_filter_criteria *filter,
+                                            struct wire_cst_list_prim_u_8_strict *sink);
 
-uintptr_t new_dart_opaque(Dart_Handle handle);
+void frbgen_aoi_wire_aoi_adapter_stop_scan(int64_t port_, struct wire_cst_aoi_adapter *that);
 
-intptr_t init_frb_dart_api_dl(void *obj);
+void frbgen_aoi_wire_aoi_connected_peripheral_disconnect(int64_t port_,
+                                                         struct wire_cst_aoi_connected_peripheral *that);
 
-void wire_get_adapters__static_method__AoiAdapter(int64_t port_);
+void frbgen_aoi_wire_aoi_connected_peripheral_read(int64_t port_,
+                                                   struct wire_cst_aoi_connected_peripheral *that,
+                                                   struct wire_cst_aoi_characteristic *characteristic);
 
-void wire_start_scan__method__AoiAdapter(int64_t port_,
-                                         struct wire_AoiAdapter *that,
-                                         struct wire_FilterCriteria *filter);
+void frbgen_aoi_wire_aoi_connected_peripheral_write(int64_t port_,
+                                                    struct wire_cst_aoi_connected_peripheral *that,
+                                                    struct wire_cst_aoi_characteristic *characteristic,
+                                                    struct wire_cst_list_prim_u_8_loose *data);
 
-void wire_stop_scan__method__AoiAdapter(int64_t port_, struct wire_AoiAdapter *that);
+void frbgen_aoi_wire_aoi_connected_peripheral_write_without_response(int64_t port_,
+                                                                     struct wire_cst_aoi_connected_peripheral *that,
+                                                                     struct wire_cst_aoi_characteristic *characteristic,
+                                                                     struct wire_cst_list_prim_u_8_loose *data);
 
-void wire_connect__method__AoiPeripheral(int64_t port_, struct wire_AoiPeripheral *that);
+void frbgen_aoi_wire_aoi_peripheral_connect(int64_t port_, struct wire_cst_aoi_peripheral *that);
 
-void wire_read__method__AoiConnectedPeripheral(int64_t port_,
-                                               struct wire_AoiConnectedPeripheral *that,
-                                               struct wire_AoiCharacteristic *characteristic);
+struct wire_cst_aoi_adapter *frbgen_aoi_cst_new_box_aoi_adapter(void);
 
-void wire_write__method__AoiConnectedPeripheral(int64_t port_,
-                                                struct wire_AoiConnectedPeripheral *that,
-                                                struct wire_AoiCharacteristic *characteristic,
-                                                struct wire_uint_8_list *data);
+struct wire_cst_aoi_peripheral *frbgen_aoi_cst_new_box_aoi_peripheral(void);
 
-void wire_write_without_response__method__AoiConnectedPeripheral(int64_t port_,
-                                                                 struct wire_AoiConnectedPeripheral *that,
-                                                                 struct wire_AoiCharacteristic *characteristic,
-                                                                 struct wire_uint_8_list *data);
+struct wire_cst_aoi_peripheral_address *frbgen_aoi_cst_new_box_aoi_peripheral_address(void);
 
-void wire_disconnect__method__AoiConnectedPeripheral(int64_t port_,
-                                                     struct wire_AoiConnectedPeripheral *that);
+struct wire_cst_aoi_adapter *frbgen_aoi_cst_new_box_autoadd_aoi_adapter(void);
 
-struct wire_StringList *new_StringList_0(int32_t len);
+struct wire_cst_aoi_characteristic *frbgen_aoi_cst_new_box_autoadd_aoi_characteristic(void);
 
-struct wire_AoiAdapter *new_box_aoi_adapter_0(void);
+struct wire_cst_aoi_connected_peripheral *frbgen_aoi_cst_new_box_autoadd_aoi_connected_peripheral(void);
 
-struct wire_AoiPeripheral *new_box_aoi_peripheral_0(void);
+struct wire_cst_aoi_peripheral *frbgen_aoi_cst_new_box_autoadd_aoi_peripheral(void);
 
-struct wire_AoiPeripheralAddress *new_box_aoi_peripheral_address_0(void);
+struct wire_cst_filter_criteria *frbgen_aoi_cst_new_box_autoadd_filter_criteria(void);
 
-struct wire_AoiAdapter *new_box_autoadd_aoi_adapter_0(void);
+struct wire_cst_list_String *frbgen_aoi_cst_new_list_String(int32_t len);
 
-struct wire_AoiCharacteristic *new_box_autoadd_aoi_characteristic_0(void);
+struct wire_cst_list_aoi_adapter *frbgen_aoi_cst_new_list_aoi_adapter(int32_t len);
 
-struct wire_AoiConnectedPeripheral *new_box_autoadd_aoi_connected_peripheral_0(void);
+struct wire_cst_list_aoi_characteristic *frbgen_aoi_cst_new_list_aoi_characteristic(int32_t len);
 
-struct wire_AoiPeripheral *new_box_autoadd_aoi_peripheral_0(void);
+struct wire_cst_list_aoi_descriptor *frbgen_aoi_cst_new_list_aoi_descriptor(int32_t len);
 
-struct wire_FilterCriteria *new_box_autoadd_filter_criteria_0(void);
+struct wire_cst_list_aoi_manufacturer_data *frbgen_aoi_cst_new_list_aoi_manufacturer_data(int32_t len);
 
-struct wire_list_aoi_characteristic *new_list_aoi_characteristic_0(int32_t len);
+struct wire_cst_list_filter_criterion *frbgen_aoi_cst_new_list_filter_criterion(int32_t len);
 
-struct wire_list_aoi_descriptor *new_list_aoi_descriptor_0(int32_t len);
+struct wire_cst_list_prim_u_8_loose *frbgen_aoi_cst_new_list_prim_u_8_loose(int32_t len);
 
-struct wire_list_aoi_manufacturer_data *new_list_aoi_manufacturer_data_0(int32_t len);
-
-struct wire_list_filter_criterion *new_list_filter_criterion_0(int32_t len);
-
-struct wire_uint_8_list *new_uint_8_list_0(int32_t len);
-
-union AoiPeripheralAddressKind *inflate_AoiPeripheralAddress_MacAddress(void);
-
-union AoiPeripheralAddressKind *inflate_AoiPeripheralAddress_Uuid(void);
-
-union AoiPeripheralAddressKind *inflate_AoiPeripheralAddress_DeviceId(void);
-
-union FilterCriteriaKind *inflate_FilterCriteria_Any(void);
-
-union FilterCriteriaKind *inflate_FilterCriteria_All(void);
-
-union FilterCriterionKind *inflate_FilterCriterion_HasServiceUuid(void);
-
-union FilterCriterionKind *inflate_FilterCriterion_NameMatchesExactly(void);
-
-union FilterCriterionKind *inflate_FilterCriterion_NameContains(void);
-
-union FilterCriterionKind *inflate_FilterCriterion_ManufacturerId(void);
-
-union FilterCriterionKind *inflate_FilterCriterion_ManufacturerData(void);
-
-void free_WireSyncReturn(WireSyncReturn ptr);
-
+struct wire_cst_list_prim_u_8_strict *frbgen_aoi_cst_new_list_prim_u_8_strict(int32_t len);
 static int64_t dummy_method_to_enforce_bundling(void) {
     int64_t dummy_var = 0;
-    dummy_var ^= ((int64_t) (void*) wire_get_adapters__static_method__AoiAdapter);
-    dummy_var ^= ((int64_t) (void*) wire_start_scan__method__AoiAdapter);
-    dummy_var ^= ((int64_t) (void*) wire_stop_scan__method__AoiAdapter);
-    dummy_var ^= ((int64_t) (void*) wire_connect__method__AoiPeripheral);
-    dummy_var ^= ((int64_t) (void*) wire_read__method__AoiConnectedPeripheral);
-    dummy_var ^= ((int64_t) (void*) wire_write__method__AoiConnectedPeripheral);
-    dummy_var ^= ((int64_t) (void*) wire_write_without_response__method__AoiConnectedPeripheral);
-    dummy_var ^= ((int64_t) (void*) wire_disconnect__method__AoiConnectedPeripheral);
-    dummy_var ^= ((int64_t) (void*) new_StringList_0);
-    dummy_var ^= ((int64_t) (void*) new_box_aoi_adapter_0);
-    dummy_var ^= ((int64_t) (void*) new_box_aoi_peripheral_0);
-    dummy_var ^= ((int64_t) (void*) new_box_aoi_peripheral_address_0);
-    dummy_var ^= ((int64_t) (void*) new_box_autoadd_aoi_adapter_0);
-    dummy_var ^= ((int64_t) (void*) new_box_autoadd_aoi_characteristic_0);
-    dummy_var ^= ((int64_t) (void*) new_box_autoadd_aoi_connected_peripheral_0);
-    dummy_var ^= ((int64_t) (void*) new_box_autoadd_aoi_peripheral_0);
-    dummy_var ^= ((int64_t) (void*) new_box_autoadd_filter_criteria_0);
-    dummy_var ^= ((int64_t) (void*) new_list_aoi_characteristic_0);
-    dummy_var ^= ((int64_t) (void*) new_list_aoi_descriptor_0);
-    dummy_var ^= ((int64_t) (void*) new_list_aoi_manufacturer_data_0);
-    dummy_var ^= ((int64_t) (void*) new_list_filter_criterion_0);
-    dummy_var ^= ((int64_t) (void*) new_uint_8_list_0);
-    dummy_var ^= ((int64_t) (void*) inflate_AoiPeripheralAddress_MacAddress);
-    dummy_var ^= ((int64_t) (void*) inflate_AoiPeripheralAddress_Uuid);
-    dummy_var ^= ((int64_t) (void*) inflate_AoiPeripheralAddress_DeviceId);
-    dummy_var ^= ((int64_t) (void*) inflate_FilterCriteria_Any);
-    dummy_var ^= ((int64_t) (void*) inflate_FilterCriteria_All);
-    dummy_var ^= ((int64_t) (void*) inflate_FilterCriterion_HasServiceUuid);
-    dummy_var ^= ((int64_t) (void*) inflate_FilterCriterion_NameMatchesExactly);
-    dummy_var ^= ((int64_t) (void*) inflate_FilterCriterion_NameContains);
-    dummy_var ^= ((int64_t) (void*) inflate_FilterCriterion_ManufacturerId);
-    dummy_var ^= ((int64_t) (void*) inflate_FilterCriterion_ManufacturerData);
-    dummy_var ^= ((int64_t) (void*) free_WireSyncReturn);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_box_aoi_adapter);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_box_aoi_peripheral);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_box_aoi_peripheral_address);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_box_autoadd_aoi_adapter);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_box_autoadd_aoi_characteristic);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_box_autoadd_aoi_connected_peripheral);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_box_autoadd_aoi_peripheral);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_box_autoadd_filter_criteria);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_list_String);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_list_aoi_adapter);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_list_aoi_characteristic);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_list_aoi_descriptor);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_list_aoi_manufacturer_data);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_list_filter_criterion);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_list_prim_u_8_loose);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_cst_new_list_prim_u_8_strict);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_wire_aoi_adapter_get_adapters);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_wire_aoi_adapter_start_scan);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_wire_aoi_adapter_stop_scan);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_wire_aoi_connected_peripheral_disconnect);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_wire_aoi_connected_peripheral_read);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_wire_aoi_connected_peripheral_write);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_wire_aoi_connected_peripheral_write_without_response);
+    dummy_var ^= ((int64_t) (void*) frbgen_aoi_wire_aoi_peripheral_connect);
     dummy_var ^= ((int64_t) (void*) store_dart_post_cobject);
-    dummy_var ^= ((int64_t) (void*) get_dart_object);
-    dummy_var ^= ((int64_t) (void*) drop_dart_object);
-    dummy_var ^= ((int64_t) (void*) new_dart_opaque);
     return dummy_var;
 }

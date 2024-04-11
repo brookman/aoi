@@ -1,4 +1,3 @@
-use flutter_rust_bridge::StreamSink;
 use once_cell::sync::{Lazy, OnceCell};
 use std::{
     collections::{BTreeSet, HashSet},
@@ -22,7 +21,7 @@ use futures::Future;
 use tokio::{runtime::Runtime, time::timeout};
 use uuid::Uuid;
 
-use crate::api::*;
+use crate::{api::*, frb_generated::StreamSink};
 
 use anyhow::{Context, Error, Result};
 use futures::stream::StreamExt;
@@ -120,13 +119,13 @@ impl AoiAdapter {
 
                     if let Some(peripheral) = AoiPeripheral::create(adapter, &id).await {
                         if Self::filter(&peripheral, &filter) {
-                            sink.add(peripheral);
+                            sink.add(peripheral).unwrap();
                         }
                     }
                 }
             }
 
-            sink.close();
+            // sink.close(); TODO
             Ok(())
         })
     }

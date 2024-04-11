@@ -1,5 +1,6 @@
 use anyhow::Result;
-use flutter_rust_bridge::StreamSink;
+
+use crate::frb_generated::StreamSink;
 
 #[derive(Debug, Clone)]
 pub enum FilterCriteria {

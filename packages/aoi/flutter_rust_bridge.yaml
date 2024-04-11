@@ -1,0 +1,7 @@
+rust_input: native/src/api.rs
+dart_output: lib/src
+c_output: ../flutter_aoi/ios/Classes/frb.h
+duplicated_c_output:
+  - ../flutter_aoi/macos/Classes/frb.h
+full_dep: true
+web: false
