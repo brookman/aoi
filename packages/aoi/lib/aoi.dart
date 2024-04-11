@@ -1,6 +1,14 @@
 // Rust FFI related
-export 'package:flutter_rust_bridge/flutter_rust_bridge.dart' show WasmModule;
+import 'package:aoi/aoi.dart';
 
-export 'src/bridge_generated.dart';
+export 'src/api.dart';
 export 'src/extensions.dart';
-export 'src/impl.dart';
+export 'src/frb_generated.dart';
+
+class Aoi {
+  static Future<void> init() async {
+    if (!RustLib.instance.initialized) {
+      await RustLib.init();
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import 'bridge_generated.dart';
+import 'package:aoi/src/api.dart';
 
 enum AoiCharacteristicProperty {
   broadcast(0x01),
