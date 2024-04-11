@@ -11,6 +11,13 @@ dependencies:
   flutter_aoi: ^0.0.2-dev.1
   aoi: ^0.0.2-dev.1
 
+#  For local testing
+#dependency_overrides:
+#  flutter_aoi:
+#    path: ..
+#  aoi:
+#    path: ../../aoi
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
