@@ -13,7 +13,9 @@ Future<void> main() async {
   final adapters = await AoiAdapter.getAdapters();
   final adapter = adapters.first;
 
-  final peripheral = await (await adapter.startScan()).first.timeout(const Duration(seconds: 10));
+  final peripheral = await (await adapter.startScan())
+      .first
+      .timeout(const Duration(seconds: 10));
 
   print('Found peripheral: ${peripheral.prettyPrint()}');
 
@@ -31,7 +33,8 @@ Future<void> main() async {
     return;
   }
 
-  print('connectedPeripheral characteristics: ${connectedPeripheral.characteristics}');
+  print(
+      'connectedPeripheral characteristics: ${connectedPeripheral.characteristics}');
 
   for (final c in connectedPeripheral.characteristics) {
     print('Characteristic: ${c.prettyPrint()}');
@@ -39,7 +42,9 @@ Future<void> main() async {
     if (c.hasProperty(AoiCharacteristicProperty.read)) {
       print('Trying to read it...');
       try {
-        final data = await connectedPeripheral.read(characteristic: c).timeout(const Duration(seconds: 10));
+        final data = await connectedPeripheral
+            .read(characteristic: c)
+            .timeout(const Duration(seconds: 10));
         print('Data: $data');
         try {
           print('Data as string: ${const Utf8Decoder().convert(data)}');
@@ -64,7 +69,9 @@ Future<void> main() async {
 
     print('Trying to read it...');
     try {
-      final data = await connectedPeripheral.read(characteristic: c).timeout(const Duration(seconds: 10));
+      final data = await connectedPeripheral
+          .read(characteristic: c)
+          .timeout(const Duration(seconds: 10));
       print('Data: $data');
       try {
         print('Data as string: ${const Utf8Decoder().convert(data)}');
