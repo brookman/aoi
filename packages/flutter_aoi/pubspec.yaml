@@ -1,7 +1,7 @@
 name: flutter_aoi
 description: >
   A Dart/Flutter BLE library based on the multi-platform Rust library btleplug
-version: 0.0.2-dev.0+1
+version: 0.0.2-dev.1
 homepage: https://github.com/brookman/aoi
 repository: https://github.com/brookman/aoi
 issue_tracker: https://github.com/brookman/aoi/issues
@@ -14,7 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   meta: ^1.9.1
-  aoi: ^0.0.2-dev.0+1
+  aoi: ^0.0.2-dev.1
   path: ^1.8.3
   path_provider: ^2.0.15
 
