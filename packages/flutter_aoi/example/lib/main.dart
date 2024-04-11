@@ -9,11 +9,11 @@ void main() {
 }
 
 Future<void> init() async {
-  final adapters = await AoiAdapter.getAdapters(bridge: aoi);
+  await Aoi.init();
+  final adapters = await AoiAdapter.getAdapters();
   final adapter = adapters.first;
 
-  final peripheral =
-      await adapter.startScan().first.timeout(const Duration(seconds: 10));
+  final peripheral = await (await adapter.startScan()).first.timeout(const Duration(seconds: 10));
 
   print('Found peripheral: ${peripheral.prettyPrint()}');
 
@@ -24,16 +24,14 @@ Future<void> init() async {
   AoiConnectedPeripheral connectedPeripheral;
   try {
     print('Connecting...');
-    connectedPeripheral =
-        await peripheral.connect().timeout(const Duration(seconds: 10));
+    connectedPeripheral = await peripheral.connect().timeout(const Duration(seconds: 10));
     print('Connected');
   } catch (e) {
     print('Could not connect: $e');
     return;
   }
 
-  print(
-      'connectedPeripheral characteristics: ${connectedPeripheral.characteristics}');
+  print('connectedPeripheral characteristics: ${connectedPeripheral.characteristics}');
 
   for (final c in connectedPeripheral.characteristics) {
     print('Characteristic: ${c.prettyPrint()}');
@@ -41,9 +39,7 @@ Future<void> init() async {
     if (c.hasProperty(AoiCharacteristicProperty.read)) {
       print('Trying to read it...');
       try {
-        final data = await connectedPeripheral
-            .read(characteristic: c)
-            .timeout(const Duration(seconds: 10));
+        final data = await connectedPeripheral.read(characteristic: c).timeout(const Duration(seconds: 10));
         print('Data: $data');
         try {
           print('Data as string: ${const Utf8Decoder().convert(data)}');
@@ -68,9 +64,7 @@ Future<void> init() async {
 
     print('Trying to read it...');
     try {
-      final data = await connectedPeripheral
-          .read(characteristic: c)
-          .timeout(const Duration(seconds: 10));
+      final data = await connectedPeripheral.read(characteristic: c).timeout(const Duration(seconds: 10));
       print('Data: $data');
       try {
         print('Data as string: ${const Utf8Decoder().convert(data)}');
