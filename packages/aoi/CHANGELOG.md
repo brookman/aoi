@@ -1,3 +1,8 @@
+## 0.0.2-dev.2
+
+ - **FIX**: formatting. ([b7af857e](https://github.com/brookman/aoi/commit/b7af857ee20314ed3e38b75085a5f99a1b869e84))
+ - **FEAT**: add some convenience deps for examples. ([82b9b8f1](https://github.com/brookman/aoi/commit/82b9b8f1b2fa61114407c0580816a83f0f4d0a72))
+
 ## 0.0.2-dev.1
 
  - **FIX**: issues with new frb api. ([abda003c](https://github.com/brookman/aoi/commit/abda003cf2cd1de2d04ccf86abab516a0923abe3))

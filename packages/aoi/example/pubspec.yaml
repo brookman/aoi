@@ -12,7 +12,7 @@ dependencies:
   http: ^1.0.0
 
   # You can replace this with the current version of aoi
-  aoi: ^0.0.2-dev.1
+  aoi: ^0.0.2-dev.2
 
 #  For local testing
 #dependency_overrides:

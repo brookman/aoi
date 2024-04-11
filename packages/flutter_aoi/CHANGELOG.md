@@ -1,3 +1,10 @@
+## 0.0.2-dev.2
+
+ - **FIX**: formatting. ([b7af857e](https://github.com/brookman/aoi/commit/b7af857ee20314ed3e38b75085a5f99a1b869e84))
+ - **FIX**: cmake variable names. ([ae48b471](https://github.com/brookman/aoi/commit/ae48b4715d23c892c701ef0e7e5632e7da666654))
+ - **FIX**: flutter_aoi example. ([2ec7966e](https://github.com/brookman/aoi/commit/2ec7966e33b9d6f8ad7e7c44a73010dd3f481673))
+ - **FEAT**: add some convenience deps for examples. ([82b9b8f1](https://github.com/brookman/aoi/commit/82b9b8f1b2fa61114407c0580816a83f0f4d0a72))
+
 ## 0.0.2-dev.1
 
  - Update a dependency to the latest release.

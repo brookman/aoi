@@ -8,8 +8,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_aoi: ^0.0.2-dev.1
-  aoi: ^0.0.2-dev.1
+  flutter_aoi: ^0.0.2-dev.2
+  aoi: ^0.0.2-dev.2
 
 #  For local testing
 #dependency_overrides:
